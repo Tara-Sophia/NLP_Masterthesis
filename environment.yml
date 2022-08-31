@@ -1,0 +1,9 @@
+name: nlp_masterthesis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - streamlit
+  - scikit-learn
+  - pandas
