@@ -11,10 +11,18 @@ conda env create -f environment.yml
 ```
 
 ---
-To create a new version of the enviroment (and delete the prefix part manually)
+To create a new version of the enviroment
+
+- Mac/Linux
 
 ```bash
-conda env export --from-history > environment.yml
+conda env export --from-history | grep -v "^prefix: " > environment.yml
+```
+
+- Windows
+
+```bash
+conda env export --from-history | findstr -v "^prefix: " > environment.yml 
 ```
 
 ## Contributing
