@@ -11,14 +11,14 @@ conda env create -f environment.yml
 ```
 
 ---
-To *update the enviroment*
+To *update the environment*
 
 ```bash
 conda env update --file environment.yml
 ```
 
 ---
-To *create a new version of the enviroment*
+To *create a new version of the environment*
 
 - Mac/Linux
 
