@@ -11,14 +11,14 @@ conda env create -f environment.yml
 ```
 
 ---
-To *update the environment*
+To *update the existing environment*
 
 ```bash
 conda env update --file environment.yml
 ```
 
 ---
-To *create a new version of the environment*
+To *create a new version of the environment.yml file*
 
 ```bash
 conda env export --from-history | grep -v "^prefix: " > environment.yml
