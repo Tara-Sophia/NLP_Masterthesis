@@ -20,16 +20,8 @@ conda env update --file environment.yml
 ---
 To *create a new version of the environment*
 
-- Mac/Linux
-
 ```bash
 conda env export --from-history | grep -v "^prefix: " > environment.yml
-```
-
-- Windows
-
-```bash
-conda env export --from-history | findstr -v "^prefix: " > environment.yml 
 ```
 
 ## Contributing
