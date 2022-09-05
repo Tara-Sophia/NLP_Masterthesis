@@ -22,7 +22,7 @@ conda env export --from-history | grep -v "^prefix: " > environment.yml
 - Windows
 
 ```bash
-conda env export --from-history | findstr -v "^prefix: " > environment.yml 
+conda env export --from-history | findstr -v "^prefix: " > environment.yml
 ```
 
 ## Contributing
