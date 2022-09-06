@@ -59,3 +59,12 @@ dependencies:
   - vc
   - ipykernel
   - pre_commit
+  - mypy
+  - black
+  - flake8
+  - isort
+  - interrogate
+  - xenon
+  - pylint
+  - bandit
+  - pytest
