@@ -4,25 +4,24 @@ This project contributes to the public health sector by building a natural langu
 
 ## Installation
 
-Use the package manager conda to install the enviroment
+Use the package manager conda to *install the environment*
 
 ```bash
 conda env create -f environment.yml
 ```
 
 ---
-To create a new version of the enviroment
+To *update the existing environment*
 
-- Mac/Linux
+```bash
+conda env update --file environment.yml
+```
+
+---
+To *create a new version of the environment.yml file*
 
 ```bash
 conda env export --from-history | grep -v "^prefix: " > environment.yml
-```
-
-- Windows
-
-```bash
-conda env export --from-history | findstr -v "^prefix: " > environment.yml
 ```
 
 ## Contributing
