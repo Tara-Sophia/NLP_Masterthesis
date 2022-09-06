@@ -82,8 +82,8 @@ conda env export --from-history | grep -v "^prefix: " > environment.yml
 │       └── test_visualize.py
 │
 ├── .gitignore                              # File listing names of files Git should ignore
-├── environment.yml                         # File to reproduce environment. For installation look above         
-├── LICENSE                                 # MIT License         
+├── environment.yml                         # File to reproduce environment. For installation look above
+├── LICENSE                                 # MIT License
 └── README.md                               # Top-level README containing usage and description of project
 ```
 
