@@ -4,3 +4,8 @@ A01,Typhoid and paratyphoid fevers,A00-A09,Intestinal infectious diseases (A00-A
 A02,Other salmonella infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
 A03,Shigellosis,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Diarrhea, fever, abdominal pain"
 A04,Other bacterial intestinal infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A05,"Other bacterial foodborne intoxications, not elsewhere classified",A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A06,Amebiasis,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Bloody diarrhea, abdominal pain"
+A07,Other protozoal intestinal diseases,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A08,Viral and other specified intestinal infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A09,"Infectious gastroenteritis and colitis, unspecified",A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
