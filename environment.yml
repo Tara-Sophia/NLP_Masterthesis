@@ -68,3 +68,6 @@ dependencies:
   - pylint
   - bandit
   - pytest
+  - click
+  - lxml
+  - beautifulsoup4

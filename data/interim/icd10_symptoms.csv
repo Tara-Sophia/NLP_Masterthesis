@@ -1,0 +1,6 @@
+category_codes,category_codes_des,block_codes,block_codes_des,chapter_codes,chapter_codes_des,symptoms
+A00,Cholera,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Large amounts of watery diarrhea, vomiting, muscle cramps"
+A01,Typhoid and paratyphoid fevers,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A02,Other salmonella infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A03,Shigellosis,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Diarrhea, fever, abdominal pain"
+A04,Other bacterial intestinal infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
