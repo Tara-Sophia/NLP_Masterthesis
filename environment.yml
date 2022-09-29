@@ -1,73 +1,69 @@
 name: nlp_masterthesis
 channels:
-  - conda-forge
   - defaults
 dependencies:
-  - numpy
-  - streamlit
-  - scikit-learn
-  - pandas
-  - psutil
-  - vs2015_runtime
-  - tk
-  - decorator
-  - setuptools
-  - ca-certificates
-  - wcwidth
-  - wheel
-  - ipython
-  - traitlets
-  - openssl
-  - pygments
-  - pyzmq
-  - prompt-toolkit
-  - nest-asyncio
-  - libzlib
+  - pytest
+  - flake8
   - parso
-  - libsodium
   - asttokens
-  - pywin32
-  - xz
-  - executing
-  - bzip2
-  - pickleshare
-  - jedi
-  - matplotlib-inline
-  - entrypoints
-  - libsqlite
+  - tk
   - tzdata
-  - python=3.10
-  - backcall
-  - zeromq
-  - six
-  - debugpy
-  - jupyter_client
-  - backports.functools_lru_cache
-  - stack_data
-  - python-dateutil
-  - python_abi
-  - pyparsing
-  - pip
-  - pure_eval
-  - packaging
-  - libffi
-  - tornado
-  - ucrt
-  - colorama
-  - jupyter_core
+  - jedi
   - backports
-  - vc
+  - numpy
+  - pyzmq
+  - interrogate
+  - six
+  - wcwidth
+  - python-dateutil
+  - setuptools
+  - scikit-learn
+  - pygments
+  - jupyter_client
+  - libzlib
+  - pickleshare
+  - pylint
+  - pure_eval
+  - pyparsing
+  - debugpy
+  - entrypoints
+  - ipython
+  - bandit
+  - isort
+  - nest-asyncio
+  - bzip2
   - ipykernel
   - pre_commit
+  - colorama
+  - zeromq
+  - tornado
+  - traitlets
+  - psutil
+  - libffi
+  - matplotlib-inline
+  - stack_data
+  - pip
+  - openssl
+  - decorator
   - mypy
-  - black
-  - flake8
-  - isort
-  - interrogate
+  - wheel
+  - streamlit
   - xenon
-  - pylint
-  - bandit
-  - pytest
+  - backports.functools_lru_cache
+  - black
+  - pywin32
+  - xz
+  - pandas
+  - prompt-toolkit
+  - executing
+  - python=3.10
+  - libsodium
+  - jupyter_core
+  - libsqlite
+  - python_abi
+  - packaging
+  - ca-certificates
+  - backcall
+  - beautifulsoup4
   - click
   - lxml
-  - beautifulsoup4
