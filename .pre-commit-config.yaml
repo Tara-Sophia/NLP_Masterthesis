@@ -56,13 +56,13 @@ repos:
     rev: 1.4.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=0]
+        args: [-vv, --fail-under=85]
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
     hooks:
     -   id: xenon
-        args: ["--max-average=A", "--max-modules=B", "--max-absolute=B"]
+        args: ["--max-average=A", "--max-modules=A", "--max-absolute=B"]
 
 -   repo: local
     hooks:

@@ -1,0 +1,54 @@
+category_codes,category_codes_des,block_codes,block_codes_des,chapter_codes,chapter_codes_des,symptoms
+1,Cholera,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,"Large amounts of watery diarrhea, vomiting, muscle cramps"
+2,Typhoid and paratyphoid fevers,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+3,Other salmonella infections,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+4,Shigellosis,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,"Diarrhea, fever, abdominal pain"
+5,Other food poisoning (bacterial),001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+6,Amebiasis,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,"Bloody diarrhea, abdominal pain"
+7,Other protozoal intestinal diseases,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+8,Intestinal infections due to other organisms,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+9,Ill-defined intestinal infections,001-009,Intestinal Infectious Diseases,001-139,Infectious And Parasitic Diseases,
+10,Primary tuberculous infection,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+11,Pulmonary tuberculosis,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,"Chronic cough, fever, cough with bloody mucus, weight loss"
+12,Other respiratory tuberculosis,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+13,Tuberculosis of meninges and central nervous system,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+14,Tuberculosis of intestines peritoneum and mesenteric glands,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+15,Tuberculosis of bones and joints,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+16,Tuberculosis of genitourinary system,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+17,Tuberculosis of other organs,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,
+18,Miliary tuberculosis,010-018,Tuberculosis,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Miliary_tuberculosis
+20,Plague,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Plague
+21,Tularemia,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"Fever, skin ulcer, large lymph nodes"
+22,Anthrax,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"Skin form: small blister with surrounding swellingInhalational form: fever, chest pain, shortness of breathIntestinal form: nausea, vomiting, diarrhea, abdominal painInjection form: fever, abscess"
+23,Brucellosis,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"fever, chills, loss of appetite, sweats, weakness, fatigue, Joint, muscle and back pain,  Headache."
+24,Glanders,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Glanders
+25,Melioidosis,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"None, fever, pneumonia, multiple abscesses"
+26,Rat-bite fever,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Rat-bite_fever
+27,Other zoonotic bacterial diseases,020-027,Zoonotic Bacterial Diseases,001-139,Infectious And Parasitic Diseases,
+30,Leprosy,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,Decreased ability to feel pain
+31,Diseases due to other mycobacteria,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,
+32,Diphtheria,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"Sore throat, fever, barking cough"
+33,Whooping cough,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"Runny nose, fever, cough"
+34,Streptococcal sore throat and scarlet fever,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,
+35,Erysipelas,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Erysipelas
+36,Meningococcal infection,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Meningococcal_infection
+37,Tetanus,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,"fever, cramped-up jaw, muscle spasms, headache, seizures, sweating, and trouble swallowing"
+38,Septicemia,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,Feverincreased heart ratelow blood pressureincreased breathing ratelow urine outputabsent or near absent urine outputsevere painconfusion
+39,Actinomycotic infections,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,IndexError: https://en.wikipedia.org/wiki/Actinomycotic_infections
+40,Other bacterial diseases,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,
+41,Bacterial infection in conditions classified elsewhere and of unspecified site,030-041,Other Bacterial Diseases,001-139,Infectious And Parasitic Diseases,
+42,Human immunodeficiency virus [HIV] disease,042-042,Human Immunodeficiency Virus,001-139,Infectious And Parasitic Diseases,
+45,Acute poliomyelitis,045-049,Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System,001-139,Infectious And Parasitic Diseases,"Fever, sore throat"
+46,Slow virus infection and prion diseases of central nervous system,045-049,Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System,001-139,Infectious And Parasitic Diseases,
+47,Meningitis due to enterovirus,045-049,Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System,001-139,Infectious And Parasitic Diseases,
+48,Other enterovirus diseases of central nervous system,045-049,Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System,001-139,Infectious And Parasitic Diseases,
+49,Other non-arthropod-borne viral diseases of central nervous system,045-049,Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System,001-139,Infectious And Parasitic Diseases,
+50,Smallpox,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,"
+Early: Fever, vomiting, mouth sores
+Later: Fluid filled blisters which scab over
+"
+51,Cowpox and paravaccinia,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,
+52,Chickenpox,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,"Small, itchy blisters, headache, loss of appetite, tiredness, fever"
+53,Herpes zoster,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,Painful rash
+54,Herpes simplex,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,"Blisters that break open and form small ulcers, fever, swollen lymph nodes"
+55,Measles,050-059,Viral Diseases Accompanied By Exanthem,001-139,Infectious And Parasitic Diseases,"Fever, cough, runny nose, inflamed eyes, rash"
