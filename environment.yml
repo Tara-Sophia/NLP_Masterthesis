@@ -1,8 +1,15 @@
 name: nlp_masterthesis
 channels:
-  - conda-forge
   - defaults
 dependencies:
+  - pytest
+  - flake8
+  - parso
+  - asttokens
+  - tk
+  - tzdata
+  - jedi
+  - backports
   - numpy
   - streamlit
   - scikit-learn
