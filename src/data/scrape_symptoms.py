@@ -1,0 +1,285 @@
+# -*- coding: utf-8 -*-
+import json
+import re
+
+import click
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup, SoupStrainer
+from tqdm import tqdm
+
+tqdm.pandas()
+
+BASE = "https://en.wikipedia.org/wiki"
+
+
+def load_cache(file_path: str) -> dict:
+    """
+    Loading cache with already scraped symptoms
+
+    Parameters
+    ----------
+    file_path : str
+        Path to location of cache file
+
+    Returns
+    -------
+    dict
+        Either empty dictionary or dictionary with symptoms
+    """
+    try:
+        with open(file_path) as file:
+            # Load its content as a dictionary
+            cache = json.load(file)
+    except FileNotFoundError:
+        # If the file doesn't exist, create an empty dictionary
+        cache = {}
+    return cache
+
+
+def get_symptoms_from_wiki(url: str) -> str | None:
+    """
+    Load symptoms from Wikipedia
+
+    Parameters
+    ----------
+    url : str
+        URL to wikipedia page
+
+    Returns
+    -------
+    str | None
+        Either a string with symptoms, IndexError with URL or None
+    """
+    res = requests.get(url)
+    if res.status_code in range(200, 300):
+        soup = BeautifulSoup(
+            res.content,
+            "lxml",
+            parse_only=SoupStrainer("table", class_="infobox"),
+        )
+        try:
+            text = soup.findAll("th", string="Symptoms")[
+                0
+            ].next_sibling.text
+            text_cleaned = re.sub(r"[\(\[].*?[\)\]]", "", text)
+            return text_cleaned
+        except IndexError:
+            return f"IndexError: {url}"
+    return None
+
+
+def get_symptoms(code_des: str, symptoms_cache: dict) -> str | None:
+    """
+    Return sypmtoms of ICD code
+
+    Parameters
+    ----------
+    code_des : str
+        Description of ICD code
+    symptoms_cache : dict
+        Cache of already scraped symptoms
+
+    Returns
+    -------
+    str | None
+        Either list os symptoms or None
+    """
+    code_des = code_des.replace(" ", "_")
+    if code_des not in symptoms_cache:
+        symptoms_cache[code_des] = get_symptoms_from_wiki(
+            f"{BASE}/{code_des}"
+        )
+
+    with open("./data/interim/symptoms.json", "w") as fp:
+        json.dump(symptoms_cache, fp)
+
+    return symptoms_cache[code_des]
+
+
+def create_symptoms_col(
+    df: pd.DataFrame, symptoms_cache: dict
+) -> pd.DataFrame:
+    """
+    Creation of symptoms column
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with ICD codes
+    symptoms_cache : dict
+        Cache of already scraped symptoms
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with symptoms column
+    """
+    df.loc[:, "symptoms"] = df["category_codes_des"].progress_apply(
+        lambda x: get_symptoms(x, symptoms_cache)
+    )
+    return df
+
+
+def save_data(
+    file_path: str, df: pd.DataFrame, save: bool = False
+) -> None:
+    """
+    Saving dataframe to csv
+
+    Parameters
+    ----------
+    file_path : str
+        Location to save dataframe
+    df : pd.DataFrame
+        Dataframe to save
+    save : bool, optional
+        Flag if dataframe should be saved, by default False
+    """
+    if save:
+        df.to_csv(file_path, index=False)
+
+
+def build_icd_symptoms_dataframe(
+    df: pd.DataFrame, count: int, save: bool, name: str
+) -> None:
+    """
+    Creating dataframe with ICD codes and symptoms
+
+    Parameters
+    ----------
+    df: pd.DataFrame
+        Dataframe with ICD codes
+    count : int
+        Number of rows to scrape
+    save : bool
+        Flag if dataframe should be saved
+    name : str
+        Name of file to save
+    """
+    # Load symptoms cache
+    symptoms_cache = load_cache("./data/interim/symptoms.json")
+
+    # Make dataframe smaller
+    df = df.head(count).copy()
+
+    # Get sypmtoms from wikipedia
+    df = create_symptoms_col(df, symptoms_cache)
+
+    # Save dataframe
+    save_data(f"./data/interim/{name}.csv", df, save)
+
+
+def load_dataframe(file_path: str) -> pd.DataFrame:
+    """
+    Loading dataframe
+
+    Parameters
+    ----------
+    file_path : str
+        Path todataframe
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with ICD codes
+    """
+    df = pd.read_csv(file_path)
+    return df
+
+
+@click.command()
+@click.option(
+    "--icd9",
+    "-i9",
+    help="Append symptoms to ICD 9 dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+@click.option(
+    "--icd10",
+    "-i10",
+    help="Append symptoms to ICD 10 dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+@click.option(
+    "--all",
+    "-a",
+    help="Append symptoms to all dataframes",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+@click.option(
+    "--count",
+    "-c",
+    help="Sample size",
+    default=10,
+    required=True,
+    type=int,
+)
+@click.option(
+    "--save",
+    "-s",
+    help="Save dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+def main(
+    icd9: bool, icd10: bool, all: bool, count: int, save: bool
+) -> None:
+    """
+    Select which function to run
+
+    Parameters
+    ----------
+    icd9 : bool
+        Append symptoms to ICD 9 dataframe
+    icd10 : bool
+        Append symptoms to ICD 10 dataframe
+    all : bool
+        Append symptoms to all dataframes
+    count : int
+        Sample size of dataframe
+    save : bool
+        Flag to save dataframe
+    """
+
+    if icd9 or all:
+        df = load_dataframe("./data/interim/icd9_codes_and_des.csv")
+        build_icd_symptoms_dataframe(df, count, save, "icd9_symptoms")
+
+    elif icd10 or all:
+        df = load_dataframe("./data/interim/icd10_codes_and_des.csv")
+        build_icd_symptoms_dataframe(
+            df, count, save, "icd10_symptoms"
+        )
+
+
+if __name__ == "__main__":
+    main()
+
+# TODO:
+# https://www.cdc.gov/nocardiosis/symptoms/index.html
+# if no symptoms found then go one level deeper
+# If Indexerror then go to other website
+# Check with ICD9 codes
+# Build pytests to check if everything works
+# Build documentation
+
+# Update environment with: conda env update --file environment.yml
+# The function can be run with the following command:
+# python src/data/make_dataset.py -i -c 5
+# -s command will allow to save the function output
+
+# Todo: Decorators to know how many times a function is called when scraping data
+# Todo: Add logging to the function
+# Todo: Add tests to the function
+# Todo: Add documentation to the function
+# Todo: Change progress_apply back to apply when scraping is done and everythin in cache
+# Todo: Check if documentation precommit is working and make module docstrings
+# Todo: Delete all todos from the code
