@@ -24,6 +24,28 @@ To *create a new version of the environment.yml file*
 conda env export | grep -v "^prefix: " > environment.yml
 ```
 
+## Documentation
+
+To update the documenation delete all files in docs/source/ that end with .rst except for index.rst
+
+Then run:
+
+```bash
+cd docs
+```
+
+```bash
+sphinx-apidoc -o ./source ../src --separate
+```
+
+```bash
+make clean
+```
+
+```bash
+make clean
+```
+
 ## Directory  Structure
 
 ```text

@@ -1,4 +1,21 @@
 # -*- coding: utf-8 -*-
+
+"""
+Description:
+    Scraping symptoms from Wikipedia and NHS and adding to ICD codes dataframe.
+    The data will be saved in data/interim folder.
+
+Usage:
+    $ python src/data/make_icd_codes_dataframes.py -i9 -c 5 -s
+
+Possible arguments:
+    * -i9 or --icd9: ICD-9 codes
+    * -i10 or --icd10: ICD-10 codes
+    * -a or -all: ICD-9 and ICD-10 codes
+    * -c or --count: Number of rows to scrape
+    * -s or --save: Save dataframe to csv
+"""
+
 import os
 from pathlib import Path
 from typing import Callable
@@ -11,6 +28,16 @@ MAX_TABS = 3
 
 
 def save_df(df: pd.DataFrame, file_path: str) -> None:
+    """
+    Saving a dataframe as a csv file
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe which should be saved
+    file_path : str
+        Path to storage location of the csv file
+    """
     df = df[
         [
             "category_codes",
@@ -330,12 +357,10 @@ def main(icd9: bool, icd10: bool, all: bool) -> None:
             os.path.join("data", "interim"),
         )
 
-    elif icd10 or all:
+    if icd10 or all:
         make_icd_10_csv(
             os.path.join("data", "interim"),
         )
-
-    print("Done")
 
 
 if __name__ == "__main__":
