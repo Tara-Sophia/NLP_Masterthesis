@@ -1,6 +1,512 @@
 category_codes,category_codes_des,block_codes,block_codes_des,chapter_codes,chapter_codes_des,symptoms
 A00,Cholera,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Large amounts of watery diarrhea, vomiting, muscle cramps"
 A01,Typhoid and paratyphoid fevers,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
-A02,Other salmonella infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A02,Other salmonella infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),No Value
 A03,Shigellosis,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Diarrhea, fever, abdominal pain"
 A04,Other bacterial intestinal infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A05,"Other bacterial foodborne intoxications, not elsewhere classified",A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A06,Amebiasis,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),"Bloody diarrhea, abdominal pain"
+A07,Other protozoal intestinal diseases,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A08,Viral and other specified intestinal infections,A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A09,"Infectious gastroenteritis and colitis, unspecified",A00-A09,Intestinal infectious diseases (A00-A09),1,Certain infectious and parasitic diseases (A00-B99),
+A15,Respiratory tuberculosis,A15-A19,Tuberculosis (A15-A19),1,Certain infectious and parasitic diseases (A00-B99),"Chronic cough, fever, cough with bloody mucus, weight loss"
+A17,Tuberculosis of nervous system,A15-A19,Tuberculosis (A15-A19),1,Certain infectious and parasitic diseases (A00-B99),
+A18,Tuberculosis of other organs,A15-A19,Tuberculosis (A15-A19),1,Certain infectious and parasitic diseases (A00-B99),
+A19,Miliary tuberculosis,A15-A19,Tuberculosis (A15-A19),1,Certain infectious and parasitic diseases (A00-B99),
+A20,Plague,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),
+A21,Tularemia,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),"Fever, skin ulcer, large lymph nodes"
+A22,Anthrax,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),"Skin form: small blister with surrounding swellingInhalational form: fever, chest pain, shortness of breathIntestinal form: nausea, vomiting, diarrhea, abdominal painInjection form: fever, abscess"
+A23,Brucellosis,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),"fever, chills, loss of appetite, sweats, weakness, fatigue, Joint, muscle and back pain,  Headache."
+A24,Glanders and melioidosis,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),
+A25,Rat-bite fevers,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),
+A26,Erysipeloid,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),
+A27,Leptospirosis,A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),"None, headaches, muscle pains, fevers"
+A28,"Other zoonotic bacterial diseases, not elsewhere classified",A20-A28,Certain zoonotic bacterial diseases (A20-A28),1,Certain infectious and parasitic diseases (A00-B99),
+A30,Leprosy [Hansen's disease],A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A31,Infection due to other mycobacteria,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A32,Listeriosis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"Diarrhea, fever, headache"
+A33,Tetanus neonatorum,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"fever, cramped-up jaw, muscle spasms, headache, seizures, sweating, and trouble swallowing"
+A34,Obstetrical tetanus,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"fever, cramped-up jaw, muscle spasms, headache, seizures, sweating, and trouble swallowing"
+A35,Other tetanus,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"fever, cramped-up jaw, muscle spasms, headache, seizures, sweating, and trouble swallowing"
+A36,Diphtheria,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"Sore throat, fever, barking cough"
+A37,Whooping cough,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"Runny nose, fever, cough"
+A38,Scarlet fever,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),"Sore throat, fever, headaches, swollen lymph nodes, characteristic rash"
+A39,Meningococcal infection,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A40,Streptococcal sepsis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A41,Other sepsis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),Feverincreased heart ratelow blood pressureincreased breathing ratelow urine outputabsent or near absent urine outputsevere painconfusion
+A42,Actinomycosis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),No Value
+A43,Nocardiosis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A44,Bartonellosis,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A46,Erysipelas,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A48,"Other bacterial diseases, not elsewhere classified",A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A49,Bacterial infection of unspecified site,A30-A49,Other bacterial diseases (A30-A49),1,Certain infectious and parasitic diseases (A00-B99),
+A50,Congenital syphilis,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A51,Early syphilis,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),"Firm, painless, non-itchy skin ulcer"
+A52,Late syphilis,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),"Firm, painless, non-itchy skin ulcer"
+A53,Other and unspecified syphilis,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A54,Gonococcal infection,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),"None, burning with urination, vaginal discharge, discharge from the penis, pelvic pain, testicular pain"
+A55,Chlamydial lymphogranuloma (venereum),A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A56,Other sexually transmitted chlamydial diseases,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A57,Chancroid,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A58,Granuloma inguinale,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A59,Trichomoniasis,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),"Itching in the genital area, bad smelling thin vaginal discharge, burning with urination, pain with sex"
+A60,Anogenital herpesviral [herpes simplex] infections,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A63,"Other predominantly sexually transmitted diseases, not elsewhere classified",A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A64,Unspecified sexually transmitted disease,A50-A64,Infections with a predominantly sexual mode of transmission (A50-A64),1,Certain infectious and parasitic diseases (A00-B99),
+A65,Nonvenereal syphilis,A65-A69,Other spirochetal diseases (A65-A69),1,Certain infectious and parasitic diseases (A00-B99),
+A66,Yaws,A65-A69,Other spirochetal diseases (A65-A69),1,Certain infectious and parasitic diseases (A00-B99),"Hard swelling of the skin, ulcer, joint and bone pain"
+A67,Pinta [carate],A65-A69,Other spirochetal diseases (A65-A69),1,Certain infectious and parasitic diseases (A00-B99),
+A68,Relapsing fevers,A65-A69,Other spirochetal diseases (A65-A69),1,Certain infectious and parasitic diseases (A00-B99),
+A69,Other spirochetal infections,A65-A69,Other spirochetal diseases (A65-A69),1,Certain infectious and parasitic diseases (A00-B99),
+A70,Chlamydia psittaci infections,A70-A74,Other diseases caused by chlamydiae (A70-A74),1,Certain infectious and parasitic diseases (A00-B99),
+A71,Trachoma,A70-A74,Other diseases caused by chlamydiae (A70-A74),1,Certain infectious and parasitic diseases (A00-B99),"Eye pain, blindness"
+A74,Other diseases caused by chlamydiae,A70-A74,Other diseases caused by chlamydiae (A70-A74),1,Certain infectious and parasitic diseases (A00-B99),
+A75,Typhus fever,A75-A79,Rickettsioses (A75-A79),1,Certain infectious and parasitic diseases (A00-B99),"Fever, headache, rash"
+A77,Spotted fever [tick-borne rickettsioses],A75-A79,Rickettsioses (A75-A79),1,Certain infectious and parasitic diseases (A00-B99),
+A78,Q fever,A75-A79,Rickettsioses (A75-A79),1,Certain infectious and parasitic diseases (A00-B99),"a high temperature, aching muscles, tiredness, feeling sick, a sore throat, swollen glands"
+A79,Other rickettsioses,A75-A79,Rickettsioses (A75-A79),1,Certain infectious and parasitic diseases (A00-B99),
+A80,Acute poliomyelitis,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),"Fever, sore throat"
+A81,Atypical virus infections of central nervous system,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A82,Rabies,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),"Fever, fear of water, confusion, excessive salivary secretion, hallucinations, disrupted sleep, paralysis, coma, hyperactivity, headache, nausea, vomiting, anxiety"
+A83,Mosquito-borne viral encephalitis,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A84,Tick-borne viral encephalitis,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A85,"Other viral encephalitis, not elsewhere classified",A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A86,Unspecified viral encephalitis,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A87,Viral meningitis,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A88,"Other viral infections of central nervous system, not elsewhere classified",A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A89,Unspecified viral infection of central nervous system,A80-A89,Viral and prion infections of the central nervous system (A80-A89),1,Certain infectious and parasitic diseases (A00-B99),
+A90,Dengue fever [classical dengue],A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A91,Dengue hemorrhagic fever,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),"Fever, headache, muscle and joint pain, rash"
+A92,Other mosquito-borne viral fevers,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A93,"Other arthropod-borne viral fevers, not elsewhere classified",A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A94,Unspecified arthropod-borne viral fever,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A95,Yellow fever,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),"Fever, chills, muscle pain, headache, yellow skin"
+A96,Arenaviral hemorrhagic fever,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A98,"Other viral hemorrhagic fevers, not elsewhere classified",A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+A99,Unspecified viral hemorrhagic fever,A90-A99,Arthropod-borne viral fevers and viral hemorrhagic fevers (A90-A99),1,Certain infectious and parasitic diseases (A00-B99),
+B00,Herpesviral [herpes simplex] infections,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B01,Varicella [chickenpox],B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B02,Zoster [herpes zoster],B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B03,Smallpox,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),"
+Early: Fever, vomiting, mouth sores
+Later: Fluid filled blisters which scab over
+"
+B04,Monkeypox,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),"Fever, headache, muscle pains, shivering, blistering rash, swollen lymph nodes"
+B05,Measles,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),"Fever, cough, runny nose, inflamed eyes, rash"
+B06,Rubella [German measles],B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B07,Viral warts,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),"Painless, small, rough skin growth"
+B08,"Other viral infections characterized by skin and mucous membrane lesions, not elsewhere classified",B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B09,Unspecified viral infection characterized by skin and mucous membrane lesions,B00-B09,Viral infections characterized by skin and mucous membrane lesions (B00-B09),1,Certain infectious and parasitic diseases (A00-B99),
+B10,Other human herpesviruses,B10,Other human herpesviruses,1,Certain infectious and parasitic diseases (A00-B99),
+B10,Other human herpesviruses,B10,Other human herpesviruses,1,Certain infectious and parasitic diseases (A00-B99),
+B15,Acute hepatitis A,B15-B19,Viral hepatitis (B15-B19),1,Certain infectious and parasitic diseases (A00-B99),
+B16,Acute hepatitis B,B15-B19,Viral hepatitis (B15-B19),1,Certain infectious and parasitic diseases (A00-B99),
+B17,Other acute viral hepatitis,B15-B19,Viral hepatitis (B15-B19),1,Certain infectious and parasitic diseases (A00-B99),
+B18,Chronic viral hepatitis,B15-B19,Viral hepatitis (B15-B19),1,Certain infectious and parasitic diseases (A00-B99),"Yellowish skin, poor appetite, abdominal pain"
+B19,Unspecified viral hepatitis,B15-B19,Viral hepatitis (B15-B19),1,Certain infectious and parasitic diseases (A00-B99),
+B20,Human immunodeficiency virus [HIV] disease,B20,Human immunodeficiency virus [HIV] disease,1,Certain infectious and parasitic diseases (A00-B99),
+B20,Human immunodeficiency virus [HIV] disease,B20,Human immunodeficiency virus [HIV] disease,1,Certain infectious and parasitic diseases (A00-B99),
+B25,Cytomegaloviral disease,B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),
+B26,Mumps,B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),"Parotitis and non-specific symptoms such as fever, headache, malaise, muscle pain, and loss of appetite"
+B27,Infectious mononucleosis,B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),"Fever, sore throat, enlarged lymph nodes in the neck, tiredness"
+B30,Viral conjunctivitis,B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),"Reddish eye, scratchiness"
+B33,"Other viral diseases, not elsewhere classified",B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),
+B34,Viral infection of unspecified site,B25-B34,Other viral diseases (B25-B34),1,Certain infectious and parasitic diseases (A00-B99),
+B35,Dermatophytosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"Red, itchy, scaly, circular skin rash"
+B36,Other superficial mycoses,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"These fungal infections impair superficial layers of the skin, hair and nails."
+B37,Candidiasis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"White patches or vaginal discharge, itching"
+B38,Coccidioidomycosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B39,Histoplasmosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B40,Blastomycosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B41,Paracoccidioidomycosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"Fever, sepsis, weight loss, large glands, large liver and spleen, mouth ulcers, skin lesions."
+B42,Sporotrichosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),Firm painless nodules that later ulcerate.
+B43,Chromomycosis and pheomycotic abscess,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B44,Aspergillosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"shortness of breath, a cough – you may cough up blood or lumps of mucus, wheezing (a whistling sound when breathing), a high temperature of 38C or above, weight loss"
+B45,Cryptococcosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"
+Lung: Cough, difficulty breathing, chest pain and fever.
+Brain: Headache, fever, neck pain, nausea, vomiting, light sensitivity, confusion, change in behaviour.
+Skin: Nodules with dead tissue.
+"
+B46,Zygomycosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B47,Mycetoma,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),"Triad: painless firm skin lump, multiple weeping sinuses, grainy discharge"
+B48,"Other mycoses, not elsewhere classified",B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B49,Unspecified mycosis,B35-B49,Mycoses (B35-B49),1,Certain infectious and parasitic diseases (A00-B99),
+B50,Plasmodium falciparum malaria,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B51,Plasmodium vivax malaria,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B52,Plasmodium malariae malaria,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B53,Other specified malaria,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B54,Unspecified malaria,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B55,Leishmaniasis,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),"Skin ulcers, fever, low red blood cells, enlarged liver"
+B56,African trypanosomiasis,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),"Stage 1: Fevers, headaches, itchiness, joint painsStage 2: Trouble sleeping, confusion, poor coordination"
+B57,Chagas' disease,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),"Fever, large lymph nodes, headache"
+B58,Toxoplasmosis,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),"Often none, during pregnancy "
+B59,Pneumocystosis,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),"
+Lungs: Cough, difficulty breathing, fever.
+Disseminated: Depends on affected organ
+Skin: Lump or fluid in ear
+"
+B60,"Other protozoal diseases, not elsewhere classified",B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B64,Unspecified protozoal disease,B50-B64,Protozoal diseases (B50-B64),1,Certain infectious and parasitic diseases (A00-B99),
+B65,Schistosomiasis [bilharziasis],B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B66,Other fluke infections,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B67,Echinococcosis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),Variable
+B68,Taeniasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"None, weight loss, abdominal pain"
+B69,Cysticercosis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),1–2 cm lumps under the skin
+B70,Diphyllobothriasis and sparganosis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B71,Other cestode infections,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B72,Dracunculiasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),Painful blister that a white worm crawls out of
+B73,Onchocerciasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"Itching, bumps under the skin, blindness"
+B74,Filariasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B75,Trichinellosis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"Initially: diarrhea, abdominal pain, vomitingLater: swelling of the face, inflammation of the whites of the eyes, fever, muscle pains, rash"
+B76,Hookworm diseases,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),No Value
+B77,Ascariasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"Abdominal swelling, abdominal pain, diarrhea, shortness of breath"
+B78,Strongyloidiasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"abdominal pain, diarrhea, weight loss, itching and rash"
+B79,Trichuriasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),"Abdominal pain, tiredness, diarrhea"
+B80,Enterobiasis,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),Itchy anal area
+B81,"Other intestinal helminthiases, not elsewhere classified",B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B82,Unspecified intestinal parasitism,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B83,Other helminthiases,B65-B83,Helminthiases (B65-B83),1,Certain infectious and parasitic diseases (A00-B99),
+B85,Pediculosis and phthiriasis,B85-B89,"Pediculosis, acariasis and other infestations (B85-B89)",1,Certain infectious and parasitic diseases (A00-B99),
+B86,Scabies,B85-B89,"Pediculosis, acariasis and other infestations (B85-B89)",1,Certain infectious and parasitic diseases (A00-B99),"itchiness, pimple-like rash"
+B87,Myiasis,B85-B89,"Pediculosis, acariasis and other infestations (B85-B89)",1,Certain infectious and parasitic diseases (A00-B99),
+B88,Other infestations,B85-B89,"Pediculosis, acariasis and other infestations (B85-B89)",1,Certain infectious and parasitic diseases (A00-B99),
+B89,Unspecified parasitic disease,B85-B89,"Pediculosis, acariasis and other infestations (B85-B89)",1,Certain infectious and parasitic diseases (A00-B99),
+B90,Sequelae of tuberculosis,B90-B94,Sequelae of infectious and parasitic diseases (B90-B94),1,Certain infectious and parasitic diseases (A00-B99),
+B91,Sequelae of poliomyelitis,B90-B94,Sequelae of infectious and parasitic diseases (B90-B94),1,Certain infectious and parasitic diseases (A00-B99),
+B92,Sequelae of leprosy,B90-B94,Sequelae of infectious and parasitic diseases (B90-B94),1,Certain infectious and parasitic diseases (A00-B99),
+B94,Sequelae of other and unspecified infectious and parasitic diseases,B90-B94,Sequelae of infectious and parasitic diseases (B90-B94),1,Certain infectious and parasitic diseases (A00-B99),
+B95,"Streptococcus, Staphylococcus, and Enterococcus as the cause of diseases classified elsewhere",B95-B97,Bacterial and viral infectious agents (B95-B97),1,Certain infectious and parasitic diseases (A00-B99),
+B96,Other bacterial agents as the cause of diseases classified elsewhere,B95-B97,Bacterial and viral infectious agents (B95-B97),1,Certain infectious and parasitic diseases (A00-B99),
+B97,Viral agents as the cause of diseases classified elsewhere,B95-B97,Bacterial and viral infectious agents (B95-B97),1,Certain infectious and parasitic diseases (A00-B99),
+B99,Other and unspecified infectious diseases,B99,Other and unspecified infectious diseases,1,Certain infectious and parasitic diseases (A00-B99),
+B99,Other and unspecified infectious diseases,B99,Other and unspecified infectious diseases,1,Certain infectious and parasitic diseases (A00-B99),
+C00,Malignant neoplasm of lip,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C01,Malignant neoplasm of base of tongue,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C02,Malignant neoplasm of other and unspecified parts of tongue,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C03,Malignant neoplasm of gum,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C04,Malignant neoplasm of floor of mouth,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C05,Malignant neoplasm of palate,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C06,Malignant neoplasm of other and unspecified parts of mouth,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C07,Malignant neoplasm of parotid gland,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C08,Malignant neoplasm of other and unspecified major salivary glands,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C09,Malignant neoplasm of tonsil,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C10,Malignant neoplasm of oropharynx,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C11,Malignant neoplasm of nasopharynx,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C12,Malignant neoplasm of pyriform sinus,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C13,Malignant neoplasm of hypopharynx,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C14,"Malignant neoplasm of other and ill-defined sites in the lip, oral cavity and pharynx",C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx (C00-C14)",2,Neoplasms (C00-D49),
+C15,Malignant neoplasm of esophagus,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C16,Malignant neoplasm of stomach,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C17,Malignant neoplasm of small intestine,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C18,Malignant neoplasm of colon,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C19,Malignant neoplasm of rectosigmoid junction,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C20,Malignant neoplasm of rectum,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C21,Malignant neoplasm of anus and anal canal,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C22,Malignant neoplasm of liver and intrahepatic bile ducts,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C23,Malignant neoplasm of gallbladder,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C24,Malignant neoplasm of other and unspecified parts of biliary tract,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C25,Malignant neoplasm of pancreas,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C26,Malignant neoplasm of other and ill-defined digestive organs,C15-C26,Malignant neoplasms of digestive organs (C15-C26),2,Neoplasms (C00-D49),
+C30,Malignant neoplasm of nasal cavity and middle ear,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C31,Malignant neoplasm of accessory sinuses,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C32,Malignant neoplasm of larynx,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C33,Malignant neoplasm of trachea,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C34,Malignant neoplasm of bronchus and lung,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C37,Malignant neoplasm of thymus,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C38,"Malignant neoplasm of heart, mediastinum and pleura",C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C39,Malignant neoplasm of other and ill-defined sites in the respiratory system and intrathoracic organs,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs (C30-C39),2,Neoplasms (C00-D49),
+C40,Malignant neoplasm of bone and articular cartilage of limbs,C40-C41,Malignant neoplasms of bone and articular cartilage (C40-C41),2,Neoplasms (C00-D49),
+C41,Malignant neoplasm of bone and articular cartilage of other and unspecified sites,C40-C41,Malignant neoplasms of bone and articular cartilage (C40-C41),2,Neoplasms (C00-D49),
+C43,Malignant melanoma of skin,C43-C44,Melanoma and other malignant neoplasms of skin (C43-C44),2,Neoplasms (C00-D49),
+C4A,Merkel cell carcinoma,C43-C44,Melanoma and other malignant neoplasms of skin (C43-C44),2,Neoplasms (C00-D49),
+C44,Other and unspecified malignant neoplasm of skin,C43-C44,Melanoma and other malignant neoplasms of skin (C43-C44),2,Neoplasms (C00-D49),
+C45,Mesothelioma,C45-C49,Malignant neoplasms of mesothelial and soft tissue (C45-C49),2,Neoplasms (C00-D49),"Shortness of breath, swollen abdomen, chest wall pain, cough, feeling tired, weight loss"
+C46,Kaposi's sarcoma,C45-C49,Malignant neoplasms of mesothelial and soft tissue (C45-C49),2,Neoplasms (C00-D49),Purple colored skin lesions
+C47,Malignant neoplasm of peripheral nerves and autonomic nervous system,C45-C49,Malignant neoplasms of mesothelial and soft tissue (C45-C49),2,Neoplasms (C00-D49),
+C48,Malignant neoplasm of retroperitoneum and peritoneum,C45-C49,Malignant neoplasms of mesothelial and soft tissue (C45-C49),2,Neoplasms (C00-D49),
+C49,Malignant neoplasm of other connective and soft tissue,C45-C49,Malignant neoplasms of mesothelial and soft tissue (C45-C49),2,Neoplasms (C00-D49),
+C50,Malignant neoplasm of breast,C50,Malignant neoplasm of breast,2,Neoplasms (C00-D49),
+C50,Malignant neoplasm of breast,C50,Malignant neoplasm of breast,2,Neoplasms (C00-D49),
+C51,Malignant neoplasm of vulva,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C52,Malignant neoplasm of vagina,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C53,Malignant neoplasm of cervix uteri,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C54,Malignant neoplasm of corpus uteri,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C55,"Malignant neoplasm of uterus, part unspecified",C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C56,Malignant neoplasm of ovary,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C57,Malignant neoplasm of other and unspecified female genital organs,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C58,Malignant neoplasm of placenta,C51-C58,Malignant neoplasms of female genital organs (C51-C58),2,Neoplasms (C00-D49),
+C60,Malignant neoplasm of penis,C60-C63,Malignant neoplasms of male genital organs (C60-C63),2,Neoplasms (C00-D49),
+C61,Malignant neoplasm of prostate,C60-C63,Malignant neoplasms of male genital organs (C60-C63),2,Neoplasms (C00-D49),
+C62,Malignant neoplasm of testis,C60-C63,Malignant neoplasms of male genital organs (C60-C63),2,Neoplasms (C00-D49),
+C63,Malignant neoplasm of other and unspecified male genital organs,C60-C63,Malignant neoplasms of male genital organs (C60-C63),2,Neoplasms (C00-D49),
+C64,"Malignant neoplasm of kidney, except renal pelvis",C64-C68,Malignant neoplasms of urinary tract (C64-C68),2,Neoplasms (C00-D49),
+C65,Malignant neoplasm of renal pelvis,C64-C68,Malignant neoplasms of urinary tract (C64-C68),2,Neoplasms (C00-D49),
+C66,Malignant neoplasm of ureter,C64-C68,Malignant neoplasms of urinary tract (C64-C68),2,Neoplasms (C00-D49),
+C67,Malignant neoplasm of bladder,C64-C68,Malignant neoplasms of urinary tract (C64-C68),2,Neoplasms (C00-D49),
+C68,Malignant neoplasm of other and unspecified urinary organs,C64-C68,Malignant neoplasms of urinary tract (C64-C68),2,Neoplasms (C00-D49),
+C69,Malignant neoplasm of eye and adnexa,C69-C72,"Malignant neoplasms of eye, brain and other parts of central nervous system (C69-C72)",2,Neoplasms (C00-D49),
+C70,Malignant neoplasm of meninges,C69-C72,"Malignant neoplasms of eye, brain and other parts of central nervous system (C69-C72)",2,Neoplasms (C00-D49),
+C71,Malignant neoplasm of brain,C69-C72,"Malignant neoplasms of eye, brain and other parts of central nervous system (C69-C72)",2,Neoplasms (C00-D49),
+C72,"Malignant neoplasm of spinal cord, cranial nerves and other parts of central nervous system",C69-C72,"Malignant neoplasms of eye, brain and other parts of central nervous system (C69-C72)",2,Neoplasms (C00-D49),
+C73,Malignant neoplasm of thyroid gland,C73-C75,Malignant neoplasms of thyroid and other endocrine glands (C73-C75),2,Neoplasms (C00-D49),
+C74,Malignant neoplasm of adrenal gland,C73-C75,Malignant neoplasms of thyroid and other endocrine glands (C73-C75),2,Neoplasms (C00-D49),
+C75,Malignant neoplasm of other endocrine glands and related structures,C73-C75,Malignant neoplasms of thyroid and other endocrine glands (C73-C75),2,Neoplasms (C00-D49),
+C7A,Malignant neuroendocrine tumors,C7A,Malignant neuroendocrine tumors,2,Neoplasms (C00-D49),
+C7A,Malignant neuroendocrine tumors,C7A,Malignant neuroendocrine tumors,2,Neoplasms (C00-D49),
+C7B,Secondary neuroendocrine tumors,C7B,Secondary neuroendocrine tumors,2,Neoplasms (C00-D49),
+C7B,Secondary neuroendocrine tumors,C7B,Secondary neuroendocrine tumors,2,Neoplasms (C00-D49),
+C76,Malignant neoplasm of other and ill-defined sites,C76-C80,"Malignant neoplasms of ill-defined, other secondary and unspecified sites (C76-C80)",2,Neoplasms (C00-D49),
+C77,Secondary and unspecified malignant neoplasm of lymph nodes,C76-C80,"Malignant neoplasms of ill-defined, other secondary and unspecified sites (C76-C80)",2,Neoplasms (C00-D49),
+C78,Secondary malignant neoplasm of respiratory and digestive organs,C76-C80,"Malignant neoplasms of ill-defined, other secondary and unspecified sites (C76-C80)",2,Neoplasms (C00-D49),
+C79,Secondary malignant neoplasm of other and unspecified sites,C76-C80,"Malignant neoplasms of ill-defined, other secondary and unspecified sites (C76-C80)",2,Neoplasms (C00-D49),
+C80,Malignant neoplasm without specification of site,C76-C80,"Malignant neoplasms of ill-defined, other secondary and unspecified sites (C76-C80)",2,Neoplasms (C00-D49),
+C81,Hodgkin lymphoma,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),"Fever, night sweats, weight loss, non-painful enlarged lymph nodes"
+C82,Follicular lymphoma,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C83,Non-follicular lymphoma,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C84,Mature T/NK-cell lymphomas,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C85,Other specified and unspecified types of non-Hodgkin lymphoma,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C86,Other specified types of T/NK-cell lymphoma,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C88,Malignant immunoproliferative diseases and certain other B-cell lymphomas,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C90,Multiple myeloma and malignant plasma cell neoplasms,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C91,Lymphoid leukemia,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C92,Myeloid leukemia,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C93,Monocytic leukemia,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C94,Other leukemias of specified cell type,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C95,Leukemia of unspecified cell type,C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+C96,"Other and unspecified malignant neoplasms of lymphoid, hematopoietic and related tissue",C81-C96,"Malignant neoplasms of lymphoid, hematopoietic and related tissue (C81-C96)",2,Neoplasms (C00-D49),
+D00,"Carcinoma in situ of oral cavity, esophagus and stomach",D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D01,Carcinoma in situ of other and unspecified digestive organs,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D02,Carcinoma in situ of middle ear and respiratory system,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D03,Melanoma in situ,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),"Mole that is increasing in size, has irregular edges, change in color, itchiness, or skin breakdown."
+D04,Carcinoma in situ of skin,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),Hard lump with a scaly top or ulceration.
+D05,Carcinoma in situ of breast,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D06,Carcinoma in situ of cervix uteri,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D07,Carcinoma in situ of other and unspecified genital organs,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D09,Carcinoma in situ of other and unspecified sites,D00-D09,In situ neoplasms (D00-D09),2,Neoplasms (C00-D49),
+D10,Benign neoplasm of mouth and pharynx,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D11,Benign neoplasm of major salivary glands,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D12,"Benign neoplasm of colon, rectum, anus and anal canal",D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D13,Benign neoplasm of other and ill-defined parts of digestive system,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D14,Benign neoplasm of middle ear and respiratory system,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D15,Benign neoplasm of other and unspecified intrathoracic organs,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D16,Benign neoplasm of bone and articular cartilage,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D17,Benign lipomatous neoplasm,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D18,"Hemangioma and lymphangioma, any site",D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D19,Benign neoplasm of mesothelial tissue,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D20,Benign neoplasm of soft tissue of retroperitoneum and peritoneum,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D21,Other benign neoplasms of connective and other soft tissue,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D22,Melanocytic nevi,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D23,Other benign neoplasms of skin,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D24,Benign neoplasm of breast,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D25,Leiomyoma of uterus,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D26,Other benign neoplasms of uterus,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D27,Benign neoplasm of ovary,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D28,Benign neoplasm of other and unspecified female genital organs,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D29,Benign neoplasm of male genital organs,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D30,Benign neoplasm of urinary organs,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D31,Benign neoplasm of eye and adnexa,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D32,Benign neoplasm of meninges,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D33,Benign neoplasm of brain and other parts of central nervous system,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D34,Benign neoplasm of thyroid gland,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D35,Benign neoplasm of other and unspecified endocrine glands,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D36,Benign neoplasm of other and unspecified sites,D10-D36,"Benign neoplasms, except benign neuroendocrine tumors (D10-D36)",2,Neoplasms (C00-D49),
+D3A,Benign neuroendocrine tumors,D3A,Benign neuroendocrine tumors,2,Neoplasms (C00-D49),
+D3A,Benign neuroendocrine tumors,D3A,Benign neuroendocrine tumors,2,Neoplasms (C00-D49),
+D37,Neoplasm of uncertain behavior of oral cavity and digestive organs,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D38,Neoplasm of uncertain behavior of middle ear and respiratory and intrathoracic organs,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D39,Neoplasm of uncertain behavior of female genital organs,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D40,Neoplasm of uncertain behavior of male genital organs,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D41,Neoplasm of uncertain behavior of urinary organs,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D42,Neoplasm of uncertain behavior of meninges,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D43,Neoplasm of uncertain behavior of brain and central nervous system,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D44,Neoplasm of uncertain behavior of endocrine glands,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D45,Polycythemia vera,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D46,Myelodysplastic syndromes,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),"None, feeling tired, shortness of breath, easy bleeding, frequent infections"
+D47,"Other neoplasms of uncertain behavior of lymphoid, hematopoietic and related tissue",D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D48,Neoplasm of uncertain behavior of other and unspecified sites,D37-D48,"Neoplasms of uncertain behavior, polycythemia vera and myelodysplastic syndromes (D37-D48)",2,Neoplasms (C00-D49),
+D49,Neoplasms of unspecified behavior,D49,Neoplasms of unspecified behavior,2,Neoplasms (C00-D49),
+D49,Neoplasms of unspecified behavior,D49,Neoplasms of unspecified behavior,2,Neoplasms (C00-D49),
+D50,Iron deficiency anemia,D50-D53,Nutritional anemias (D50-D53),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Feeling tired, weakness, dizziness, headache, lightheadedness, breathlessness, decreased ability to concentrate, confusion, pallor"
+D51,Vitamin B12 deficiency anemia,D50-D53,Nutritional anemias (D50-D53),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D52,Folate deficiency anemia,D50-D53,Nutritional anemias (D50-D53),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D53,Other nutritional anemias,D50-D53,Nutritional anemias (D50-D53),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D55,Anemia due to enzyme disorders,D55-D59,Hemolytic anemias (D55-D59),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D56,Thalassemia,D55-D59,Hemolytic anemias (D55-D59),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Feeling tired, pale skin, enlarged spleen, yellowish skin, dark urine"
+D57,Sickle-cell disorders,D55-D59,Hemolytic anemias (D55-D59),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Attacks of pain, anemia, swelling in the hands and feet, bacterial infections, stroke"
+D58,Other hereditary hemolytic anemias,D55-D59,Hemolytic anemias (D55-D59),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D59,Acquired hemolytic anemia,D55-D59,Hemolytic anemias (D55-D59),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D60,Acquired pure red cell aplasia [erythroblastopenia],D60-D64,Aplastic and other anemias and other bone marrow failure syndromes (D60-D64),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D61,Other aplastic anemias and other bone marrow failure syndromes,D60-D64,Aplastic and other anemias and other bone marrow failure syndromes (D60-D64),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D62,Acute posthemorrhagic anemia,D60-D64,Aplastic and other anemias and other bone marrow failure syndromes (D60-D64),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D63,Anemia in chronic diseases classified elsewhere,D60-D64,Aplastic and other anemias and other bone marrow failure syndromes (D60-D64),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D64,Other anemias,D60-D64,Aplastic and other anemias and other bone marrow failure syndromes (D60-D64),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Feeling tired, pale skin, weakness, shortness of breath, feeling faint"
+D65,Disseminated intravascular coagulation [defibrination syndrome],D65-D69,"Coagulation defects, purpura and other hemorrhagic conditions (D65-D69)",3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D66,Hereditary factor VIII deficiency,D65-D69,"Coagulation defects, purpura and other hemorrhagic conditions (D65-D69)",3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D67,Hereditary factor IX deficiency,D65-D69,"Coagulation defects, purpura and other hemorrhagic conditions (D65-D69)",3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D68,Other coagulation defects,D65-D69,"Coagulation defects, purpura and other hemorrhagic conditions (D65-D69)",3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D69,Purpura and other hemorrhagic conditions,D65-D69,"Coagulation defects, purpura and other hemorrhagic conditions (D65-D69)",3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D70,Neutropenia,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D71,Functional disorders of polymorphonuclear neutrophils,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D72,Other disorders of white blood cells,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D73,Diseases of spleen,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D74,Methemoglobinemia,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Headache, dizziness, shortness of breath, nausea, poor muscle coordination, blue-colored skin"
+D75,Other and unspecified diseases of blood and blood-forming organs,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D76,Other specified diseases with participation of lymphoreticular and reticulohistiocytic tissue,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D77,Other disorders of blood and blood-forming organs in diseases classified elsewhere,D70-D77,Other disorders of blood and blood-forming organs (D70-D77),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D78,Intraoperative and postprocedural complications of the spleen,D78,Intraoperative and postprocedural complications of the spleen,3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D78,Intraoperative and postprocedural complications of the spleen,D78,Intraoperative and postprocedural complications of the spleen,3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D80,Immunodeficiency with predominantly antibody defects,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D81,Combined immunodeficiencies,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D82,Immunodeficiency associated with other major defects,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D83,Common variable immunodeficiency,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Hypogammaglobulinemia, recurrent opportunistic infections, fatigue"
+D84,Other immunodeficiencies,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+D86,Sarcoidosis,D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),"Depends on the organ involvedLungs: wheezing, cough, shortness of breath, chest painSkin: lumps, ulcers, discolored skinChildren: weight loss, bone pain, feeling tired"
+D89,"Other disorders involving the immune mechanism, not elsewhere classified",D80-D89,Certain disorders involving the immune mechanism (D80-D89),3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism (D50-D89),
+E00,Congenital iodine-deficiency syndrome,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Goiter, mental impairment, poor growth, infertility, hair loss"
+E01,Iodine-deficiency related thyroid disorders and allied conditions,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E02,Subclinical iodine-deficiency hypothyroidism,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E03,Other hypothyroidism,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Poor ability to tolerate cold, feeling tired, constipation, weight gain, depression, anxiety, irritability"
+E04,Other nontoxic goiter,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E05,Thyrotoxicosis [hyperthyroidism],E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E06,Thyroiditis,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",No Value
+E07,Other disorders of thyroid,E00-E07,Disorders of thyroid gland (E00-E07),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E08,Diabetes mellitus due to underlying condition,E08-E13,Diabetes mellitus (E08-E13),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E09,Drug or chemical induced diabetes mellitus,E08-E13,Diabetes mellitus (E08-E13),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E10,Type 1 diabetes mellitus,E08-E13,Diabetes mellitus (E08-E13),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Frequent urination, increased thirst, increased hunger, weight loss, blurred vision, fatigue and weakness, Bed-wetting in children who previously didn't wet the bed during the night"
+E11,Type 2 diabetes mellitus,E08-E13,Diabetes mellitus (E08-E13),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Increased thirst, frequent urination, unexplained weight loss, increased hunger"
+E13,Other specified diabetes mellitus,E08-E13,Diabetes mellitus (E08-E13),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E15,Nondiabetic hypoglycemic coma,E15-E16,Other disorders of glucose regulation and pancreatic internal secretion (E15-E16),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E16,Other disorders of pancreatic internal secretion,E15-E16,Other disorders of glucose regulation and pancreatic internal secretion (E15-E16),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E20,Hypoparathyroidism,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","a tingling sensation (paraesthesia) in your fingertips, toes and lips, twitching facial muscles, muscle pains or cramps, particularly in your legs, feet or tummy, tiredness, mood changes, such as feeling irritable, anxious or depressed, dry, rough skin, coarse hair that breaks easily and can fall out, fingernails that break easily"
+E21,Hyperparathyroidism and other disorders of parathyroid gland,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E22,Hyperfunction of pituitary gland,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E23,Hypofunction and other disorders of the pituitary gland,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E24,Cushing's syndrome,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","High blood pressure, abdominal obesity with thin arms and legs, reddish stretch marks, round red face, fat lump between the shoulders, weak muscles, acne, fragile skin"
+E25,Adrenogenital disorders,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E26,Hyperaldosteronism,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",Nocturia
+E27,Other disorders of adrenal gland,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E28,Ovarian dysfunction,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E29,Testicular dysfunction,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E30,"Disorders of puberty, not elsewhere classified",E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E31,Polyglandular dysfunction,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E32,Diseases of thymus,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E34,Other endocrine disorders,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E35,Disorders of endocrine glands in diseases classified elsewhere,E20-E35,Disorders of other endocrine glands (E20-E35),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E36,Intraoperative complications of endocrine system,E36,Intraoperative complications of endocrine system,4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E36,Intraoperative complications of endocrine system,E36,Intraoperative complications of endocrine system,4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E40,Kwashiorkor,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","loss of muscle mass , an enlarged tummy (""pot belly"") , regular infections, or more serious or long-lasting infections, red, inflamed patches of skin that darken and peel or split open , dry, brittle hair that falls out easily and may lose its colour , failure to grow in height , tiredness or irritability , ridged or cracked nails "
+E41,Nutritional marasmus,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E42,Marasmic kwashiorkor,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E43,Unspecified severe protein-calorie malnutrition,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E44,Protein-calorie malnutrition of moderate and mild degree,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E45,Retarded development following protein-calorie malnutrition,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E46,Unspecified protein-calorie malnutrition,E40-E46,Malnutrition (E40-E46),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E50,Vitamin A deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E51,Thiamine deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Wet: Fast heart rate, shortness of breath, leg swellingDry: Numbness, confusion, trouble moving the legs, pain"
+E52,Niacin deficiency [pellagra],E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E53,Deficiency of other B group vitamins,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E54,Ascorbic acid deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Weakness, feeling tired, changes to hair, sore arms and legs, gum disease, easy bleeding"
+E55,Vitamin D deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",Usually asymptomatic
+E56,Other vitamin deficiencies,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E58,Dietary calcium deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E59,Dietary selenium deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E60,Dietary zinc deficiency,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E61,Deficiency of other nutrient elements,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E63,Other nutritional deficiencies,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",Problems with physical or mental development; poor energy levels; hair loss; swollen legs and abdomen
+E64,Sequelae of malnutrition and other nutritional deficiencies,E50-E64,Other nutritional deficiencies (E50-E64),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E65,Localized adiposity,E65-E68,"Overweight, obesity and other hyperalimentation (E65-E68)",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E66,Overweight and obesity,E65-E68,"Overweight, obesity and other hyperalimentation (E65-E68)",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E67,Other hyperalimentation,E65-E68,"Overweight, obesity and other hyperalimentation (E65-E68)",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E68,Sequelae of hyperalimentation,E65-E68,"Overweight, obesity and other hyperalimentation (E65-E68)",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E70,Disorders of aromatic amino-acid metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E71,Disorders of branched-chain amino-acid metabolism and fatty-acid metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E72,Other disorders of amino-acid metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E73,Lactose intolerance,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Abdominal pain, bloating, diarrhea, flatulence, nausea"
+E74,Other disorders of carbohydrate metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E75,Disorders of sphingolipid metabolism and other lipid storage disorders,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E76,Disorders of glycosaminoglycan metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E77,Disorders of glycoprotein metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E78,Disorders of lipoprotein metabolism and other lipidemias,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E79,Disorders of purine and pyrimidine metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E80,Disorders of porphyrin and bilirubin metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E83,Disorders of mineral metabolism,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E84,Cystic fibrosis,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Difficulty breathing, coughing up mucus, poor growth, fatty stool"
+E85,Amyloidosis,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","Feeling tired, weight loss, swelling of the legs, shortness of breath, bleeding, feeling light headed with standing"
+E86,Volume depletion,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)","headache, fatigue, nausea, profuse sweating, dizziness"
+E87,"Other disorders of fluid, electrolyte and acid-base balance",E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E88,Other and unspecified metabolic disorders,E70-E88,Metabolic disorders (E70-E88),4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E89,"Postprocedural endocrine and metabolic complications and disorders, not elsewhere classified",E89,"Postprocedural endocrine and metabolic complications and disorders, not elsewhere classified",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+E89,"Postprocedural endocrine and metabolic complications and disorders, not elsewhere classified",E89,"Postprocedural endocrine and metabolic complications and disorders, not elsewhere classified",4,"Endocrine, nutritional and metabolic diseases (E00-E89)",
+F01,Vascular dementia,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",Cognitive impairment
+F02,Dementia in other diseases classified elsewhere,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F03,Unspecified dementia,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F04,Amnestic disorder due to known physiological condition,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F05,Delirium due to known physiological condition,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F06,Other mental disorders due to known physiological condition,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F07,Personality and behavioral disorders due to known physiological condition,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F09,Unspecified mental disorder due to known physiological condition,F01-F09,Mental disorders due to known physiological conditions (F01-F09),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F10,Alcohol related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F11,Opioid related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F12,Cannabis related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F13,"Sedative, hypnotic, or anxiolytic related disorders",F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F14,Cocaine related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F15,Other stimulant related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F16,Hallucinogen related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F17,Nicotine dependence,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F18,Inhalant related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F19,Other psychoactive substance related disorders,F10-F19,Mental and behavioral disorders due to psychoactive substance use (F10-F19),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F20,Schizophrenia,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Hallucinations , delusions, confused thinking"
+F21,Schizotypal disorder,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Ideas of reference, unusual beliefs, perceptual Illusions, odd thinking and speech, suspiciousness, inappropriate affect, strange behavior, lack of friends, paranoid social anxiety"
+F22,Delusional disorders,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",Strong false belief despite superior evidence to the contrary
+F23,Brief psychotic disorder,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F24,Shared psychotic disorder,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F25,Schizoaffective disorders,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Hallucinations, delusions, disorganized thinking, depressed mood, manic behavior"
+F28,Other psychotic disorder not due to a substance or known physiological condition,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F29,Unspecified psychosis not due to a substance or known physiological condition,F20-F29,"Schizophrenia, schizotypal, delusional, and other non-mood psychotic disorders (F20-F29)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F30,Manic episode,F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F31,Bipolar disorder,F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",Periods of depression and elevated mood
+F32,"Major depressive disorder, single episode",F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F33,"Major depressive disorder, recurrent",F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F34,Persistent mood [affective] disorders,F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F39,Unspecified mood [affective] disorder,F30-F39,Mood [affective] disorders (F30-F39),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F40,Phobic anxiety disorders,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",Fear of an object or situation
+F41,Other anxiety disorders,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Worrying, fast heart rate, shakiness"
+F42,Obsessive-compulsive disorder,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Feel the need to check things repeatedly, perform certain routines repeatedly, have certain thoughts repeatedly"
+F43,"Reaction to severe stress, and adjustment disorders",F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F44,Dissociative and conversion disorders,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F45,Somatoform disorders,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F48,Other nonpsychotic mental disorders,F40-F48,"Anxiety, dissociative, stress-related, somatoform and other nonpsychotic mental disorders (F40-F48)",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F50,Eating disorders,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",Abnormal eating habits that negatively affect physical or mental health
+F51,Sleep disorders not due to a substance or known physiological condition,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F52,Sexual dysfunction not due to a substance or known physiological condition,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F53,"Mental and behavioral disorders associated with the puerperium, not elsewhere classified",F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F54,Psychological and behavioral factors associated with disorders or diseases classified elsewhere,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F55,Abuse of non-psychoactive substances,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F59,Unspecified behavioral syndromes associated with physiological disturbances and physical factors,F50-F59,Behavioral syndromes associated with physiological disturbances and physical factors (F50-F59),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F60,Specific personality disorders,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F63,Impulse disorders,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F64,Gender identity disorders,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)","Distress related to one's assigned gender, sex, and/or sex characteristics"
+F65,Paraphilias,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F66,Other sexual disorders,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F68,Other disorders of adult personality and behavior,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F69,Unspecified disorder of adult personality and behavior,F60-F69,Disorders of adult personality and behavior (F60-F69),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F70,Mild intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F71,Moderate intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F72,Severe intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F73,Profound intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F78,Other intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F79,Unspecified intellectual disabilities,F70-F79,Intellectual Disabilities (F70-F79),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F80,Specific developmental disorders of speech and language,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F81,Specific developmental disorders of scholastic skills,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F82,Specific developmental disorder of motor function,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F84,Pervasive developmental disorders,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F88,Other disorders of psychological development,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F89,Unspecified disorder of psychological development,F80-F89,Pervasive and specific developmental disorders (F80-F89),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F90,Attention-deficit hyperactivity disorders,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F91,Conduct disorders,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F93,Emotional disorders with onset specific to childhood,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F94,Disorders of social functioning with onset specific to childhood and adolescence,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F95,Tic disorder,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F98,Other behavioral and emotional disorders with onset usually occurring in childhood and adolescence,F90-F98,Behavioral and emotional disorders with onset usually occurring in childhood and adolescence (F90-F98),5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F99,"Mental disorder, not otherwise specified",F99,"Mental disorder, not otherwise specified",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
+F99,"Mental disorder, not otherwise specified",F99,"Mental disorder, not otherwise specified",5,"Mental, Behavioral and Neurodevelopmental disorders (F01-F99)",
