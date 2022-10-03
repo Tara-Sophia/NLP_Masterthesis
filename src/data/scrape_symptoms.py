@@ -112,12 +112,18 @@ def get_symptoms_from_nhs(url: str) -> str | None:
             if "Symptoms" not in item.text:
                 continue
             else:
-                symptoms_list = item.find_next_siblings("ul")[0]
-                text = ", ".join(
-                    [li.text for li in symptoms_list.find_all("li")]
-                )
-                text_cleaned = unicodedata.normalize("NFKD", text)
-                return text_cleaned
+                try:
+                    symptoms_list = item.find_next_siblings("ul")[0]
+                    text = ", ".join(
+                        [
+                            li.text
+                            for li in symptoms_list.find_all("li")
+                        ]
+                    )
+                    text_cleaned = unicodedata.normalize("NFKD", text)
+                    return text_cleaned
+                except IndexError:
+                    return "No Value"
         else:
             return "No Value"
     return None
