@@ -237,22 +237,23 @@ def make_icd_9_csv(
     target_folder_path : str
         Path to the folder where the ICD 9 csv file should be saved
     """
+    # Creating icd9 folder
+    icd_folder = os.path.join(target_folder_path, "icd9")
+
+    # Creating directory for cleaned text files and csv files
+    txt_folder = os.path.join(icd_folder, "txt")
+    csv_folder = os.path.join(icd_folder, "csv")
+
+    # Make sure directory exists
+    create_dir(icd_folder)
+    create_dir(txt_folder)
+    create_dir(csv_folder)
+
     for file in os.listdir(source_folder_path):
 
         # Read all files in icd9 folder
         with open(f"{source_folder_path}/{file}", "r") as f:
             lines = f.readlines()
-
-        # Creating icd9 folder
-        icd_folder = os.path.join(target_folder_path, "icd9")
-
-        # Creating directory for cleaned text files and csv files
-        txt_folder = os.path.join(icd_folder, "txt")
-        csv_folder = os.path.join(icd_folder, "csv")
-
-        # Make sure directory exists
-        create_dir(txt_folder)
-        create_dir(csv_folder)
 
         # Save clenaed text files by adding efficient number of tabs
         clean_txt_files(os.path.join(txt_folder, file), lines)
@@ -349,12 +350,14 @@ def main(icd9: bool, icd10: bool, all: bool) -> None:
     """
 
     if icd9 or all:
+        print("Building ICD 9 dataframe...")
         make_icd_9_csv(
             os.path.join("data", "raw", "icd9"),
             os.path.join("data", "interim"),
         )
 
     if icd10 or all:
+        print("Building ICD 10 dataframe...")
         make_icd_10_csv(
             os.path.join("data", "interim"),
         )

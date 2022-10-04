@@ -304,10 +304,12 @@ def main(icd9: bool, icd10: bool, all: bool, save: bool) -> None:
     """
 
     if icd9 or all:
+        print("Scraping ICD 9 symptoms...")
         df = load_dataframe("./data/interim/icd9_codes_and_des.csv")
         build_icd_symptoms_dataframe(df, save, "icd9_symptoms")
 
     if icd10 or all:
+        print("Scraping ICD 10 symptoms...")
         df = load_dataframe("./data/interim/icd10_codes_and_des.csv")
         build_icd_symptoms_dataframe(df, save, "icd10_symptoms")
 
