@@ -1,0 +1,4 @@
+beautifulsoup4==4.11.1
+click==8.0.4
+pandas==1.5.0
+simple_icd_10_cm==1.1.2
