@@ -6,14 +6,11 @@ Description:
     The data will be saved in data/interim folder.
 
 Usage:
-    $ python src/data/make_icd_codes_dataframes.py -i9 -c 5 -s
-
+    $ python src/data/make_icd_codes_dataframes.py -a
 Possible arguments:
     * -i9 or --icd9: ICD-9 codes
     * -i10 or --icd10: ICD-10 codes
     * -a or -all: ICD-9 and ICD-10 codes
-    * -c or --count: Number of rows to scrape
-    * -s or --save: Save dataframe to csv
 """
 
 import os

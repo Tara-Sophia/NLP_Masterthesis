@@ -6,12 +6,13 @@ Description:
     The data will be saved in data/interim folder.
 
 Usage:
-    $ python src/data/scrape_symptoms.py -a
+    $ python src/data/scrape_symptoms.py -a -s
 
 Possible arguments:
     * -i9 or --icd9: ICD-9 codes
     * -i10 or --icd10: ICD-10 codes
     * -a or -all: ICD-9 and ICD-10 codes
+    * -s or --save: Save dataframe to csv
 """
 
 import json
@@ -22,9 +23,6 @@ import click
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
-from tqdm import tqdm
-
-tqdm.pandas()
 
 WIKIPEDIA_BASE = "https://en.wikipedia.org/wiki"
 
@@ -188,7 +186,7 @@ def create_symptoms_col(
     pd.DataFrame
         Dataframe with symptoms column
     """
-    df.loc[:, "symptoms"] = df["category_codes_des"].progress_apply(
+    df.loc[:, "symptoms"] = df["category_codes_des"].apply(
         lambda x: get_symptoms(x, symptoms_cache)
     )
     return df
@@ -214,7 +212,7 @@ def save_data(
 
 
 def build_icd_symptoms_dataframe(
-    df: pd.DataFrame, count: int, save: bool, name: str
+    df: pd.DataFrame, save: bool, name: str
 ) -> None:
     """
     Creating dataframe with ICD codes and symptoms
@@ -223,8 +221,6 @@ def build_icd_symptoms_dataframe(
     ----------
     df: pd.DataFrame
         Dataframe with ICD codes
-    count : int
-        Number of rows to scrape
     save : bool
         Flag if dataframe should be saved
     name : str
@@ -232,9 +228,6 @@ def build_icd_symptoms_dataframe(
     """
     # Load symptoms cache
     symptoms_cache = load_cache("./data/interim/symptoms.json")
-
-    # Make dataframe smaller
-    df = df.head(count).copy()
 
     # Get sypmtoms from wikipedia
     df = create_symptoms_col(df, symptoms_cache)
@@ -287,14 +280,6 @@ def load_dataframe(file_path: str) -> pd.DataFrame:
     required=False,
 )
 @click.option(
-    "--count",
-    "-c",
-    help="Sample size",
-    default=10,
-    required=True,
-    type=int,
-)
-@click.option(
     "--save",
     "-s",
     help="Save dataframe",
@@ -302,9 +287,7 @@ def load_dataframe(file_path: str) -> pd.DataFrame:
     is_flag=True,
     required=False,
 )
-def main(
-    icd9: bool, icd10: bool, all: bool, count: int, save: bool
-) -> None:
+def main(icd9: bool, icd10: bool, all: bool, save: bool) -> None:
     """
     Select which function to run
 
@@ -316,27 +299,18 @@ def main(
         Append symptoms to ICD 10 dataframe
     all : bool
         Append symptoms to all dataframes
-    count : int
-        Sample size of dataframe
     save : bool
         Flag to save dataframe
     """
 
     if icd9 or all:
         df = load_dataframe("./data/interim/icd9_codes_and_des.csv")
-        build_icd_symptoms_dataframe(df, count, save, "icd9_symptoms")
+        build_icd_symptoms_dataframe(df, save, "icd9_symptoms")
 
     if icd10 or all:
         df = load_dataframe("./data/interim/icd10_codes_and_des.csv")
-        build_icd_symptoms_dataframe(
-            df, count, save, "icd10_symptoms"
-        )
+        build_icd_symptoms_dataframe(df, save, "icd10_symptoms")
 
 
 if __name__ == "__main__":
     main()
-
-# Todo: Add tests to the function
-# Todo: Add documentation to the function
-# Todo: Change progress_apply back to apply when scraping is done and everythin in cache
-# Todo: Delete all todos from the code
