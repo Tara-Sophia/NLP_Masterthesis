@@ -1,0 +1,378 @@
+460-519 Diseases Of The Respiratory System
+	460-466 Acute Respiratory Infections
+		460 Acute nasopharyngitis [common cold]
+			460 Acute nasopharyngitis [common cold]
+		461 Acute sinusitis
+			461 Acute sinusitis
+			461.0 Acute maxillary sinusitis
+			461.1 Acute frontal sinusitis
+			461.2 Acute ethmoidal sinusitis
+			461.3 Acute sphenoidal sinusitis
+			461.8 Other acute sinusitis
+			461.9 Acute sinusitis, unspecified
+		462 Acute pharyngitis
+			462 Acute pharyngitis
+		463 Acute tonsillitis
+			463 Acute tonsillitis
+		464 Acute laryngitis and tracheitis
+			464 Acute laryngitis and tracheitis
+			464.0 Acute laryngitis
+			464.00 Acute laryngitis without mention of obstruction
+			464.01 Acute laryngitis with obstruction
+			464.1 Acute tracheitis
+			464.10 Acute tracheitis without mention of obstruction
+			464.11 Acute tracheitis with obstruction
+			464.2 Acute laryngotracheitis
+			464.20 Acute laryngotracheitis without mention of obstruction
+			464.21 Acute laryngotracheitis with obstruction
+			464.3 Acute epiglottitis
+			464.30 Acute epiglottitis without mention of obstruction
+			464.31 Acute epiglottitis with obstruction
+			464.4 Croup
+			464.5 Supraglottitis unspecified
+			464.50 Supraglottitis unspecified, without obstruction
+			464.51 Supraglottitis unspecified, with obstruction
+		465 Acute upper respiratory infections of multiple or unspecified sites
+			465 Acute upper respiratory infections of multiple or unspecified sites
+			465.0 Acute laryngopharyngitis
+			465.8 Acute upper respiratory infections of other multiple sites
+			465.9 Acute upper respiratory infections of unspecified site
+		466 Acute bronchitis and bronchiolitis
+			466 Acute bronchitis and bronchiolitis
+			466.0 Acute bronchitis
+			466.1 Acute bronchiolitis
+			466.11 Acute bronchiolitis due to respiratory syncytial virus (RSV)
+			466.19 Acute bronchiolitis due to other infectious organisms
+	470-478 Other Diseases Of Upper Respiratory Tract
+		470 Deviated nasal septum
+			470 Deviated nasal septum
+		471 Nasal polyps
+			471 Nasal polyps
+			471.0 Polyp of nasal cavity
+			471.1 Polypoid sinus degeneration
+			471.8 Other polyp of sinus
+			471.9 Unspecified nasal polyp
+		472 Chronic pharyngitis and nasopharyngitis
+			472 Chronic pharyngitis and nasopharyngitis
+			472.0 Chronic rhinitis
+			472.1 Chronic pharyngitis
+			472.2 Chronic nasopharyngitis
+		473 Chronic sinusitis
+			473 Chronic sinusitis
+			473.0 Chronic maxillary sinusitis
+			473.1 Chronic frontal sinusitis
+			473.2 Chronic ethmoidal sinusitis
+			473.3 Chronic sphenoidal sinusitis
+			473.8 Other chronic sinusitis
+			473.9 Unspecified sinusitis (chronic)
+		474 Chronic disease of tonsils and adenoids
+			474 Chronic disease of tonsils and adenoids
+			474.0 Chronic tonsillitis and adenoiditis
+			474.00 Chronic tonsillitis
+			474.01 Chronic adenoiditis
+			474.02 Chronic tonsillitis and adenoiditis
+			474.1 Hypertrophy of tonsils and adenoids
+			474.10 Hypertrophy of tonsil with adenoids
+			474.11 Hypertrophy of tonsils alone
+			474.12 Hypertrophy of adenoids alone
+			474.2 Adenoid vegetations
+			474.8 Other chronic disease of tonsils and adenoids
+			474.9 Unspecified chronic disease of tonsils and adenoids
+		475 Peritonsillar abscess
+			475 Peritonsillar abscess
+		476 Chronic laryngitis and laryngotracheitis
+			476 Chronic laryngitis and laryngotracheitis
+			476.0 Chronic laryngitis
+			476.1 Chronic laryngotracheitis
+		477 Allergic rhinitis
+			477 Allergic rhinitis
+			477.0 Allergic rhinitis due to pollen
+			477.1 Allergic rhinitis due to food
+			477.2 Allergic rhinitis due to animal (cat) (dog) hair and dander
+			477.8 Allergic rhinitis due to other allergen
+			477.9 Allergic rhinitis, cause unspecified
+		478 Other diseases of upper respiratory tract
+			478 Other diseases of upper respiratory tract
+			478.0 Hypertrophy of nasal turbinates
+			478.1 Other diseases of nasal cavity and sinuses
+			478.11 Nasal mucositis (ulcerative)
+			478.19 Other disease of nasal cavity and sinuses
+			478.2 Other diseases of pharynx not elsewhere classified
+			478.20 Unspecified disease of pharynx
+			478.21 Cellulitis of pharynx or nasopharynx
+			478.22 Parapharyngeal abscess
+			478.24 Retropharyngeal abscess
+			478.25 Edema of pharynx or nasopharynx
+			478.26 Cyst of pharynx or nasopharynx
+			478.29 Other diseases of pharynx, not elsewhere classified
+			478.3 Paralysis of vocal cords or larynx
+			478.30 Paralysis of vocal cords or larynx, unspecified
+			478.31 Unilateral paralysis of vocal cords or larynx, partial
+			478.32 Unilateral paralysis of vocal cords or larynx, complete
+			478.33 Bilateral paralysis of vocal cords or larynx, partial
+			478.34 Bilateral paralysis of vocal cords or larynx, complete
+			478.4 Polyp of vocal cord or larynx
+			478.5 Other diseases of vocal cords
+			478.6 Edema of larynx
+			478.7 Other diseases of larynx not elsewhere classified
+			478.70 Unspecified disease of larynx
+			478.71 Cellulitis and perichondritis of larynx
+			478.74 Stenosis of larynx
+			478.75 Laryngeal spasm
+			478.79 Other diseases of larynx, not elsewhere classified
+			478.8 Upper respiratory tract hypersensitivity reaction, site unspecified
+			478.9 Other and unspecified diseases of upper respiratory tract
+	480-488 Pneumonia And Influenza
+		480 Viral pneumonia
+			480 Viral pneumonia
+			480.0 Pneumonia due to adenovirus
+			480.1 Pneumonia due to respiratory syncytial virus
+			480.2 Pneumonia due to parainfluenza virus
+			480.3 Pneumonia due to SARS-associated coronavirus
+			480.8 Pneumonia due to other virus not elsewhere classified
+			480.9 Viral pneumonia, unspecified
+		481 Pneumococcal pneumonia [Streptococcus pneumoniae pneumonia]
+			481 Pneumococcal pneumonia [Streptococcus pneumoniae pneumonia]
+		482 Other bacterial pneumonia
+			482 Other bacterial pneumonia
+			482.0 Pneumonia due to Klebsiella pneumoniae
+			482.1 Pneumonia due to Pseudomonas
+			482.2 Pneumonia due to Hemophilus influenzae [H. influenzae]
+			482.3 Pneumonia due to streptococcus
+			482.30 Pneumonia due to Streptococcus, unspecified
+			482.31 Pneumonia due to Streptococcus, group A
+			482.32 Pneumonia due to Streptococcus, group B
+			482.39 Pneumonia due to other Streptococcus
+			482.4 Pneumonia due to staphylococcus
+			482.40 Pneumonia due to Staphylococcus, unspecified
+			482.41 Methicillin susceptible pneumonia due to Staphylococcus aureus
+			482.42 Methicillin resistant pneumonia due to Staphylococcus aureus
+			482.49 Other Staphylococcus pneumonia
+			482.8 Pneumonia due to other specified bacteria
+			482.81 Pneumonia due to anaerobes
+			482.82 Pneumonia due to escherichia coli [E. coli]
+			482.83 Pneumonia due to other gram-negative bacteria
+			482.84 Pneumonia due to Legionnaires' disease
+			482.89 Pneumonia due to other specified bacteria
+			482.9 Bacterial pneumonia, unspecified
+		483 Pneumonia due to other specified organism
+			483 Pneumonia due to other specified organism
+			483.0 Pneumonia due to mycoplasma pneumoniae
+			483.1 Pneumonia due to chlamydia
+			483.8 Pneumonia due to other specified organism
+		484 Pneumonia in infectious diseases classified elsewhere
+			484 Pneumonia in infectious diseases classified elsewhere
+			484.1 Pneumonia in cytomegalic inclusion disease
+			484.3 Pneumonia in whooping cough
+			484.5 Pneumonia in anthrax
+			484.6 Pneumonia in aspergillosis
+			484.7 Pneumonia in other systemic mycoses
+			484.8 Pneumonia in other infectious diseases classified elsewhere
+		485 Bronchopneumonia, organism unspecified
+			485 Bronchopneumonia, organism unspecified
+		486 Pneumonia, organism unspecified
+			486 Pneumonia, organism unspecified
+		487 Influenza
+			487 Influenza
+			487.0 Influenza with pneumonia
+			487.1 Influenza with other respiratory manifestations
+			487.8 Influenza with other manifestations
+		488 Influenza due to certain identified influenza viruses
+			488 Influenza due to certain identified influenza viruses
+			488.0 Influenza due to identified avian influenza virus
+			488.01 Influenza due to identified avian influenza virus with pneumonia
+			488.02 Influenza due to identified avian influenza virus with other respiratory manifestations
+			488.09 Influenza due to identified avian influenza virus with other manifestations
+			488.1 Influenza due to identified 2009 h1n1 influenza virus
+			488.11 Influenza due to identified 2009 H1N1 influenza virus with pneumonia
+			488.12 Influenza due to identified 2009 H1N1 influenza virus with other respiratory manifestations
+			488.19 Influenza due to identified 2009 H1N1 influenza virus with other manifestations
+			488.8 Influenza due to novel influenza a
+			488.81 Influenza due to identified novel influenza A virus with pneumonia
+			488.82 Influenza due to identified novel influenza A virus with other respiratory manifestations
+			488.89 Influenza due to identified novel influenza A virus with other manifestations
+	490-496 Chronic Obstructive Pulmonary Disease And Allied Conditions
+		490 Bronchitis, not specified as acute or chronic
+			490 Bronchitis, not specified as acute or chronic
+		491 Chronic bronchitis
+			491 Chronic bronchitis
+			491.0 Simple chronic bronchitis
+			491.1 Mucopurulent chronic bronchitis
+			491.2 Obstructive chronic bronchitis
+			491.20 Obstructive chronic bronchitis without exacerbation
+			491.21 Obstructive chronic bronchitis with (acute) exacerbation
+			491.22 Obstructive chronic bronchitis with acute bronchitis
+			491.8 Other chronic bronchitis
+			491.9 Unspecified chronic bronchitis
+		492 Emphysema
+			492 Emphysema
+			492.0 Emphysematous bleb
+			492.8 Other emphysema
+		493 Asthma
+			493 Asthma
+			493.0 Extrinsic asthma
+			493.00 Extrinsic asthma, unspecified
+			493.01 Extrinsic asthma with status asthmaticus
+			493.02 Extrinsic asthma with (acute) exacerbation
+			493.1 Intrinsic asthma
+			493.10 Intrinsic asthma, unspecified
+			493.11 Intrinsic asthma with status asthmaticus
+			493.12 Intrinsic asthma with (acute) exacerbation
+			493.2 Chronic obstructive asthma
+			493.20 Chronic obstructive asthma, unspecified
+			493.21 Chronic obstructive asthma with status asthmaticus
+			493.22 Chronic obstructive asthma with (acute) exacerbation
+			493.8 Other forms of asthma
+			493.81 Exercise induced bronchospasm
+			493.82 Cough variant asthma
+			493.9 Asthma unspecified
+			493.90 Asthma,unspecified type, unspecified
+			493.91 Asthma, unspecified type, with status asthmaticus
+			493.92 Asthma, unspecified type, with (acute) exacerbation
+		494 Bronchiectasis
+			494 Bronchiectasis
+			494.0 Bronchiectasis without acute exacerbation
+			494.1 Bronchiectasis with acute exacerbation
+		495 Extrinsic allergic alveolitis
+			495 Extrinsic allergic alveolitis
+			495.0 Farmers' lung
+			495.1 Bagassosis
+			495.2 Bird-fanciers' lung
+			495.3 Suberosis
+			495.4 Malt workers' lung
+			495.5 Mushroom workers' lung
+			495.6 Maple bark-strippers' lung
+			495.7 "Ventilation" pneumonitis
+			495.8 Other specified allergic alveolitis and pneumonitis
+			495.9 Unspecified allergic alveolitis and pneumonitis
+		496 Chronic airway obstruction, not elsewhere classified
+			496 Chronic airway obstruction, not elsewhere classified
+	500-508 Pneumoconioses And Other Lung Diseases Due To External Agents
+		500 Coal workers' pneumoconiosis
+			500 Coal workers' pneumoconiosis
+		501 Asbestosis
+			501 Asbestosis
+		502 Pneumoconiosis due to other silica or silicates
+			502 Pneumoconiosis due to other silica or silicates
+		503 Pneumoconiosis due to other inorganic dust
+			503 Pneumoconiosis due to other inorganic dust
+		504 Pneumonopathy due to inhalation of other dust
+			504 Pneumonopathy due to inhalation of other dust
+		505 Pneumoconiosis, unspecified
+			505 Pneumoconiosis, unspecified
+		506 Respiratory conditions due to chemical fumes and vapors
+			506 Respiratory conditions due to chemical fumes and vapors
+			506.0 Bronchitis and pneumonitis due to fumes and vapors
+			506.1 Acute pulmonary edema due to fumes and vapors
+			506.2 Upper respiratory inflammation due to fumes and vapors
+			506.3 Other acute and subacute respiratory conditions due to fumes and vapors
+			506.4 Chronic respiratory conditions due to fumes and vapors
+			506.9 Unspecified respiratory conditions due to fumes and vapors
+		507 Pneumonitis due to solids and liquids
+			507 Pneumonitis due to solids and liquids
+			507.0 Pneumonitis due to inhalation of food or vomitus
+			507.1 Pneumonitis due to inhalation of oils and essences
+			507.8 Pneumonitis due to other solids and liquids
+		508 Respiratory conditions due to other and unspecified external agents
+			508 Respiratory conditions due to other and unspecified external agents
+			508.0 Acute pulmonary manifestations due to radiation
+			508.1 Chronic and other pulmonary manifestations due to radiation
+			508.2 Respiratory conditions due to smoke inhalation
+			508.8 Respiratory conditions due to other specified external agents
+			508.9 Respiratory conditions due to unspecified external agent
+	510-519 Other Diseases Of Respiratory System
+		510 Empyema
+			510 Empyema
+			510.0 Empyema with fistula
+			510.9 Empyema without mention of fistula
+		511 Pleurisy
+			511 Pleurisy
+			511.0 Pleurisy without mention of effusion or current tuberculosis
+			511.1 Pleurisy with effusion, with mention of a bacterial cause other than tuberculosis
+			511.8 Other specified forms of pleural effusion except tuberculous
+			511.81 Malignant pleural effusion
+			511.89 Other specified forms of effusion, except tuberculous
+			511.9 Unspecified pleural effusion
+		512 Pneumothorax and air leak
+			512 Pneumothorax and air leak
+			512.0 Spontaneous tension pneumothorax
+			512.1 Iatrogenic pneumothorax
+			512.2 Postoperative air leak
+			512.8 Oth pneumothorax and air leak
+			512.81 Primary spontaneous pneumothorax
+			512.82 Secondary spontaneous pneumothorax
+			512.83 Chronic pneumothorax
+			512.84 Other air leak
+			512.89 Other pneumothorax
+		513 Abscess of lung and mediastinum
+			513 Abscess of lung and mediastinum
+			513.0 Abscess of lung
+			513.1 Abscess of mediastinum
+		514 Pulmonary congestion and hypostasis
+			514 Pulmonary congestion and hypostasis
+		515 Postinflammatory pulmonary fibrosis
+			515 Postinflammatory pulmonary fibrosis
+		516 Other alveolar and parietoalveolar pneumonopathy
+			516 Other alveolar and parietoalveolar pneumonopathy
+			516.0 Pulmonary alveolar proteinosis
+			516.1 Idiopathic pulmonary hemosiderosis
+			516.2 Pulmonary alveolar microlithiasis
+			516.3 Idiopathic interstitial pneumonia
+			516.30 Idiopathic interstitial pneumonia, not otherwise specified
+			516.31 Idiopathic pulmonary fibrosis
+			516.32 Idiopathic non-specific interstitial pneumonitis
+			516.33 Acute interstitial pneumonitis
+			516.34 Respiratory bronchiolitis interstitial lung disease
+			516.35 Idiopathic lymphoid interstitial pneumonia
+			516.36 Cryptogenic organizing pneumonia
+			516.37 Desquamative interstitial pneumonia
+			516.4 Lymphangioleiomyomatosis
+			516.5 Adult pulmonary Langerhans cell histiocytosis
+			516.6 Interstitial lung diseases of childhood
+			516.61 Neuroendocrine cell hyperplasia of infancy
+			516.62 Pulmonary interstitial glycogenosis
+			516.63 Surfactant mutations of the lung
+			516.64 Alveolar capillary dysplasia with vein misalignment
+			516.69 Other interstitial lung diseases of childhood
+			516.8 Other specified alveolar and parietoalveolar pneumonopathies
+			516.9 Unspecified alveolar and parietoalveolar pneumonopathy
+		517 Lung involvement in conditions classified elsewhere
+			517 Lung involvement in conditions classified elsewhere
+			517.1 Rheumatic pneumonia
+			517.2 Lung involvement in systemic sclerosis
+			517.3 Acute chest syndrome
+			517.8 Lung involvement in other diseases classified elsewhere
+		518 Other diseases of lung
+			518 Other diseases of lung
+			518.0 Pulmonary collapse
+			518.1 Interstitial emphysema
+			518.2 Compensatory emphysema
+			518.3 Pulmonary eosinophilia
+			518.4 Acute edema of lung, unspecified
+			518.5 Pulmonary insufficiency following trauma and surgery
+			518.51 Acute respiratory failure following trauma and surgery
+			518.52 Other pulmonary insufficiency, not elsewhere classified, following trauma and surgery
+			518.53 Acute and chronic respiratory failure following trauma and surgery
+			518.6 Allergic bronchopulmonary aspergillosis
+			518.7 Transfusion related acute lung injury (TRALI)
+			518.8 Other diseases of lung
+			518.81 Acute respiratory failure
+			518.82 Other pulmonary insufficiency, not elsewhere classified
+			518.83 Chronic respiratory failure
+			518.84 Acute and chronic respiratory failure
+			518.89 Other diseases of lung, not elsewhere classified
+		519 Other diseases of respiratory system
+			519 Other diseases of respiratory system
+			519.0 Tracheostomy complications
+			519.00 Tracheostomy complication, unspecified
+			519.01 Infection of tracheostomy
+			519.02 Mechanical complication of tracheostomy
+			519.09 Other tracheostomy complications
+			519.1 Other diseases of trachea and bronchus not elsewhere classified
+			519.11 Acute bronchospasm
+			519.19 Other diseases of trachea and bronchus
+			519.2 Mediastinitis
+			519.3 Other diseases of mediastinum, not elsewhere classified
+			519.4 Disorders of diaphragm
+			519.8 Other diseases of respiratory system, not elsewhere classified
+			519.9 Unspecified disease of respiratory system
