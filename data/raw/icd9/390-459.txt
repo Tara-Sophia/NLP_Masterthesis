@@ -1,0 +1,678 @@
+390-459 Diseases Of The Circulatory System
+	390-392 Acute Rheumatic Fever
+		390 Rheumatic fever without mention of heart involvement
+			390 Rheumatic fever without mention of heart involvement
+		391 Rheumatic fever with heart involvement
+			391 Rheumatic fever with heart involvement
+			391.0 Acute rheumatic pericarditis
+			391.1 Acute rheumatic endocarditis
+			391.2 Acute rheumatic myocarditis
+			391.8 Other acute rheumatic heart disease
+			391.9 Acute rheumatic heart disease, unspecified
+		392 Rheumatic chorea
+			392 Rheumatic chorea
+			392.0 Rheumatic chorea with heart involvement
+			392.9 Rheumatic chorea without mention of heart involvement
+	393-398 Chronic Rheumatic Heart Disease
+		393 Chronic rheumatic pericarditis
+			393 Chronic rheumatic pericarditis
+		394 Diseases of mitral valve
+			394 Diseases of mitral valve
+			394.0 Mitral stenosis
+			394.1 Rheumatic mitral insufficiency
+			394.2 Mitral stenosis with insufficiency
+			394.9 Other and unspecified mitral valve diseases
+		395 Diseases of aortic valve
+			395 Diseases of aortic valve
+			395.0 Rheumatic aortic stenosis
+			395.1 Rheumatic aortic insufficiency
+			395.2 Rheumatic aortic stenosis with insufficiency
+			395.9 Other and unspecified rheumatic aortic diseases
+		396 Diseases of mitral and aortic valves
+			396 Diseases of mitral and aortic valves
+			396.0 Mitral valve stenosis and aortic valve stenosis
+			396.1 Mitral valve stenosis and aortic valve insufficiency
+			396.2 Mitral valve insufficiency and aortic valve stenosis
+			396.3 Mitral valve insufficiency and aortic valve insufficiency
+			396.8 Multiple involvement of mitral and aortic valves
+			396.9 Mitral and aortic valve diseases, unspecified
+		397 Diseases of other endocardial structures
+			397 Diseases of other endocardial structures
+			397.0 Diseases of tricuspid valve
+			397.1 Rheumatic diseases of pulmonary valve
+			397.9 Rheumatic diseases of endocardium, valve unspecified
+		398 Other rheumatic heart disease
+			398 Other rheumatic heart disease
+			398.0 Rheumatic myocarditis
+			398.9 Other and unspecified rheumatic heart diseases
+			398.90 Rheumatic heart disease, unspecified
+			398.91 Rheumatic heart failure (congestive)
+			398.99 Other rheumatic heart diseases
+	401-405 Hypertensive Disease
+		401 Essential hypertension
+			401 Essential hypertension
+			401.0 Malignant essential hypertension
+			401.1 Benign essential hypertension
+			401.9 Unspecified essential hypertension
+		402 Hypertensive heart disease
+			402 Hypertensive heart disease
+			402.0 Malignant hypertensive heart disease
+			402.00 Malignant hypertensive heart disease without heart failure
+			402.01 Malignant hypertensive heart disease with heart failure
+			402.1 Benign hypertensive heart disease
+			402.10 Benign hypertensive heart disease without heart failure
+			402.11 Benign hypertensive heart disease with heart failure
+			402.9 Unspecified hypertensive heart disease
+			402.90 Unspecified hypertensive heart disease without heart failure
+			402.91 Unspecified hypertensive heart disease with heart failure
+		403 Hypertensive chronic kidney disease
+			403 Hypertensive chronic kidney disease
+			403.0 Malignant hypertensive renal disease
+			403.00 Hypertensive chronic kidney disease, malignant, with chronic kidney disease stage I through stage IV, or unspecified
+			403.01 Hypertensive chronic kidney disease, malignant, with chronic kidney disease stage V or end stage renal disease
+			403.1 Benign hypertensive renal disease
+			403.10 Hypertensive chronic kidney disease, benign, with chronic kidney disease stage I through stage IV, or unspecified
+			403.11 Hypertensive chronic kidney disease, benign, with chronic kidney disease stage V or end stage renal disease
+			403.9 Unspecified hypertensive renal disease
+			403.90 Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified
+			403.91 Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage V or end stage renal disease
+		404 Hypertensive heart and chronic kidney disease
+			404 Hypertensive heart and chronic kidney disease
+			404.0 Malignant hypertensive heart and renal disease
+			404.00 Hypertensive heart and chronic kidney disease, malignant, without heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.01 Hypertensive heart and chronic kidney disease, malignant, with heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.02 Hypertensive heart and chronic kidney disease, malignant, without heart failure and with chronic kidney disease stage V or end stage renal disease
+			404.03 Hypertensive heart and chronic kidney disease, malignant, with heart failure and with chronic kidney disease stage V or end stage renal disease
+			404.1 Benign hypertensive heart and renal disease
+			404.10 Hypertensive heart and chronic kidney disease, benign, without heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.11 Hypertensive heart and chronic kidney disease, benign, with heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.12 Hypertensive heart and chronic kidney disease, benign, without heart failure and with chronic kidney disease stage V or end stage renal disease
+			404.13 Hypertensive heart and chronic kidney disease, benign, with heart failure and chronic kidney disease stage V or end stage renal disease
+			404.9 Unspecified hypertensive heart and renal disease
+			404.90 Hypertensive heart and chronic kidney disease, unspecified, without heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.91 Hypertensive heart and chronic kidney disease, unspecified, with heart failure and with chronic kidney disease stage I through stage IV, or unspecified
+			404.92 Hypertensive heart and chronic kidney disease, unspecified, without heart failure and with chronic kidney disease stage V or end stage renal disease
+			404.93 Hypertensive heart and chronic kidney disease, unspecified, with heart failure and chronic kidney disease stage V or end stage renal disease
+		405 Secondary hypertension
+			405 Secondary hypertension
+			405.0 Malignant secondary hypertension
+			405.01 Malignant renovascular hypertension
+			405.09 Other malignant secondary hypertension
+			405.1 Benign secondary hypertension
+			405.11 Benign renovascular hypertension
+			405.19 Other benign secondary hypertension
+			405.9 Unspecified secondary hypertension
+			405.91 Unspecified renovascular hypertension
+			405.99 Other unspecified secondary hypertension
+	410-414 Ischemic Heart Disease
+		410 Acute myocardial infarction
+			410 Acute myocardial infarction
+			410.0 Acute myocardial infarction of anterolateral wall
+			410.00 Acute myocardial infarction of anterolateral wall, episode of care unspecified
+			410.01 Acute myocardial infarction of anterolateral wall, initial episode of care
+			410.02 Acute myocardial infarction of anterolateral wall, subsequent episode of care
+			410.1 Acute myocardial infarction of other anterior wall
+			410.10 Acute myocardial infarction of other anterior wall, episode of care unspecified
+			410.11 Acute myocardial infarction of other anterior wall, initial episode of care
+			410.12 Acute myocardial infarction of other anterior wall, subsequent episode of care
+			410.2 Acute myocardial infarction of inferolateral wall
+			410.20 Acute myocardial infarction of inferolateral wall, episode of care unspecified
+			410.21 Acute myocardial infarction of inferolateral wall, initial episode of care
+			410.22 Acute myocardial infarction of inferolateral wall, subsequent episode of care
+			410.3 Acute myocardial infarction of inferoposterior wall
+			410.30 Acute myocardial infarction of inferoposterior wall, episode of care unspecified
+			410.31 Acute myocardial infarction of inferoposterior wall, initial episode of care
+			410.32 Acute myocardial infarction of inferoposterior wall, subsequent episode of care
+			410.4 Acute myocardial infarction of other inferior wall
+			410.40 Acute myocardial infarction of other inferior wall, episode of care unspecified
+			410.41 Acute myocardial infarction of other inferior wall, initial episode of care
+			410.42 Acute myocardial infarction of other inferior wall, subsequent episode of care
+			410.5 Acute myocardial infarction of other lateral wall
+			410.50 Acute myocardial infarction of other lateral wall, episode of care unspecified
+			410.51 Acute myocardial infarction of other lateral wall, initial episode of care
+			410.52 Acute myocardial infarction of other lateral wall, subsequent episode of care
+			410.6 True posterior wall infarction
+			410.60 True posterior wall infarction, episode of care unspecified
+			410.61 True posterior wall infarction, initial episode of care
+			410.62 True posterior wall infarction, subsequent episode of care
+			410.7 Subendocardial infarction
+			410.70 Subendocardial infarction, episode of care unspecified
+			410.71 Subendocardial infarction, initial episode of care
+			410.72 Subendocardial infarction, subsequent episode of care
+			410.8 Acute myocardial infarction of other specified sites
+			410.80 Acute myocardial infarction of other specified sites, episode of care unspecified
+			410.81 Acute myocardial infarction of other specified sites, initial episode of care
+			410.82 Acute myocardial infarction of other specified sites, subsequent episode of care
+			410.9 Acute myocardial infarction of unspecified site
+			410.90 Acute myocardial infarction of unspecified site, episode of care unspecified
+			410.91 Acute myocardial infarction of unspecified site, initial episode of care
+			410.92 Acute myocardial infarction of unspecified site, subsequent episode of care
+		411 Other acute and subacute forms of ischemic heart disease
+			411 Other acute and subacute forms of ischemic heart disease
+			411.0 Postmyocardial infarction syndrome
+			411.1 Intermediate coronary syndrome
+			411.8 Other acute and subacute forms of ischemic heart disease
+			411.81 Acute coronary occlusion without myocardial infarction
+			411.89 Other acute and subacute forms of ischemic heart disease, other
+		412 Old myocardial infarction
+			412 Old myocardial infarction
+		413 Angina pectoris
+			413 Angina pectoris
+			413.0 Angina decubitus
+			413.1 Prinzmetal angina
+			413.9 Other and unspecified angina pectoris
+		414 Other forms of chronic ischemic heart disease
+			414 Other forms of chronic ischemic heart disease
+			414.0 Coronary atherosclerosis
+			414.00 Coronary atherosclerosis of unspecified type of vessel, native or graft
+			414.01 Coronary atherosclerosis of native coronary artery
+			414.02 Coronary atherosclerosis of autologous vein bypass graft
+			414.03 Coronary atherosclerosis of nonautologous biological bypass graft
+			414.04 Coronary atherosclerosis of artery bypass graft
+			414.05 Coronary atherosclerosis of unspecified bypass graft
+			414.06 Coronary atherosclerosis of native coronary artery of transplanted heart
+			414.07 Coronary atherosclerosis of bypass graft (artery) (vein) of transplanted heart
+			414.1 Aneurysm and dissection of heart
+			414.10 Aneurysm of heart (wall)
+			414.11 Aneurysm of coronary vessels
+			414.12 Dissection of coronary artery
+			414.19 Other aneurysm of heart
+			414.2 Chronic total occlusion of coronary artery
+			414.3 Coronary atherosclerosis due to lipid rich plaque
+			414.4 Coronary atherosclerosis due to calcified coronary lesion
+			414.8 Other specified forms of chronic ischemic heart disease
+			414.9 Chronic ischemic heart disease, unspecified
+	415-417 Diseases Of Pulmonary Circulation
+		415 Acute pulmonary heart disease
+			415 Acute pulmonary heart disease
+			415.0 Acute cor pulmonale
+			415.1 Pulmonary embolism and infarction
+			415.11 Iatrogenic pulmonary embolism and infarction
+			415.12 Septic pulmonary embolism
+			415.13 Saddle embolus of pulmonary artery
+			415.19 Other pulmonary embolism and infarction
+		416 Chronic pulmonary heart disease
+			416 Chronic pulmonary heart disease
+			416.0 Primary pulmonary hypertension
+			416.1 Kyphoscoliotic heart disease
+			416.2 Chronic pulmonary embolism
+			416.8 Other chronic pulmonary heart diseases
+			416.9 Chronic pulmonary heart disease, unspecified
+		417 Other diseases of pulmonary circulation
+			417 Other diseases of pulmonary circulation
+			417.0 Arteriovenous fistula of pulmonary vessels
+			417.1 Aneurysm of pulmonary artery
+			417.8 Other specified diseases of pulmonary circulation
+			417.9 Unspecified disease of pulmonary circulation
+	420-429 Other Forms Of Heart Disease
+		420 Acute pericarditis
+			420 Acute pericarditis
+			420.0 Acute pericarditis in diseases classified elsewhere
+			420.9 Other and unspecified acute pericarditis
+			420.90 Acute pericarditis, unspecified
+			420.91 Acute idiopathic pericarditis
+			420.99 Other acute pericarditis
+		421 Acute and subacute endocarditis
+			421 Acute and subacute endocarditis
+			421.0 Acute and subacute bacterial endocarditis
+			421.1 Acute and subacute infective endocarditis in diseases classified elsewhere
+			421.9 Acute endocarditis, unspecified
+		422 Acute myocarditis
+			422 Acute myocarditis
+			422.0 Acute myocarditis in diseases classified elsewhere
+			422.9 Other and unspecified acute myocarditis
+			422.90 Acute myocarditis, unspecified
+			422.91 Idiopathic myocarditis
+			422.92 Septic myocarditis
+			422.93 Toxic myocarditis
+			422.99 Other acute myocarditis
+		423 Other diseases of pericardium
+			423 Other diseases of pericardium
+			423.0 Hemopericardium
+			423.1 Adhesive pericarditis
+			423.2 Constrictive pericarditis
+			423.3 Cardiac tamponade
+			423.8 Other specified diseases of pericardium
+			423.9 Unspecified disease of pericardium
+		424 Other diseases of endocardium
+			424 Other diseases of endocardium
+			424.0 Mitral valve disorders
+			424.1 Aortic valve disorders
+			424.2 Tricuspid valve disorders, specified as nonrheumatic
+			424.3 Pulmonary valve disorders
+			424.9 Endocarditis valve unspecified
+			424.90 Endocarditis, valve unspecified, unspecified cause
+			424.91 Endocarditis in diseases classified elsewhere
+			424.99 Other endocarditis, valve unspecified
+		425 Cardiomyopathy
+			425 Cardiomyopathy
+			425.0 Endomyocardial fibrosis
+			425.1 Hypertrophic cardiomyopathy
+			425.11 Hypertrophic obstructive cardiomyopathy
+			425.18 Other hypertrophic cardiomyopathy
+			425.2 Obscure cardiomyopathy of Africa
+			425.3 Endocardial fibroelastosis
+			425.4 Other primary cardiomyopathies
+			425.5 Alcoholic cardiomyopathy
+			425.7 Nutritional and metabolic cardiomyopathy
+			425.8 Cardiomyopathy in other diseases classified elsewhere
+			425.9 Secondary cardiomyopathy, unspecified
+		426 Conduction disorders
+			426 Conduction disorders
+			426.0 Atrioventricular block, complete
+			426.1 Atrioventricular block other and unspecified
+			426.10 Atrioventricular block, unspecified
+			426.11 First degree atrioventricular block
+			426.12 Mobitz (type) II atrioventricular block
+			426.13 Other second degree atrioventricular block
+			426.2 Left bundle branch hemiblock
+			426.3 Other left bundle branch block
+			426.4 Right bundle branch block
+			426.5 Bundle branch block other and unspecified
+			426.50 Bundle branch block, unspecified
+			426.51 Right bundle branch block and left posterior fascicular block
+			426.52 Right bundle branch block and left anterior fascicular block
+			426.53 Other bilateral bundle branch block
+			426.54 Trifascicular block
+			426.6 Other heart block
+			426.7 Anomalous atrioventricular excitation
+			426.8 Other specified conduction disorders
+			426.81 Lown-Ganong-Levine syndrome
+			426.82 Long QT syndrome
+			426.89 Other specified conduction disorders
+			426.9 Conduction disorder, unspecified
+		427 Cardiac dysrhythmias
+			427 Cardiac dysrhythmias
+			427.0 Paroxysmal supraventricular tachycardia
+			427.1 Paroxysmal ventricular tachycardia
+			427.2 Paroxysmal tachycardia, unspecified
+			427.3 Atrial fibrillation and flutter
+			427.31 Atrial fibrillation
+			427.32 Atrial flutter
+			427.4 Ventricular fibrillation and flutter
+			427.41 Ventricular fibrillation
+			427.42 Ventricular flutter
+			427.5 Cardiac arrest
+			427.6 Premature beats
+			427.60 Premature beats, unspecified
+			427.61 Supraventricular premature beats
+			427.69 Other premature beats
+			427.8 Other specified cardiac dysrhythmias
+			427.81 Sinoatrial node dysfunction
+			427.89 Other specified cardiac dysrhythmias
+			427.9 Cardiac dysrhythmia, unspecified
+		428 Heart failure
+			428 Heart failure
+			428.0 Congestive heart failure, unspecified
+			428.1 Left heart failure
+			428.2 Systolic heart failure
+			428.20 Systolic heart failure, unspecified
+			428.21 Acute systolic heart failure
+			428.22 Chronic systolic heart failure
+			428.23 Acute on chronic systolic heart failure
+			428.3 Diastolic heart failure
+			428.30 Diastolic heart failure, unspecified
+			428.31 Acute diastolic heart failure
+			428.32 Chronic diastolic heart failure
+			428.33 Acute on chronic diastolic heart failure
+			428.4 Combined systolic and diastolic heart failure
+			428.40 Combined systolic and diastolic heart failure, unspecified
+			428.41 Acute combined systolic and diastolic heart failure
+			428.42 Chronic combined systolic and diastolic heart failure
+			428.43 Acute on chronic combined systolic and diastolic heart failure
+			428.9 Heart failure, unspecified
+		429 Ill-defined descriptions and complications of heart disease
+			429 Ill-defined descriptions and complications of heart disease
+			429.0 Myocarditis, unspecified
+			429.1 Myocardial degeneration
+			429.2 Cardiovascular disease, unspecified
+			429.3 Cardiomegaly
+			429.4 Functional disturbances following cardiac surgery
+			429.5 Rupture of chordae tendineae
+			429.6 Rupture of papillary muscle
+			429.7 Certain sequelae of myocardial infarction not elsewhere classified
+			429.71 Acquired cardiac septal defect
+			429.79 Certain sequelae of myocardial infarction, not elsewhere classified, other
+			429.8 Other ill-defined heart diseases
+			429.81 Other disorders of papillary muscle
+			429.82 Hyperkinetic heart disease
+			429.83 Takotsubo syndrome
+			429.89 Other ill-defined heart diseases
+			429.9 Heart disease, unspecified
+	430-438 Cerebrovascular Disease
+		430 Subarachnoid hemorrhage
+			430 Subarachnoid hemorrhage
+		431 Intracerebral hemorrhage
+			431 Intracerebral hemorrhage
+		432 Other and unspecified intracranial hemorrhage
+			432 Other and unspecified intracranial hemorrhage
+			432.0 Nontraumatic extradural hemorrhage
+			432.1 Subdural hemorrhage
+			432.9 Unspecified intracranial hemorrhage
+		433 Occlusion and stenosis of precerebral arteries
+			433 Occlusion and stenosis of precerebral arteries
+			433.0 Occlusion and stenosis of basilar artery
+			433.00 Occlusion and stenosis of basilar artery without mention of cerebral infarction
+			433.01 Occlusion and stenosis of basilar artery with cerebral infarction
+			433.1 Occlusion and stenosis of carotid artery
+			433.10 Occlusion and stenosis of carotid artery without mention of cerebral infarction
+			433.11 Occlusion and stenosis of carotid artery with cerebral infarction
+			433.2 Occlusion and stenosis of vertebral artery
+			433.20 Occlusion and stenosis of vertebral artery without mention of cerebral infarction
+			433.21 Occlusion and stenosis of vertebral artery with cerebral infarction
+			433.3 Occlusion and stenosis of multiple and bilateral precerebral arteries
+			433.30 Occlusion and stenosis of multiple and bilateral precerebral arteries without mention of cerebral infarction
+			433.31 Occlusion and stenosis of multiple and bilateral precerebral arteries with cerebral infarction
+			433.8 Occlusion and stenosis of other specified precerebral artery
+			433.80 Occlusion and stenosis of other specified precerebral artery without mention of cerebral infarction
+			433.81 Occlusion and stenosis of other specified precerebral artery with cerebral infarction
+			433.9 Occlusion and stenosis of unspecified precerebral artery
+			433.90 Occlusion and stenosis of unspecified precerebral artery without mention of cerebral infarction
+			433.91 Occlusion and stenosis of unspecified precerebral artery with cerebral infarction
+		434 Occlusion of cerebral arteries
+			434 Occlusion of cerebral arteries
+			434.0 Cerebral thrombosis
+			434.00 Cerebral thrombosis without mention of cerebral infarction
+			434.01 Cerebral thrombosis with cerebral infarction
+			434.1 Cerebral embolism
+			434.10 Cerebral embolism without mention of cerebral infarction
+			434.11 Cerebral embolism with cerebral infarction
+			434.9 Cerebral artery occlusion unspecified
+			434.90 Cerebral artery occlusion, unspecified without mention of cerebral infarction
+			434.91 Cerebral artery occlusion, unspecified with cerebral infarction
+		435 Transient cerebral ischemia
+			435 Transient cerebral ischemia
+			435.0 Basilar artery syndrome
+			435.1 Vertebral artery syndrome
+			435.2 Subclavian steal syndrome
+			435.3 Vertebrobasilar artery syndrome
+			435.8 Other specified transient cerebral ischemias
+			435.9 Unspecified transient cerebral ischemia
+		436 Acute, but ill-defined, cerebrovascular disease
+			436 Acute, but ill-defined, cerebrovascular disease
+		437 Other and ill-defined cerebrovascular disease
+			437 Other and ill-defined cerebrovascular disease
+			437.0 Cerebral atherosclerosis
+			437.1 Other generalized ischemic cerebrovascular disease
+			437.2 Hypertensive encephalopathy
+			437.3 Cerebral aneurysm, nonruptured
+			437.4 Cerebral arteritis
+			437.5 Moyamoya disease
+			437.6 Nonpyogenic thrombosis of intracranial venous sinus
+			437.7 Transient global amnesia
+			437.8 Other ill-defined cerebrovascular disease
+			437.9 Unspecified cerebrovascular disease
+		438 Late effects of cerebrovascular disease
+			438 Late effects of cerebrovascular disease
+			438.0 Late effects of cerebrovascular disease, cognitive deficits
+			438.1 Speech and language deficits
+			438.10 Late effects of cerebrovascular disease, speech and language deficit, unspecified
+			438.11 Late effects of cerebrovascular disease, aphasia
+			438.12 Late effects of cerebrovascular disease, dysphasia
+			438.13 Late effects of cerebrovascular disease, dysarthria
+			438.14 Late effects of cerebrovascular disease, fluency disorder
+			438.19 Late effects of cerebrovascular disease, other speech and language deficits
+			438.2 Hemiplegia/hemiparesis
+			438.20 Late effects of cerebrovascular disease, hemiplegia affecting unspecified side
+			438.21 Late effects of cerebrovascular disease, hemiplegia affecting dominant side
+			438.22 Late effects of cerebrovascular disease, hemiplegia affecting nondominant side
+			438.3 Monoplegia of upper limb
+			438.30 Late effects of cerebrovascular disease, monoplegia of upper limb affecting unspecified side
+			438.31 Late effects of cerebrovascular disease, monoplegia of upper limb affecting dominant side
+			438.32 Late effects of cerebrovascular disease, monoplegia of upper limb affecting nondominant side
+			438.4 Monoplegia of lower limb
+			438.40 Late effects of cerebrovascular disease, monoplegia of lower limb affecting unspecified side
+			438.41 Late effects of cerebrovascular disease, monoplegia of lower limb affecting dominant side
+			438.42 Late effects of cerebrovascular disease, monoplegia of lower limb affecting nondominant side
+			438.5 Other paralytic syndrome
+			438.50 Late effects of cerebrovascular disease, other paralytic syndrome affecting unspecified side
+			438.51 Late effects of cerebrovascular disease, other paralytic syndrome affecting dominant side
+			438.52 Late effects of cerebrovascular disease, other paralytic syndrome affecting nondominant side
+			438.53 Late effects of cerebrovascular disease, other paralytic syndrome, bilateral
+			438.6 Late effects of cerebrovascular disease, alterations of sensations
+			438.7 Late effects of cerebrovascular disease, disturbances of vision
+			438.8 Other late effects of cerebrovascular disease
+			438.81 Other late effects of cerebrovascular disease, apraxia
+			438.82 Other late effects of cerebrovascular disease, dysphagia
+			438.83 Other late effects of cerebrovascular disease, facial weakness
+			438.84 Other late effects of cerebrovascular disease, ataxia
+			438.85 Other late effects of cerebrovascular disease, vertigo
+			438.89 Other late effects of cerebrovascular disease
+			438.9 Unspecified late effects of cerebrovascular disease
+	440-449 Diseases Of Arteries, Arterioles, And Capillaries
+		440 Atherosclerosis
+			440 Atherosclerosis
+			440.0 Atherosclerosis of aorta
+			440.1 Atherosclerosis of renal artery
+			440.2 Atherosclerosis of native arteries of the extremities
+			440.20 Atherosclerosis of native arteries of the extremities, unspecified
+			440.21 Atherosclerosis of native arteries of the extremities with intermittent claudication
+			440.22 Atherosclerosis of native arteries of the extremities with rest pain
+			440.23 Atherosclerosis of native arteries of the extremities with ulceration
+			440.24 Atherosclerosis of native arteries of the extremities with gangrene
+			440.29 Other atherosclerosis of native arteries of the extremities
+			440.3 Atherosclerosis of bypass graft of the extremities
+			440.30 Atherosclerosis of unspecified bypass graft of the extremities
+			440.31 Atherosclerosis of autologous vein bypass graft of the extremities
+			440.32 Atherosclerosis of nonautologous biological bypass graft of the extremities
+			440.4 Chronic total occlusion of artery of the extremities
+			440.8 Atherosclerosis of other specified arteries
+			440.9 Generalized and unspecified atherosclerosis
+		441 Aortic aneurysm and dissection
+			441 Aortic aneurysm and dissection
+			441.0 Dissection of aorta
+			441.00 Dissection of aorta, unspecified site
+			441.01 Dissection of aorta, thoracic
+			441.02 Dissection of aorta, abdominal
+			441.03 Dissection of aorta, thoracoabdominal
+			441.1 Thoracic aneurysm, ruptured
+			441.2 Thoracic aneurysm without mention of rupture
+			441.3 Abdominal aneurysm, ruptured
+			441.4 Abdominal aneurysm without mention of rupture
+			441.5 Aortic aneurysm of unspecified site, ruptured
+			441.6 Thoracoabdominal aneurysm, ruptured
+			441.7 Thoracoabdominal aneurysm, without mention of rupture
+			441.9 Aortic aneurysm of unspecified site without mention of rupture
+		442 Other aneurysm
+			442 Other aneurysm
+			442.0 Aneurysm of artery of upper extremity
+			442.1 Aneurysm of renal artery
+			442.2 Aneurysm of iliac artery
+			442.3 Aneurysm of artery of lower extremity
+			442.8 Aneurysm of other specified artery
+			442.81 Aneurysm of artery of neck
+			442.82 Aneurysm of subclavian artery
+			442.83 Aneurysm of splenic artery
+			442.84 Aneurysm of other visceral artery
+			442.89 Aneurysm of other specified artery
+			442.9 Aneurysm of unspecified site
+		443 Other peripheral vascular disease
+			443 Other peripheral vascular disease
+			443.0 Raynaud's syndrome
+			443.1 Thromboangiitis obliterans [Buerger's disease]
+			443.2 Other arterial dissection
+			443.21 Dissection of carotid artery
+			443.22 Dissection of iliac artery
+			443.23 Dissection of renal artery
+			443.24 Dissection of vertebral artery
+			443.29 Dissection of other artery
+			443.8 Other specified peripheral vascular diseases
+			443.81 Peripheral angiopathy in diseases classified elsewhere
+			443.82 Erythromelalgia
+			443.89 Other specified peripheral vascular diseases
+			443.9 Peripheral vascular disease, unspecified
+		444 Arterial embolism and thrombosis
+			444 Arterial embolism and thrombosis
+			444.0 Embolism and thrombosis of abdominal aorta
+			444.01 Saddle embolus of abdominal aorta
+			444.09 Other arterial embolism and thrombosis of abdominal aorta
+			444.1 Embolism and thrombosis of thoracic aorta
+			444.2 Embolism and thrombosis of arteries of the extremities
+			444.21 Arterial embolism and thrombosis of upper extremity
+			444.22 Arterial embolism and thrombosis of lower extremity
+			444.8 Embolism and thrombosis of other specified artery
+			444.81 Embolism and thrombosis of iliac artery
+			444.89 Embolism and thrombosis of other specified artery
+			444.9 Embolism and thrombosis of unspecified artery
+		445 Atheroembolism
+			445 Atheroembolism
+			445.0 Atheroembolism of extremities
+			445.01 Atheroembolism of upper extremity
+			445.02 Atheroembolism of lower extremity
+			445.8 Atheroembolism of other sites
+			445.81 Atheroembolism of kidney
+			445.89 Atheroembolism of other site
+		446 Polyarteritis nodosa and allied conditions
+			446 Polyarteritis nodosa and allied conditions
+			446.0 Polyarteritis nodosa
+			446.1 Acute febrile mucocutaneous lymph node syndrome [MCLS]
+			446.2 Hypersensitivity angiitis
+			446.20 Hypersensitivity angiitis, unspecified
+			446.21 Goodpasture's syndrome
+			446.29 Other specified hypersensitivity angiitis
+			446.3 Lethal midline granuloma
+			446.4 Wegener's granulomatosis
+			446.5 Giant cell arteritis
+			446.6 Thrombotic microangiopathy
+			446.7 Takayasu's disease
+		447 Other disorders of arteries and arterioles
+			447 Other disorders of arteries and arterioles
+			447.0 Arteriovenous fistula, acquired
+			447.1 Stricture of artery
+			447.2 Rupture of artery
+			447.3 Hyperplasia of renal artery
+			447.4 Celiac artery compression syndrome
+			447.5 Necrosis of artery
+			447.6 Arteritis, unspecified
+			447.7 Aortic ectasia
+			447.70 Aortic ectasia, unspecified site
+			447.71 Thoracic aortic ectasia
+			447.72 Abdominal aortic ectasia
+			447.73 Thoracoabdominal aortic ectasia
+			447.8 Other specified disorders of arteries and arterioles
+			447.9 Unspecified disorders of arteries and arterioles
+		448 Disease of capillaries
+			448 Disease of capillaries
+			448.0 Hereditary hemorrhagic telangiectasia
+			448.1 Nevus, non-neoplastic
+			448.9 Other and unspecified capillary diseases
+		449 Septic arterial embolism
+			449 Septic arterial embolism
+	451-459 Diseases Of Veins And Lymphatics, And Other Diseases Of Circulatory System
+		451 Phlebitis and thrombophlebitis
+			451 Phlebitis and thrombophlebitis
+			451.0 Phlebitis and thrombophlebitis of superficial vessels of lower extremities
+			451.1 Phlebitis and thrombophlebitis of deep veins of lower extremities
+			451.11 Phlebitis and thrombophlebitis of femoral vein (deep) (superficial)
+			451.19 Phlebitis and thrombophlebitis of deep veins of lower extremities, other
+			451.2 Phlebitis and thrombophlebitis of lower extremities, unspecified
+			451.8 Phlebitis and thrombophlebitis of other sites
+			451.81 Phlebitis and thrombophlebitis of iliac vein
+			451.82 Phlebitis and thrombophlebitis of superficial veins of upper extremities
+			451.83 Phlebitis and thrombophlebitis of deep veins of upper extremities
+			451.84 Phlebitis and thrombophlebitis of upper extremities, unspecified
+			451.89 Phlebitis and thrombophlebitis of other sites
+			451.9 Phlebitis and thrombophlebitis of unspecified site
+		452 Portal vein thrombosis
+			452 Portal vein thrombosis
+		453 Other venous embolism and thrombosis
+			453 Other venous embolism and thrombosis
+			453.0 Budd-chiari syndrome
+			453.1 Thrombophlebitis migrans
+			453.2 Other venous embolism and thrombosis of inferior vena cava
+			453.3 Other venous embolism and thrombosis of renal vein
+			453.4 Acute venous embolism and thrombosis of deep vessels of lower extremity
+			453.40 Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity
+			453.41 Acute venous embolism and thrombosis of deep vessels of proximal lower extremity
+			453.42 Acute venous embolism and thrombosis of deep vessels of distal lower extremity
+			453.5 Chronic venous embolism and thrombosis of deep vessels of lower extremity
+			453.50 Chronic venous embolism and thrombosis of unspecified deep vessels of lower extremity
+			453.51 Chronic venous embolism and thrombosis of deep vessels of proximal lower extremity
+			453.52 Chronic venous embolism and thrombosis of deep vessels of distal lower extremity
+			453.6 Venous embolism and thrombosis of superficial vessels of lower extremity
+			453.7 Chronic venous embolism and thrombosis of other specified vessels
+			453.71 Chronic venous embolism and thrombosis of superficial veins of upper extremity
+			453.72 Chronic venous embolism and thrombosis of deep veins of upper extremity
+			453.73 Chronic venous embolism and thrombosis of upper extremity, unspecified
+			453.74 Chronic venous embolism and thrombosis of axillary veins
+			453.75 Chronic venous embolism and thrombosis of subclavian veins
+			453.76 Chronic venous embolism and thrombosis of internal jugular veins
+			453.77 Chronic venous embolism and thrombosis of other thoracic veins
+			453.79 Chronic venous embolism and thrombosis of other specified veins
+			453.8 Acute venous embolism and thrombosis of other specified veins
+			453.81 Acute venous embolism and thrombosis of superficial veins of upper extremity
+			453.82 Acute venous embolism and thrombosis of deep veins of upper extremity
+			453.83 Acute venous embolism and thrombosis of upper extremity, unspecified
+			453.84 Acute venous embolism and thrombosis of axillary veins
+			453.85 Acute venous embolism and thrombosis of subclavian veins
+			453.86 Acute venous embolism and thrombosis of internal jugular veins
+			453.87 Acute venous embolism and thrombosis of other thoracic veins
+			453.89 Acute venous embolism and thrombosis of other specified veins
+			453.9 Other venous embolism and thrombosis of unspecified site
+		454 Varicose veins of lower extremities
+			454 Varicose veins of lower extremities
+			454.0 Varicose veins of lower extremities with ulcer
+			454.1 Varicose veins of lower extremities with inflammation
+			454.2 Varicose veins of lower extremities with ulcer and inflammation
+			454.8 Varicose veins of lower extremities with other complications
+			454.9 Asymptomatic varicose veins
+		455 Hemorrhoids
+			455 Hemorrhoids
+			455.0 Internal hemorrhoids without mention of complication
+			455.1 Internal thrombosed hemorrhoids
+			455.2 Internal hemorrhoids with other complication
+			455.3 External hemorrhoids without mention of complication
+			455.4 External thrombosed hemorrhoids
+			455.5 External hemorrhoids with other complication
+			455.6 Unspecified hemorrhoids without mention of complication
+			455.7 Unspecified thrombosed hemorrhoids
+			455.8 Unspecified hemorrhoids with other complication
+			455.9 Residual hemorrhoidal skin tags
+		456 Varicose veins of other sites
+			456 Varicose veins of other sites
+			456.0 Esophageal varices with bleeding
+			456.1 Esophageal varices without mention of bleeding
+			456.2 Esophageal varices in diseases classified elsewhere
+			456.20 Esophageal varices in diseases classified elsewhere, with bleeding
+			456.21 Esophageal varices in diseases classified elsewhere, without mention of bleeding
+			456.3 Sublingual varices
+			456.4 Scrotal varices
+			456.5 Pelvic varices
+			456.6 Vulval varices
+			456.8 Varices of other sites
+		457 Noninfectious disorders of lymphatic channels
+			457 Noninfectious disorders of lymphatic channels
+			457.0 Postmastectomy lymphedema syndrome
+			457.1 Other lymphedema
+			457.2 Lymphangitis
+			457.8 Other noninfectious disorders of lymphatic channels
+			457.9 Unspecified noninfectious disorder of lymphatic channels
+		458 Hypotension
+			458 Hypotension
+			458.0 Orthostatic hypotension
+			458.1 Chronic hypotension
+			458.2 Iatrogenic hypotension
+			458.21 Hypotension of hemodialysis
+			458.29 Other iatrogenic hypotension
+			458.8 Other specified hypotension
+			458.9 Hypotension, unspecified
+		459 Other disorders of circulatory system
+			459 Other disorders of circulatory system
+			459.0 Hemorrhage, unspecified
+			459.1 Postphlebitic syndrome
+			459.10 Postphlebetic syndrome without complications
+			459.11 Postphlebetic syndrome with ulcer
+			459.12 Postphlebetic syndrome with inflammation
+			459.13 Postphlebetic syndrome with ulcer and inflammation
+			459.19 Postphlebetic syndrome with other complication
+			459.2 Compression of vein
+			459.3 Chronic venous hypertension (idiopathic)
+			459.30 Chronic venous hypertension without complications
+			459.31 Chronic venous hypertension with ulcer
+			459.32 Chronic venous hypertension with inflammation
+			459.33 Chronic venous hypertension with ulcer and inflammation
+			459.39 Chronic venous hypertension with other complication
+			459.8 Other specified disorders of circulatory system
+			459.81 Venous (peripheral) insufficiency, unspecified
+			459.89 Other specified disorders of circulatory system
+			459.9 Unspecified circulatory system disorder
