@@ -56,7 +56,7 @@ repos:
     rev: 1.4.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=0, -I]
+        args: [-vv, --fail-under=80, -I]
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
