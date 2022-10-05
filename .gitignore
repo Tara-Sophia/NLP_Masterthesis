@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# data
+data/en_ner_bionlp13cg_md-0.5.1/
