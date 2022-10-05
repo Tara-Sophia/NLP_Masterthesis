@@ -74,7 +74,10 @@ def get_model_metrics(reg_model, data):
 def main():
     # Load Data
     mtsamples_df = pd.read_csv("../data/raw/mtsamples.csv")
-
+    # build model 
+    # train model
+    # evaluate model
+    
     # General Data Cleaning
     mtsamples_df = mtsamples_df.dropna()
     mtsamples_df = mtsamples_df.drop_duplicates()
