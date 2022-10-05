@@ -5,9 +5,9 @@ repos:
     -   id: check-case-conflict
     -   id: check-json
     -   id: check-yaml
-    -   id: end-of-file-fixer
     -   id: trailing-whitespace
     -   id: mixed-line-ending
+    -   id: end-of-file-fixer
     -   id: detect-private-key
     -   id: check-merge-conflict
     -   id: check-symlinks
@@ -56,7 +56,7 @@ repos:
     rev: 1.4.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=80, -I]
+        args: [-vv, --fail-under=0, -I]
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
@@ -82,4 +82,3 @@ repos:
         types: [python]
         pass_filenames: false
         always_run: true
-        
