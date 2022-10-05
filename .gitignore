@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Data
+data/raw/
+!data/raw/icd9/
+data/interim/icd9/
