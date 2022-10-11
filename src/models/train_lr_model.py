@@ -28,8 +28,7 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import FeatureUnion
 
-
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import PCA
 from sklearn.decomposition import TruncatedSVD
 
@@ -46,66 +45,154 @@ from nltk.stem import WordNetLemmatizer
 from imblearn.over_sampling import SMOTE
 
 
-# Split the dataframe into test and train data
-def split_data(df):
-    X = tfIdfMat_reduced
-    y = labels
+# Retrieve labels as function
+def get_labels(df: pd.DataFrame) -> list:
+    """
+    Get labels from dataframe
 
+    Parameters
+    ----------
+    df : pd.DataFrame
+        dataframe with labels and NLP features
+
+    Returns
+    -------
+    list
+        list of all labels
+    """
+    return df["medical_specialty"].tolist()
+
+
+# Split the dataframe into test and train data
+def split_data(df: pd.DataFrame) -> dict:
+    """
+    Split the dataframe into test and train data
+
+        Parameters
+        ----------
+        df : pd.DataFrame
+            dataframe with labels and NLP features
+
+        Returns
+        -------
+        dict
+            dictionary with train and test data
+    """
+    X = df["transcription_f"].astype(str)
+    y = get_labels(df)
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=0
+        X, y, test_size=0.2, random_state=42
     )
-    data = {"train": {"X": X_train, "y": y_train}, "test": {"X": X_test, "y": y_test}}
+    data = {
+        "train": {"X": X_train, "y": y_train},
+        "test": {"X": X_test, "y": y_test},
+    }
     return data
 
 
-# Train the model, return the model
-def train_model(data, args):
-    lr_model = LogisticRegression(**args)
-    lr_model.fit(data["train"]["X"], data["train"]["y"])
-    return lr_model
+# Build pipeline
+def build_pipeline() -> Pipeline:
+    """
+    Build pipeline for model
+
+    """
+    model_pipeline = imbPipeline(
+        [
+            ("preprocessing", CountVectorizer()),
+            ("svd", TruncatedSVD(n_components=100)),
+            # ('pca', FunctionTransformer(pca)),
+            ("smote", SMOTE(random_state=42)),
+            (
+                "classifier",
+                LogisticRegression(random_state=42, multi_class="multinomial"),
+            ),  # remainder="passthrough"
+        ]
+    )
+    return model_pipeline
+
+
+# Grid search
+def grid_search(data: dict, model_pipeline: Pipeline, param_grid: list) -> GridSearchCV:
+    """
+    Grid search for best model
+
+    Parameters
+    ----------
+    data : dict
+        dictionary with train and test data
+    model_pipeline : Pipeline
+        pipeline for model
+    param_grid : list
+        list of parameters for grid search
+
+    Returns
+    -------
+    GridSearchCV
+        best model
+    """
+    search = GridSearchCV(model_pipeline, param_grid, cv=5)
+    search.fit(data["train"]["X"], data["train"]["y"])
+    return search.best_estimator_
 
 
 # Evaluate the metrics for the model
-def get_model_metrics(reg_model, data):
-    preds = lr_model.predict(data["test"]["X"])
-    report = classification_report(data["test"]["y"], preds, target_names=category_list)
+def get_model_metrics(best_model: GridSearchCV, data: dict) -> str:
+    """
+    get classification report for model
+
+    Parameters
+    ----------
+    best_model : GridSearchCV
+        best model
+    data : dict
+        dictionary with train and test data
+
+    Returns
+    -------
+    str
+        classification report
+    """
+    y_pred = best_model.predict(data["test"]["X"])
+    report = classification_report(
+        data["test"]["y"], y_pred, target_names=category_list
+    )
     return report
 
 
 def main():
-    # Load Data
-    mtsamples_df = pd.read_csv("../data/raw/mtsamples.csv")
-    # build model 
-    # train model
+    # Load data
+    df = df_test
+    category_list = df_test.medical_specialty.unique()
+
+    # Split data into train and test
+    data = split_data(df)
+
+    # build model
+    model_pipeline = build_pipeline()
+
+    # train model with grid search
+    param_grid = [
+        {
+            "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+            "classifier": [
+                LogisticRegression(multi_class="multinomial", random_state=42)
+            ],
+            "classifier__solver": ["saga", "lbfgs", "liblinear"],
+            "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
+        }
+    ]
+
+    best_model = grid_search(data, model_pipeline, param_grid)
+
     # evaluate model
-    
-    # General Data Cleaning
-    mtsamples_df = mtsamples_df.dropna()
-    mtsamples_df = mtsamples_df.drop_duplicates()
-    # Data Preprocessing
-    data_categories = mtsamples_df.groupby(mtsamples_df["medical_specialty"])
-    filtered_data_categories = data_categories.filter(lambda x: x.shape[0] > 100)
-    final_data_categories = filtered_data_categories.groupby(
-        filtered_data_categories["medical_specialty"]
-    )
-    data = filtered_data_categories[["transcription", "medical_specialty"]]
+    report = get_model_metrics(best_model, data)
+    print(report)
 
-    labels = data["medical_specialty"].tolist()
-
-    # Split Data into Training and Validation Sets
-    data = split_data(data)
-
-    # Train Model on Training Set
-    args = {random_state=42, penalty="l1", solver="saga", multi_class="multinomial", C=1}
-    reg = train_model(data, args)
-
-    # Validate Model on Validation Set
-    metrics = get_model_metrics(reg, data)
+    # Predict probabilties
 
     # Save Model
     model_name = "sklearn_logistic_regression_model.pkl"
-
-    joblib.dump(value=reg, filename=model_name)
+    joblib.dump(value=best_model, filename=model_name)
 
 
 if __name__ == "__main__":
