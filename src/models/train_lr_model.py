@@ -19,18 +19,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_validate
 from sklearn.model_selection import GridSearchCV
 
-from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline as skPipeline
+from imblearn.pipeline import Pipeline as imbPipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import FunctionTransformer
-from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import FeatureUnion
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
+from sklearn.decomposition import TruncatedSVD
 
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
