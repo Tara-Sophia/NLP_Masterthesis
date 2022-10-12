@@ -2,12 +2,14 @@
 
 """
 Description:
+    Training a logistic regression model for predicting probabilities of medical specialties
     
 Usage:
     
 Possible arguments:
     * 
 """
+from array import array
 import pandas as pd
 import numpy as np
 import string
@@ -64,7 +66,7 @@ def get_labels(df: pd.DataFrame) -> list:
 
 
 # Split the dataframe into test and train data
-def split_data(df: pd.DataFrame) -> dict:
+def split_data(df: pd.DataFrame) -> array:
     """
     Split the dataframe into test and train data
 
@@ -83,11 +85,8 @@ def split_data(df: pd.DataFrame) -> dict:
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
     )
-    data = {
-        "train": {"X": X_train, "y": y_train},
-        "test": {"X": X_test, "y": y_test},
-    }
-    return data
+
+    return X_train, X_test, y_train, y_test
 
 
 # Build pipeline
@@ -112,7 +111,9 @@ def build_pipeline() -> Pipeline:
 
 
 # Grid search
-def grid_search(data: dict, model_pipeline: Pipeline, param_grid: list) -> GridSearchCV:
+def grid_search(
+    X_train: array, y_train: array, model_pipeline: Pipeline, param_grid: list
+) -> GridSearchCV:
     """
     Grid search for best model
 
@@ -131,12 +132,14 @@ def grid_search(data: dict, model_pipeline: Pipeline, param_grid: list) -> GridS
         best model
     """
     search = GridSearchCV(model_pipeline, param_grid, cv=5)
-    search.fit(data["train"]["X"], data["train"]["y"])
+    search.fit(X_train, y_train)
     return search.best_estimator_
 
 
 # Evaluate the metrics for the model
-def get_model_metrics(best_model: GridSearchCV, data: dict) -> str:
+def get_model_metrics(
+    best_model: GridSearchCV, X_test: array, y_test: array, category_list: list
+) -> str:
     """
     get classification report for model
 
@@ -152,11 +155,34 @@ def get_model_metrics(best_model: GridSearchCV, data: dict) -> str:
     str
         classification report
     """
-    y_pred = best_model.predict(data["test"]["X"])
-    report = classification_report(
-        data["test"]["y"], y_pred, target_names=category_list
-    )
+    y_pred = best_model.predict(X_test)
+    report = classification_report(y_test, y_pred, target_names=category_list)
     return report
+
+
+def predict_proba(
+    best_model: GridSearchCV, X_test: array, z: int, category_list: list
+) -> pd.DataFrame:
+    """
+    get probabilities for sample in test data
+
+    Parameters
+    ----------
+    best_model : GridSearchCV
+        best model
+    data : dict
+        dictionary with train and test data
+
+    Returns
+    -------
+    pd.DataFrame
+        Probabilities for labels
+    """
+    prob_array = best_model.predict_proba(X_test)[z, :]
+    prob_df = pd.DataFrame(
+        prob_array, index=category_list, columns=["Probability"]
+    ).sort_values(by="Probability", ascending=False)
+    return prob_df
 
 
 def main():
@@ -165,7 +191,7 @@ def main():
     category_list = df_test.medical_specialty.unique()
 
     # Split data into train and test
-    data = split_data(df)
+    X_train, X_test, y_train, y_test = split_data(df)
 
     # build model
     model_pipeline = build_pipeline()
@@ -182,13 +208,15 @@ def main():
         }
     ]
 
-    best_model = grid_search(data, model_pipeline, param_grid)
+    best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
 
     # evaluate model
-    report = get_model_metrics(best_model, data)
+    report = get_model_metrics(best_model, X_test, y_test)
     print(report)
 
     # Predict probabilties
+    prob_df = predict_proba(best_model, X_test)
+    print(prob_df)
 
     # Save Model
     model_name = "sklearn_logistic_regression_model.pkl"
