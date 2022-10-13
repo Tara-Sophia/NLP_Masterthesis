@@ -92,8 +92,14 @@ def split_data(df: pd.DataFrame) -> array:
 
         Returns
         -------
-        dict
-            dictionary with train and test data
+        X_train : array
+            train data
+        X_test : array
+            test data
+        y_train : array
+            train labels
+        y_test : array
+            test labels
     """
     X = df["transcription_f"].astype(str)
     y = get_labels(df)
@@ -153,8 +159,10 @@ def grid_search(
 
     Parameters
     ----------
-    data : dict
-        dictionary with train and test data
+    X_train : array
+        train data
+    y_train : array
+        train labels
     model_pipeline : Pipeline
         pipeline for model
     param_grid : list
@@ -181,9 +189,10 @@ def get_model_metrics(
     ----------
     best_model : GridSearchCV
         best model
-    data : dict
-        dictionary with train and test data
-
+    X_test: array
+        test data
+    y_test: array
+        test labels
     Returns
     -------
     str
@@ -204,9 +213,8 @@ def predict_probability(
     ----------
     best_model : GridSearchCV
         best model
-    data : dict
-        dictionary with train and test data
-
+    X_test : array
+        test data
     Returns
     -------
     pd.DataFrame
@@ -233,7 +241,7 @@ def main():
     model_pipeline = fit_model(model_pipeline, X_train, y_train)
     print(model_pipeline)
 
-    # train model with grid search
+    # fit model with grid search
     # param_grid = [
     #     {
     #         "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
