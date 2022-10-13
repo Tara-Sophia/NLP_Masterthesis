@@ -46,6 +46,21 @@ from nltk.stem import WordNetLemmatizer
 
 from imblearn.over_sampling import SMOTE
 
+# load data
+
+
+def load_data(file_path: str) -> pd.DataFrame:
+    """
+    Load data from csv file
+
+    Returns
+    -------
+    pd.DataFrame
+        dataframe with labels and NLP features
+    """
+    df = pd.read_csv(file_path)
+    return df
+
 
 # Retrieve labels as function
 def get_labels(df: pd.DataFrame) -> list:
@@ -90,7 +105,7 @@ def split_data(df: pd.DataFrame) -> array:
 
 
 # Build pipeline
-def build_pipeline() -> Pipeline:
+def build_pipeline() -> imbPipeline:
     """
     Build pipeline for model
 
@@ -98,7 +113,7 @@ def build_pipeline() -> Pipeline:
     model_pipeline = imbPipeline(
         [
             ("preprocessing", CountVectorizer()),
-            ("svd", TruncatedSVD(n_components=100)),
+            # ("svd", TruncatedSVD(n_components=100)),
             # ('pca', FunctionTransformer(pca)),
             ("smote", SMOTE(random_state=42)),
             (
@@ -110,9 +125,28 @@ def build_pipeline() -> Pipeline:
     return model_pipeline
 
 
+# Fit model
+def fit_model(model: imbPipeline, X_train, y_train) -> imbPipeline:
+    """
+    Fit model
+
+    Parameters
+    ----------
+    model : Pipeline
+        pipeline for model
+
+    Returns
+    -------
+    Pipeline
+        fitted model
+    """
+    model.fit(X_train, y_train)
+    return model
+
+
 # Grid search
 def grid_search(
-    X_train: array, y_train: array, model_pipeline: Pipeline, param_grid: list
+    X_train: array, y_train: array, model_pipeline: imbPipeline, param_grid: list
 ) -> GridSearchCV:
     """
     Grid search for best model
@@ -160,7 +194,7 @@ def get_model_metrics(
     return report
 
 
-def predict_proba(
+def predict_probability(
     best_model: GridSearchCV, X_test: array, z: int, category_list: list
 ) -> pd.DataFrame:
     """
@@ -187,40 +221,43 @@ def predict_proba(
 
 def main():
     # Load data
-    df = df_test
-    category_list = df_test.medical_specialty.unique()
-
+    df = load_data("./data/processed/mtsamples_nlp.csv")
+    category_list = df.medical_specialty.unique()
     # Split data into train and test
     X_train, X_test, y_train, y_test = split_data(df)
 
     # build model
     model_pipeline = build_pipeline()
 
-    # train model with grid search
-    param_grid = [
-        {
-            "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
-            "classifier": [
-                LogisticRegression(multi_class="multinomial", random_state=42)
-            ],
-            "classifier__solver": ["saga", "lbfgs", "liblinear"],
-            "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
-        }
-    ]
+    # fit model
+    model_pipeline = fit_model(model_pipeline, X_train, y_train)
+    print(model_pipeline)
 
-    best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
+    # train model with grid search
+    # param_grid = [
+    #     {
+    #         "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+    #         "classifier": [
+    #             LogisticRegression(multi_class="multinomial", random_state=42)
+    #         ],
+    #         "classifier__solver": ["saga", "lbfgs", "liblinear"],
+    #         "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
+    #     }
+    # ]
+
+    # best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
 
     # evaluate model
-    report = get_model_metrics(best_model, X_test, y_test)
+    report = get_model_metrics(model_pipeline, X_test, y_test, category_list)
     print(report)
 
-    # Predict probabilties
-    prob_df = predict_proba(best_model, X_test)
+    # # Predict probabilties
+    prob_df = predict_probability(model_pipeline, X_test, 3, category_list)
     print(prob_df)
 
-    # Save Model
-    model_name = "sklearn_logistic_regression_model.pkl"
-    joblib.dump(value=best_model, filename=model_name)
+    # # Save Model
+    model_name = "./models/sklearn_logistic_regression_model.pkl"
+    joblib.dump(value=model_pipeline, filename=model_name)
 
 
 if __name__ == "__main__":
