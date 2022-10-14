@@ -39,7 +39,7 @@ def predict_probability(model: object, value: str, category_list: list) -> pd.Da
     pd.DataFrame
         Probabilities for labels
     """
-    value = np.array(value)
+    # value = np.array(value)
     prob_array = model.predict_proba(value)
     prob_df = pd.DataFrame(
         prob_array, index=category_list, columns=["Probability"]
