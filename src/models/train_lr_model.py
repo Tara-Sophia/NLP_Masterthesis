@@ -12,9 +12,6 @@ Possible arguments:
 from array import array
 import pandas as pd
 import numpy as np
-import string
-import re
-import nltk
 import joblib
 
 from sklearn.linear_model import LogisticRegression
@@ -22,27 +19,12 @@ from sklearn.model_selection import train_test_split, cross_validate
 from sklearn.model_selection import GridSearchCV
 
 from sklearn.pipeline import Pipeline
-from sklearn.pipeline import Pipeline as skPipeline
 from imblearn.pipeline import Pipeline as imbPipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import FunctionTransformer
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import FeatureUnion
 
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import PCA
-from sklearn.decomposition import TruncatedSVD
 
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
-from sklearn.metrics import roc_auc_score
-from sklearn.metrics import cohen_kappa_score
-from sklearn.manifold import TSNE
-
-from nltk.tokenize import word_tokenize
-from nltk.tokenize import sent_tokenize
-from nltk.stem import WordNetLemmatizer
 
 from imblearn.over_sampling import SMOTE
 
@@ -200,6 +182,8 @@ def get_model_metrics(
     """
     y_pred = best_model.predict(X_test)
     report = classification_report(y_test, y_pred, target_names=category_list)
+
+    y_preb_probs = best_model.predict_proba(X_test)
     return report
 
 
