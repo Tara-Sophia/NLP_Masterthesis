@@ -3,36 +3,46 @@
 # load_model()
 # predict_value()
 
-
+import imblearn
+import pickle
 import joblib
 import pandas as pd
 import numpy as np
 
 
-def load_model() -> object:
+def load_model(model_name: str) -> imblearn.pipeline.Pipeline:
     """
     Load model from disk
 
+    Parameters
+    ----------
+    model_name : str
+        path to saved model
+
     Returns
     -------
-    object
-        model
+    imblearn.pipeline.Pipeline
+        best model from train.py
     """
-    model_name = "./models/sklearn_logistic_regression_model.pkl"
     model = joblib.load(filename=model_name)
+    # model = pickle.load(open(model_name, 'rb'))
     return model
 
 
-def predict_probability(model: object, value: str, category_list: list) -> pd.DataFrame:
+def predict_probability(
+    model: imblearn.pipeline.Pipeline, value: str, category_list: list[str]
+) -> pd.DataFrame:
     """
     get probabilities for sample
 
     Parameters
     ----------
-    model : object
-        model
+    model : imblearn.pipeline.Pipeline
+        best model from train.py
     value : str
         sample
+    category_list: list[str]
+        list of unique labels
 
     Returns
     -------
@@ -49,8 +59,8 @@ def predict_probability(model: object, value: str, category_list: list) -> pd.Da
 
 def main():
     # Load model
+    model_name = "./models/sklearn_logistic_regression_model.pkl"
     model = load_model()
-    print(model)
     # Predict probability
     value = {"subglottic", "patient", "barium", "lateral", "cookie"}
     category_list = [
