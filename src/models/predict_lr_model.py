@@ -1,16 +1,23 @@
-# model neu laden und funktion, wo ein wert eingefügt wird
-# parameter model und ein wert
-# load_model()
-# predict_value()
+# -*- coding: utf-8 -*-
+
+"""
+Description:
+    Predicting medical labels from saved model 
+    
+Usage:
+    
+Possible arguments:
+    * 
+"""
 
 import imblearn
 import pickle
-import joblib
 import pandas as pd
 import numpy as np
+import os
 
 
-def load_model(model_name: str) -> imblearn.pipeline.Pipeline:
+def load_model(file_path: str) -> imblearn.pipeline.Pipeline:
     """
     Load model from disk
 
@@ -24,8 +31,7 @@ def load_model(model_name: str) -> imblearn.pipeline.Pipeline:
     imblearn.pipeline.Pipeline
         best model from train.py
     """
-    model = joblib.load(filename=model_name)
-    # model = pickle.load(open(model_name, 'rb'))
+    model = pickle.load(open(file_path, "rb"))
     return model
 
 
@@ -59,8 +65,9 @@ def predict_probability(
 
 def main():
     # Load model
-    model_name = "./models/sklearn_logistic_regression_model.pkl"
-    model = load_model()
+    file_path = os.path.join("models", "sklearn_logistic_regression_model.pkl")
+    model = load_model(file_path)
+
     # Predict probability
     value = {"subglottic", "patient", "barium", "lateral", "cookie"}
     category_list = [
@@ -76,8 +83,9 @@ def main():
         " Gastroenterology"
         " Consult - History and Phy."
     ]
-    prob_df = predict_probability(model, value, category_list)
-    print(prob_df)
+
+    # prob_df = predict_probability(model, value, category_list)
+    # print(prob_df)
 
 
 if __name__ == "__main__":
