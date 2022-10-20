@@ -13,6 +13,8 @@ from array import array
 import pandas as pd
 import numpy as np
 import joblib
+import pickle
+import imblearn
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_validate
@@ -27,6 +29,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 
 from imblearn.over_sampling import SMOTE
+from traitlets import List
 
 # load data
 
@@ -34,6 +37,11 @@ from imblearn.over_sampling import SMOTE
 def load_data(file_path: str) -> pd.DataFrame:
     """
     Load data from csv file
+
+    Parameters
+    ----------
+    file_path : str
+        File path to csv file
 
     Returns
     -------
@@ -44,10 +52,10 @@ def load_data(file_path: str) -> pd.DataFrame:
     return df
 
 
-# Retrieve labels as function
-def get_labels(df: pd.DataFrame) -> list:
+# Retrieve list of labels
+def get_labels(df: pd.DataFrame) -> list[str]:
     """
-    Get labels from dataframe
+    Get list of labels from dataframe
 
     Parameters
     ----------
@@ -63,7 +71,7 @@ def get_labels(df: pd.DataFrame) -> list:
 
 
 # Split the dataframe into test and train data
-def split_data(df: pd.DataFrame) -> array:
+def split_data(df: pd.DataFrame) -> tuple:
     """
     Split the dataframe into test and train data
 
@@ -74,13 +82,13 @@ def split_data(df: pd.DataFrame) -> array:
 
         Returns
         -------
-        X_train : array
+        X_train : pd.core.series.Serie
             train data
-        X_test : array
+        X_test : pd.core.series.Serie
             test data
-        y_train : array
+        y_train : list
             train labels
-        y_test : array
+        y_test : list
             test labels
     """
     X = df["transcription_f"].astype(str)
@@ -93,7 +101,7 @@ def split_data(df: pd.DataFrame) -> array:
 
 
 # Build pipeline
-def build_pipeline() -> imbPipeline:
+def build_pipeline() -> imblearn.pipeline.Pipeline:
     """
     Build pipeline for model
 
@@ -114,13 +122,15 @@ def build_pipeline() -> imbPipeline:
 
 
 # Fit model
-def fit_model(model: imbPipeline, X_train, y_train) -> imbPipeline:
+def fit_model(
+    model: imblearn.pipeline.Pipeline, X_train: pd.core.series.Series, y_train: list
+) -> imblearn.pipeline.Pipeline:
     """
     Fit model
 
     Parameters
     ----------
-    model : Pipeline
+    model : imblearn.pipeline.Pipeline
         pipeline for model
 
     Returns
@@ -134,25 +144,28 @@ def fit_model(model: imbPipeline, X_train, y_train) -> imbPipeline:
 
 # Grid search
 def grid_search(
-    X_train: array, y_train: array, model_pipeline: imbPipeline, param_grid: list
-) -> GridSearchCV:
+    X_train: pd.core.series.Series,
+    y_train: list,
+    model_pipeline: imblearn.pipeline.Pipeline,
+    param_grid: list,
+) -> imblearn.pipeline.Pipeline:
     """
     Grid search for best model
 
     Parameters
     ----------
-    X_train : array
+    X_train : pd.core.series.Series
         train data
-    y_train : array
+    y_train : list
         train labels
-    model_pipeline : Pipeline
+    model_pipeline : imblearn.pipeline.Pipeline
         pipeline for model
     param_grid : list
         list of parameters for grid search
 
     Returns
     -------
-    GridSearchCV
+    imblearn.pipeline.Pipeline
         best model
     """
     search = GridSearchCV(model_pipeline, param_grid, cv=5)
@@ -162,7 +175,10 @@ def grid_search(
 
 # Evaluate the metrics for the model
 def get_model_metrics(
-    best_model: GridSearchCV, X_test: array, y_test: array, category_list: list
+    best_model: imblearn.pipeline.Pipeline,
+    X_test: pd.core.series.Series,
+    y_test: list,
+    category_list: list,
 ) -> str:
     """
     get classification report for model
@@ -171,9 +187,9 @@ def get_model_metrics(
     ----------
     best_model : GridSearchCV
         best model
-    X_test: array
+    X_test: pd.core.series.Series
         test data
-    y_test: array
+    y_test: list
         test labels
     Returns
     -------
@@ -188,7 +204,10 @@ def get_model_metrics(
 
 
 def predict_probability(
-    best_model: GridSearchCV, X_test: array, z: int, category_list: list
+    best_model: imblearn.pipeline.Pipeline,
+    X_test: pd.core.series.Series,
+    z: int,
+    category_list: list,
 ) -> pd.DataFrame:
     """
     get probabilities for sample in test data
@@ -197,7 +216,7 @@ def predict_probability(
     ----------
     best_model : GridSearchCV
         best model
-    X_test : array
+    X_test : pd.core.series.Series
         test data
     Returns
     -------
@@ -221,35 +240,39 @@ def main():
     # build model
     model_pipeline = build_pipeline()
 
-    # fit model
-    model_pipeline = fit_model(model_pipeline, X_train, y_train)
-    print(model_pipeline)
+    # # fit model
+    # model_pipeline = fit_model(model_pipeline, X_train, y_train)
+    # print(model_pipeline)
 
     # fit model with grid search
-    # param_grid = [
-    #     {
-    #         "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
-    #         "classifier": [
-    #             LogisticRegression(multi_class="multinomial", random_state=42)
-    #         ],
-    #         "classifier__solver": ["saga", "lbfgs", "liblinear"],
-    #         "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
-    #     }
-    # ]
+    param_grid = [
+        {
+            "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+            "classifier": [
+                LogisticRegression(multi_class="multinomial", random_state=42)
+            ],
+            "classifier__solver": ["saga", "lbfgs", "liblinear"],
+            "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
+        }
+    ]
 
-    # best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
+    best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
 
     # evaluate model
-    report = get_model_metrics(model_pipeline, X_test, y_test, category_list)
+    report = get_model_metrics(best_model, X_test, y_test, category_list)
     print(report)
 
     # # Predict probabilties
-    prob_df = predict_probability(model_pipeline, X_test, 3, category_list)
+    prob_df = predict_probability(best_model, X_test, 3, category_list)
     print(prob_df)
 
     # # Save Model
-    model_name = "./models/sklearn_logistic_regression_model.pkl"
-    joblib.dump(value=model_pipeline, filename=model_name)
+    # model_name = "./models/sklearn_logistic_regression_model.pkl"
+    # joblib.dump(value=best_model, filename=model_name)
+
+    # save the model to disk
+    filename = "./models/sklearn_logistic_regression_model.pkl"
+    pickle.dump(best_model, open(filename, "wb"))
 
 
 if __name__ == "__main__":
