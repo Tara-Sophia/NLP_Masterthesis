@@ -130,3 +130,13 @@ dmypy.json
 
 # data
 data/en_ner_bionlp13cg_md-0.5.1/
+data/raw/
+!data/raw/icd9/
+data/interim/icd9/
+data/en_ner_bionlp13cg_md-0.5.1/
+notebooks/datasets/
+notebooks/datasets2/
+notebooks/dogs_and_cats_yamnet/
+notebooks/test.py
+notebooks/*.gz
+notebooks/*.zip
