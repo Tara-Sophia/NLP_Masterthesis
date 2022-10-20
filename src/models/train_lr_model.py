@@ -12,9 +12,9 @@ Possible arguments:
 from array import array
 import pandas as pd
 import numpy as np
-import joblib
 import pickle
 import imblearn
+import os
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_validate
@@ -178,7 +178,7 @@ def get_model_metrics(
     best_model: imblearn.pipeline.Pipeline,
     X_test: pd.core.series.Series,
     y_test: list,
-    category_list: list,
+    category_list: list[str],
 ) -> str:
     """
     get classification report for model
@@ -207,7 +207,7 @@ def predict_probability(
     best_model: imblearn.pipeline.Pipeline,
     X_test: pd.core.series.Series,
     z: int,
-    category_list: list,
+    category_list: list[str],
 ) -> pd.DataFrame:
     """
     get probabilities for sample in test data
@@ -232,15 +232,17 @@ def predict_probability(
 
 def main():
     # Load data
-    df = load_data("./data/processed/mtsamples_nlp.csv")
+    file_path = os.path.join("data", "processed", "mtsamples_nlp.csv")
+    df = load_data(file_path)
     category_list = df.medical_specialty.unique()
+
     # Split data into train and test
     X_train, X_test, y_train, y_test = split_data(df)
 
     # build model
     model_pipeline = build_pipeline()
 
-    # # fit model
+    # fit model (without grid search)
     # model_pipeline = fit_model(model_pipeline, X_train, y_train)
     # print(model_pipeline)
 
@@ -262,15 +264,11 @@ def main():
     report = get_model_metrics(best_model, X_test, y_test, category_list)
     print(report)
 
-    # # Predict probabilties
+    # Predict probabilties (delete later when working in predict script
     prob_df = predict_probability(best_model, X_test, 3, category_list)
     print(prob_df)
 
-    # # Save Model
-    # model_name = "./models/sklearn_logistic_regression_model.pkl"
-    # joblib.dump(value=best_model, filename=model_name)
-
-    # save the model to disk
+    # Save Model
     filename = "./models/sklearn_logistic_regression_model.pkl"
     pickle.dump(best_model, open(filename, "wb"))
 
