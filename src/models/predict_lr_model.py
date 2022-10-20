@@ -55,7 +55,7 @@ def predict_probability(
     pd.DataFrame
         Probabilities for labels
     """
-    # value = np.array(value)
+    value = value.astype(str)
     prob_array = model.predict_proba(value)
     prob_df = pd.DataFrame(
         prob_array, index=category_list, columns=["Probability"]
@@ -69,6 +69,7 @@ def main():
     model = load_model(file_path)
 
     # Predict probability
+    # value = [["subglottic"], ["patient"]]
     value = {"subglottic", "patient", "barium", "lateral", "cookie"}
     category_list = [
         " Cardiovascular / Pulmonary"
@@ -84,8 +85,8 @@ def main():
         " Consult - History and Phy."
     ]
 
-    # prob_df = predict_probability(model, value, category_list)
-    # print(prob_df)
+    prob_df = predict_probability(model, value, category_list)
+    print(prob_df)
 
 
 if __name__ == "__main__":
