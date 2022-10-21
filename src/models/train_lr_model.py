@@ -49,6 +49,7 @@ def load_data(file_path: str) -> pd.DataFrame:
         dataframe with labels and NLP features
     """
     df = pd.read_csv(file_path)
+    df["transcription_f"] = df["transcription_f"].apply(eval)
     return df
 
 
@@ -91,7 +92,8 @@ def split_data(df: pd.DataFrame) -> tuple:
         y_test : list
             test labels
     """
-    X = df["transcription_f"].astype(str)
+    df["transcription_f"] = df["transcription_f"].apply(lambda x: " ".join(map(str, x)))
+    X = df["transcription_f"]
     y = get_labels(df)
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
@@ -203,33 +205,6 @@ def get_model_metrics(
     return report
 
 
-def predict_probability(
-    best_model: imblearn.pipeline.Pipeline,
-    X_test: pd.core.series.Series,
-    z: int,
-    category_list: list[str],
-) -> pd.DataFrame:
-    """
-    get probabilities for sample in test data
-
-    Parameters
-    ----------
-    best_model : GridSearchCV
-        best model
-    X_test : pd.core.series.Series
-        test data
-    Returns
-    -------
-    pd.DataFrame
-        Probabilities for labels
-    """
-    prob_array = best_model.predict_proba(X_test)[z, :]
-    prob_df = pd.DataFrame(
-        prob_array, index=category_list, columns=["Probability"]
-    ).sort_values(by="Probability", ascending=False)
-    return prob_df
-
-
 def main():
     # Load data
     file_path = os.path.join("data", "processed", "mtsamples_nlp.csv")
@@ -244,7 +219,6 @@ def main():
 
     # fit model (without grid search)
     # model_pipeline = fit_model(model_pipeline, X_train, y_train)
-    # print(model_pipeline)
 
     # fit model with grid search
     param_grid = [
@@ -263,10 +237,6 @@ def main():
     # evaluate model
     report = get_model_metrics(best_model, X_test, y_test, category_list)
     print(report)
-
-    # Predict probabilties (delete later when working in predict script
-    prob_df = predict_probability(best_model, X_test, 3, category_list)
-    print(prob_df)
 
     # Save Model
     filename = "./models/sklearn_logistic_regression_model.pkl"
