@@ -2,7 +2,7 @@
 
 """
 Description:
-    Predicting medical labels from saved model 
+    Predicting probability for medical labels from saved model 
     
 Usage:
     
@@ -15,6 +15,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import os
+from sklearn.feature_extraction.text import CountVectorizer
 
 
 def load_model(file_path: str) -> imblearn.pipeline.Pipeline:
@@ -35,9 +36,7 @@ def load_model(file_path: str) -> imblearn.pipeline.Pipeline:
     return model
 
 
-def predict_probability(
-    model: imblearn.pipeline.Pipeline, value: str, category_list: list[str]
-) -> pd.DataFrame:
+def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.DataFrame:
     """
     get probabilities for sample
 
@@ -55,11 +54,13 @@ def predict_probability(
     pd.DataFrame
         Probabilities for labels
     """
-    value = value.astype(str)
+
     prob_array = model.predict_proba(value)
-    prob_df = pd.DataFrame(
-        prob_array, index=category_list, columns=["Probability"]
-    ).sort_values(by="Probability", ascending=False)
+    prob_df = (
+        pd.DataFrame(prob_array, index=["Probability"], columns=model.classes_)
+        .transpose()
+        .sort_values(by="Probability", ascending=False)
+    )
     return prob_df
 
 
@@ -69,24 +70,9 @@ def main():
     model = load_model(file_path)
 
     # Predict probability
-    # value = [["subglottic"], ["patient"]]
-    value = {"subglottic", "patient", "barium", "lateral", "cookie"}
-    category_list = [
-        " Cardiovascular / Pulmonary"
-        " Urology"
-        " General Medicine"
-        " Surgery"
-        " SOAP / Chart / Progress Notes"
-        " Radiology"
-        " Orthopedic"
-        " Obstetrics / Gynecology"
-        " Neurology"
-        " Gastroenterology"
-        " Consult - History and Phy."
-    ]
-
-    prob_df = predict_probability(model, value, category_list)
-    print(prob_df)
+    to_pred = "subglottic patient barium lateral cookie"
+    res_df = predict_probability(model, [to_pred])
+    print(res_df)
 
 
 if __name__ == "__main__":
