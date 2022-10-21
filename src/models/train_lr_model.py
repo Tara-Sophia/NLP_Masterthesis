@@ -172,6 +172,7 @@ def grid_search(
     """
     search = GridSearchCV(model_pipeline, param_grid, cv=5)
     search.fit(X_train, y_train)
+    print("Best parameters:", search.best_params_)
     return search.best_estimator_
 
 
@@ -220,15 +221,16 @@ def main():
     # fit model (without grid search)
     # model_pipeline = fit_model(model_pipeline, X_train, y_train)
 
-    # fit model with grid search
+    # fit model with grid search (for sake of time, grid search only has few parameters)
     param_grid = [
         {
-            "classifier__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+            "classifier__C": [0.01, 0.1, 1, 10],
             "classifier": [
-                LogisticRegression(multi_class="multinomial", random_state=42)
+                LogisticRegression(
+                    multi_class="multinomial", random_state=42, solver="saga"
+                )
             ],
-            "classifier__solver": ["saga", "lbfgs", "liblinear"],
-            "classifier__penalty": ["none", "l1", "l2", "elasticnet"],
+            "classifier__penalty": ["l1", "l2", "elasticnet"],
         }
     ]
 

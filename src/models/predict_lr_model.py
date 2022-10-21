@@ -70,7 +70,7 @@ def main():
     model = load_model(file_path)
 
     # Predict probability
-    to_pred = "subglottic patient barium lateral cookie"
+    to_pred = "coronary nitroglycerin muscle heart breast oxygen valve artery"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
