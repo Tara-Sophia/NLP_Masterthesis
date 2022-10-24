@@ -64,6 +64,16 @@ def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.Dat
     return prob_df
 
 
+def top_symptoms(model: imblearn.pipeline.Pipeline) -> pd.Series:
+    coef = model.named_steps["classifier"].coef_
+    vectorizer = model.named_steps["preprocessing"]
+    feat = vectorizer.get_feature_names()
+    coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
+    coef_df = coef_df.abs()
+    top_symptoms = coef_df.apply(lambda x: x.nlargest(5).index.tolist(), axis=1)
+    return top_symptoms
+
+
 def main():
     # Load model
     file_path = os.path.join("models", "sklearn_logistic_regression_model.pkl")
@@ -73,6 +83,10 @@ def main():
     to_pred = "coronary nitroglycerin muscle heart breast oxygen valve artery"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
+
+    # Get top symptoms
+    top_symptoms_df = top_symptoms(model)
+    print(top_symptoms_df)
 
 
 if __name__ == "__main__":
