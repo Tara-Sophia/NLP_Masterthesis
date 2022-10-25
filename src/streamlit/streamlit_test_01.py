@@ -48,6 +48,12 @@ with tab3:
     prob2 = prediction["Probability"][1]
     prob3 = prediction["Probability"][2]
 
+    # find the value of top_symptoms(model) where index is prediction.index[0]
+    top_symptoms = top_symptoms(model)
+    top_symptoms_1 = top_symptoms[prediction.index[0]]
+    top_symptoms_2 = top_symptoms[prediction.index[1]]
+    top_symptoms_3 = top_symptoms[prediction.index[2]]
+
     st.subheader(
         "Based on our algorithm you should consider contacting these departments"
     )
@@ -56,21 +62,21 @@ with tab3:
         st.write("Decision was based on these symptoms from your description:")
         st.write("coming soon")
         st.write("Most relevant symptoms for this department in general:")
-        st.write("coming soon")
+        st.write(top_symptoms_1)
 
     with st.expander(prediction.index[1]):
         st.metric(label="Percentage of probability", value="{:.0%}".format(prob2))
         st.write("Decision was based on these symptoms from your description:")
         st.write("coming soon")
         st.write("Most relevant symptoms for this department in general:")
-        st.write("coming soon")
+        st.write(top_symptoms_2)
 
     with st.expander(prediction.index[2]):
         st.metric(label="Percentage of probability", value="{:.0%}".format(prob3))
         st.write("Decision was based on these symptoms from your description:")
         st.write("coming soon")
         st.write("Most relevant symptoms for this department in general:")
-        st.write("coming soon")
+        st.write(top_symptoms_3)
 
 with tab4:
     prediction = predict_probability(model, [transcription])
