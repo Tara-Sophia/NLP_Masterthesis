@@ -21,7 +21,8 @@ from constants import (
     PROCESSOR_PATH,
     MODEL,
     DATA_PATH_DATASETS,
-    NUM_EPOCHS
+    NUM_EPOCHS,
+    MODEL_DIR
 )
 from evaluate import load
 
@@ -216,12 +217,7 @@ def main():
 
     trainer.train()
     
-    print("NOW running predictions")
-    
-    predictions, label_ids, metrics =trainer.predict(test_ds)
-    print("predictions", predictions)
-    print("label_ids", label_ids)
-    print("metrics", metrics)
+    trainer.save_model(MODEL_DIR)
 
 
 if __name__ == "__main__":
