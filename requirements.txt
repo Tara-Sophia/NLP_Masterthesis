@@ -1,0 +1,6 @@
+librosa
+transformers==4.23.1
+evaluate
+jiwer
+wandb
+pre-commit
