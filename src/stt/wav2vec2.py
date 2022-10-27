@@ -7,7 +7,7 @@ from transformers import (
     Wav2Vec2Processor,
     AutoModelForCTC,
     TrainingArguments,
-    Trainer
+    Trainer,
 )
 
 from transform_speech_data import load_processor
@@ -18,11 +18,10 @@ from typing import Dict, List, Optional, Union
 
 from constants import (
     BATCH_SIZE,
-    PROCESSOR_PATH,
     MODEL,
     DATA_PATH_DATASETS,
     NUM_EPOCHS,
-    MODEL_DIR
+    MODEL_DIR,
 )
 from evaluate import load
 
@@ -105,10 +104,9 @@ def load_datasets(data_path):
 
 def compute_metrics(pred):
 
-
-    processor = load_processor(PROCESSOR_PATH)
+    processor = load_processor(MODEL_DIR)
     wer_metric = load("wer")
-    
+
     pred_logits = pred.predictions
     pred_ids = np.argmax(pred_logits, axis=-1)
 
@@ -171,9 +169,10 @@ def load_training_args(output_dir):
         learning_rate=1e-4,
         weight_decay=0.005,
         warmup_steps=1000,
-        save_total_limit=2,
+        save_total_limit=3,
         load_best_model_at_end=True,
-        report_to="wandb")       
+        report_to="wandb",
+    )
     return training_args
 
 
@@ -195,7 +194,7 @@ def load_trainer(
 def main():
     train_ds, val_ds, test_ds = load_datasets(DATA_PATH_DATASETS)
 
-    processor = load_processor(PROCESSOR_PATH)
+    processor = load_processor(MODEL_DIR)
 
     data_collator = DataCollatorCTCWithPadding(
         processor=processor, padding=True
@@ -212,11 +211,11 @@ def main():
         training_args,
         train_ds,
         val_ds,
-        processor
+        processor,
     )
 
-    trainer.train()
-    
+    trainer.train(resume_from_checkpoint = True)
+
     trainer.save_model(MODEL_DIR)
 
 

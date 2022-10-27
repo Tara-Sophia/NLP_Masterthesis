@@ -19,9 +19,9 @@ from constants import (
     SAMPLING_RATE,
     CHARS_TO_IGNORE_REGEX,
     MODEL,
-    PROCESSOR_PATH,
+    MODEL_DIR,
     DATA_PATH_WAV,
-    NUM_EPOCHS
+    NUM_EPOCHS,
 )
 
 
@@ -140,7 +140,7 @@ def load_processor(processor_path):
 
 
 def resample_data(train_ds, val_ds, test_ds):
-    processor = load_processor(PROCESSOR_PATH)
+    processor = load_processor(MODEL_DIR)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
@@ -189,33 +189,32 @@ def save_datasets(train_ds, val_ds, test_ds):
 
 def main():
 
-#     train_ds = Dataset.from_pandas(
-#         pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
-#     )
-#     val_ds = Dataset.from_pandas(
-#         pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
-#     )
-#     test_ds = Dataset.from_pandas(
-#         pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
-#     )
+        train_ds = Dataset.from_pandas(
+            pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
+        )
+        val_ds = Dataset.from_pandas(
+            pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
+        )
+        test_ds = Dataset.from_pandas(
+            pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
+        )
 
-#     train_ds, val_ds, test_ds = preprocess_data(
-#         train_ds, val_ds, test_ds
-#     )
+        train_ds, val_ds, test_ds = preprocess_data(
+            train_ds, val_ds, test_ds
+        )
 
-#     create_vocab(
-#         folder_path=PROCESSOR_PATH,
-#         train_ds=train_ds,
-#         val_ds=val_ds,
-#         test_ds=test_ds,
-#     )
+        create_vocab(
+            folder_path=MODEL_DIR,
+            train_ds=train_ds,
+            val_ds=val_ds,
+            test_ds=test_ds,
+        )
 
-#     train_ds, val_ds, test_ds = resample_data(
-#         train_ds, val_ds, test_ds
-#     )
+        train_ds, val_ds, test_ds = resample_data(
+            train_ds, val_ds, test_ds
+        )
 
-#     save_datasets(train_ds, val_ds, test_ds)
-    print(NUM_EPOCHS)
+        save_datasets(train_ds, val_ds, test_ds)
 
 
 if __name__ == "__main__":
