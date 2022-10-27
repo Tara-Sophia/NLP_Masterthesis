@@ -217,6 +217,7 @@ def main():
     trainer.train(resume_from_checkpoint = True)
 
     trainer.save_model(MODEL_DIR)
+    processor.save_pretrained(MODEL_DIR)
 
 
 if __name__ == "__main__":
