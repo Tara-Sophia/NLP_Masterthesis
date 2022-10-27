@@ -21,6 +21,7 @@ from constants import (
     MODEL,
     PROCESSOR_PATH,
     DATA_PATH_WAV,
+    NUM_EPOCHS
 )
 
 
@@ -188,32 +189,33 @@ def save_datasets(train_ds, val_ds, test_ds):
 
 def main():
 
-    train_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
-    )
-    val_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
-    )
-    test_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
-    )
+#     train_ds = Dataset.from_pandas(
+#         pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
+#     )
+#     val_ds = Dataset.from_pandas(
+#         pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
+#     )
+#     test_ds = Dataset.from_pandas(
+#         pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
+#     )
 
-    train_ds, val_ds, test_ds = preprocess_data(
-        train_ds, val_ds, test_ds
-    )
+#     train_ds, val_ds, test_ds = preprocess_data(
+#         train_ds, val_ds, test_ds
+#     )
 
-    create_vocab(
-        folder_path=PROCESSOR_PATH,
-        train_ds=train_ds,
-        val_ds=val_ds,
-        test_ds=test_ds,
-    )
+#     create_vocab(
+#         folder_path=PROCESSOR_PATH,
+#         train_ds=train_ds,
+#         val_ds=val_ds,
+#         test_ds=test_ds,
+#     )
 
-    train_ds, val_ds, test_ds = resample_data(
-        train_ds, val_ds, test_ds
-    )
+#     train_ds, val_ds, test_ds = resample_data(
+#         train_ds, val_ds, test_ds
+#     )
 
-    save_datasets(train_ds, val_ds, test_ds)
+#     save_datasets(train_ds, val_ds, test_ds)
+    print(NUM_EPOCHS)
 
 
 if __name__ == "__main__":

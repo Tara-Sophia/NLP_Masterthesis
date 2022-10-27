@@ -12,3 +12,6 @@ PROCESSOR_PATH = os.path.join("models", "stt", "wav2vec2", "vocab")
 CHARS_TO_IGNORE_REGEX = '[\,\?\.\!\-\;\:"\“\%\‘\”\�]'
 
 SAMPLING_RATE = 16000
+
+# Model training
+NUM_EPOCHS = 1

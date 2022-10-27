@@ -21,6 +21,7 @@ from constants import (
     PROCESSOR_PATH,
     MODEL,
     DATA_PATH_DATASETS,
+    NUM_EPOCHS
 )
 from evaluate import load
 
@@ -160,7 +161,7 @@ def load_training_args(output_dir):
         per_device_train_batch_size=BATCH_SIZE,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
-        num_train_epochs=1,
+        num_train_epochs=NUM_EPOCHS,
         gradient_checkpointing=True,
         fp16=True,
         save_steps=100,
@@ -214,6 +215,13 @@ def main():
     )
 
     trainer.train()
+    
+    print("NOW running predictions")
+    
+    predictions, label_ids, metrics =trainer.predict(test_ds)
+    print("predictions", predictions)
+    print("label_ids", label_ids)
+    print("metrics", metrics)
 
 
 if __name__ == "__main__":
