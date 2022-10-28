@@ -1,32 +1,26 @@
 # -*- coding: utf-8 -*-
 import os
-from datasets import (
-    load_from_disk,
-)
-from transformers import (
-    Wav2Vec2Processor,
-    AutoModelForCTC,
-    TrainingArguments,
-    Trainer,
-)
-
-from transform_speech_data import load_processor
-
-import torch
-
 from typing import Dict, List, Optional, Union
 
+import numpy as np
+import torch
 from constants import (
     BATCH_SIZE,
-    MODEL,
     DATA_PATH_DATASETS,
-    NUM_EPOCHS,
+    MODEL,
     MODEL_DIR,
+    NUM_EPOCHS,
 )
+from datasets import load_from_disk
+from decorators import log_function_name
 from evaluate import load
-
-
-import numpy as np
+from transform_speech_data import load_processor
+from transformers import (
+    AutoModelForCTC,
+    Trainer,
+    TrainingArguments,
+    Wav2Vec2Processor,
+)
 
 import wandb
 
@@ -218,10 +212,9 @@ def main():
         processor,
     )
 
-    trainer.train(resume_from_checkpoint=True)
+    trainer.train()  # resume_from_checkpoint=True
 
     trainer.save_model(MODEL_DIR)
-    processor.save_pretrained(MODEL_DIR)
     trainer.save_state()
 
 

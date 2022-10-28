@@ -1,19 +1,19 @@
-from transformers import Wav2Vec2ForCTC, AutoProcessor
-from datasets import load_from_disk
-from wav2vec2 import get_device
-from constants import DATA_PATH_DATASETS, MODEL_DIR
-import pandas as pd
-
-
-import torch
+# -*- coding: utf-8 -*-
 import os
 import random
 
+import pandas as pd
+import torch
+from constants import DATA_PATH_DATASETS, MODEL_DIR
+from datasets import load_from_disk
+from decorators import log_function_name
 from evaluate import load
+from transformers import AutoProcessor, Wav2Vec2ForCTC
+from wav2vec2 import get_device
 
 
+@log_function_name
 def map_to_result(batch, model, processor):
-    print(batch)
     with torch.no_grad():
         input_values = torch.tensor(
             batch["input_values"], device="cuda"
@@ -29,6 +29,7 @@ def map_to_result(batch, model, processor):
     return batch
 
 
+@log_function_name
 def show_random_elements(dataset, num_examples=10):
     assert num_examples <= len(
         dataset
@@ -44,6 +45,7 @@ def show_random_elements(dataset, num_examples=10):
     print(df)
 
 
+@log_function_name
 def showcase_test(model, test_ds, processor):
     # Show the actual transcription as well
     # Make it random
@@ -63,11 +65,13 @@ def showcase_test(model, test_ds, processor):
     print(converted_tokens)
 
 
+@log_function_name
 def load_test_data(data_path):
     test_ds = load_from_disk(os.path.join(data_path, "val"))
     return test_ds
 
 
+@log_function_name
 def load_model_and_processor(device):
     model = Wav2Vec2ForCTC.from_pretrained(MODEL_DIR)
     processor = AutoProcessor.from_pretrained(MODEL_DIR)
@@ -75,6 +79,7 @@ def load_model_and_processor(device):
     return model, processor
 
 
+@log_function_name
 def main():
     test_ds = load_test_data(DATA_PATH_DATASETS)
     test_ds = test_ds.select(range(10))
@@ -105,5 +110,4 @@ def main():
 
 
 if __name__ == "__main__":
-    print("running main")
     main()
