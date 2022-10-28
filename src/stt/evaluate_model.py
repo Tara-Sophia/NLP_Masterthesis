@@ -1,7 +1,6 @@
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 from datasets import load_from_disk
 from wav2vec2 import get_device
-from transform_speech_data import load_processor
 from constants import DATA_PATH_DATASETS, MODEL_DIR
 import pandas as pd
 
@@ -14,6 +13,7 @@ from evaluate import load
 
 
 def map_to_result(batch, model, processor):
+    print(batch)
     with torch.no_grad():
         input_values = torch.tensor(
             batch["input_values"], device="cuda"
