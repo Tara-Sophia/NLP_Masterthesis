@@ -1,31 +1,30 @@
-from multiprocessing import ProcessError
-import pandas as pd
-from datasets import (
-    Audio,
-    Dataset,
-)
+# -*- coding: utf-8 -*-
+import json
 import os
+import re
 import shutil
+from multiprocessing import ProcessError
+
 import numpy as np
+import pandas as pd
+from constants import (
+    CHARS_TO_IGNORE_REGEX,
+    DATA_PATH_WAV,
+    MODEL_DIR,
+    SAMPLING_RATE,
+    VOCAB_PATH,
+)
+from datasets import Audio, Dataset
+from decorators import log_function_name
 from transformers import (
-    Wav2Vec2FeatureExtractor,
     Wav2Vec2CTCTokenizer,
+    Wav2Vec2FeatureExtractor,
     Wav2Vec2Processor,
 )
 from unidecode import unidecode
-import re
-import json
-
-from constants import (
-    SAMPLING_RATE,
-    CHARS_TO_IGNORE_REGEX,
-    MODEL,
-    VOCAB_PATH,
-    DATA_PATH_WAV,
-    MODEL_DIR,
-)
 
 
+@log_function_name
 def remove_special_characters(batch, train=True):
     batch["sentence"] = (
         re.sub(
@@ -40,6 +39,7 @@ def remove_special_characters(batch, train=True):
     return batch
 
 
+@log_function_name
 def transform_dataset(batch, processor):
     audio = batch["audio"]
     # batched output is "un-batched"
@@ -51,6 +51,7 @@ def transform_dataset(batch, processor):
     return audio
 
 
+@log_function_name
 def create_vocab(folder_path, train_ds, val_ds, test_ds):
     def extract_all_chars(batch):
         all_text = " ".join(batch["sentence"])
@@ -100,6 +101,7 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
         json.dump(vocab_dict, vocab_file)
 
 
+@log_function_name
 def preprocess_data(custom_train, custom_val, custom_test):
     custom_train = custom_train.cast_column(
         "audio", Audio(sampling_rate=SAMPLING_RATE)
@@ -122,6 +124,7 @@ def preprocess_data(custom_train, custom_val, custom_test):
     return custom_train, custom_val, custom_test
 
 
+@log_function_name
 def load_processor(processor_path):
 
     tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
@@ -146,36 +149,39 @@ def load_processor(processor_path):
     return processor
 
 
+@log_function_name
 def resample_data(train_ds, val_ds, test_ds):
     processor = load_processor(VOCAB_PATH)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=7,
+        num_proc=1,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=7,
+        num_proc=1,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=7,
+        num_proc=1,
     )
 
     return train_ds, val_ds, test_ds, processor
 
 
+@log_function_name
 def recreate_folder(folder_path):
     if os.path.exists(folder_path) and os.path.isdir(folder_path):
         shutil.rmtree(folder_path)
     os.makedirs(folder_path, exist_ok=True)
 
 
+@log_function_name
 def save_datasets(train_ds, val_ds, test_ds):
     train_processed_dir = os.path.join(
         "data", "interim", "stt", "train"
