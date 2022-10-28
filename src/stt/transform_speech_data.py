@@ -23,8 +23,8 @@ from constants import (
     MODEL,
     VOCAB_PATH,
     DATA_PATH_WAV,
+    MODEL_DIR,
 )
-from src.stt.constants import MODEL_DIR
 
 
 def remove_special_characters(batch, train=True):
