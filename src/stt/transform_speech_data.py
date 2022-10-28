@@ -8,9 +8,8 @@ import os
 import shutil
 import numpy as np
 from transformers import (
-    AutoFeatureExtractor,
-    AutoConfig,
-    AutoTokenizer,
+    Wav2Vec2FeatureExtractor,
+    Wav2Vec2CTCTokenizer,
     Wav2Vec2Processor,
 )
 from unidecode import unidecode
@@ -124,23 +123,21 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
 
 def load_processor(processor_path):
-    config = AutoConfig.from_pretrained(MODEL)
 
-    tokenizer_type = (
-        config.model_type if config.tokenizer_class is None else None
-    )
-    config = config if config.tokenizer_class is not None else None
-
-    tokenizer = AutoTokenizer.from_pretrained(
+    tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
         processor_path,
-        config=config,
-        tokenizer_type=tokenizer_type,
         unk_token="[UNK]",
         pad_token="[PAD]",
         word_delimiter_token="|",
     )
 
-    feature_extractor = AutoFeatureExtractor.from_pretrained(MODEL)
+    feature_extractor = Wav2Vec2FeatureExtractor(
+        feature_size=1,
+        sampling_rate=16000,
+        padding_value=0.0,
+        do_normalize=True,
+        return_attention_mask=False,
+    )
 
     processor = Wav2Vec2Processor(
         feature_extractor=feature_extractor, tokenizer=tokenizer
@@ -155,19 +152,19 @@ def resample_data(train_ds, val_ds, test_ds):
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=4,
+        num_proc=7,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=4,
+        num_proc=7,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=4,
+        num_proc=7,
     )
 
     return train_ds, val_ds, test_ds, processor
