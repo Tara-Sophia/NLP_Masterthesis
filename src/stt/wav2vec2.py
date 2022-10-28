@@ -105,6 +105,7 @@ def load_datasets(data_path):
 def compute_metrics(pred):
 
     processor = load_processor(MODEL_DIR)
+    cer_metric = load("cer")
     wer_metric = load("wer")
 
     pred_logits = pred.predictions
@@ -120,11 +121,14 @@ def compute_metrics(pred):
         pred.label_ids, group_tokens=False
     )
 
+    cer = cer_metric.compute(
+        predictions=pred_str, references=label_str
+    )
     wer = wer_metric.compute(
         predictions=pred_str, references=label_str
     )
 
-    return {"wer": wer}
+    return {"cer": cer, "wer": wer}
 
 
 def get_device() -> torch.device:
@@ -214,10 +218,11 @@ def main():
         processor,
     )
 
-    trainer.train(resume_from_checkpoint = True)
+    trainer.train(resume_from_checkpoint=True)
 
     trainer.save_model(MODEL_DIR)
     processor.save_pretrained(MODEL_DIR)
+    trainer.save_state()
 
 
 if __name__ == "__main__":

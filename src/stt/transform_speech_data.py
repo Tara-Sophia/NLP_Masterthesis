@@ -1,3 +1,4 @@
+from multiprocessing import ProcessError
 import pandas as pd
 from datasets import (
     Audio,
@@ -12,6 +13,7 @@ from transformers import (
     AutoTokenizer,
     Wav2Vec2Processor,
 )
+from unidecode import unidecode
 import re
 import json
 
@@ -19,17 +21,23 @@ from constants import (
     SAMPLING_RATE,
     CHARS_TO_IGNORE_REGEX,
     MODEL,
-    MODEL_DIR,
+    VOCAB_PATH,
     DATA_PATH_WAV,
-    NUM_EPOCHS,
 )
+from src.stt.constants import MODEL_DIR
 
 
-def remove_special_characters(batch):
+def remove_special_characters(batch, train=True):
     batch["sentence"] = (
-        re.sub(CHARS_TO_IGNORE_REGEX, "", batch["sentence"]).lower()
-        + " "
+        re.sub(
+            CHARS_TO_IGNORE_REGEX, "", unidecode(batch["sentence"])
+        )
+        .lower()
+        .strip()
     )
+    if train:
+        batch["sentence"] += " "
+
     return batch
 
 
@@ -108,7 +116,9 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
     custom_val = custom_val.map(remove_special_characters)
 
-    custom_test = custom_test.map(remove_special_characters)
+    custom_test = custom_test.map(
+        remove_special_characters, fn_kwargs={"train": False}
+    )
 
     return custom_train, custom_val, custom_test
 
@@ -140,27 +150,27 @@ def load_processor(processor_path):
 
 
 def resample_data(train_ds, val_ds, test_ds):
-    processor = load_processor(MODEL_DIR)
+    processor = load_processor(VOCAB_PATH)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=7,
+        num_proc=4,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=7,
+        num_proc=4,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=7,
+        num_proc=4,
     )
 
-    return train_ds, val_ds, test_ds
+    return train_ds, val_ds, test_ds, processor
 
 
 def recreate_folder(folder_path):
@@ -189,32 +199,33 @@ def save_datasets(train_ds, val_ds, test_ds):
 
 def main():
 
-        train_ds = Dataset.from_pandas(
-            pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
-        )
-        val_ds = Dataset.from_pandas(
-            pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
-        )
-        test_ds = Dataset.from_pandas(
-            pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
-        )
+    train_ds = Dataset.from_pandas(
+        pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
+    )
+    val_ds = Dataset.from_pandas(
+        pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
+    )
+    test_ds = Dataset.from_pandas(
+        pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
+    )
 
-        train_ds, val_ds, test_ds = preprocess_data(
-            train_ds, val_ds, test_ds
-        )
+    train_ds, val_ds, test_ds = preprocess_data(
+        train_ds, val_ds, test_ds
+    )
 
-        create_vocab(
-            folder_path=MODEL_DIR,
-            train_ds=train_ds,
-            val_ds=val_ds,
-            test_ds=test_ds,
-        )
+    create_vocab(
+        folder_path=VOCAB_PATH,
+        train_ds=train_ds,
+        val_ds=val_ds,
+        test_ds=test_ds,
+    )
 
-        train_ds, val_ds, test_ds = resample_data(
-            train_ds, val_ds, test_ds
-        )
+    train_ds, val_ds, test_ds, processor = resample_data(
+        train_ds, val_ds, test_ds
+    )
 
-        save_datasets(train_ds, val_ds, test_ds)
+    save_datasets(train_ds, val_ds, test_ds)
+    processor.save_pretrained(MODEL_DIR)
 
 
 if __name__ == "__main__":
