@@ -22,6 +22,7 @@ from transformers import (
     Wav2Vec2Processor,
     EarlyStoppingCallback,
 )
+from transformers.trainer_utils import get_last_checkpoint
 
 import wandb
 
