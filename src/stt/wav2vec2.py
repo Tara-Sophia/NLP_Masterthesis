@@ -20,6 +20,7 @@ from transformers import (
     Trainer,
     TrainingArguments,
     Wav2Vec2Processor,
+    EarlyStoppingCallback,
 )
 
 import wandb
@@ -167,7 +168,7 @@ def load_training_args(output_dir):
         learning_rate=1e-4,
         weight_decay=0.005,
         warmup_steps=1000,
-        save_total_limit=3,
+        save_total_limit=2,
         load_best_model_at_end=True,
         report_to="wandb",
     )
@@ -185,6 +186,7 @@ def load_trainer(
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=processor.feature_extractor,
+        callbacks=[EarlyStoppingCallback()],
     )
     return trainer
 
