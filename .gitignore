@@ -134,5 +134,4 @@ data/raw/
 data/interim/icd9/
 data/en_ner_bionlp13cg_md-0.5.1/
 data/interim/
-!data/interim/stt/test/
 wandb/
