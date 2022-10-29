@@ -1,0 +1,21 @@
+{
+  "_data_files": [
+    {
+      "filename": "dataset.arrow"
+    }
+  ],
+  "_fingerprint": "d78e0a0c48ebcaaa",
+  "_format_columns": [
+    "path",
+    "input_values",
+    "input_length",
+    "labels",
+    "array",
+    "sampling_rate"
+  ],
+  "_format_kwargs": {},
+  "_format_type": null,
+  "_indexes": {},
+  "_output_all_columns": false,
+  "_split": null
+}
