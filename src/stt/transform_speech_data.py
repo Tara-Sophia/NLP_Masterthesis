@@ -24,7 +24,6 @@ from transformers import (
 from unidecode import unidecode
 
 
-@log_function_name
 def remove_special_characters(batch, train=True):
     batch["sentence"] = (
         re.sub(
@@ -39,7 +38,6 @@ def remove_special_characters(batch, train=True):
     return batch
 
 
-@log_function_name
 def transform_dataset(batch, processor):
     audio = batch["audio"]
     # batched output is "un-batched"
@@ -156,19 +154,19 @@ def resample_data(train_ds, val_ds, test_ds):
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=1,
+        num_proc=4,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=1,
+        num_proc=4,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=1,
+        num_proc=4,
     )
 
     return train_ds, val_ds, test_ds, processor
