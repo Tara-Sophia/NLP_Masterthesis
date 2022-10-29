@@ -221,7 +221,7 @@ def main():
     else:
         resume_from_checkpoint = True
 
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train()
 
     trainer.save_model(MODEL_DIR)
     trainer.save_state()
