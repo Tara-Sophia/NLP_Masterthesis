@@ -1,6 +1,6 @@
 import os
 
-DATA_PATH_DATASETS = os.path.join("data", "interim", "stt")
+DATA_PATH_DATASETS = os.path.join("data", "processed", "stt")
 
 MODEL = "facebook/wav2vec2-base"
 MODEL_DIR = os.path.join("models", "stt", "wav2vec2", "model")
