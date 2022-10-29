@@ -12,7 +12,6 @@ from transformers import AutoProcessor, Wav2Vec2ForCTC
 from wav2vec2 import get_device
 
 
-@log_function_name
 def map_to_result(batch, model, processor):
     with torch.no_grad():
         input_values = torch.tensor(
@@ -85,7 +84,6 @@ def main():
     test_ds = test_ds.select(range(10))
     device = get_device()
     model, processor = load_model_and_processor(device)
-    print("Loading processor")
 
     results = test_ds.map(
         map_to_result,
