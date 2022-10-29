@@ -212,7 +212,13 @@ def main():
         processor,
     )
 
-    trainer.train()  # resume_from_checkpoint=True
+    last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    if last_checkpoint is None:
+        resume_from_checkpoint = None
+    else:
+        resume_from_checkpoint = True
+
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     trainer.save_model(MODEL_DIR)
     trainer.save_state()
