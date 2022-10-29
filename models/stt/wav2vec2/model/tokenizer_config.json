@@ -2,7 +2,7 @@
   "bos_token": "<s>",
   "do_lower_case": false,
   "eos_token": "</s>",
-  "name_or_path": "models/stt/wav2vec2/model",
+  "name_or_path": "models/stt/wav2vec2/vocab",
   "pad_token": "[PAD]",
   "processor_class": "Wav2Vec2Processor",
   "replace_word_delimiter_char": " ",
