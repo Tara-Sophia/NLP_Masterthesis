@@ -1,7 +1,6 @@
 # cleaning the dataframe
+import os
 import pandas as pd
-import pandas as pd
-import numpy as np
 import string
 import nltk
 from nltk.corpus import stopwords
@@ -13,6 +12,8 @@ nltk.download("wordnet")
 nltk.download("omw-1.4")
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
+
+from constants import MTSAMPLES_RAW_PATH_DIR, MTSAMPLES_PROCESSED_PATH_DIR
 
 
 def convert(lst_kw):
@@ -33,9 +34,6 @@ def location_indices(stringstext, check_list):
             # getting ending index
             res[ele] = [strt, strt + len(ele) - 1]
     return res.values()
-
-
-import string
 
 
 def cleaning(sentence):
@@ -71,9 +69,7 @@ def cleaning(sentence):
     return cleaned_sentence
 
 
-def main():
-    data_path = "data/raw/mtsamples.csv"
-    df = pd.read_csv(data_path)
+def create_df(df):
     # df['transcription'] = df['transcription'].tolist()
     df["transcription"] = df["transcription"].apply(cleaning)
     df["keywords"] = df["keywords"].fillna("")
@@ -82,8 +78,24 @@ def main():
         lambda x: location_indices(x.transcription, x.keywords_list), axis=1
     )
     df = df.dropna()
+    return df
+
+
+def create_dir(path):
+    os.makedirs(path, exist_ok=True)
+
+
+def save_df(df, path):
+    create_dir(path)
+    df.to_csv(os.path.join(path, "mtsamples_cleaned.csv"), index=False)
+
+
+def main():
+    df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
+    df = create_df(df)
+
     # save dataframe
-    df.to_csv("data/processed/mtsamples_cleaned.csv", index=False)
+    save_df(df, MTSAMPLES_PROCESSED_PATH_DIR)
 
 
 if __name__ == "__main__":
