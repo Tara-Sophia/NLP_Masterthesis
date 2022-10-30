@@ -27,6 +27,7 @@ def map_medical_specialty_to_labels(path):
     df = pd.read_csv(path)
     dict_medical_specialty = {k: v for k, v in enumerate(df.medical_specialty.unique())}
     df["labels"] = df.medical_specialty.map(dict_medical_specialty)
+    df = df.dropna()
     return df
 
 
