@@ -25,17 +25,23 @@ wandb.init(project="nlp", entity="nlp_masterthesis")
 # map medical specialty to labels
 def map_medical_specialty_to_labels(path):
     df = pd.read_csv(path)
-    dict_medical_specialty = {k: v for k, v in enumerate(df.medical_specialty.unique())}
+    dict_medical_specialty = {
+        value: idx
+        for idx, value in enumerate(df.medical_specialty.unique())
+    }
     df["labels"] = df.medical_specialty.map(dict_medical_specialty)
-    df = df.dropna()
     return df
 
 
 def load_datasets(data_path):
-    dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
+    dataset = Dataset.from_pandas(
+        map_medical_specialty_to_labels(data_path)
+    )
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
-    dataset_train_val = dataset_train_test["train"].train_test_split(test_size=0.1)
+    dataset_train_val = dataset_train_test["train"].train_test_split(
+        test_size=0.1
+    )
     dataset_train = dataset_train_val["train"]
     # validation dataset
     dataset_val = dataset_train_val["test"]
@@ -45,13 +51,18 @@ def load_datasets(data_path):
 
 def tokenize_function(batch, tokenizer):
     return tokenizer(
-        batch["transcription"], padding="max_length", truncation=True, max_length=512
+        batch["transcription"],
+        padding="max_length",
+        truncation=True,
+        max_length=512,
     )
 
 
 def tokenize_dataset(dataset, tokenizer):
     tokenized_datasets = dataset.map(
-        tokenize_function, fn_kwargs={"tokenizer": tokenizer}, batched=True
+        tokenize_function,
+        fn_kwargs={"tokenizer": tokenizer},
+        batched=True,
     )
     return tokenized_datasets
 
@@ -78,11 +89,17 @@ def compute_metrics(eval_pred):
     metric = load_metric("accuracy", average="macro")
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
-    return {"accuracy": metric.compute(predictions=predictions, references=labels)}
+    return {
+        "accuracy": metric.compute(
+            predictions=predictions, references=labels
+        )
+    }
 
 
 def get_device() -> torch.device:
-    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    return torch.device(
+        "cuda" if torch.cuda.is_available() else "cpu"
+    )
 
 
 def load_model(device):
@@ -94,7 +111,9 @@ def load_model(device):
 
 
 def load_tokenizer():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_SEMI_SUPERVISED_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_SEMI_SUPERVISED_NAME
+    )
     return tokenizer
 
 
@@ -133,7 +152,9 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
 
 def main():
     train_ds, val_ds = load_datasets(
-        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
+        os.path.join(
+            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
+        )
     )
 
     tokenizer = load_tokenizer()
@@ -145,7 +166,9 @@ def main():
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR)
+    training_args = load_training_args(
+        MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR
+    )
     trainer = load_trainer(
         model,
         training_args,
