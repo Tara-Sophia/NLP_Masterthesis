@@ -148,8 +148,8 @@ def main():
     trainer = load_trainer(
         model,
         training_args,
-        train_ds,
-        val_ds,
+        tokenized_train_ds,
+        tokenized_val_ds,
         tokenizer,
     )
 
