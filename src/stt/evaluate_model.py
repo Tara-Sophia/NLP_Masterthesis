@@ -46,8 +46,6 @@ def show_random_elements(dataset, num_examples=10):
 
 @log_function_name
 def showcase_test(model, test_ds, processor):
-    # Show the actual transcription as well
-    # Make it random
     with torch.no_grad():
         logits = model(
             torch.tensor(test_ds[:1]["input_values"], device="cuda")
@@ -66,7 +64,7 @@ def showcase_test(model, test_ds, processor):
 
 @log_function_name
 def load_test_data(data_path):
-    test_ds = load_from_disk(os.path.join(data_path, "val"))
+    test_ds = load_from_disk(os.path.join(data_path, "test"))
     return test_ds
 
 
@@ -81,7 +79,6 @@ def load_model_and_processor(device):
 @log_function_name
 def main():
     test_ds = load_test_data(DATA_PATH_DATASETS)
-    test_ds = test_ds.select(range(10))
     device = get_device()
     model, processor = load_model_and_processor(device)
 
