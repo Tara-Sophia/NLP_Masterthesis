@@ -131,4 +131,5 @@ dmypy.json
 # Data
 data/raw/
 !data/raw/icd9/
+!data/raw/nlp/
 data/interim/icd9/
