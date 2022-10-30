@@ -133,6 +133,7 @@ wandb/
 
 # Data
 data/raw/
+data/en_ner_bionlp13cg_md-0.5.1/
 !data/raw/icd9/
 !data/raw/nlp/
-data/interim/icd9/
+data/interim/
