@@ -70,14 +70,12 @@ def cleaning(sentence):
 
 
 def create_df(df):
-    # df['transcription'] = df['transcription'].tolist()
+    df = df.dropna().copy()
     df["transcription"] = df["transcription"].apply(cleaning)
-    df["keywords"] = df["keywords"].fillna("")
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
     df["location"] = df.apply(
         lambda x: location_indices(x.transcription, x.keywords_list), axis=1
     )
-    df = df.dropna()
     return df
 
 
