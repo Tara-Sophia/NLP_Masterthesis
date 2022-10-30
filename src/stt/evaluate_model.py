@@ -63,6 +63,18 @@ def showcase_test(model, test_ds, processor):
 
 
 @log_function_name
+def get_test_results(results, wer_metric):
+    print(
+        "Test WER: {:.3f}".format(
+            wer_metric.compute(
+                predictions=results["pred_str"],
+                references=results["text"],
+            )
+        )
+    )
+
+
+@log_function_name
 def load_test_data(data_path):
     test_ds = load_from_disk(os.path.join(data_path, "test"))
     return test_ds
@@ -90,14 +102,7 @@ def main():
 
     wer_metric = load("wer")
 
-    print(
-        "Test WER: {:.3f}".format(
-            wer_metric.compute(
-                predictions=results["pred_str"],
-                references=results["text"],
-            )
-        )
-    )
+    get_test_results(results, wer_metric)
 
     show_random_elements(results)
 
