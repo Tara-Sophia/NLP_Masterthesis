@@ -51,7 +51,6 @@ def apply_keyword_on_Dataframe(df):
     df["transcription_f_unsupervised"] = df[
         "keywords_outcome_weights_unsupervised"
     ].apply(lambda x: [item[0] for item in x])
-
     return df
 
 
