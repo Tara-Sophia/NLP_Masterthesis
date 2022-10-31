@@ -22,8 +22,8 @@ WAV2VEC2_MODEL_DIR = os.path.join(
 WAV2VEC2_VOCAB_DIR = os.path.join(
     "models", "stt", "wav2vec2", "vocab"
 )
-WAV2VEC2_PROCESSOR_DIR = os.path.join(
-    "models", "stt", "wav2vec2", "vocab"
+WAV2VEC2_MODEL_CHECKPOINTS = os.path.join(
+    "models", "stt", "wav2vec2", "checkpoints"
 )
 
 WAV2VEC2_NUM_EPOCHS = 30
