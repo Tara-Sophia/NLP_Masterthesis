@@ -8,10 +8,11 @@ import numpy as np
 import pandas as pd
 from constants import (
     CHARS_TO_IGNORE_REGEX,
-    DATA_PATH_WAV,
-    MODEL_DIR,
+    RAW_DATA_DIR,
+    RAW_RECORDINGS_DIR,
+    WAV2VEC2_MODEL_DIR,
     SAMPLING_RATE,
-    VOCAB_PATH,
+    WAV2VEC2_VOCAB_DIR,
 )
 from datasets import Audio, Dataset
 from decorators import log_function_name
@@ -21,6 +22,7 @@ from transformers import (
     Wav2Vec2Processor,
 )
 from unidecode import unidecode
+from utils import load_processor
 
 
 def remove_special_characters(batch, train=True):
@@ -122,33 +124,8 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
 
 @log_function_name
-def load_processor(processor_path):
-
-    tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
-        processor_path,
-        unk_token="[UNK]",
-        pad_token="[PAD]",
-        word_delimiter_token="|",
-    )
-
-    feature_extractor = Wav2Vec2FeatureExtractor(
-        feature_size=1,
-        sampling_rate=16000,
-        padding_value=0.0,
-        do_normalize=True,
-        return_attention_mask=False,
-    )
-
-    processor = Wav2Vec2Processor(
-        feature_extractor=feature_extractor, tokenizer=tokenizer
-    )
-
-    return processor
-
-
-@log_function_name
 def resample_data(train_ds, val_ds, test_ds):
-    processor = load_processor(VOCAB_PATH)
+    processor = load_processor(WAV2VEC2_VOCAB_DIR)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
@@ -197,16 +174,17 @@ def save_datasets(train_ds, val_ds, test_ds):
     test_ds.save_to_disk(test_processed_dir)
 
 
+@log_function_name
 def main():
 
     train_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "train.csv"))
+        pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv"))
     )
     val_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "val.csv"))
+        pd.read_csv(os.path.join(RAW_DATA_DIR, "val.csv"))
     )
     test_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(DATA_PATH_WAV, "test.csv"))
+        pd.read_csv(os.path.join(RAW_DATA_DIR, "test.csv"))
     )
 
     train_ds, val_ds, test_ds = preprocess_data(
@@ -214,7 +192,7 @@ def main():
     )
 
     create_vocab(
-        folder_path=VOCAB_PATH,
+        folder_path=WAV2VEC2_VOCAB_DIR,
         train_ds=train_ds,
         val_ds=val_ds,
         test_ds=test_ds,
@@ -225,7 +203,7 @@ def main():
     )
 
     save_datasets(train_ds, val_ds, test_ds)
-    processor.save_pretrained(MODEL_DIR)
+    processor.save_pretrained(WAV2VEC2_MODEL_DIR)
 
 
 if __name__ == "__main__":

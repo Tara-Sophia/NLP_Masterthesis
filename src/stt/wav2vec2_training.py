@@ -5,16 +5,16 @@ from typing import Dict, List, Optional, Union
 import numpy as np
 import torch
 from constants import (
-    BATCH_SIZE,
-    DATA_PATH_DATASETS,
-    MODEL,
-    MODEL_DIR,
-    NUM_EPOCHS,
+    WAV2VEC2_BATCH_SIZE,
+    PROCESSED_DATA_DIR,
+    WAV2VEC2_MODEL,
+    WAV2VEC2_MODEL_DIR,
+    WAV2VEC2_NUM_EPOCHS,
+    WAV2VEC2_MODEL_CHECKPOINTS,
 )
 from datasets import load_from_disk
 from decorators import log_function_name
 from evaluate import load
-from transform_speech_data import load_processor
 from transformers import (
     AutoModelForCTC,
     Trainer,
@@ -23,7 +23,7 @@ from transformers import (
     EarlyStoppingCallback,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device
+from utils import get_device, load_processor
 
 import wandb
 
@@ -94,9 +94,8 @@ def load_datasets(data_path):
 
     train_ds = load_from_disk(os.path.join(data_path, "train"))
     val_ds = load_from_disk(os.path.join(data_path, "val"))
-    test_ds = load_from_disk(os.path.join(data_path, "test"))
 
-    return train_ds, val_ds, test_ds
+    return train_ds, val_ds
 
 
 def compute_metrics(pred):
@@ -131,7 +130,7 @@ def compute_metrics(pred):
 def load_model(processor, device):
 
     model = AutoModelForCTC.from_pretrained(
-        MODEL,
+        WAV2VEC2_MODEL,
         attention_dropout=0.1,
         hidden_dropout=0.1,
         feat_proj_dropout=0.0,
@@ -152,10 +151,10 @@ def load_training_args(output_dir):
     training_args = TrainingArguments(
         output_dir=output_dir,
         group_by_length=True,
-        per_device_train_batch_size=BATCH_SIZE,
+        per_device_train_batch_size=WAV2VEC2_BATCH_SIZE,
         gradient_accumulation_steps=2,
         evaluation_strategy="steps",
-        num_train_epochs=NUM_EPOCHS,
+        num_train_epochs=WAV2VEC2_NUM_EPOCHS,
         gradient_checkpointing=True,
         fp16=True,
         save_steps=100,
@@ -188,9 +187,9 @@ def load_trainer(
 
 
 def main():
-    train_ds, val_ds, test_ds = load_datasets(DATA_PATH_DATASETS)
+    train_ds, val_ds = load_datasets(PROCESSED_DATA_DIR)
 
-    processor = load_processor(MODEL_DIR)
+    processor = load_processor(WAV2VEC2_MODEL_DIR)
 
     data_collator = DataCollatorCTCWithPadding(
         processor=processor, padding=True
@@ -198,9 +197,7 @@ def main():
 
     device = get_device()
     model = load_model(processor, device)
-    training_args = load_training_args(
-        os.path.join("models", "stt", "wav2vec2", "checkpoints")
-    )
+    training_args = load_training_args(WAV2VEC2_MODEL_CHECKPOINTS)
     trainer = load_trainer(
         model,
         data_collator,
@@ -218,7 +215,7 @@ def main():
 
     trainer.train()
 
-    trainer.save_model(MODEL_DIR)
+    trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
 
 
