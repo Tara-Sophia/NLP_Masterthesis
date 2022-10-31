@@ -36,7 +36,7 @@ def location_indices(stringstext, check_list):
     return res.values()
 
 
-def cleaning(sentence):
+def cleaning_input(sentence):
     """This function takes a column and cleans it by removing punctuation, stopwords, and lemmatizing
     NEXT STEPS : personalize the stop words list, check for different aspects of the words
     """
@@ -71,7 +71,7 @@ def cleaning(sentence):
 
 def create_df(df):
     df = df.dropna().copy()
-    df["transcription"] = df["transcription"].apply(cleaning)
+    df["transcription"] = df["transcription"].apply(cleaning_input)
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
     df["location"] = df.apply(
         lambda x: location_indices(x.transcription, x.keywords_list), axis=1

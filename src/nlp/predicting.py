@@ -1,10 +1,3 @@
-# keybert predicting
-# Path: src/predicting.py
-# Compare this snippet from src/training.py:
-#         checkpoint, num_labels=38
-
-# import pretrained model for Keybert
-
 from keybert import KeyBERT
 
 # allow custom input sentence # input("Enter your text: ")
@@ -20,16 +13,14 @@ from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import string
 from transformers import AutoTokenizer, AutoModel
-#from cleaning.py file import cleaning function
+
+# from cleaning.py file import cleaning function
 from cleaning import cleaning
 
+
 def KeywordExtraction(text):
-    #load our trained model from models nlp semi supervised
-    model   = KeyBERT('models/nlp/semi_supervised/model')
-    
-    #model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
-    # model = AutoModel.from_pretrained("../models/mtsamples")
-    print("in function")
+    # load our trained model from models nlp semi supervised
+    model = KeyBERT("models/nlp/semi_supervised/model")
     keywords = model.extract_keywords(
         text,
         keyphrase_ngram_range=(1, 2),
