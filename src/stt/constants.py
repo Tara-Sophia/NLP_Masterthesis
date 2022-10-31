@@ -1,5 +1,13 @@
 import os
 
+REL_PATH_RECORDINGS = os.path.join(
+    "data", "raw", "stt"
+)  # These can change, depending on the data we are using
+
+CSV_FILE = os.path.join(
+    REL_PATH_RECORDINGS, "overview-of-recordings.csv"
+)
+
 DATA_PATH_DATASETS = os.path.join("data", "processed", "stt")
 
 MODEL = "facebook/wav2vec2-base"
@@ -16,3 +24,7 @@ SAMPLING_RATE = 16000
 # Model training
 NUM_EPOCHS = 30
 BATCH_SIZE = 16
+
+
+# STT Report HTML
+STT_REPORT = os.path.join("reports", "stt")
