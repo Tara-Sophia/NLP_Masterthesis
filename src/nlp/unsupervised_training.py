@@ -176,10 +176,6 @@ def main():
     import torch
 
     torch.cuda.empty_cache()
-    import gc
-
-    del variables
-    gc.collect()
 
     last_checkpoint = get_last_checkpoint(training_args.output_dir)
     if last_checkpoint is None:
