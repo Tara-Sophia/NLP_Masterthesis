@@ -161,10 +161,10 @@ def main():
     tokenized_val_ds = tokenize_dataset(val_ds, tokenizer)
 
     device = get_device()
-    with torch.no_grad():
+    # empty cache  with torch.cuda.empty_cache()
 
-        model = load_model(device)
-        training_args = load_training_args(MODEL_UNSUPERVISED_CHECKPOINTS_DIR)
+    model = load_model(device)
+    training_args = load_training_args(MODEL_UNSUPERVISED_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
@@ -172,6 +172,14 @@ def main():
         tokenized_val_ds,
         tokenizer,
     )
+    
+    import torch
+    torch.cuda.empty_cache()
+    import gc
+    del variables
+    gc.collect()
+    
+    
 
     last_checkpoint = get_last_checkpoint(training_args.output_dir)
     if last_checkpoint is None:
@@ -182,6 +190,7 @@ def main():
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
+    torch.cuda.empty_cache()
     trainer.save_state()
 
 
