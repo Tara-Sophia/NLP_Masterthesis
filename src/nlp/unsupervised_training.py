@@ -173,9 +173,9 @@ def main():
         tokenizer,
     )
 
-    import torch
+    #import torch
 
-    torch.cuda.empty_cache()
+    #torch.cuda.empty_cache()
 
     last_checkpoint = get_last_checkpoint(training_args.output_dir)
     if last_checkpoint is None:
@@ -186,7 +186,7 @@ def main():
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
-    torch.cuda.empty_cache()
+    #torch.cuda.empty_cache()
     trainer.save_state()
 
 
