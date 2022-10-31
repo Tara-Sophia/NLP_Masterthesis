@@ -4,12 +4,12 @@ import random
 
 import pandas as pd
 import torch
-from constants import DATA_PATH_DATASETS, MODEL_DIR
+from constants import PROCESSED_DATA_DIR, WAV2VEC2_MODEL_DIR
 from datasets import load_from_disk
 from decorators import log_function_name
 from evaluate import load
 from transformers import AutoProcessor, Wav2Vec2ForCTC
-from wav2vec2 import get_device
+from utils import get_device, load_model_and_processor
 
 
 def map_to_result(batch, model, processor):
@@ -81,16 +81,8 @@ def load_test_data(data_path):
 
 
 @log_function_name
-def load_model_and_processor(device):
-    model = Wav2Vec2ForCTC.from_pretrained(MODEL_DIR)
-    processor = AutoProcessor.from_pretrained(MODEL_DIR)
-    model.to(device)
-    return model, processor
-
-
-@log_function_name
 def main():
-    test_ds = load_test_data(DATA_PATH_DATASETS)
+    test_ds = load_test_data(PROCESSED_DATA_DIR)
     device = get_device()
     model, processor = load_model_and_processor(device)
 

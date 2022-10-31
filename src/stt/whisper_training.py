@@ -5,11 +5,11 @@ from typing import Dict, List, Optional, Union
 import numpy as np
 import torch
 from constants import (
-    BATCH_SIZE,
+    WAV2VEC2_BATCH_SIZE,
     DATA_PATH_DATASETS,
-    MODEL,
-    MODEL_DIR,
-    NUM_EPOCHS,
+    WAV2VEC2_MODEL,
+    WAV2VEC2_MODEL_DIR,
+    WAV2VEC2_NUM_EPOCHS,
 )
 from datasets import load_from_disk
 from decorators import log_function_name
