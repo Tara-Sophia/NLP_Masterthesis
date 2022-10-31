@@ -161,8 +161,10 @@ def main():
     tokenized_val_ds = tokenize_dataset(val_ds, tokenizer)
 
     device = get_device()
-    model = load_model(device)
-    training_args = load_training_args(MODEL_UNSUPERVISED_CHECKPOINTS_DIR)
+    with torch.no_grad():
+
+        model = load_model(device)
+        training_args = load_training_args(MODEL_UNSUPERVISED_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
