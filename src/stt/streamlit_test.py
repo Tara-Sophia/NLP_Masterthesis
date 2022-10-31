@@ -1,13 +1,11 @@
 import os
 import streamlit as st
 import sounddevice as sd
-import streamlit as st
 import torch
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
+from constants import WAV2VEC2_MODEL_DIR
 
 torch.cuda.empty_cache()
-
-MODEL_DIR = os.path.join("models", "stt", "wav2vec2", "model")
 
 
 @st.experimental_memo
@@ -28,8 +26,8 @@ def get_device() -> torch.device:
 
 @st.experimental_memo
 def load_model_and_processor(device):
-    model = Wav2Vec2ForCTC.from_pretrained(MODEL_DIR)
-    processor = Wav2Vec2Processor.from_pretrained(MODEL_DIR)
+    model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
+    processor = Wav2Vec2Processor.from_pretrained(WAV2VEC2_MODEL_DIR)
     model.to(device)
     return model, processor
 

@@ -5,10 +5,11 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
 import torch
-from wav2vec2 import get_device
-from evaluate_model import load_model_and_processor
+from utils import load_model_and_processor, get_device
+from decorators import log_function_name
 
 
+@log_function_name
 def transcribe_audio(pipe, rec):
     with sr.Microphone(sample_rate=16000) as source:
         print("Say something!")
@@ -22,6 +23,7 @@ def transcribe_audio(pipe, rec):
         print(text)
 
 
+@log_function_name
 def main():
     device = get_device()
     model, processor = load_model_and_processor(device)
