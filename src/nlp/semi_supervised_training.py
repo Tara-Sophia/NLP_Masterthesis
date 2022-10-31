@@ -100,7 +100,9 @@ def load_model(device):
 
 
 def load_tokenizer():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_SEMI_SUPERVISED_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_SEMI_SUPERVISED_NAME, model_max_length=512
+                                              truncate=True, max_length=512, padding=True)
+                                        
     return tokenizer
 
 

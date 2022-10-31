@@ -20,22 +20,23 @@ from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import string
 from transformers import AutoTokenizer, AutoModel
-
+#from cleaning.py file import cleaning function
+from cleaning import cleaning
 
 def KeywordExtraction(text):
-    model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
+    #load our trained model from models nlp semi supervised
+    model   = KeyBERT('models/nlp/semi_supervised/model')
+    
+    #model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
     # model = AutoModel.from_pretrained("../models/mtsamples")
     print("in function")
-    model = KeyBERT(
-        model=model  # model_path="./results_modelBert"
-    )  # "./results_modelBert") #alternative current location - model_path='../models/mtsamples'
     keywords = model.extract_keywords(
         text,
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
         nr_candidates=10,
-        top_n=4,
+        top_n=5,
         use_mmr=True,
     )
     return keywords
