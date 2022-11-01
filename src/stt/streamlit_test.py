@@ -48,17 +48,17 @@ if st.button(f"Click to Record"):
     record_state = st.text("Recording...")
 
     # Either this
-    duration = 2
-    sd.default.samplerate = 16000
-    sd.default.channels = 1
-    myrecording = sd.rec(int(duration * fs))
-    sd.wait(duration)
+    # fs = 16000
+    # duration = 2
+    # sd.default.samplerate = 16000
+    # sd.default.channels = 1
+    # myrecording = sd.rec(int(duration * fs))
+    # sd.wait(duration)
 
     # Or this
-    # myrecording = record(duration=5, fs=48000)
-    # duration = 2  # seconds
-    # fs = 16000
-    # myrecording = record(duration=5, fs=48000)
+    duration = 2  # seconds
+    fs = 16000
+    myrecording = record(duration=5, fs=48000)
 
     text = pipe(myrecording)
     st.write(text["text"])

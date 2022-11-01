@@ -142,7 +142,7 @@ data/en_ner_bionlp13cg_md-0.5.1/
 data/interim/
 
 # Cache Data
-data/**/cache-*
+data/**/cache-*.arrow
 
 # vs code setting
 .vscode/settings.json

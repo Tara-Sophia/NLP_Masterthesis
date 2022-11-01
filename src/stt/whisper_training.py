@@ -5,91 +5,95 @@ from typing import Dict, List, Optional, Union
 import numpy as np
 import torch
 from constants import (
-    WAV2VEC2_BATCH_SIZE,
+    WHISPER_BATCH_SIZE,
     PROCESSED_DATA_DIR,
-    WAV2VEC2_MODEL,
-    WAV2VEC2_MODEL_DIR,
-    WAV2VEC2_NUM_EPOCHS,
-    WAV2VEC2_MODEL_CHECKPOINTS,
+    WHISPER_MODEL,
+    WHISPER_MODEL_DIR,
+    WHISPER_NUM_EPOCHS,
+    WHISPER_MODEL_CHECKPOINTS,
 )
-from datasets import load_from_disk
+from datasets.load import load_from_disk
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
     AutoModelForCTC,
     Trainer,
     TrainingArguments,
-    Wav2Vec2Processor,
     EarlyStoppingCallback,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_processor
+from utils import get_device, load_processor_whisper
 
 import wandb
 
-wandb.init(name"openai-whisper", project="speech-to-text", entity="nlp_masterthesis")
+wandb.init(
+    name="openai-whisper",
+    project="speech-to-text",
+    entity="nlp_masterthesis",
+)
 
 
-class DataCollatorCTCWithPadding:
+class WhisperDataCollatorWhithPadding:
     """
-    _summary_
+    Data collator that dynamically pads the audio inputs received. An EOS token is appended to the labels sequences.
+    They are then dynamically padded to max length.
+    Args:
+        eos_token_id (`int`)
+            The end-of-sentence token for the Whisper tokenizer. Ensure to set for sequences to terminate before
+            generation max length.
     """
 
-    def __init__(
-        self,
-        processor: Wav2Vec2Processor,
-        padding: Union[bool, str] = True,
-        max_length: Optional[int] = None,
-        max_length_labels: Optional[int] = None,
-        pad_to_multiple_of: Optional[int] = None,
-        pad_to_multiple_of_labels: Optional[int] = None,
-    ):
-        self.processor = processor
-        self.padding = padding
-        self.max_length = max_length
-        self.max_length_labels = max_length_labels
-        self.pad_to_multiple_of = pad_to_multiple_of
-        self.pad_to_multiple_of_labels = pad_to_multiple_of_labels
+    def __init__(self, eos_token_id: int, time_stamp_token_id: int):
+        self.eos_token_id = eos_token_id
+        self.time_stamp_token_id = time_stamp_token_id
 
     def __call__(
         self,
         features: List[Dict[str, Union[List[int], torch.Tensor]]],
     ) -> Dict[str, torch.Tensor]:
-        # split inputs and labels since they have to be of different lenghts and need
-        # different padding methods
-        input_features = [
-            {"input_values": feature["input_values"]}
-            for feature in features
+        """
+        Since Whisper models don't have a HF processor defined (feature extractor + tokenizer), we'll pad by hand...
+        """
+        # split inputs and labels since they have to be of different lengths
+        # and need different padding methods
+        input_ids = [feature["input_ids"] for feature in features]
+        labels = [feature["labels"] for feature in features]
+
+        # first, pad the audio inputs to max_len
+        input_ids = torch.concat(
+            [
+                to_pad_to_mel(input_val)[None, :]
+                for input_val in input_ids
+            ]
+        )
+
+        # next, append the eos token to our sequence of labels
+        labels = [lab + [self.eos_token_id] for lab in labels]
+        # finally, pad the target labels to max_len
+        label_lengths = [len(lab) for lab in labels]
+        max_label_len = max(label_lengths)
+        labels = [
+            np.pad(
+                lab,
+                (0, max_label_len - lab_len),
+                "constant",
+                constant_values=-100,
+            )
+            for lab, lab_len in zip(labels, label_lengths)
         ]
-        label_features = [
-            {"input_ids": feature["labels"]} for feature in features
-        ]
 
-        batch = self.processor.pad(
-            input_features,
-            padding=self.padding,
-            max_length=self.max_length,
-            pad_to_multiple_of=self.pad_to_multiple_of,
-            return_tensors="pt",
-        )
-        labels_batch = self.processor.pad(
-            labels=label_features,
-            padding=self.padding,
-            max_length=self.max_length_labels,
-            pad_to_multiple_of=self.pad_to_multiple_of_labels,
-            return_tensors="pt",
-        )
+        batch = {"labels": labels}
+        batch = {
+            k: torch.tensor(np.array(v), requires_grad=False)
+            for k, v in batch.items()
+        }
 
-        # replace padding with -100 to ignore loss correctly
-        labels = labels_batch["input_ids"].masked_fill(
-            labels_batch.attention_mask.ne(1), -100
-        )
-
-        batch["labels"] = labels
+        batch["input_ids"] = input_ids
 
         return batch
 
 
+@log_function_name
 def load_datasets(data_path):
 
     train_ds = load_from_disk(os.path.join(data_path, "train"))
@@ -99,34 +103,35 @@ def load_datasets(data_path):
 
 
 def compute_metrics(pred):
+    pred_ids = pred.predictions
+    pred.label_ids[pred.label_ids == -100] = tokenizer.eos_token_id
 
-    processor = load_processor(MODEL_DIR)
-    cer_metric = load("cer")
-    wer_metric = load("wer")
+    pred_str = tokenizer.batch_decode(
+        pred_ids, skip_special_tokens=True
+    )
+    pred_str = [x.lstrip().strip() for x in pred_str]
 
-    pred_logits = pred.predictions
-    pred_ids = np.argmax(pred_logits, axis=-1)
-
-    pred.label_ids[
-        pred.label_ids == -100
-    ] = processor.tokenizer.pad_token_id
-
-    pred_str = processor.batch_decode(pred_ids)
     # we do not want to group tokens when computing the metrics
-    label_str = processor.batch_decode(
-        pred.label_ids, group_tokens=False
+    label_str = tokenizer.batch_decode(
+        pred.label_ids, skip_special_tokens=True
     )
 
-    cer = cer_metric.compute(
+    wer = metric_wer.compute(
         predictions=pred_str, references=label_str
     )
-    wer = wer_metric.compute(
+    cer = metric_cer.compute(
         predictions=pred_str, references=label_str
     )
 
-    return {"cer": cer, "wer": wer}
+    return {
+        "wer": wer,
+        "cer": cer,
+        "pred_str": pred_str,
+        "label_str": label_str,
+    }
 
 
+@log_function_name
 def load_model(processor, device):
 
     model = AutoModelForCTC.from_pretrained(
@@ -147,6 +152,7 @@ def load_model(processor, device):
     return model
 
 
+@log_function_name
 def load_training_args(output_dir):
     training_args = TrainingArguments(
         output_dir=output_dir,
@@ -156,9 +162,9 @@ def load_training_args(output_dir):
         num_train_epochs=WAV2VEC2_NUM_EPOCHS,
         gradient_checkpointing=True,
         fp16=True,
-        save_strategy='epoch',
-        evaluation_strategy='epoch',
-        logging_strategy='epoch',
+        save_strategy="epoch",
+        evaluation_strategy="epoch",
+        logging_strategy="epoch",
         learning_rate=1e-4,
         weight_decay=0.005,
         warmup_steps=1000,
@@ -169,6 +175,7 @@ def load_training_args(output_dir):
     return training_args
 
 
+@log_function_name
 def load_trainer(
     model, data_collator, training_args, train_ds, val_ds, processor
 ):
@@ -185,38 +192,40 @@ def load_trainer(
     return trainer
 
 
+@log_function_name
 def main():
     train_ds, val_ds = load_datasets(PROCESSED_DATA_DIR)
 
-    processor = load_processor(WAV2VEC2_MODEL_DIR)
+    processor = load_processor_whisper(WHISPER_MODEL_DIR)
 
-    data_collator = DataCollatorCTCWithPadding(
-        processor=processor, padding=True
-    )
+    # data_collator = DataCollatorCTCWithPadding(
+    #     processor=processor, padding=True
+    # )
 
     device = get_device()
     model = load_model(processor, device)
-    training_args = load_training_args(WAV2VEC2_MODEL_CHECKPOINTS)
-    trainer = load_trainer(
-        model,
-        data_collator,
-        training_args,
-        train_ds,
-        val_ds,
-        processor,
-    )
+    # training_args = load_training_args(WAV2VEC2_MODEL_CHECKPOINTS)
+    # trainer = load_trainer(
+    #     model,
+    #     data_collator,
+    #     training_args,
+    #     train_ds,
+    #     val_ds,
+    #     processor,
+    # )
 
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
-    else:
-        resume_from_checkpoint = True
+    # last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    # if last_checkpoint is None:
+    #     resume_from_checkpoint = None
+    # else:
+    #     resume_from_checkpoint = True
 
-    trainer.train()
+    # trainer.train()
 
-    trainer.save_model(WAV2VEC2_MODEL_DIR)
-    trainer.save_state()
+    # trainer.save_model(WAV2VEC2_MODEL_DIR)
+    # trainer.save_state()
 
 
 if __name__ == "__main__":
     main()
+    # print("Done")

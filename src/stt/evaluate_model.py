@@ -4,12 +4,14 @@ import random
 
 import pandas as pd
 import torch
-from constants import PROCESSED_DATA_DIR, WAV2VEC2_MODEL_DIR
-from datasets import load_from_disk
+from constants import WAV2VEC2_PROCESSED_DIR
+from datasets.load import load_from_disk
 from decorators import log_function_name
 from evaluate import load
-from transformers import AutoProcessor, Wav2Vec2ForCTC
-from utils import get_device, load_model_and_processor
+from utils import (
+    get_device,
+    load_trained_model_and_processor_wav2vec2,
+)
 
 
 def map_to_result(batch, model, processor):
@@ -63,10 +65,18 @@ def showcase_test(model, test_ds, processor):
 
 
 @log_function_name
-def get_test_results(results, wer_metric):
+def get_test_results(results, wer_metric, cer_metric):
     print(
         "Test WER: {:.3f}".format(
             wer_metric.compute(
+                predictions=results["pred_str"],
+                references=results["text"],
+            )
+        )
+    )
+    print(
+        "Test CER: {:.3f}".format(
+            cer_metric.compute(
                 predictions=results["pred_str"],
                 references=results["text"],
             )
@@ -82,9 +92,12 @@ def load_test_data(data_path):
 
 @log_function_name
 def main():
-    test_ds = load_test_data(PROCESSED_DATA_DIR)
+    test_ds = load_test_data(WAV2VEC2_PROCESSED_DIR)
+    test_ds = test_ds.select(range(10))
     device = get_device()
-    model, processor = load_model_and_processor(device)
+    model, processor = load_trained_model_and_processor_wav2vec2(
+        device
+    )
 
     results = test_ds.map(
         map_to_result,
@@ -93,8 +106,9 @@ def main():
     )
 
     wer_metric = load("wer")
+    cer_metric = load("cer")
 
-    get_test_results(results, wer_metric)
+    get_test_results(results, wer_metric, cer_metric)
 
     show_random_elements(results)
 

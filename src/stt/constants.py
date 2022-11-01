@@ -9,12 +9,23 @@ RAW_RECORDINGS_DIR = os.path.join(RAW_DATA_DIR, "recordings")
 
 
 # TRANSFORM DATA
-PROCESSED_DATA_DIR = os.path.join("data", "processed", "stt")
-CHARS_TO_IGNORE_REGEX = '[\,\?\.\!\-\;\:"\“\%\‘\”\�]'
+CHARS_TO_IGNORE_REGEX = r'[\,\?\.\!\-\;\:"\“\%\‘\”\�]'
 SAMPLING_RATE = 16000
 MAX_DURATION_LENGTH = 4.5
 
-# FACEBOOK WAV2VEC2 TRAINING
+# FACEBOOK WAV2VEC2
+WAV2VEC2_TRAIN_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "wav2vec", "train"
+)
+WAV2VEC2_VAL_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "wav2vec", "val"
+)
+WAV2VEC2_TEST_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "wav2vec", "test"
+)
+WAV2VEC2_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "wav2vec"
+)
 WAV2VEC2_MODEL = "facebook/wav2vec2-base"
 WAV2VEC2_MODEL_DIR = os.path.join(
     "models", "stt", "wav2vec2", "model"
@@ -33,6 +44,13 @@ WAV2VEC2_BATCH_SIZE = 16
 WHISPER_MODEL = "openai/whisper"
 WHISPER_MODEL_DIR = os.path.join("models", "stt", "whisper", "model")
 
+
+WHISPER_MODEL_CHECKPOINTS = os.path.join(
+    "models", "stt", "whisper", "checkpoints"
+)
+
+WHISPER_NUM_EPOCHS = 30
+WHISPER_BATCH_SIZE = 16
 
 # STT Report HTML
 STT_REPORT = os.path.join("reports", "stt")
