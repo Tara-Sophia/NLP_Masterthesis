@@ -4,3 +4,4 @@ evaluate
 jiwer
 wandb
 pre-commit
+unidecode

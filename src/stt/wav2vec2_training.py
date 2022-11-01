@@ -28,7 +28,7 @@ from utils import get_device, load_processor_wav2vec2
 import wandb
 
 wandb.init(
-    name="facebook-va2vec2",
+    name="facebook-wav2vec2",
     project="speech-to-text",
     entity="nlp_masterthesis",
 )
