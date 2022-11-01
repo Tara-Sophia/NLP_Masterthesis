@@ -3,26 +3,22 @@ import json
 import os
 import re
 import shutil
-
-import numpy as np
 import pandas as pd
 from constants import (
     CHARS_TO_IGNORE_REGEX,
     RAW_DATA_DIR,
-    RAW_RECORDINGS_DIR,
     WAV2VEC2_MODEL_DIR,
     SAMPLING_RATE,
     WAV2VEC2_VOCAB_DIR,
+    WAV2VEC2_TRAIN_PROCESSED_DIR,
+    WAV2VEC2_VAL_PROCESSED_DIR,
+    WAV2VEC2_TEST_PROCESSED_DIR,
 )
-from datasets import Audio, Dataset
+from datasets import Audio
+from datasets.arrow_dataset import Dataset
 from decorators import log_function_name
-from transformers import (
-    Wav2Vec2CTCTokenizer,
-    Wav2Vec2FeatureExtractor,
-    Wav2Vec2Processor,
-)
 from unidecode import unidecode
-from utils import load_processor
+from utils import load_processor_wav2vec2
 
 
 def remove_special_characters(batch, train=True):
@@ -125,7 +121,7 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
 @log_function_name
 def resample_data(train_ds, val_ds, test_ds):
-    processor = load_processor(WAV2VEC2_VOCAB_DIR)
+    processor = load_processor_wav2vec2(WAV2VEC2_VOCAB_DIR)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
@@ -157,21 +153,13 @@ def recreate_folder(folder_path):
 
 @log_function_name
 def save_datasets(train_ds, val_ds, test_ds):
-    train_processed_dir = os.path.join(
-        "data", "interim", "stt", "train"
-    )
-    val_processed_dir = os.path.join("data", "interim", "stt", "val")
-    test_processed_dir = os.path.join(
-        "data", "interim", "stt", "test"
-    )
+    recreate_folder(WAV2VEC2_TRAIN_PROCESSED_DIR)
+    recreate_folder(WAV2VEC2_VAL_PROCESSED_DIR)
+    recreate_folder(WAV2VEC2_TEST_PROCESSED_DIR)
 
-    recreate_folder(train_processed_dir)
-    recreate_folder(val_processed_dir)
-    recreate_folder(test_processed_dir)
-
-    train_ds.save_to_disk(train_processed_dir)
-    val_ds.save_to_disk(val_processed_dir)
-    test_ds.save_to_disk(test_processed_dir)
+    train_ds.save_to_disk(WAV2VEC2_TRAIN_PROCESSED_DIR)
+    val_ds.save_to_disk(WAV2VEC2_VAL_PROCESSED_DIR)
+    test_ds.save_to_disk(WAV2VEC2_TEST_PROCESSED_DIR)
 
 
 @log_function_name

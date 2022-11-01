@@ -8,7 +8,7 @@ transformers.logging.set_verbosity_error()
 
 GREEN_LOGGER = "\x1b[32m"
 RESET_LOGGER = "\x1b[0m"
-FORMAT = "%(asctime)s - %(message)s"
+FORMAT = "%(asctime)s.%(msecs)03d  - %(message)s"
 
 # create logger with 'spam_application'
 logger = logging.getLogger("STT")

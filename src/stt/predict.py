@@ -5,7 +5,10 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
 import torch
-from utils import load_model_and_processor, get_device
+from utils import (
+    load_trained_model_and_processor_wav2vec2,
+    get_device,
+)
 from decorators import log_function_name
 
 
@@ -26,7 +29,9 @@ def transcribe_audio(pipe, rec):
 @log_function_name
 def main():
     device = get_device()
-    model, processor = load_model_and_processor(device)
+    model, processor = load_trained_model_and_processor_wav2vec2(
+        device
+    )
     pipe = pipeline(
         "automatic-speech-recognition",
         model=model,

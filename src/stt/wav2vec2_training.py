@@ -12,7 +12,7 @@ from constants import (
     WAV2VEC2_NUM_EPOCHS,
     WAV2VEC2_MODEL_CHECKPOINTS,
 )
-from datasets import load_from_disk
+from datasets.load import load_from_disk
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
@@ -23,11 +23,15 @@ from transformers import (
     EarlyStoppingCallback,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_processor
+from utils import get_device, load_processor_wav2vec2
 
 import wandb
 
-wandb.init(name"facebook-va2vec2", project="speech-to-text", entity="nlp_masterthesis")
+wandb.init(
+    name="facebook-va2vec2",
+    project="speech-to-text",
+    entity="nlp_masterthesis",
+)
 
 
 class DataCollatorCTCWithPadding:
@@ -90,6 +94,7 @@ class DataCollatorCTCWithPadding:
         return batch
 
 
+@log_function_name
 def load_datasets(data_path):
 
     train_ds = load_from_disk(os.path.join(data_path, "train"))
@@ -100,7 +105,7 @@ def load_datasets(data_path):
 
 def compute_metrics(pred):
 
-    processor = load_processor(MODEL_DIR)
+    processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
     cer_metric = load("cer")
     wer_metric = load("wer")
 
@@ -124,9 +129,15 @@ def compute_metrics(pred):
         predictions=pred_str, references=label_str
     )
 
-    return {"cer": cer, "wer": wer}
+    return {
+        "cer": cer,
+        "wer": wer,
+        "pred_str": pred_str,
+        "label_str": label_str,
+    }
 
 
+@log_function_name
 def load_model(processor, device):
 
     model = AutoModelForCTC.from_pretrained(
@@ -147,6 +158,7 @@ def load_model(processor, device):
     return model
 
 
+@log_function_name
 def load_training_args(output_dir):
     training_args = TrainingArguments(
         output_dir=output_dir,
@@ -156,9 +168,9 @@ def load_training_args(output_dir):
         num_train_epochs=WAV2VEC2_NUM_EPOCHS,
         gradient_checkpointing=True,
         fp16=True,
-        save_strategy='epoch',
-        evaluation_strategy='epoch',
-        logging_strategy='epoch',
+        save_strategy="epoch",
+        evaluation_strategy="epoch",
+        logging_strategy="epoch",
         learning_rate=1e-4,
         weight_decay=0.005,
         warmup_steps=1000,
@@ -169,6 +181,7 @@ def load_training_args(output_dir):
     return training_args
 
 
+@log_function_name
 def load_trainer(
     model, data_collator, training_args, train_ds, val_ds, processor
 ):
@@ -185,10 +198,11 @@ def load_trainer(
     return trainer
 
 
+@log_function_name
 def main():
     train_ds, val_ds = load_datasets(PROCESSED_DATA_DIR)
 
-    processor = load_processor(WAV2VEC2_MODEL_DIR)
+    processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
 
     data_collator = DataCollatorCTCWithPadding(
         processor=processor, padding=True
