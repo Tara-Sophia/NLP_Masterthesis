@@ -80,9 +80,8 @@ def tokenize_dataset(dataset, tokenizer):
 def load_training_args(output_dir):
     # steps_per_epoch = int(len(train_dataset) / TRAIN_BATCH_SIZE)
     training_args = TrainingArguments(
-        output_dir="./bert-news",
-        logging_dir="./LMlogs",
-        num_train_epochs=2,
+        output_dir=output_dir,
+        num_train_epochs=30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
@@ -173,9 +172,9 @@ def main():
         tokenizer,
     )
 
-    #import torch
+    # import torch
 
-    #torch.cuda.empty_cache()
+    # torch.cuda.empty_cache()
 
     last_checkpoint = get_last_checkpoint(training_args.output_dir)
     if last_checkpoint is None:
@@ -186,7 +185,7 @@ def main():
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
-    #torch.cuda.empty_cache()
+    # torch.cuda.empty_cache()
     trainer.save_state()
 
 
