@@ -147,3 +147,5 @@ data/**/cache-*.arrow
 # vs code setting
 .vscode/settings.json
 
+# Checkpoints
+models/**/checkpoints/** 
