@@ -57,7 +57,7 @@ def load_trained_model_and_processor_wav2vec2(device):
 
 @log_function_name
 def load_processor_whisper(processor_path):
-    pass
+    return processor_path
 
     # tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
     #     processor_path,
