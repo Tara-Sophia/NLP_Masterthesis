@@ -248,7 +248,7 @@ def compute_accuracy(eval_items: list):
 def collect_preds(Y_test, Y_preds):
     """Collect all predictions and ground truth"""
 
-    pred_gold_list = [[[Y_test[idx]], pred] for idx, pred in enumerate(Y_preds)]
+    pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
     return pred_gold_list
 
 
@@ -315,11 +315,11 @@ def main():
     # GET PREDICTED VALUES AND GROUND TRUTH INTO A LIST OF LISTS - for ease of evaluation
     eval_items = collect_preds(testing_data.medical_specialty, preds)
     # COMPUTE MRR AT K
-    # mrr_at_k = compute_mrr_at_k(eval_items)
-    # print("MRR at k: ", mrr_at_k)
+    mrr_at_k = compute_mrr_at_k(eval_items)
+    print("MRR at k: ", mrr_at_k)
     # COMPUTE ACCURACY AT K
-    # accuracy = compute_accuracy(eval_items)
-    # print("Accuracy: ", accuracy)
+    accuracy = compute_accuracy(eval_items)
+    print("Accuracy: ", accuracy)
 
     # Save Model
     filename = "./models/sklearn_logistic_regression_model.pkl"
