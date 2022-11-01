@@ -176,6 +176,7 @@ def load_training_args(output_dir):
         warmup_steps=1000,
         save_total_limit=2,
         load_best_model_at_end=True,
+        metric_for_best_model="wer",
         report_to="wandb",
     )
     return training_args
@@ -193,7 +194,7 @@ def load_trainer(
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=processor.feature_extractor,
-        callbacks=[EarlyStoppingCallback()],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
     )
     return trainer
 
@@ -220,13 +221,14 @@ def main():
         processor,
     )
 
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
+    if os.path.isdir(training_args.output_dir):
+        last_checkpoint = None
     else:
-        resume_from_checkpoint = True
+        last_checkpoint = get_last_checkpoint(
+            training_args.output_dir
+        )
 
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=last_checkpoint)
 
     trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
