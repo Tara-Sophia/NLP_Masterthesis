@@ -132,8 +132,8 @@ def compute_metrics(pred):
     return {
         "cer": cer,
         "wer": wer,
-        "pred_str": pred_str,
-        "label_str": label_str,
+        "pred_str": pred_str[0],
+        "label_str": label_str[0],
     }
 
 
