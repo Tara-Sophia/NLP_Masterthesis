@@ -37,7 +37,7 @@ WAV2VEC2_MODEL_CHECKPOINTS = os.path.join(
     "models", "stt", "wav2vec2", "checkpoints"
 )
 
-WAV2VEC2_NUM_EPOCHS = 30
+WAV2VEC2_NUM_EPOCHS = 40
 WAV2VEC2_BATCH_SIZE = 16
 
 # OPENAI WHISPER TRAINING
