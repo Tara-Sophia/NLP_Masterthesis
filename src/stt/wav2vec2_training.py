@@ -226,7 +226,7 @@ def main():
     else:
         resume_from_checkpoint = True
 
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train(resume_from_checkpoint=None)
 
     trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
