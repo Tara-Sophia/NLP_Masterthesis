@@ -6,8 +6,8 @@ import numpy as np
 import torch
 from constants import (
     WAV2VEC2_BATCH_SIZE,
-    PROCESSED_DATA_DIR,
     WAV2VEC2_MODEL,
+    WAV2VEC2_PROCESSED_DIR,
     WAV2VEC2_MODEL_DIR,
     WAV2VEC2_NUM_EPOCHS,
     WAV2VEC2_MODEL_CHECKPOINTS,
@@ -200,7 +200,7 @@ def load_trainer(
 
 @log_function_name
 def main():
-    train_ds, val_ds = load_datasets(PROCESSED_DATA_DIR)
+    train_ds, val_ds = load_datasets(WAV2VEC2_PROCESSED_DIR)
 
     processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
 
