@@ -222,11 +222,11 @@ def main():
     )
 
     if os.path.isdir(training_args.output_dir):
-        last_checkpoint = None
-    else:
         last_checkpoint = get_last_checkpoint(
             training_args.output_dir
         )
+    else:
+        last_checkpoint = None
 
     trainer.train(resume_from_checkpoint=last_checkpoint)
 
