@@ -41,10 +41,23 @@ WAV2VEC2_NUM_EPOCHS = 30
 WAV2VEC2_BATCH_SIZE = 16
 
 # OPENAI WHISPER TRAINING
+
+WHISPER_TRAIN_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "whisper", "train"
+)
+WHISPER_VAL_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "whisper", "val"
+)
+WHISPER_TEST_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "whisper", "test"
+)
+WHISPER_PROCESSED_DIR = os.path.join(
+    "data", "processed", "stt", "whisper"
+)
 WHISPER_MODEL = "openai/whisper"
 WHISPER_MODEL_DIR = os.path.join("models", "stt", "whisper", "model")
 
-
+WHISPER_VOCAB_DIR = os.path.join("models", "stt", "whisper", "vocab")
 WHISPER_MODEL_CHECKPOINTS = os.path.join(
     "models", "stt", "whisper", "checkpoints"
 )
