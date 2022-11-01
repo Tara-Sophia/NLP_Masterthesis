@@ -322,7 +322,7 @@ def main():
     print("Accuracy: ", accuracy)
 
     # Save Model
-    filename = "./models/sklearn_logistic_regression_model.pkl"
+    filename = "./models/clf/sklearn_logistic_regression_model.pkl"
     pickle.dump(model, open(filename, "wb"))
 
 
