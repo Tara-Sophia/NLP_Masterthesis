@@ -27,7 +27,7 @@ from utils import get_device, load_processor
 
 import wandb
 
-wandb.init(project="speech-to-text", entity="nlp_masterthesis")
+wandb.init(name"facebook-va2vec2", project="speech-to-text", entity="nlp_masterthesis")
 
 
 class DataCollatorCTCWithPadding:
@@ -153,13 +153,12 @@ def load_training_args(output_dir):
         group_by_length=True,
         per_device_train_batch_size=WAV2VEC2_BATCH_SIZE,
         gradient_accumulation_steps=2,
-        evaluation_strategy="steps",
         num_train_epochs=WAV2VEC2_NUM_EPOCHS,
         gradient_checkpointing=True,
         fp16=True,
-        save_steps=100,
-        eval_steps=100,
-        logging_steps=100,
+        save_strategy='epoch',
+        evaluation_strategy='epoch',
+        logging_strategy='epoch',
         learning_rate=1e-4,
         weight_decay=0.005,
         warmup_steps=1000,
