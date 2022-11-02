@@ -72,6 +72,7 @@ def cleaning_input(sentence):
 def create_df(df):
     df = df.dropna().copy()
     df["transcription"] = df["transcription"].apply(cleaning_input)
+
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
     df["location"] = df.apply(
         lambda x: location_indices(x.transcription, x.keywords_list), axis=1
