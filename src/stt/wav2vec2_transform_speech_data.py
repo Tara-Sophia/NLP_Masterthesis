@@ -14,6 +14,7 @@ from constants import (
     WAV2VEC2_TRAIN_PROCESSED_DIR,
     WAV2VEC2_VAL_PROCESSED_DIR,
     WAV2VEC2_VOCAB_DIR,
+    NUM_PROC,
 )
 from datasets import Audio
 from datasets.arrow_dataset import Dataset
@@ -38,11 +39,9 @@ def remove_special_characters(batch, train=True):
 
 def transform_dataset(batch, processor):
     audio = batch["audio"]
-    # batched output is "un-batched"
     batch["input_values"] = processor(
         audio["array"], sampling_rate=audio["sampling_rate"]
     ).input_values[0]
-    batch["input_length"] = len(batch["input_values"])
     batch["labels"] = processor(text=batch["sentence"]).input_ids
     return audio
 
@@ -128,19 +127,27 @@ def resample_data(train_ds, val_ds, test_ds):
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=1,
+        num_proc=NUM_PROC,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=1,
+        num_proc=NUM_PROC,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=1,
+        num_proc=NUM_PROC,
+    )
+
+    train_ds = train_ds.remove_columns(
+        ["path", "array", "sampling_rate"]
+    )
+    val_ds = val_ds.remove_columns(["path", "array", "sampling_rate"])
+    test_ds = test_ds.remove_columns(
+        ["path", "array", "sampling_rate"]
     )
 
     return train_ds, val_ds, test_ds, processor
@@ -159,9 +166,19 @@ def save_datasets(train_ds, val_ds, test_ds):
     recreate_folder(WAV2VEC2_VAL_PROCESSED_DIR)
     recreate_folder(WAV2VEC2_TEST_PROCESSED_DIR)
 
-    train_ds.save_to_disk(WAV2VEC2_TRAIN_PROCESSED_DIR)
-    val_ds.save_to_disk(WAV2VEC2_VAL_PROCESSED_DIR)
-    test_ds.save_to_disk(WAV2VEC2_TEST_PROCESSED_DIR)
+    train_ds.to_pandas().to_feather(
+        os.path.join(WAV2VEC2_TRAIN_PROCESSED_DIR, "train.feather")
+    )
+    val_ds.to_pandas().to_feather(
+        os.path.join(WAV2VEC2_VAL_PROCESSED_DIR, "val.feather")
+    )
+    test_ds.to_pandas().to_feather(
+        os.path.join(WAV2VEC2_TEST_PROCESSED_DIR, "test.feather")
+    )
+
+    # train_ds.save_to_disk(WAV2VEC2_TRAIN_PROCESSED_DIR)
+    # val_ds.save_to_disk(WAV2VEC2_VAL_PROCESSED_DIR)
+    # test_ds.save_to_disk(WAV2VEC2_TEST_PROCESSED_DIR)
 
 
 @log_function_name

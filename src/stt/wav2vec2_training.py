@@ -3,6 +3,7 @@ import os
 from typing import Dict, List, Optional, Union
 
 import numpy as np
+import pandas as pd
 import torch
 from constants import (
     WAV2VEC2_BATCH_SIZE,
@@ -12,7 +13,7 @@ from constants import (
     WAV2VEC2_NUM_EPOCHS,
     WAV2VEC2_PROCESSED_DIR,
 )
-from datasets.load import load_from_disk
+from datasets import load_from_disk, Dataset
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
@@ -96,9 +97,15 @@ class DataCollatorCTCWithPadding:
 
 @log_function_name
 def load_datasets(data_path):
+    train_df = pd.read_feather(
+        os.path.join(data_path, "train", "train.feather")
+    )
+    val_df = pd.read_feather(
+        os.path.join(data_path, "val", "val.feather")
+    )
 
-    train_ds = load_from_disk(os.path.join(data_path, "train"))
-    val_ds = load_from_disk(os.path.join(data_path, "val"))
+    train_ds = Dataset.from_pandas(train_df)
+    val_ds = Dataset.from_pandas(val_df)
 
     return train_ds, val_ds
 
@@ -227,7 +234,7 @@ def main():
     else:
         last_checkpoint = None
 
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=last_checkpoint)
 
     trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
