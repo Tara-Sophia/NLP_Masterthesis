@@ -56,7 +56,7 @@ WHISPER_TEST_PROCESSED_DIR = os.path.join(
 WHISPER_PROCESSED_DIR = os.path.join(
     "data", "processed", "stt", "whisper"
 )
-WHISPER_MODEL = "openai/whisper"
+WHISPER_MODEL = "openai/whisper-large"
 WHISPER_MODEL_DIR = os.path.join("models", "stt", "whisper", "model")
 
 WHISPER_VOCAB_DIR = os.path.join("models", "stt", "whisper", "vocab")
