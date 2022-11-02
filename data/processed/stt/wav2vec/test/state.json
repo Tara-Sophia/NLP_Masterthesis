@@ -4,15 +4,8 @@
       "filename": "dataset.arrow"
     }
   ],
-  "_fingerprint": "7998f002e3ec1537",
-  "_format_columns": [
-    "path",
-    "input_values",
-    "input_length",
-    "labels",
-    "array",
-    "sampling_rate"
-  ],
+  "_fingerprint": "980f2f7e3634e7ca",
+  "_format_columns": null,
   "_format_kwargs": {},
   "_format_type": null,
   "_indexes": {},
