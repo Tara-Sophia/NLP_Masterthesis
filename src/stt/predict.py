@@ -2,14 +2,14 @@
 import io
 
 import speech_recognition as sr
-from pydub import AudioSegment
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
 import torch
-from utils import (
-    load_trained_model_and_processor_wav2vec2,
-    get_device,
-)
 from decorators import log_function_name
+from pydub import AudioSegment
+from transformers import pipeline
+from utils import (
+    get_device,
+    load_trained_model_and_processor_wav2vec2,
+)
 
 
 @log_function_name

@@ -5,21 +5,21 @@ from typing import Dict, List, Optional, Union
 import numpy as np
 import torch
 from constants import (
-    WHISPER_BATCH_SIZE,
     PROCESSED_DATA_DIR,
+    WHISPER_BATCH_SIZE,
     WHISPER_MODEL,
+    WHISPER_MODEL_CHECKPOINTS,
     WHISPER_MODEL_DIR,
     WHISPER_NUM_EPOCHS,
-    WHISPER_MODEL_CHECKPOINTS,
 )
 from datasets.load import load_from_disk
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
     AutoModelForCTC,
+    EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
-    EarlyStoppingCallback,
 )
 from transformers.trainer_utils import get_last_checkpoint
 from utils import get_device, load_processor_whisper

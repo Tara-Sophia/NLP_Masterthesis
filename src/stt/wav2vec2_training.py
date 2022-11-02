@@ -7,20 +7,20 @@ import torch
 from constants import (
     WAV2VEC2_BATCH_SIZE,
     WAV2VEC2_MODEL,
-    WAV2VEC2_PROCESSED_DIR,
+    WAV2VEC2_MODEL_CHECKPOINTS,
     WAV2VEC2_MODEL_DIR,
     WAV2VEC2_NUM_EPOCHS,
-    WAV2VEC2_MODEL_CHECKPOINTS,
+    WAV2VEC2_PROCESSED_DIR,
 )
 from datasets.load import load_from_disk
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
     AutoModelForCTC,
+    EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
     Wav2Vec2Processor,
-    EarlyStoppingCallback,
 )
 from transformers.trainer_utils import get_last_checkpoint
 from utils import get_device, load_processor_wav2vec2

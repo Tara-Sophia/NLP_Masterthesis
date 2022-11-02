@@ -4,15 +4,14 @@ import shutil
 
 import librosa
 import pandas as pd
-from decorators import log_function_name
-from sklearn.model_selection import train_test_split
-from decorators import log_function_name
 from constants import (
     MAX_DURATION_LENGTH,
+    RAW_DATA_DIR,
     RAW_RECORDINGS_DIR,
     RECORDINGS_FILE,
-    RAW_DATA_DIR,
 )
+from decorators import log_function_name
+from sklearn.model_selection import train_test_split
 
 
 def get_wav_file_duration(file_path):

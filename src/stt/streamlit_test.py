@@ -1,9 +1,10 @@
-import os
-import streamlit as st
+# -*- coding: utf-8 -*-
 import sounddevice as sd
 import torch
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
 from constants import WAV2VEC2_MODEL_DIR
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
+
+import streamlit as st
 
 torch.cuda.empty_cache()
 
@@ -44,7 +45,7 @@ pipe = pipeline(
 
 # Implement start stop of recording
 st.write("Record own voice")
-if st.button(f"Click to Record"):
+if st.button("Click to Record"):
     record_state = st.text("Recording...")
 
     # Either this
