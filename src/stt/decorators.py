@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
 from functools import wraps
-import transformers
 
+import transformers
 
 transformers.logging.set_verbosity_error()
 

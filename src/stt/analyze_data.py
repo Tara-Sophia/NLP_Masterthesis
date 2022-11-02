@@ -1,11 +1,13 @@
-import pandas as pd
-import numpy as np
-import librosa
-from pandas_profiling import ProfileReport
+# -*- coding: utf-8 -*-
 import os
-from constants import REL_PATH_RECORDINGS, CSV_FILE, STT_REPORT
 
-#! Todo
+import librosa
+import numpy as np
+import pandas as pd
+from constants import CSV_FILE, REL_PATH_RECORDINGS, STT_REPORT
+from pandas_profiling import ProfileReport
+
+# ! Todo
 # # Load files
 # audio_segment = AudioSegment.from_file(
 #     "Downloads/Warm-Memories-Emotional-Inspiring-Piano.wav"

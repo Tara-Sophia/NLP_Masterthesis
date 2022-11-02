@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
 import torch
+from constants import WAV2VEC2_MODEL_DIR
+from decorators import log_function_name
 from transformers import (
-    Wav2Vec2ForCTC,
-    Wav2Vec2Processor,
     Wav2Vec2CTCTokenizer,
     Wav2Vec2FeatureExtractor,
+    Wav2Vec2ForCTC,
+    Wav2Vec2Processor,
 )
-from decorators import log_function_name
-from constants import WAV2VEC2_MODEL_DIR
 
 
 @log_function_name
