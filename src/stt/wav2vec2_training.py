@@ -24,7 +24,7 @@ from transformers import (
     Wav2Vec2Processor,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_processor_wav2vec2,load_datasets
+from utils import get_device, load_processor_wav2vec2, load_datasets
 
 import wandb
 
@@ -168,7 +168,6 @@ def load_training_args(output_dir):
         warmup_steps=1000,
         save_total_limit=2,
         load_best_model_at_end=True,
-        metric_for_best_model="wer",
         report_to="wandb",
     )
     return training_args
