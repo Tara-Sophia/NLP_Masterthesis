@@ -27,6 +27,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
+from sklearn.metrics import make_scorer
 
 from imblearn.over_sampling import SMOTE
 from traitlets import List
@@ -284,34 +285,35 @@ def main():
     model_pipeline = build_pipeline()
 
     # fit model (without grid search)
-    model = fit_model(
-        model_pipeline, training_data.transcription_f, training_data.medical_specialty
+    # model = fit_model(
+    #     model_pipeline, training_data.transcription_f, training_data.medical_specialty
+    # )
+
+    # custom_scorer = make_scorer(compute_accuracy, greater_is_better=True), how to implement?
+
+    # fit model with grid search (for sake of time, grid search only has few parameters)
+    param_grid = [
+        {
+            "classifier__C": [0.01, 0.1, 1, 10],
+        }
+    ]
+
+    best_model = grid_search(
+        training_data.transcription_f,
+        training_data.medical_specialty,
+        model_pipeline,
+        param_grid,
     )
-
-    # # fit model with grid search (for sake of time, grid search only has few parameters)
-    # param_grid = [
-    #     {
-    #         "classifier__C": [0.01, 0.1, 1, 10],
-    #         "classifier": [
-    #             LogisticRegression(
-    #                 multi_class="multinomial", random_state=42, solver="saga"
-    #             )
-    #         ],
-    #         "classifier__penalty": ["l1", "l2", "elasticnet"],
-    #     }
-    # ]
-
-    # best_model = grid_search(X_train, y_train, model_pipeline, param_grid)
 
     # evaluate model
     report = get_model_metrics(
-        model, testing_data.transcription_f, testing_data.medical_specialty
+        best_model, testing_data.transcription_f, testing_data.medical_specialty
     )
     print(report)
 
     # evaluate model with other metrics
     # GET TOP K PREDICTIONS
-    preds = get_top_k_predictions(model, testing_data.transcription_f, 3)
+    preds = get_top_k_predictions(best_model, testing_data.transcription_f, 3)
     # GET PREDICTED VALUES AND GROUND TRUTH INTO A LIST OF LISTS - for ease of evaluation
     eval_items = collect_preds(testing_data.medical_specialty, preds)
     # COMPUTE MRR AT K
@@ -323,7 +325,7 @@ def main():
 
     # Save Model
     filename = "./models/clf/sklearn_logistic_regression_model.pkl"
-    pickle.dump(model, open(filename, "wb"))
+    pickle.dump(best_model, open(filename, "wb"))
 
 
 if __name__ == "__main__":
