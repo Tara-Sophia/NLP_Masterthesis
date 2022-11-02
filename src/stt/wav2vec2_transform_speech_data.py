@@ -90,6 +90,8 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
 
     os.makedirs(folder_path, exist_ok=True)
 
+    vocab_dict = dict(sorted(vocab_dict.items()))
+
     with open(
         os.path.join(folder_path, "vocab.json"), "w"
     ) as vocab_file:
