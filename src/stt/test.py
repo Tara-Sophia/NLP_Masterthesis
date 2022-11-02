@@ -32,36 +32,13 @@ from typing import Optional, Dict, Union, List
 import numpy as np
 import torch
 
-import datasets
-from datasets import DatasetDict, load_dataset
-import transformers
-from torch import nn
-from transformers import (
-    HfArgumentParser,
-    Seq2SeqTrainingArguments,
-    set_seed,
-    Seq2SeqTrainer,
-)
+
 from transformers.trainer_utils import (
     get_last_checkpoint,
     is_main_process,
 )
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
-
-import wandb
-
-from whisper.normalizers.english import EnglishTextNormalizer
-
-# Will error if the minimal version of Transformers is not installed. Remove at your own risks.
-check_min_version("4.17.0.dev0")
-
-require_version(
-    "datasets>=1.18.0",
-    "To fix: pip install -r examples/pytorch/speech-recognition/requirements.txt",
-)
-
-logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -283,21 +260,6 @@ class DataTrainingArguments:
     )
 
 
-def write_wandb_pred(pred_str, label_str, prefix="eval"):
-    # convert str data to a wandb compatible format
-    str_data = [
-        [label_str[i], pred_str[i]] for i in range(len(pred_str))
-    ]
-    # we'll log all predictions for the last epoch
-    wandb.log(
-        {
-            f"{prefix}/predictions": wandb.Table(
-                columns=["label_str", "pred_str"], data=str_data
-            )
-        },
-    )
-
-
 def to_pad_to_mel(array):
     """Static function which:
     1. Pads/trims a list of audio arrays to a max length of 30s
@@ -395,34 +357,6 @@ def main():
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
 
-    parser = HfArgumentParser(
-        (
-            ModelArguments,
-            DataTrainingArguments,
-            Seq2SeqTrainingArguments,
-        )
-    )
-    if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
-        # If we pass only one argument to the script and it's the path to a json file,
-        # let's parse it to get our arguments.
-        model_args, data_args, training_args = parser.parse_json_file(
-            json_file=os.path.abspath(sys.argv[1])
-        )
-    else:
-        (
-            model_args,
-            data_args,
-            training_args,
-        ) = parser.parse_args_into_dataclasses()
-
-    # Set wandb project ID before instantiating the Trainer
-    os.environ["WANDB_PROJECT"] = data_args.wandb_project
-    report_to_wandb = "wandb" in training_args.report_to
-
-    sample_rate = 16_000
-
-    # Detecting last checkpoint.
-    last_checkpoint = None
     if (
         os.path.isdir(training_args.output_dir)
         and training_args.do_train
@@ -444,31 +378,6 @@ def main():
                 f"Checkpoint detected, resuming training at {last_checkpoint}. To avoid this behavior, change "
                 "the `--output_dir` or add `--overwrite_output_dir` to train from scratch."
             )
-
-    # Setup logging
-    logging.basicConfig(
-        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-        datefmt="%m/%d/%Y %H:%M:%S",
-        handlers=[logging.StreamHandler(sys.stdout)],
-    )
-    logger.setLevel(
-        logging.INFO
-        if is_main_process(training_args.local_rank)
-        else logging.WARN
-    )
-
-    # Log on each process the small summary:
-    logger.warning(
-        f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
-        f"distributed training: {bool(training_args.local_rank != -1)}, 16-bits training: {training_args.fp16}"
-    )
-    # Set the verbosity to info of the Transformers logger (on main process only):
-    if is_main_process(training_args.local_rank):
-        transformers.utils.logging.set_verbosity_info()
-    logger.info("Training/evaluation parameters %s", training_args)
-
-    # Set seed before initializing model.
-    set_seed(training_args.seed)
 
     # load the model
     if os.path.isfile(model_args.model_name_or_path):
@@ -587,7 +496,9 @@ def main():
     # 6. Resample speech dataset ALWAYS
     if data_args.torchaudio_resampler:
         # TODO: remove hardcoding of orig sr
-        resampler = torchaudio.transforms.Resample(8_000, sample_rate)
+        resampler = torchaudio.transforms.Resample(
+            16_000, sample_rate
+        )
     else:
         raw_datasets = raw_datasets.cast_column(
             data_args.audio_column_name,
@@ -628,12 +539,7 @@ def main():
         " 'clock",
         " 'all",
     ]
-    gigaspeech_punctuation = {
-        " <comma>": ",",
-        " <period>": ".",
-        " <questionmark>": "?",
-        " <exclamationpoint>": "!",
-    }
+
     gigaspeech_disfluencies = ["<other>", "<sil>"]
     swb_disfluencies = [
         "[noise]",
@@ -734,168 +640,6 @@ def main():
         desc="filtering data where the targets are ignored in scoring",
     )
 
-    def prepare_dataset(batch):
-        # pre-process audio
-        try:
-            sample = batch[audio_column_name]
-        except ValueError:
-            # E22: some samples are empty (no audio). Reading the empty audio array will trigger
-            # a soundfile ValueError. For now, we'll manually set these arrays to a zero array.
-            # They will be filtered in the subsequent filtering stage and so are
-            # explicitly ignored during training.
-            sample = {
-                "array": np.array([0.0]),
-                "sampling_rate": sample_rate,
-            }
-
-        if resampler is not None:
-            speech_tensor = torch.FloatTensor(sample["array"])
-            speech_tensor = speech_tensor.squeeze()
-            speech_tensor = resampler(speech_tensor)
-            sample["array"] = speech_tensor.numpy()
-            sample["sampling_rate"] = resampler.new_freq
-
-        # For training Whisper we perform the audio preprocessing in the WhisperDataCollator
-        # => we only need to supply it with the raw audio values
-        batch["input_ids"] = sample["array"]
-        batch["input_lengths"] = len(batch["input_ids"])
-
-        # 'Error correction' of targets
-        input_str = (
-            batch[text_column_name].lower()
-            if do_lower_case
-            else batch[text_column_name]
-        )
-
-        # LibriSpeech ASR
-        if dataset_name == "librispeech_asr":
-            pass  # no error correction necessary
-
-        # VoxPopuli
-        if dataset_name == "google/xtreme_s":
-            pass  # no error correction necessary
-
-        # Common Voice 9
-        if dataset_name == "mozilla-foundation/common_voice_9_0":
-            if input_str.startswith('"') and input_str.endswith('"'):
-                # we can remove trailing quotation marks as they do not affect the transcription
-                input_str = input_str[1:-1]
-            # replace double quotation marks with single
-            input_str = input_str.replace('""', '"')
-
-        # TED-LIUM (Release 3)
-        if dataset_name == "LIUM/tedlium":
-            # delete the <unk> token from the text
-            input_str = input_str.replace("<unk>", "")
-            # replace spaced apostrophes with un-spaced (it 's -> it's)
-            for contraction in tedlium_contractions:
-                input_str = input_str.replace(
-                    contraction, contraction[1:]
-                )
-
-        # GigaSpeech
-        if dataset_name == "speechcolab/gigaspeech":
-            for disfluency in gigaspeech_disfluencies:
-                input_str = input_str.replace(disfluency, "")
-            # convert spelled out punctuation to symbolic form
-            for (
-                punctuation,
-                replacement,
-            ) in gigaspeech_punctuation.items():
-                input_str = input_str.replace(
-                    punctuation, replacement
-                )
-
-        # SWB: hide the path to the private HF dataset
-        if "switchboard" in dataset_name:
-            # In one conversation people speak some German phrases that are tagged as
-            # <german (( ja wohl )) > -- we remove these
-            input_str = re.sub("<[^>]*>", "", input_str)
-
-            # Remove junk tokens
-            for disfluency in swb_disfluencies:
-                input_str = input_str.replace(disfluency, "")
-
-            # normalise acronyms (Fisher: u_.c_.l_.a., SWBD: u c l a)
-            input_str = input_str.replace("_.", " ")
-
-            # Replace partially pronounced words (square brackets + hyphen): westmin[ster]- to westmin- or -[go]ing to -ing
-            # Replace anomalous words (square brackets + backslack): [lemguini/linguini] to linguini
-            # Replace the combo of the two: [lem[guini]-/linguini] to lem-
-            # Example: we [ah/are] -[go]ing to westmin[ster]- for [lem[guini]-/linguini]
-            # Target: we ah -ing to westmin- for lem-
-            # Treat anomalous words first then destroy the content of all square brackets (partially pronounced words)
-
-            # First treat partially pronounced anomalous words by removing correct word: [lem[guini]-/linguini] to [lem[guini]-
-            input_str = re.sub(r"\-\/.*?\]", "-", input_str)
-
-            # Now replace anomalous words with their correct transcriptions: [lemguini/linguini] to linguini
-            split_str = input_str.split("/")
-            if len(split_str) > 1:
-                input_str = " ".join(
-                    [
-                        " ".join(
-                            [
-                                " ".join(i.split(" ")[:-1])
-                                for i in split_str
-                            ]
-                        )
-                    ]
-                    + [split_str[-1].split(" ")[-1]]
-                )
-
-            # Remove the trailing brackets on the start/end of words
-            processed_str = []
-            for word in input_str.split():
-                if word[0] == "[":
-                    processed_str.append(word[1:])
-                elif word[-1] == "]":
-                    processed_str.append(word[:-1])
-                else:
-                    processed_str.append(word)
-
-            # Stick the processed words back together
-            input_str = " ".join(processed_str)
-
-            # Now we can remove all words in square brackets: -[go]ing to -ing
-            input_str = re.sub(r"\-\[(.*?)\]", "-", input_str)
-
-            # westmin[ster]- to westmin-
-            input_str = re.sub(r"\[(.*?)\]\-", "-", input_str)
-
-            # tech[n]ology to tech-ology
-            input_str = re.sub(r"\[(.*?)\]", "-", input_str)
-
-            # partially pronounced words are now done!
-            # remove erroneous punctuations (curly braces, trailing square brackets, etc.)
-            for punctuation in swb_punctuations:
-                input_str = input_str.replace(punctuation, "")
-
-        # Earnings 22: still figuring out best segmenting method. Thus, dataset name subject to change
-        if "earnings22" in dataset_name:
-            # Remove the 100ms offset at the end of the sample
-            sampling_rate = sample["sampling_rate"]
-            offset = int(100 * (10**-3) * sampling_rate)
-            batch["input_ids"] = sample["array"][:-offset]
-            batch["input_lengths"] = len(batch["input_ids"])
-            # Remove  junk tokens
-            for disfluency in earnings_disfluencies:
-                input_str = input_str.replace(disfluency, "")
-
-        # SPGISpeech
-        if dataset_name == "kensho/spgispeech":
-            pass  # no error correction necessary
-
-        # JIWER compliance (for WER/CER calc.)
-        # remove multiple spaces
-        input_str = re.sub(r"\s\s+", " ", input_str)
-        # strip trailing spaces
-        input_str = input_str.strip()
-
-        # Finally, we tokenize the processed text
-        batch["labels"] = tokenizer(input_str).input_ids
-        return batch
-
     vectorized_datasets = raw_datasets.map(
         prepare_dataset,
         remove_columns=next(iter(raw_datasets.values())).column_names,
@@ -944,107 +688,9 @@ def main():
                     input_columns=["input_lengths"],
                 )
 
-    # filter training data with targets shorter than min_target_length or longer than max_target_length
-    def is_labels_in_length_range(labels):
-        return min_target_length < len(labels) < max_target_length
-
-    if training_args.do_train:
-        vectorized_datasets["train"] = vectorized_datasets[
-            "train"
-        ].filter(
-            is_labels_in_length_range,
-            num_proc=num_workers,
-            input_columns=["labels"],
-        )
-
-    # filter data with targets empty sentences
-    def is_labels_greater_than_min(labels):
-        return len(labels) > 0
-
-    vectorized_datasets = vectorized_datasets.filter(
-        is_labels_greater_than_min,
-        num_proc=num_workers,
-        input_columns=["labels"],
-    )
-
-    # for large datasets it is advised to run the preprocessing on a
-    # single machine first with `args.preprocessing_only` since there will mostly likely
-    # be a timeout when running the script in distributed mode.
-    # In a second step `args.preprocessing_only` can then be set to `False` to load the
-    # cached dataset
-    if data_args.preprocessing_only:
-        cache = {
-            k: v.cache_files for k, v in vectorized_datasets.items()
-        }
-        logger.info(
-            f"Data preprocessing finished. Files cached at {cache}."
-        )
-        return
-
-    if model_args.freeze_encoder:
-        model.freeze_encoder()
-        logging.info("Model encoder has been frozen")
-
-    # 8. Load Metric
-    # metric_wer = evaluate.load("wer")
-    # metric_cer = evaluate.load("cer")
-    metric_wer = datasets.load_metric("wer")
-    metric_cer = datasets.load_metric("cer")
-
     normalizer = EnglishTextNormalizer()
 
-    class WhisperTrainer(Seq2SeqTrainer):
-        def _save(
-            self, output_dir: Optional[str] = None, state_dict=None
-        ):
-            # If we are executing this function, we are the process zero, so we don't check for that.
-            output_dir = (
-                output_dir
-                if output_dir is not None
-                else self.args.output_dir
-            )
-            os.makedirs(output_dir, exist_ok=True)
-            logger.info(f"Saving model checkpoint to {output_dir}")
-            # Save a trained model and configuration using `save_pretrained()`.
-            # They can then be reloaded using `from_pretrained()`
-            self.model.save_to(
-                save_path=os.path.join(
-                    output_dir,
-                    model_args.model_name_or_path + ".whisper",
-                )
-            )
-            # Good practice: save your training arguments together with the trained model
-            torch.save(
-                self.args,
-                os.path.join(output_dir, "training_args.bin"),
-            )
-
-    # Define data collator
-    eos = tokenizer.eos_token_id
-    t_stamp = tokenizer("<|notimestamps|>").input_ids[0]
-    whisper_data_collator = WhisperDataCollatorWithPadding(
-        eos_token_id=eos, time_stamp_token_id=t_stamp
-    )
-
-    # make sure model uses 50257 as BOS
-    bos = tokenizer("<|startoftranscript|>").input_ids[0]
-    model.config.decoder_start_token_id = bos
-
-    # Initialize Trainer
-    trainer = WhisperTrainer(
-        model=model,
-        args=training_args,
-        compute_metrics=compute_metrics,
-        train_dataset=vectorized_datasets["train"]
-        if training_args.do_train
-        else None,
-        eval_dataset=vectorized_datasets["eval"]
-        if training_args.do_eval
-        else None,
-        data_collator=whisper_data_collator,
-    )
-
-    # 8. Finally, we can start training
+    return results
 
 
 if __name__ == "__main__":
