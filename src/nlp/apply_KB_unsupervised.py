@@ -35,8 +35,8 @@ def KeywordExtraction(text):
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
-        nr_candidates=10,
-        top_n=5,
+        nr_candidates=20,
+        top_n=15,
         use_mmr=True,
         diversity=0.5,
     )
@@ -55,7 +55,9 @@ def apply_keyword_on_Dataframe(df):
 
 
 def save_dataframe(df):
-    df.to_csv("data/processed/nlp/mtsamples/mtsamples_unsupervised.csv", index=False)
+    df.to_csv(
+        "data/processed/nlp/mtsamples/mtsamples_unsupervised_both.csv", index=False
+    )
 
 
 # make df column smaller than 512
@@ -65,7 +67,7 @@ def small_column_df(df):
 
 
 def main():
-    df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_cleaned.csv")
+    df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_semisupervised.csv")
     df = small_column_df(df_1)
     # apply keyword extraction on dataframe
     df = apply_keyword_on_Dataframe(df)
