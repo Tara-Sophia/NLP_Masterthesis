@@ -111,7 +111,7 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
     trainer = Trainer(
         model=model,
         args=training_args,
-        data_collator=data_collator,  # needed?
+        data_collator=data_collator,  # masks the tokens
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=tokenizer,
@@ -183,6 +183,12 @@ def main():
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+
+    # evaluate
+    import math
+
+    eval_results = trainer.evaluate()
+    print(f"Perplexity: {math.exp(eval_results['eval_loss']):.2f}")
 
     trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
     # torch.cuda.empty_cache()
