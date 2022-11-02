@@ -24,7 +24,7 @@ from transformers import (
     Wav2Vec2Processor,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_processor_wav2vec2
+from utils import get_device, load_processor_wav2vec2,load_datasets
 
 import wandb
 
@@ -93,21 +93,6 @@ class DataCollatorCTCWithPadding:
         batch["labels"] = labels
 
         return batch
-
-
-@log_function_name
-def load_datasets(data_path):
-    train_df = pd.read_feather(
-        os.path.join(data_path, "train", "train.feather")
-    )
-    val_df = pd.read_feather(
-        os.path.join(data_path, "val", "val.feather")
-    )
-
-    train_ds = Dataset.from_pandas(train_df)
-    val_ds = Dataset.from_pandas(val_df)
-
-    return train_ds, val_ds
 
 
 def compute_metrics(pred):

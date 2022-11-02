@@ -2,27 +2,29 @@
 import os
 from typing import Dict, List, Optional, Union
 
+import pandas as pd
 import numpy as np
 import torch
 from constants import (
-    PROCESSED_DATA_DIR,
+    WAV2VEC2_PROCESSED_DIR,
     WHISPER_BATCH_SIZE,
     WHISPER_MODEL,
     WHISPER_MODEL_CHECKPOINTS,
     WHISPER_MODEL_DIR,
     WHISPER_NUM_EPOCHS,
 )
-from datasets.load import load_from_disk
+from datasets import Dataset
 from decorators import log_function_name
 from evaluate import load
 from transformers import (
-    AutoModelForCTC,
+    AutoModelForSpeechSeq2Seq,
     EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
+    Seq2SeqTrainer,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_processor_whisper
+from utils import get_device, load_tokenizer_whisper, load_datasets
 
 import wandb
 
@@ -33,7 +35,7 @@ wandb.init(
 )
 
 
-class WhisperDataCollatorWhithPadding:
+class WhisperDataCollatorWithPadding:
     """
     Data collator that dynamically pads the audio inputs received. An EOS token is appended to the labels sequences.
     They are then dynamically padded to max length.
@@ -93,16 +95,39 @@ class WhisperDataCollatorWhithPadding:
         return batch
 
 
-@log_function_name
-def load_datasets(data_path):
-
-    train_ds = load_from_disk(os.path.join(data_path, "train"))
-    val_ds = load_from_disk(os.path.join(data_path, "val"))
-
-    return train_ds, val_ds
+class WhisperTrainer(Seq2SeqTrainer):
+    def _save(
+        self, output_dir: Optional[str] = None, state_dict=None
+    ):
+        # If we are executing this function, we are the process zero, so we don't check for that.
+        output_dir = (
+            output_dir
+            if output_dir is not None
+            else self.args.output_dir
+        )
+        os.makedirs(output_dir, exist_ok=True)
+        logger.info(f"Saving model checkpoint to {output_dir}")
+        # Save a trained model and configuration using `save_pretrained()`.
+        # They can then be reloaded using `from_pretrained()`
+        self.model.save_to(
+            save_path=os.path.join(
+                output_dir,
+                model_args.model_name_or_path + ".whisper",
+            )
+        )
+        # Good practice: save your training arguments together with the trained model
+        torch.save(
+            self.args,
+            os.path.join(output_dir, "training_args.bin"),
+        )
 
 
 def compute_metrics(pred):
+
+    tokenizer = 2  # load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
+    cer_metric = load("cer")
+    wer_metric = load("wer")
+
     pred_ids = pred.predictions
     pred.label_ids[pred.label_ids == -100] = tokenizer.eos_token_id
 
@@ -116,38 +141,45 @@ def compute_metrics(pred):
         pred.label_ids, skip_special_tokens=True
     )
 
-    wer = metric_wer.compute(
+    cer = cer_metric.compute(
         predictions=pred_str, references=label_str
     )
-    cer = metric_cer.compute(
+    wer = wer_metric.compute(
         predictions=pred_str, references=label_str
     )
 
     return {
-        "wer": wer,
         "cer": cer,
-        "pred_str": pred_str,
-        "label_str": label_str,
+        "wer": wer,
+        "pred_str": pred_str[0],
+        "label_str": label_str[0],
     }
 
 
 @log_function_name
-def load_model(processor, device):
+def get_data_collator(tokenizer):
+    # Define data collator
+    eos = tokenizer.eos_token_id
+    t_stamp = tokenizer("<|notimestamps|>").input_ids[0]
+    whisper_data_collator = WhisperDataCollatorWithPadding(
+        eos_token_id=eos, time_stamp_token_id=t_stamp
+    )
+    return whisper_data_collator
 
-    model = AutoModelForCTC.from_pretrained(
-        WAV2VEC2_MODEL,
-        attention_dropout=0.1,
-        hidden_dropout=0.1,
-        feat_proj_dropout=0.0,
-        mask_time_prob=0.05,
-        layerdrop=0.1,
-        ctc_loss_reduction="mean",
-        pad_token_id=processor.tokenizer.pad_token_id,
-        vocab_size=len(processor.tokenizer),
+
+@log_function_name
+def load_model(tokenizer, device):
+
+    model = AutoModelForSpeechSeq2Seq.from_pretrained(
+        WHISPER_MODEL
     ).to(device)
 
-    if hasattr(model, "freeze_feature_encoder"):
-        model.freeze_feature_encoder()
+    if hasattr(model, "freeze_encoder"):
+        model.freeze_encoder()
+
+    # make sure model uses 50257 as BOS
+    bos = tokenizer("<|startoftranscript|>").input_ids[0]
+    model.config.decoder_start_token_id = bos
 
     return model
 
@@ -177,41 +209,37 @@ def load_training_args(output_dir):
 
 @log_function_name
 def load_trainer(
-    model, data_collator, training_args, train_ds, val_ds, processor
+    model, data_collator, training_args, train_ds, val_ds
 ):
-    trainer = Trainer(
+    trainer = WhisperTrainer(
         model=model,
-        data_collator=data_collator,
         args=training_args,
         compute_metrics=compute_metrics,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        tokenizer=processor.feature_extractor,
-        callbacks=[EarlyStoppingCallback()],
+        data_collator=data_collator,
     )
+
     return trainer
 
 
 @log_function_name
 def main():
-    train_ds, val_ds = load_datasets(PROCESSED_DATA_DIR)
+    train_ds, val_ds = load_datasets(WAV2VEC2_PROCESSED_DIR)
 
-    processor = load_processor_whisper(WHISPER_MODEL_DIR)
+    tokenizer = load_tokenizer_whisper()
 
-    # data_collator = DataCollatorCTCWithPadding(
-    #     processor=processor, padding=True
-    # )
+    data_collator = get_data_collator(tokenizer)
 
     device = get_device()
-    model = load_model(processor, device)
-    # training_args = load_training_args(WAV2VEC2_MODEL_CHECKPOINTS)
+    # model = load_model(tokenizer, device)
+    # training_args = load_training_args(WHISPER_MODEL_CHECKPOINTS)
     # trainer = load_trainer(
     #     model,
     #     data_collator,
     #     training_args,
     #     train_ds,
     #     val_ds,
-    #     processor,
     # )
 
     # last_checkpoint = get_last_checkpoint(training_args.output_dir)
@@ -222,7 +250,7 @@ def main():
 
     # trainer.train()
 
-    # trainer.save_model(WAV2VEC2_MODEL_DIR)
+    # trainer.save_model(WHISPER_MODEL_DIR)
     # trainer.save_state()
 
 
