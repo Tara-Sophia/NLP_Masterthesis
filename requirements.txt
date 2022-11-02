@@ -5,3 +5,4 @@ jiwer
 wandb
 pre-commit
 unidecode
+whisper
