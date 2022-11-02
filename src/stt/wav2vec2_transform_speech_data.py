@@ -150,7 +150,7 @@ def resample_data(train_ds, val_ds, test_ds):
         ["path", "array", "sampling_rate"]
     )
 
-    return train_ds, val_ds, test_ds, processor
+    return train_ds, val_ds, test_ds
 
 
 @log_function_name
@@ -205,12 +205,11 @@ def main():
         test_ds=test_ds,
     )
 
-    train_ds, val_ds, test_ds, processor = resample_data(
+    train_ds, val_ds, test_ds = resample_data(
         train_ds, val_ds, test_ds
     )
 
     save_datasets(train_ds, val_ds, test_ds)
-    processor.save_pretrained(WAV2VEC2_MODEL_DIR)
 
 
 if __name__ == "__main__":
