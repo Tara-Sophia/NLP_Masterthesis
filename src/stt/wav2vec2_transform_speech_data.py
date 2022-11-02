@@ -80,6 +80,7 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
         | set(vocab_val["vocab"][0])
         | set(vocab_test["vocab"][0])
     )
+    vocab_list.sort()
     vocab_dict = {v: k for k, v in enumerate(vocab_list)}
 
     vocab_dict["|"] = vocab_dict[" "]
@@ -89,8 +90,6 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
     vocab_dict["[PAD]"] = len(vocab_dict)
 
     os.makedirs(folder_path, exist_ok=True)
-
-    vocab_dict = dict(sorted(vocab_dict.items()))
 
     with open(
         os.path.join(folder_path, "vocab.json"), "w"
@@ -128,19 +127,19 @@ def resample_data(train_ds, val_ds, test_ds):
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
 
     return train_ds, val_ds, test_ds, processor

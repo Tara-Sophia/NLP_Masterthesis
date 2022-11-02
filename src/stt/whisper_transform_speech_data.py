@@ -126,19 +126,19 @@ def resample_data(train_ds, val_ds, test_ds):
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=train_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
     val_ds = val_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=val_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
     test_ds = test_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
-        num_proc=4,
+        num_proc=1,
     )
 
     return train_ds, val_ds, test_ds, processor
