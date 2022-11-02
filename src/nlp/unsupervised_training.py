@@ -41,15 +41,6 @@ def load_datasets(data_path):
     dataset_val = Dataset.from_pandas(df_valid[["transcription"]].dropna())
     return dataset_train, dataset_val
 
-
-# MODEL = "bert"
-# bert_type = "bert-base-cased"
-# checkpoint = "emilyalsentzer/Bio_ClinicalBERT"  # "bert-base-cased"
-# TokenizerClass = BertTokenizer
-# ModelClass = BertForMaskedLM
-
-# elif MODEL == 'scibert':
-#     TokenizerClass = AutoTokenizer
 #     ModelClass = AutoModelForMaskedLM
 
 
@@ -75,7 +66,14 @@ def tokenize_dataset(dataset, tokenizer):
         # batched=True,
     )
     return tokenized_datasets
+#import metrics
+#from transformers import metric
+from datasets import metric, load_metric
 
+def compute_metrics(eval_pred):
+    predictions, labels = eval_pred
+    predictions = np.argmax(predictions, axis=1)
+    return metric.compute(predictions=predictions, references=labels)
 
 def load_training_args(output_dir):
     # steps_per_epoch = int(len(train_dataset) / TRAIN_BATCH_SIZE)
@@ -115,6 +113,7 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=tokenizer,
+        compute_metrics=compute_metrics,
     )
     return trainer
 

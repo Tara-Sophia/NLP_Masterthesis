@@ -78,9 +78,10 @@ def clean_remove_column(tokenized_dataset):
     # tokenized_dataset = tokenized_dataset.rename_column("labels_val", "labels")
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
-
+# def load multiple metrics f1, precision, recall, accuracy
 
 def compute_metrics(eval_pred):
+    #load multiple metrics
     metric = load_metric("accuracy", average="macro")
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
