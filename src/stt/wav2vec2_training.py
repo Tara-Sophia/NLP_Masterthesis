@@ -187,6 +187,7 @@ def load_trainer(
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=processor.feature_extractor,
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
     )
     return trainer
 
