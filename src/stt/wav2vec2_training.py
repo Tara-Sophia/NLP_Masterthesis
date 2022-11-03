@@ -38,8 +38,12 @@ wandb.init(
     entity="nlp_masterthesis",
 )
 
+processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
+cer_metric = load("cer")
+wer_metric = load("wer")
 
-def compute_metrics(pred, cer_metric, wer_metric, processor):
+
+def compute_metrics(pred):
     pred_logits = pred.predictions
     pred_ids = np.argmax(pred_logits, axis=-1)
 
@@ -114,19 +118,12 @@ def load_training_args(output_dir):
 def load_trainer(
     model, data_collator, training_args, train_ds, val_ds, processor
 ):
-    wer = load("wer")
-    cer = load("cer")
+
     trainer = Trainer(
         model=model,
         data_collator=data_collator,
         args=training_args,
-        compute_metrics=compute_metrics(
-            fn_kwargs={
-                "cer_metric": cer,
-                "wer_metric": wer,
-                "processor": processor,
-            }
-        ),
+        compute_metrics=compute_metrics,
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=processor.feature_extractor,
@@ -143,8 +140,6 @@ def load_trainer(
 @log_function_name
 def main():
     train_ds, val_ds = load_datasets(PROCESSED_DIR)
-
-    processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
 
     data_collator = DataCollatorCTCWithPadding(
         processor=processor, padding=True
