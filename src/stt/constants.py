@@ -31,8 +31,8 @@ WAV2VEC2_NUM_EPOCHS = 30
 WAV2VEC2_BATCH_SIZE_TRAIN = 16
 WAV2VEC2_BATCH_SIZE_EVAL = 16
 
-# HUBERT TRAINING
 
+# HUBERT TRAINING
 HUBERT_MODEL = "facebook/hubert-large-ll60k"
 HUBERT_MODEL_DIR = os.path.join("models", "stt", "hubert", "model")
 HUBERT_MODEL_CHECKPOINTS = os.path.join(
@@ -42,6 +42,7 @@ HUBERT_MODEL_CHECKPOINTS = os.path.join(
 HUBERT_NUM_EPOCHS = 30
 HUBERT_BATCH_SIZE_TRAIN = 16
 HUBERT_BATCH_SIZE_EVAL = 16
+
 
 # STT Report HTML
 STT_REPORT = os.path.join("reports", "stt")

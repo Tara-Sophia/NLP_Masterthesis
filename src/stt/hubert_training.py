@@ -28,9 +28,9 @@ from utils import (
 import wandb
 
 wandb.init(
-    name="facebook-hubert",
     project="speech-to-text",
     entity="nlp_masterthesis",
+    tags=["facebook-hubert"],
 )
 
 
