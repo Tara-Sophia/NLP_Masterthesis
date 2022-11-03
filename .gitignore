@@ -141,9 +141,6 @@ data/en_ner_bionlp13cg_md-0.5.1/
 # Data interim
 data/interim/
 
-# Data processed
-data/processed/
-
 # Cache Data
 data/**/cache-*.arrow
 
