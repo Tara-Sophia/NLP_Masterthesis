@@ -28,11 +28,9 @@ def get_device() -> torch.device:
 @log_function_name
 def load_datasets(data_path):
     train_df = pd.read_feather(
-        os.path.join(data_path, "train", "train.feather")
+        os.path.join(data_path, "train.feather")
     )
-    val_df = pd.read_feather(
-        os.path.join(data_path, "val", "val.feather")
-    )
+    val_df = pd.read_feather(os.path.join(data_path, "val.feather"))
 
     train_ds = Dataset.from_pandas(train_df)
     val_ds = Dataset.from_pandas(val_df)
