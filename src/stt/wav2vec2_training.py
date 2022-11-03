@@ -108,6 +108,10 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             super().on_evaluate(
                 args, state, control, metrics, **kwargs
             )
+        print("Epoch: ", state.epoch)
+        print(
+            "Early stopping: ", self.early_stopping_patience_counter
+        )
 
 
 def compute_metrics(pred):
