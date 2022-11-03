@@ -10,7 +10,7 @@ RAW_RECORDINGS_DIR = os.path.join(RAW_DATA_DIR, "recordings")
 
 
 # TRANSFORM DATA
-CHARS_TO_IGNORE_REGEX = r'\[\,\?\.\!\-\;\:"\“\%\‘\”\�\]'
+CHARS_TO_IGNORE_REGEX = '[\,\?\.\!\-\;\:"]'
 SAMPLING_RATE = 16000
 MAX_DURATION_LENGTH = 4.5
 NUM_PROC = 5
