@@ -16,7 +16,7 @@ MAX_DURATION_LENGTH = 4.5
 NUM_PROC = 5
 
 # FACEBOOK WAV2VEC2
-WHISPER_TRAIN_PROCESSED_DIR = os.path.join(
+WAV2VEC2_TRAIN_PROCESSED_DIR = os.path.join(
     "data", "processed", "stt", "wav2vec", "train"
 )
 WAV2VEC2_VAL_PROCESSED_DIR = os.path.join(
