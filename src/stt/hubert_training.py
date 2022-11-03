@@ -82,7 +82,7 @@ def main():
     else:
         last_checkpoint = None
 
-    # trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=None)
     processor.save_pretrained(HUBERT_MODEL_DIR)
     trainer.save_model(HUBERT_MODEL_DIR)
     trainer.save_state()
