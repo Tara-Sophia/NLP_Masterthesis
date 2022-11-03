@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 import torch
-from constants import WAV2VEC2_MODEL_DIR
+from constants import WAV2VEC2_MODEL_DIR, SAMPLING_RATE
 from decorators import log_function_name
 from datasets import Dataset
 from transformers import (
@@ -11,8 +11,10 @@ from transformers import (
     Wav2Vec2FeatureExtractor,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
+    WhisperFeatureExtractor,
+    WhisperTokenizer,
+    WhisperProcessor,
 )
-import whisper
 
 
 @log_function_name
@@ -52,7 +54,7 @@ def load_processor_wav2vec2(processor_path):
 
     feature_extractor = Wav2Vec2FeatureExtractor(
         feature_size=1,
-        sampling_rate=16000,
+        sampling_rate=SAMPLING_RATE,
         padding_value=0.0,
         do_normalize=True,
         return_attention_mask=False,
@@ -76,15 +78,38 @@ def load_trained_model_and_processor_wav2vec2(device):
 # OPENAI WHISPER
 
 
+# @log_function_name
+# def load_tokenizer_whisper():
+#     # load the tokenizer
+#     whisper_tok = whisper.tokenizer.get_tokenizer(
+#         False, task="transcribe", language="en"
+#     )
+#     tokenizer = whisper_tok.tokenizer
+#     tokenizer.pad_token = tokenizer.eos_token
+#     return tokenizer
+
+
 @log_function_name
-def load_tokenizer_whisper():
-    # load the tokenizer
-    whisper_tok = whisper.tokenizer.get_tokenizer(
-        False, task="transcribe", language="en"
+def load_processor_whisper(processor_path):
+
+    tokenizer = WhisperTokenizer.from_pretrained(
+        "openai/whisper-base",
+        unk_token="[UNK]",
+        pad_token="[PAD]",
+        word_delimiter_token="|",
     )
-    tokenizer = whisper_tok.tokenizer
-    tokenizer.pad_token = tokenizer.eos_token
-    return tokenizer
+    tokenizer
+    tokenizer.get_vocab()
+
+    # feature_extractor = WhisperFeatureExtractor(
+    #     sampling_rate=SAMPLING_RATE,
+    # )
+
+    # processor = WhisperProcessor(
+    #     feature_extractor=feature_extractor, tokenizer=tokenizer
+    # )
+    return "TEST"
+    # return processor
 
 
 @log_function_name
