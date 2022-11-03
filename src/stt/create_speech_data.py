@@ -53,7 +53,7 @@ def clean_df(df, folder):
 @log_function_name
 def create_own_dataset(file_path):
 
-    df = pd.read_csv(file_path).head(200)
+    df = pd.read_csv(file_path)
 
     df["duration"] = df["file_name"].apply(get_wav_file_duration)
     df = df[df["duration"] < MAX_DURATION_LENGTH].copy()
