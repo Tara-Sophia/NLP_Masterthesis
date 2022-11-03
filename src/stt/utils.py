@@ -90,26 +90,20 @@ def load_trained_model_and_processor_wav2vec2(device):
 
 
 @log_function_name
-def load_processor_whisper(processor_path):
+def load_processor_whisper(tokenizer_path):
 
     tokenizer = WhisperTokenizer.from_pretrained(
-        "openai/whisper-base",
-        unk_token="[UNK]",
-        pad_token="[PAD]",
-        word_delimiter_token="|",
+        tokenizer_path,
     )
-    tokenizer
-    tokenizer.get_vocab()
 
-    # feature_extractor = WhisperFeatureExtractor(
-    #     sampling_rate=SAMPLING_RATE,
-    # )
+    feature_extractor = WhisperFeatureExtractor(
+        sampling_rate=SAMPLING_RATE,
+    )
 
-    # processor = WhisperProcessor(
-    #     feature_extractor=feature_extractor, tokenizer=tokenizer
-    # )
-    return "TEST"
-    # return processor
+    processor = WhisperProcessor(
+        feature_extractor=feature_extractor, tokenizer=tokenizer
+    )
+    return processor
 
 
 @log_function_name
