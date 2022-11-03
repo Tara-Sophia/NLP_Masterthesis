@@ -3,8 +3,9 @@ import os
 from typing import Optional, Union
 
 import pandas as pd
+import numpy as np
 import torch
-from constants import WAV2VEC2_MODEL_DIR, SAMPLING_RATE
+from constants import WAV2VEC2_MODEL_DIR, SAMPLING_RATE, VOCAB_DIR
 from decorators import log_function_name
 from datasets import Dataset
 from transformers import (
@@ -13,9 +14,10 @@ from transformers import (
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
     EarlyStoppingCallback,
-    WhisperTokenizer,
-    WhisperProcessor,
+    Trainer,
+    TrainingArguments,
 )
+from evaluate import load
 
 
 @log_function_name
@@ -38,11 +40,8 @@ def load_datasets(data_path):
     return train_ds, val_ds
 
 
-# FACEBOOK WAV2VEC2
-
-
 @log_function_name
-def load_processor_wav2vec2(processor_path):
+def load_processor(processor_path):
 
     tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
         processor_path,
@@ -65,7 +64,7 @@ def load_processor_wav2vec2(processor_path):
 
     return processor
 
-
+# FACEBOOK WAV2VEC2
 @log_function_name
 def load_trained_model_and_processor_wav2vec2(device):
     model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
@@ -149,3 +148,88 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             super().on_evaluate(
                 args, state, control, metrics, **kwargs
             )
+
+
+processor = load_processor(VOCAB_DIR)
+cer_metric = load("cer")
+wer_metric = load("wer")
+
+
+def compute_metrics(pred):
+    pred_logits = pred.predictions
+    pred_ids = np.argmax(pred_logits, axis=-1)
+
+    pred.label_ids[
+        pred.label_ids == -100
+    ] = processor.tokenizer.pad_token_id
+
+    pred_str = processor.batch_decode(pred_ids)
+    # we do not want to group tokens when computing the metrics
+    label_str = processor.batch_decode(
+        pred.label_ids, group_tokens=False
+    )
+
+    cer = cer_metric.compute(
+        predictions=pred_str, references=label_str
+    )
+    wer = wer_metric.compute(
+        predictions=pred_str, references=label_str
+    )
+
+    return {
+        "cer": cer,
+        "wer": wer,
+        "pred_str": pred_str[0],
+        "label_str": label_str[0],
+    }
+
+
+@log_function_name
+def load_training_args(
+    output_dir, batch_size_train, batch_size_val, num_epochs
+):
+    training_args = TrainingArguments(
+        output_dir=output_dir,
+        group_by_length=True,
+        per_device_train_batch_size=batch_size_train,
+        per_device_eval_batch_size=batch_size_val,
+        gradient_accumulation_steps=2,
+        num_train_epochs=num_epochs,
+        gradient_checkpointing=True,
+        fp16=True,
+        save_strategy="epoch",
+        evaluation_strategy="epoch",
+        logging_strategy="epoch",
+        learning_rate=1e-4,
+        weight_decay=0.005,
+        warmup_steps=1000,
+        save_total_limit=2,
+        load_best_model_at_end=True,
+        metric_for_best_model="wer",
+        greater_is_better=False,
+        report_to="wandb",
+    )
+    return training_args
+
+
+@log_function_name
+def load_trainer(
+    model, data_collator, training_args, train_ds, val_ds, processor
+):
+
+    trainer = Trainer(
+        model=model,
+        data_collator=data_collator,
+        args=training_args,
+        compute_metrics=compute_metrics,
+        train_dataset=train_ds,
+        eval_dataset=val_ds,
+        tokenizer=processor.feature_extractor,
+        callbacks=[
+            EearlyStoppingCallbackAfterNumEpochs(
+                start_epoch=15,
+                early_stopping_patience=5,
+            )
+        ],
+    )
+    return trainer
