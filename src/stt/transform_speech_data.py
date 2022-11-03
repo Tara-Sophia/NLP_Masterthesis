@@ -167,13 +167,13 @@ def main():
 
     train_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv"))
-    ).select(range(15))
+    )
     val_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "val.csv"))
-    ).select(range(15))
+    )
     test_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "test.csv"))
-    ).select(range(15))
+    )
 
     train_ds, val_ds, test_ds = preprocess_data(
         train_ds, val_ds, test_ds

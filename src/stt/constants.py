@@ -12,7 +12,7 @@ RAW_RECORDINGS_DIR = os.path.join(RAW_DATA_DIR, "recordings")
 # TRANSFORM DATA
 CHARS_TO_IGNORE_REGEX = '[\,\?\.\!\-\;\:"\[\]]'
 SAMPLING_RATE = 16000
-MAX_DURATION_LENGTH = 4.5
+MAX_DURATION_LENGTH = 10
 NUM_PROC = 7
 PROCESSED_DIR = os.path.join("data", "processed", "stt")
 VOCAB_DIR = os.path.join("models", "stt", "vocab")
