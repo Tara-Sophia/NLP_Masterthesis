@@ -46,7 +46,8 @@ def transform_dataset(batch, processor):
     # batch["input_values"] = processor(
     #     audio["array"], sampling_rate=audio["sampling_rate"]
     # ).input_values[0]
-    # batch["labels"] = processor(text=batch["sentence"]).input_ids
+    print(batch["sentence"])
+    batch["labels"] = processor(text=batch["sentence"]).input_ids
     return batch
 
 
@@ -166,40 +167,40 @@ def resample_data(train_ds, val_ds, test_ds):
         remove_columns=train_ds.column_names,
         num_proc=NUM_PROC,
     )
-    val_ds = val_ds.map(
-        transform_dataset,
-        fn_kwargs={"processor": processor},
-        remove_columns=val_ds.column_names,
-        num_proc=NUM_PROC,
-    )
-    test_ds = test_ds.map(
-        transform_dataset,
-        fn_kwargs={"processor": processor},
-        remove_columns=test_ds.column_names,
-        num_proc=NUM_PROC,
-    )
+    # val_ds = val_ds.map(
+    #     transform_dataset,
+    #     fn_kwargs={"processor": processor},
+    #     remove_columns=val_ds.column_names,
+    #     num_proc=NUM_PROC,
+    # )
+    # test_ds = test_ds.map(
+    #     transform_dataset,
+    #     fn_kwargs={"processor": processor},
+    #     remove_columns=test_ds.column_names,
+    #     num_proc=NUM_PROC,
+    # )
 
-    train_ds = train_ds.remove_columns(
-        [
-            "path",
-            "array",
-            "sampling_rate",
-        ]
-    )
-    val_ds = val_ds.remove_columns(
-        [
-            "path",
-            "array",
-            "sampling_rate",
-        ]
-    )
-    test_ds = test_ds.remove_columns(
-        [
-            "path",
-            "array",
-            "sampling_rate",
-        ]
-    )
+    # train_ds = train_ds.remove_columns(
+    #     [
+    #         "path",
+    #         "array",
+    #         "sampling_rate",
+    #     ]
+    # )
+    # val_ds = val_ds.remove_columns(
+    #     [
+    #         "path",
+    #         "array",
+    #         "sampling_rate",
+    #     ]
+    # )
+    # test_ds = test_ds.remove_columns(
+    #     [
+    #         "path",
+    #         "array",
+    #         "sampling_rate",
+    #     ]
+    # )
 
     return train_ds, val_ds, test_ds
 

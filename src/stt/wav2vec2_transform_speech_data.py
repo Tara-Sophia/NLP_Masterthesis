@@ -142,14 +142,6 @@ def resample_data(train_ds, val_ds, test_ds):
         num_proc=NUM_PROC,
     )
 
-    train_ds = train_ds.remove_columns(
-        ["path", "array", "sampling_rate"]
-    )
-    val_ds = val_ds.remove_columns(["path", "array", "sampling_rate"])
-    test_ds = test_ds.remove_columns(
-        ["path", "array", "sampling_rate"]
-    )
-
     return train_ds, val_ds, test_ds
 
 
