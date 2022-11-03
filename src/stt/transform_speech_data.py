@@ -9,15 +9,13 @@ from constants import (
     CHARS_TO_IGNORE_REGEX,
     RAW_DATA_DIR,
     SAMPLING_RATE,
-    WAV2VEC2_MODEL_DIR,
-    WAV2VEC2_TRAIN_PROCESSED_DIR,
-    WAV2VEC2_VAL_PROCESSED_DIR,
-    WAV2VEC2_TEST_PROCESSED_DIR,
-    WAV2VEC2_VOCAB_DIR,
+    TRAIN_PROCESSED_DIR,
+    VAL_PROCESSED_DIR,
+    TEST_PROCESSED_DIR,
+    VOCAB_DIR,
     NUM_PROC,
 )
-from datasets import Audio
-from datasets.arrow_dataset import Dataset
+from datasets import Audio, Dataset
 from decorators import log_function_name
 from unidecode import unidecode
 from utils import load_processor_wav2vec2
@@ -122,7 +120,7 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
 @log_function_name
 def resample_data(train_ds, val_ds, test_ds):
-    processor = load_processor_wav2vec2(WAV2VEC2_VOCAB_DIR)
+    processor = load_processor_wav2vec2(VOCAB_DIR)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
@@ -140,7 +138,6 @@ def resample_data(train_ds, val_ds, test_ds):
         fn_kwargs={"processor": processor},
         remove_columns=test_ds.column_names,
         num_proc=NUM_PROC,
-
     )
 
     return train_ds, val_ds, test_ds
@@ -155,23 +152,19 @@ def recreate_folder(folder_path):
 
 @log_function_name
 def save_datasets(train_ds, val_ds, test_ds):
-    recreate_folder(WAV2VEC2_TRAIN_PROCESSED_DIR)
-    recreate_folder(WAV2VEC2_VAL_PROCESSED_DIR)
-    recreate_folder(WAV2VEC2_TEST_PROCESSED_DIR)
+    recreate_folder(TRAIN_PROCESSED_DIR)
+    recreate_folder(VAL_PROCESSED_DIR)
+    recreate_folder(TEST_PROCESSED_DIR)
 
     train_ds.to_pandas().to_feather(
-        os.path.join(WAV2VEC2_TRAIN_PROCESSED_DIR, "train.feather")
+        os.path.join(TRAIN_PROCESSED_DIR, "train.feather")
     )
     val_ds.to_pandas().to_feather(
-        os.path.join(WAV2VEC2_VAL_PROCESSED_DIR, "val.feather")
+        os.path.join(VAL_PROCESSED_DIR, "val.feather")
     )
     test_ds.to_pandas().to_feather(
-        os.path.join(WAV2VEC2_TEST_PROCESSED_DIR, "test.feather")
+        os.path.join(TEST_PROCESSED_DIR, "test.feather")
     )
-
-    # train_ds.save_to_disk(WAV2VEC2_TRAIN_PROCESSED_DIR)
-    # val_ds.save_to_disk(WAV2VEC2_VAL_PROCESSED_DIR)
-    # test_ds.save_to_disk(WAV2VEC2_TEST_PROCESSED_DIR)
 
 
 @log_function_name
@@ -179,20 +172,20 @@ def main():
 
     train_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv"))
-    )
+    ).select(range(15))
     val_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "val.csv"))
-    )
+    ).select(range(15))
     test_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "test.csv"))
-    )
+    ).select(range(15))
 
     train_ds, val_ds, test_ds = preprocess_data(
         train_ds, val_ds, test_ds
     )
 
     create_vocab(
-        folder_path=WAV2VEC2_VOCAB_DIR,
+        folder_path=VOCAB_DIR,
         train_ds=train_ds,
         val_ds=val_ds,
         test_ds=test_ds,

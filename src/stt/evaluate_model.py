@@ -96,7 +96,6 @@ def load_test_data(data_path):
 @log_function_name
 def main():
     test_ds = load_test_data(WAV2VEC2_PROCESSED_DIR)
-    test_ds = test_ds.select(range(10))
     device = get_device()
     model, processor = load_trained_model_and_processor_wav2vec2(
         device
