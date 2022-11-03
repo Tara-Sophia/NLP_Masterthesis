@@ -6,7 +6,8 @@ import numpy as np
 import pandas as pd
 import torch
 from constants import (
-    WAV2VEC2_BATCH_SIZE,
+    WAV2VEC2_BATCH_SIZE_TRAIN,
+    WAV2VEC2_BATCH_SIZE_EVAL,
     WAV2VEC2_MODEL,
     WAV2VEC2_MODEL_CHECKPOINTS,
     WAV2VEC2_MODEL_DIR,
@@ -95,6 +96,20 @@ class DataCollatorCTCWithPadding:
         return batch
 
 
+class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
+    "A callback that prints a message at the beginning of training"
+
+    def __init__(self, start_epoch, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.start_epoch = start_epoch
+
+    def on_evaluate(self, args, state, control, metrics, **kwargs):
+        if state.epoch > self.start_epoch:
+            super().on_evaluate(
+                args, state, control, metrics, **kwargs
+            )
+
+
 def compute_metrics(pred):
 
     processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
@@ -155,7 +170,8 @@ def load_training_args(output_dir):
     training_args = TrainingArguments(
         output_dir=output_dir,
         group_by_length=True,
-        per_device_train_batch_size=WAV2VEC2_BATCH_SIZE,
+        per_device_train_batch_size=WAV2VEC2_BATCH_SIZE_TRAIN,
+        per_device_eval_batch_size=WAV2VEC2_BATCH_SIZE_EVAL,
         gradient_accumulation_steps=2,
         num_train_epochs=WAV2VEC2_NUM_EPOCHS,
         gradient_checkpointing=True,
@@ -187,7 +203,12 @@ def load_trainer(
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=processor.feature_extractor,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
+        callbacks=[
+            EearlyStoppingCallbackAfterNumEpochs(
+                start_epoch=15,
+                early_stopping_patience=3,
+            )
+        ],
     )
     return trainer
 
