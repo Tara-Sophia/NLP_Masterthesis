@@ -43,7 +43,7 @@ def transform_dataset(batch, processor):
         audio["array"], sampling_rate=audio["sampling_rate"]
     ).input_values[0]
     batch["labels"] = processor(text=batch["sentence"]).input_ids
-    return audio
+    return batch
 
 
 @log_function_name

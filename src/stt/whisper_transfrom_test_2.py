@@ -9,6 +9,7 @@ from constants import (
     CHARS_TO_IGNORE_REGEX,
     RAW_DATA_DIR,
     SAMPLING_RATE,
+    WHISPER_MODEL,
     WHISPER_MODEL_DIR,
     WHISPER_TEST_PROCESSED_DIR,
     WHISPER_TRAIN_PROCESSED_DIR,
@@ -21,6 +22,9 @@ from datasets.arrow_dataset import Dataset
 from decorators import log_function_name
 from unidecode import unidecode
 from utils import load_processor_whisper
+from transformers import WhisperTokenizer
+
+NUM_PROC = 1
 
 
 def remove_special_characters(batch, train=True):
@@ -39,11 +43,17 @@ def remove_special_characters(batch, train=True):
 
 def transform_dataset(batch, processor):
     audio = batch["audio"]
-    batch["input_values"] = processor(
-        audio["array"], sampling_rate=audio["sampling_rate"]
-    ).input_values[0]
-    batch["labels"] = processor(text=batch["sentence"]).input_ids
-    return audio
+    # batch["input_values"] = processor(
+    #     audio["array"], sampling_rate=audio["sampling_rate"]
+    # ).input_values[0]
+    # batch["labels"] = processor(text=batch["sentence"]).input_ids
+    return batch
+
+
+@log_function_name
+def create_tokenizer(folder_path):
+    tokenizer = WhisperTokenizer.from_pretrained(WHISPER_MODEL)
+    tokenizer.save_pretrained(folder_path)
 
 
 @log_function_name
@@ -89,12 +99,39 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
     vocab_dict["[UNK]"] = len(vocab_dict)
     vocab_dict["[PAD]"] = len(vocab_dict)
 
+    added_tokens_list = ["<|endoftext|>"]
+    added_tokens_dict = {
+        v: k
+        for k, v in enumerate(
+            added_tokens_list, start=len(vocab_dict)
+        )
+    }
+
     os.makedirs(folder_path, exist_ok=True)
 
     with open(
         os.path.join(folder_path, "vocab.json"), "w"
     ) as vocab_file:
         json.dump(vocab_dict, vocab_file)
+
+    with open(
+        os.path.join(folder_path, "added_tokens.json"), "w"
+    ) as added_tokens_file:
+        json.dump(added_tokens_dict, added_tokens_file)
+
+    with open(
+        os.path.join(folder_path, "special_tokens_map.json"), "r"
+    ) as special_tokens_map_file:
+        additional_special_tokens = json.load(special_tokens_map_file)
+
+    additional_special_tokens[
+        "additional_special_tokens"
+    ] = added_tokens_list
+
+    with open(
+        os.path.join(folder_path, "special_tokens_map.json"), "w"
+    ) as special_tokens_map_file:
+        json.dump(additional_special_tokens, special_tokens_map_file)
 
 
 @log_function_name
@@ -123,46 +160,46 @@ def preprocess_data(custom_train, custom_val, custom_test):
 @log_function_name
 def resample_data(train_ds, val_ds, test_ds):
     processor = load_processor_whisper(WHISPER_VOCAB_DIR)
-    # train_ds = train_ds.map(
-    #     transform_dataset,
-    #     fn_kwargs={"processor": processor},
-    #     remove_columns=train_ds.column_names,
-    #     num_proc=NUM_PROC,
-    # )
-    # val_ds = val_ds.map(
-    #     transform_dataset,
-    #     fn_kwargs={"processor": processor},
-    #     remove_columns=val_ds.column_names,
-    #     num_proc=NUM_PROC,
-    # )
-    # test_ds = test_ds.map(
-    #     transform_dataset,
-    #     fn_kwargs={"processor": processor},
-    #     remove_columns=test_ds.column_names,
-    #     num_proc=NUM_PROC,
-    # )
+    train_ds = train_ds.map(
+        transform_dataset,
+        fn_kwargs={"processor": processor},
+        remove_columns=train_ds.column_names,
+        num_proc=NUM_PROC,
+    )
+    val_ds = val_ds.map(
+        transform_dataset,
+        fn_kwargs={"processor": processor},
+        remove_columns=val_ds.column_names,
+        num_proc=NUM_PROC,
+    )
+    test_ds = test_ds.map(
+        transform_dataset,
+        fn_kwargs={"processor": processor},
+        remove_columns=test_ds.column_names,
+        num_proc=NUM_PROC,
+    )
 
-    # train_ds = train_ds.remove_columns(
-    #     [
-    #         "path",
-    #         "array",
-    #         "sampling_rate",
-    #     ]
-    # )
-    # val_ds = val_ds.remove_columns(
-    #     [
-    #         "path",
-    #         "array",
-    #         "sampling_rate",
-    #     ]
-    # )
-    # test_ds = test_ds.remove_columns(
-    #     [
-    #         "path",
-    #         "array",
-    #         "sampling_rate",
-    #     ]
-    # )
+    train_ds = train_ds.remove_columns(
+        [
+            "path",
+            "array",
+            "sampling_rate",
+        ]
+    )
+    val_ds = val_ds.remove_columns(
+        [
+            "path",
+            "array",
+            "sampling_rate",
+        ]
+    )
+    test_ds = test_ds.remove_columns(
+        [
+            "path",
+            "array",
+            "sampling_rate",
+        ]
+    )
 
     return train_ds, val_ds, test_ds
 
@@ -207,6 +244,8 @@ def main():
     train_ds, val_ds, test_ds = preprocess_data(
         train_ds, val_ds, test_ds
     )
+
+    create_tokenizer(WHISPER_VOCAB_DIR)
 
     create_vocab(
         folder_path=WHISPER_VOCAB_DIR,
