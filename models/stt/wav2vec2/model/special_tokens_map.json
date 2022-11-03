@@ -13,34 +13,6 @@
       "normalized": true,
       "rstrip": false,
       "single_word": false
-    },
-    {
-      "content": "<s>",
-      "lstrip": false,
-      "normalized": true,
-      "rstrip": false,
-      "single_word": false
-    },
-    {
-      "content": "</s>",
-      "lstrip": false,
-      "normalized": true,
-      "rstrip": false,
-      "single_word": false
-    },
-    {
-      "content": "<s>",
-      "lstrip": false,
-      "normalized": true,
-      "rstrip": false,
-      "single_word": false
-    },
-    {
-      "content": "</s>",
-      "lstrip": false,
-      "normalized": true,
-      "rstrip": false,
-      "single_word": false
     }
   ],
   "bos_token": "<s>",
