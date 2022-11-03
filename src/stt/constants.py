@@ -14,11 +14,6 @@ CHARS_TO_IGNORE_REGEX = '[\,\?\.\!\-\;\:"]+|\[|\]'
 SAMPLING_RATE = 16000
 MAX_DURATION_LENGTH = 4.5
 NUM_PROC = 7
-TRAIN_PROCESSED_DIR = os.path.join(
-    "data", "processed", "stt", "train"
-)
-VAL_PROCESSED_DIR = os.path.join("data", "processed", "stt", "val")
-TEST_PROCESSED_DIR = os.path.join("data", "processed", "stt", "test")
 PROCESSED_DIR = os.path.join("data", "processed", "stt")
 VOCAB_DIR = os.path.join("models", "stt", "vocab")
 

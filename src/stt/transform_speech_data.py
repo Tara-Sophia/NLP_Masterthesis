@@ -8,10 +8,8 @@ import pandas as pd
 from constants import (
     CHARS_TO_IGNORE_REGEX,
     RAW_DATA_DIR,
+    PROCESSED_DIR,
     SAMPLING_RATE,
-    TRAIN_PROCESSED_DIR,
-    VAL_PROCESSED_DIR,
-    TEST_PROCESSED_DIR,
     VOCAB_DIR,
     NUM_PROC,
 )
@@ -152,18 +150,16 @@ def recreate_folder(folder_path):
 
 @log_function_name
 def save_datasets(train_ds, val_ds, test_ds):
-    recreate_folder(TRAIN_PROCESSED_DIR)
-    recreate_folder(VAL_PROCESSED_DIR)
-    recreate_folder(TEST_PROCESSED_DIR)
+    recreate_folder(PROCESSED_DIR)
 
     train_ds.to_pandas().to_feather(
-        os.path.join(TRAIN_PROCESSED_DIR, "train.feather")
+        os.path.join(PROCESSED_DIR, "train.feather")
     )
     val_ds.to_pandas().to_feather(
-        os.path.join(VAL_PROCESSED_DIR, "val.feather")
+        os.path.join(PROCESSED_DIR, "val.feather")
     )
     test_ds.to_pandas().to_feather(
-        os.path.join(TEST_PROCESSED_DIR, "test.feather")
+        os.path.join(PROCESSED_DIR, "test.feather")
     )
 
 
