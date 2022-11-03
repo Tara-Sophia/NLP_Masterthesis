@@ -1,0 +1,21 @@
+{
+    "os": "macOS-10.15.7-x86_64-i386-64bit",
+    "python": "3.10.4",
+    "heartbeatAt": "2022-10-30T18:57:23.932083",
+    "startedAt": "2022-10-30T18:57:23.007125",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/Tara-Sophia/NLP_Masterthesis.git",
+        "commit": "ffb88ee1fa5c011d18419f2204cd44d671ef538e"
+    },
+    "email": "tara.tumbraegel@gmail.com",
+    "root": "/Users/tara-sophiatumbraegel/UNI/masterthesis/NLP_Masterthesis",
+    "host": "TaraSophiasAir.Home",
+    "username": "tara-sophiatumbraegel",
+    "executable": "/opt/anaconda3/envs/nlp_masterthesis/bin/python"
+}

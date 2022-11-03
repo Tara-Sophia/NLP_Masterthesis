@@ -1,0 +1,22 @@
+{
+    "os": "macOS-10.15.7-x86_64-i386-64bit",
+    "python": "3.10.4",
+    "heartbeatAt": "2022-10-31T14:48:53.626617",
+    "startedAt": "2022-10-31T14:48:52.935954",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/tara-sophiatumbraegel/UNI/masterthesis/NLP_Masterthesis/src/nlp/unsupervised_training.py",
+    "codePath": "src/nlp/unsupervised_training.py",
+    "git": {
+        "remote": "https://github.com/Tara-Sophia/NLP_Masterthesis.git",
+        "commit": "a7303c4708ab7f0186052962dda621082fec4951"
+    },
+    "email": "tara.tumbraegel@gmail.com",
+    "root": "/Users/tara-sophiatumbraegel/UNI/masterthesis/NLP_Masterthesis",
+    "host": "Tara-Sophias-MacBook-Air.local",
+    "username": "tara-sophiatumbraegel",
+    "executable": "/opt/anaconda3/envs/nlp_masterthesis/bin/python"
+}
