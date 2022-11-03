@@ -10,9 +10,9 @@ from constants import (
     RAW_DATA_DIR,
     SAMPLING_RATE,
     WAV2VEC2_MODEL_DIR,
-    WAV2VEC2_TEST_PROCESSED_DIR,
-    WHISPER_TRAIN_PROCESSED_DIR,
+    WAV2VEC2_TRAIN_PROCESSED_DIR,
     WAV2VEC2_VAL_PROCESSED_DIR,
+    WAV2VEC2_TEST_PROCESSED_DIR,
     WAV2VEC2_VOCAB_DIR,
     NUM_PROC,
 )
@@ -162,12 +162,12 @@ def recreate_folder(folder_path):
 
 @log_function_name
 def save_datasets(train_ds, val_ds, test_ds):
-    recreate_folder(WHISPER_TRAIN_PROCESSED_DIR)
+    recreate_folder(WAV2VEC2_TRAIN_PROCESSED_DIR)
     recreate_folder(WAV2VEC2_VAL_PROCESSED_DIR)
     recreate_folder(WAV2VEC2_TEST_PROCESSED_DIR)
 
     train_ds.to_pandas().to_feather(
-        os.path.join(WHISPER_TRAIN_PROCESSED_DIR, "train.feather")
+        os.path.join(WAV2VEC2_TRAIN_PROCESSED_DIR, "train.feather")
     )
     val_ds.to_pandas().to_feather(
         os.path.join(WAV2VEC2_VAL_PROCESSED_DIR, "val.feather")
