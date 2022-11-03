@@ -29,7 +29,7 @@ import wandb
 
 wandb.init(
     project="speech-to-text",
-    entity="nlp_masterthesis"
+    entity="nlp_masterthesis",
     tags=["facebook-wav2vec2"],
 )
 
