@@ -104,21 +104,10 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
         self.start_epoch = start_epoch
 
     def on_evaluate(self, args, state, control, metrics, **kwargs):
-        if state.epoch > self.start_epoch or 1 == 1:
+        if state.epoch > self.start_epoch:
             super().on_evaluate(
                 args, state, control, metrics, **kwargs
             )
-        print("Epoch: ", state.epoch)
-        print(
-            "Early stopping counter: ",
-            self.early_stopping_patience_counter,
-        )
-        print("Metric value", metrics.get("eval_wer"))
-        print(
-            "operator",
-            np.less(metrics.get("eval_wer"), state.best_metric),
-        )
-        print("Best metric", state.best_metric)
 
 
 def compute_metrics(pred):
@@ -217,7 +206,7 @@ def load_trainer(
         callbacks=[
             EearlyStoppingCallbackAfterNumEpochs(
                 start_epoch=15,
-                early_stopping_patience=3,
+                early_stopping_patience=5,
             )
         ],
     )
