@@ -4,8 +4,6 @@ from functools import wraps
 
 import transformers
 
-transformers.logging.set_verbosity_error()
-
 GREEN_LOGGER = "\x1b[32m"
 RESET_LOGGER = "\x1b[0m"
 FORMAT = "%(asctime)s.%(msecs)03d  - %(message)s"
