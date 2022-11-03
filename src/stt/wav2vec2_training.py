@@ -9,7 +9,7 @@ from constants import (
     WAV2VEC2_BATCH_SIZE_EVAL,
     WAV2VEC2_MODEL,
     WAV2VEC2_MODEL_CHECKPOINTS,
-    WAV2VEC2_MODEL_DIR,
+    VOCAB_DIR,
     WAV2VEC2_NUM_EPOCHS,
     PROCESSED_DIR,
 )
@@ -38,7 +38,7 @@ wandb.init(
     entity="nlp_masterthesis",
 )
 
-processor = load_processor_wav2vec2(WAV2VEC2_MODEL_DIR)
+processor = load_processor_wav2vec2(VOCAB_DIR)
 cer_metric = load("cer")
 wer_metric = load("wer")
 
