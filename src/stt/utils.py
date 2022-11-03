@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+from typing import Optional, Union
 
 import pandas as pd
 import torch
@@ -86,11 +87,11 @@ class DataCollatorCTCWithPadding:
     def __init__(
         self,
         processor: Wav2Vec2Processor,
-        padding: bool | str = True,
-        max_length: int | None = None,
-        max_length_labels: int | None = None,
-        pad_to_multiple_of: int | None = None,
-        pad_to_multiple_of_labels: int | None = None,
+        padding: Union[bool, str] = True,
+        max_length: Optional[int] = None,
+        max_length_labels: Optional[int] = None,
+        pad_to_multiple_of: Optional[int] = None,
+        pad_to_multiple_of_labels: Optional[int] = None,
     ):
         self.processor = processor
         self.padding = padding
@@ -101,7 +102,7 @@ class DataCollatorCTCWithPadding:
 
     def __call__(
         self,
-        features: list[dict[str, list[int] | torch.Tensor]],
+        features: list[dict[str, Union[list[int], torch.Tensor]]],
     ) -> dict[str, torch.Tensor]:
         # split inputs and labels since they have to be of different lenghts and need
         # different padding methods
