@@ -15,7 +15,7 @@ import pandas as pd
 import transformers
 from transformers import pipeline
 
-
+# apply model semi supervised to text
 def KeywordExtraction(text):
     tokenizer = AutoTokenizer.from_pretrained(
         "models/nlp/semi_supervised/model", model_max_lenght=512
