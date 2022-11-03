@@ -242,7 +242,7 @@ def main():
     else:
         last_checkpoint = None
 
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=last_checkpoint)
     processor.save_pretrained(WAV2VEC2_MODEL_DIR)
     trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
