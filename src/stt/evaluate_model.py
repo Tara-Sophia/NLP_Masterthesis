@@ -17,7 +17,7 @@ from utils import (
 def map_to_result(batch, model, processor):
     with torch.no_grad():
         input_values = torch.tensor(
-            batch["input_values"], device="cpu"
+            batch["input_values"], device="cuda"
         ).unsqueeze(0)
         logits = model(input_values).logits
 
@@ -99,7 +99,7 @@ def main():
     test_ds = test_ds.select(range(10))
     device = get_device()
     model, processor = load_trained_model_and_processor_wav2vec2(
-        torch.device("cpu")
+        device
     )
 
     results = test_ds.map(
