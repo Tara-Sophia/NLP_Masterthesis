@@ -69,7 +69,7 @@ def load_processor(processor_path):
 @log_function_name
 def load_trained_model_and_processor_wav2vec2(device):
     model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
-    processor = Wav2Vec2Processor.from_pretrained(WAV2VEC2_MODEL_DIR)
+    processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
     return model, processor
 
