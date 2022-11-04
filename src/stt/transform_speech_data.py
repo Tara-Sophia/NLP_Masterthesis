@@ -16,7 +16,7 @@ from constants import (
 from datasets import Audio, Dataset
 from decorators import log_function_name
 from unidecode import unidecode
-from utils import processor
+from utils import load_processor
 
 
 def remove_special_characters(batch, train=True):
@@ -118,6 +118,7 @@ def preprocess_data(custom_train, custom_val, custom_test):
 
 @log_function_name
 def resample_data(train_ds, val_ds, test_ds):
+    processor = load_processor(VOCAB_DIR)
     train_ds = train_ds.map(
         transform_dataset,
         fn_kwargs={"processor": processor},
@@ -190,7 +191,7 @@ def main():
         train_ds, val_ds, test_ds
     )
 
-    save_datasets(train_ds, val_ds, test_ds)
+    # save_datasets(train_ds, val_ds, test_ds)
     processor.save_pretrained(VOCAB_DIR)
 
 
