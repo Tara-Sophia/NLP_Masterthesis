@@ -85,7 +85,7 @@ def create_vocab(folder_path, train_ds, val_ds, test_ds):
     vocab_dict["[UNK]"] = len(vocab_dict)
     vocab_dict["[PAD]"] = len(vocab_dict)
 
-    os.makedirs(folder_path, exist_ok=True)
+    recreate_folder(folder_path)
 
     with open(
         os.path.join(folder_path, "vocab.json"), "w"
@@ -138,7 +138,7 @@ def resample_data(train_ds, val_ds, test_ds):
         num_proc=NUM_PROC,
     )
 
-    return train_ds, val_ds, test_ds
+    return train_ds, val_ds, test_ds, processor
 
 
 @log_function_name
@@ -187,7 +187,7 @@ def main():
         test_ds=test_ds,
     )
 
-    train_ds, val_ds, test_ds = resample_data(
+    train_ds, val_ds, test_ds, processor = resample_data(
         train_ds, val_ds, test_ds
     )
 

@@ -64,6 +64,7 @@ def load_processor(processor_path):
 
     return processor
 
+
 # FACEBOOK WAV2VEC2
 @log_function_name
 def load_trained_model_and_processor_wav2vec2(device):
@@ -150,12 +151,11 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             )
 
 
-processor = load_processor(VOCAB_DIR)
-cer_metric = load("cer")
-wer_metric = load("wer")
-
-
 def compute_metrics(pred):
+    processor = load_processor(VOCAB_DIR)
+    cer_metric = load("cer")
+    wer_metric = load("wer")
+
     pred_logits = pred.predictions
     pred_ids = np.argmax(pred_logits, axis=-1)
 
