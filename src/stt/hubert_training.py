@@ -84,7 +84,7 @@ def main():
     else:
         last_checkpoint = None
 
-    trainer.train(resume_from_checkpoint=None)
+    trainer.train(resume_from_checkpoint=last_checkpoint)
     trainer.save_model(HUBERT_MODEL_DIR)
     trainer.save_state()
 
