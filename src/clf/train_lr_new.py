@@ -33,8 +33,6 @@ from imblearn.over_sampling import SMOTE
 from traitlets import List
 
 # load data
-
-
 def load_data(file_path: str) -> pd.DataFrame:
     """
     Load data from csv file
@@ -138,7 +136,33 @@ def fit_model(
     return model
 
 
-# Grid search
+# Grid search and custom scorer with accuracy @k
+def custom_accuracy_function(model, X_train, y_train):
+    """
+    Custom scorer with accuracy @3
+
+    Parameters
+    ----------
+    model : imblearn.pipeline.Pipeline
+        pipeline for model
+    X_test: pd.core.series.Series
+        train data
+    y_test: list
+        train labels
+
+    Returns
+    -------
+    float
+        accuracy @3
+    """
+    k = 3
+    y_preb_probs = model.predict_proba(X_train)
+    top = np.argsort(y_preb_probs, axis=1)[:, -k:]
+    top = np.apply_along_axis(lambda x: model.classes_[x], 1, top)
+    actual = np.array(y_train).reshape(-1, 1)
+    return np.any(top == actual, axis=1).mean()
+
+
 def grid_search(
     X_train: pd.core.series.Series,
     y_train: list,
@@ -164,13 +188,16 @@ def grid_search(
     imblearn.pipeline.Pipeline
         best model
     """
-    search = GridSearchCV(model_pipeline, param_grid, cv=5)
+    search = GridSearchCV(
+        model_pipeline, param_grid, cv=5, scoring=custom_accuracy_function
+    )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
+    print("Best cross-validation score: {:.2f}".format(search.best_score_))
     return search.best_estimator_
 
 
-# Evaluate the metrics for the model
+# Classification report with common metrics for the model (not the metrics we are optimizing for)
 def get_model_metrics(
     best_model: imblearn.pipeline.Pipeline,
     X_test: pd.core.series.Series,
@@ -194,12 +221,10 @@ def get_model_metrics(
     """
     y_pred = best_model.predict(X_test)
     report = classification_report(y_test, y_pred, target_names=best_model.classes_)
-
-    y_preb_probs = best_model.predict_proba(X_test)
     return report
 
 
-# Other metrics for model
+# Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
 def _reciprocal_rank(true_labels: list, machine_preds: list):
     """Compute the reciprocal rank at cutoff k"""
 
@@ -276,7 +301,6 @@ def main():
     # Load data
     file_path = os.path.join("data", "processed", "mtsamples_nlp.csv")
     df = load_data(file_path)
-    category_list = df.medical_specialty.unique()
 
     # Split data into train and test
     training_data, testing_data = split_data(df)
@@ -289,9 +313,8 @@ def main():
     #     model_pipeline, training_data.transcription_f, training_data.medical_specialty
     # )
 
-    # custom_scorer = make_scorer(compute_accuracy, greater_is_better=True), how to implement?
+    # fit model with grid search
 
-    # fit model with grid search (for sake of time, grid search only has few parameters)
     param_grid = [
         {
             "classifier__C": [0.01, 0.1, 1, 10],
@@ -306,6 +329,7 @@ def main():
     )
 
     # evaluate model
+    print("Model metrics not optimized for:")
     report = get_model_metrics(
         best_model, testing_data.transcription_f, testing_data.medical_specialty
     )
