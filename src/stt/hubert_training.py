@@ -23,7 +23,7 @@ from utils import (
     load_trainer,
     get_device,
     load_datasets,
-    processor,
+    load_processor,
 )
 
 import wandb
@@ -54,6 +54,7 @@ def load_model(processor, device):
 @log_function_name
 def main():
     train_ds, val_ds = load_datasets(PROCESSED_DIR)
+    processor = load_processor(VOCAB_DIR)
 
     data_collator = DataCollatorCTCWithPadding(
         processor=processor, padding=True
