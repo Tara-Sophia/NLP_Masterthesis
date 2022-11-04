@@ -9,6 +9,7 @@ from constants import (
     HUBERT_NUM_EPOCHS,
     PROCESSED_DIR,
     HUBERT_MODEL_DIR,
+    VOCAB_DIR,
 )
 from decorators import log_function_name
 from evaluate import load
@@ -83,7 +84,6 @@ def main():
         last_checkpoint = None
 
     trainer.train(resume_from_checkpoint=None)
-    processor.save_pretrained(HUBERT_MODEL_DIR)
     trainer.save_model(HUBERT_MODEL_DIR)
     trainer.save_state()
 

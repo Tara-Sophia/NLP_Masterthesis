@@ -4,7 +4,7 @@ import random
 
 import pandas as pd
 import torch
-from constants import WAV2VEC2_PROCESSED_DIR
+from constants import PROCESSED_DIR
 from datasets import Dataset
 from decorators import log_function_name
 from evaluate import load
@@ -86,16 +86,14 @@ def get_test_results(results, wer_metric, cer_metric):
 
 @log_function_name
 def load_test_data(data_path):
-    test_df = pd.read_feather(
-        os.path.join(data_path, "test", "test.feather")
-    )
+    test_df = pd.read_feather(os.path.join(data_path, "test.feather"))
     test_ds = Dataset.from_pandas(test_df)
     return test_ds
 
 
 @log_function_name
 def main():
-    test_ds = load_test_data(WAV2VEC2_PROCESSED_DIR)
+    test_ds = load_test_data(PROCESSED_DIR)
     device = get_device()
     model, processor = load_trained_model_and_processor_wav2vec2(
         device

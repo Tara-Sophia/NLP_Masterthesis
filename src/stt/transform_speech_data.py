@@ -190,7 +190,8 @@ def main():
         train_ds, val_ds, test_ds
     )
 
-    save_datasets(train_ds, val_ds, test_ds)
+    # save_datasets(train_ds, val_ds, test_ds)
+    processor.save_pretrained(VOCAB_DIR)
 
 
 if __name__ == "__main__":

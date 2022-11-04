@@ -9,6 +9,7 @@ from constants import (
     WAV2VEC2_NUM_EPOCHS,
     PROCESSED_DIR,
     WAV2VEC2_MODEL_DIR,
+    VOCAB_DIR,
 )
 from decorators import log_function_name
 from evaluate import load
@@ -82,8 +83,7 @@ def main():
     else:
         last_checkpoint = None
 
-    trainer.train(resume_from_checkpoint=None)
-    processor.save_pretrained(WAV2VEC2_MODEL_DIR)
+    trainer.train(resume_from_checkpoint=last_checkpoint)
     trainer.save_model(WAV2VEC2_MODEL_DIR)
     trainer.save_state()
 
