@@ -4,9 +4,7 @@ import random
 
 import pandas as pd
 import torch
-from constants import (
-    PROCESSED_DIR,
-)
+from constants import PROCESSED_DIR
 from datasets import Dataset
 from decorators import log_function_name
 from evaluate import load

@@ -2,28 +2,25 @@
 import os
 
 from constants import (
-    WAV2VEC2_BATCH_SIZE_TRAIN,
+    PROCESSED_DIR,
+    VOCAB_DIR,
     WAV2VEC2_BATCH_SIZE_EVAL,
+    WAV2VEC2_BATCH_SIZE_TRAIN,
     WAV2VEC2_MODEL,
     WAV2VEC2_MODEL_CHECKPOINTS,
-    WAV2VEC2_NUM_EPOCHS,
-    PROCESSED_DIR,
     WAV2VEC2_MODEL_DIR,
-    VOCAB_DIR,
+    WAV2VEC2_NUM_EPOCHS,
 )
 from decorators import log_function_name
-from evaluate import load
-from transformers import (
-    Wav2Vec2ForCTC,
-)
+from transformers import Wav2Vec2ForCTC
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
     DataCollatorCTCWithPadding,
-    load_training_args,
-    load_trainer,
     get_device,
     load_datasets,
     load_processor,
+    load_trainer,
+    load_training_args,
 )
 
 import wandb
