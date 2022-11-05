@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+
+"""
+Description:
+    Creation of the speech data by splitting the recordings
+    into train, validation and test sets.
+    Filtering out recordings that are too long.
+
+Usage:
+    $ python src/data/create_speech_data.py
+"""
 import os
 import shutil
 
@@ -92,7 +102,7 @@ def clean_df(df: pd.DataFrame, folder: str) -> pd.DataFrame:
 @log_function_name
 def create_own_dataset(
     file_path: str,
-) -> tuple(pd.DataFrame, pd.DataFrame, pd.DataFrame):
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Adjusting the dataset to the required format
 

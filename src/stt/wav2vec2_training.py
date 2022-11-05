@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+
+"""
+Description:
+    Training script for the Wav2vec2 model
+
+Usage:
+    $ python src/data/wav2vec2_training.py
+"""
 import os
 
 import torch
@@ -13,7 +21,7 @@ from constants import (
     WAV2VEC2_NUM_EPOCHS,
 )
 from decorators import log_function_name
-from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
     DataCollatorCTCWithPadding,

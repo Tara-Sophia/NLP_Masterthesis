@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Implementation of the Streamlit app for the speech-to-text part of the project
+
+Usage:
+    $ streamlit run src/data/streamlit_stt.py
+"""
 import torch
 from audiorecorder import audiorecorder
 from constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
@@ -33,7 +40,7 @@ def get_device() -> torch.device:
 @st.experimental_memo
 def load_trained_model_and_processor_wav2vec2(
     device: torch.device,
-) -> tuple(Wav2Vec2ForCTC, Wav2Vec2Processor):
+) -> tuple[Wav2Vec2ForCTC, Wav2Vec2Processor]:
     """
     Load the trained model and processor for wav2vec2
 
@@ -57,7 +64,7 @@ def load_trained_model_and_processor_wav2vec2(
 @st.experimental_memo
 def load_trained_model_and_processor_hubert(
     device: torch.device,
-) -> tuple(HubertForCTC, Wav2Vec2Processor):
+) -> tuple[HubertForCTC, Wav2Vec2Processor]:
     """
     Load the trained model and processor for hubert
 

@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Predict the transcription of an audio file
+
+Usage:
+    $ python src/data/predict.py
+"""
 import io
 
 import speech_recognition as sr

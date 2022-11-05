@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
+
+"""
+Description:
+    Creating a PDF report about the features of the dataset
+
+Usage:
+    $ python src/data/analyze_data.py
+"""
 import os
 
 import librosa
 import numpy as np
 import pandas as pd
-from constants import RECORDINGS_FILE, RAW_RECORDINGS_DIR, STT_REPORT
-from pandas_profiling import ProfileReport
+from constants import RAW_RECORDINGS_DIR, RECORDINGS_FILE, STT_REPORT
 from decorators import log_function_name
+from pandas_profiling import ProfileReport
 
 # ! Todo
 # # Load files
@@ -25,7 +33,20 @@ from decorators import log_function_name
 # # librsa.feature.mfcc
 
 
-def get_librosa_features(row) -> tuple(int, float):
+def get_librosa_features(row: pd.Series) -> tuple[int, float]:
+    """
+    Get the duration of a wav file
+
+    Parameters
+    ----------
+    row : pd.Series
+        Row of the dataframe
+
+    Returns
+    -------
+    tuple[int, float]
+        Sample rate and duration of the wav file
+    """
     file_path = row.file_location
     sr = librosa.get_samplerate(file_path)
     duration = librosa.get_duration(filename=file_path)

@@ -53,10 +53,10 @@ repos:
         args: ["--profile", "black", "--line-length=70"]
 
 -   repo: https://github.com/econchick/interrogate
-    rev: 1.4.0
+    rev: 1.5.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=80, -I]
+        args: [-vv, --ignore-init-module, --fail-under=90]
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
