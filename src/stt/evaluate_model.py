@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 import os
 import random
+from typing import Union
 
 import pandas as pd
 import torch
 from constants import PROCESSED_DIR
 from datasets import Dataset
 from decorators import log_function_name
-from evaluate import load
+from transformers import (
+    HubertForCTC,
+    Wav2Vec2ForCTC,
+    Wav2Vec2Processor,
+)
+from evaluate import EvaluationModule, load
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
@@ -15,7 +21,11 @@ from utils import (
 )
 
 
-def map_to_result(batch, model, processor):
+def map_to_result(
+    batch,
+    model: Union[HubertForCTC, Wav2Vec2ForCTC],
+    processor: Wav2Vec2Processor,
+):
     with torch.no_grad():
         input_values = torch.tensor(
             batch["input_values"], device="cuda"
@@ -32,7 +42,19 @@ def map_to_result(batch, model, processor):
 
 
 @log_function_name
-def show_random_elements(dataset, num_examples=10):
+def show_random_elements(
+    dataset: Dataset, num_examples: int = 10
+) -> None:
+    """
+    Show random predictions and labels from a dataset
+
+    Parameters
+    ----------
+    dataset : Dataset
+        Dataset to show predictions and labels from
+    num_examples : int, optional
+        Number of predictions and labels to show, by default 10
+    """
     assert num_examples <= len(
         dataset
     ), "Can't pick more elements than there are in the dataset."
@@ -48,7 +70,23 @@ def show_random_elements(dataset, num_examples=10):
 
 
 @log_function_name
-def showcase_test(model, test_ds, processor):
+def showcase_test(
+    model: Union[HubertForCTC, Wav2Vec2ForCTC],
+    test_ds: Dataset,
+    processor: Wav2Vec2Processor,
+) -> None:
+    """
+    Showcase a test predictions with paddings
+
+    Parameters
+    ----------
+    model : Union[HubertForCTC, Wav2Vec2ForCTC]
+        Model to use for predictions
+    test_ds : Dataset
+        Test dataset
+    processor : Wav2Vec2Processor
+        Processor to decode predictions
+    """
     with torch.no_grad():
         logits = model(
             torch.tensor(test_ds[:1]["input_values"], device="cuda")
@@ -66,7 +104,11 @@ def showcase_test(model, test_ds, processor):
 
 
 @log_function_name
-def get_test_results(results, wer_metric, cer_metric):
+def get_test_results(
+    results,
+    wer_metric: EvaluationModule,
+    cer_metric: EvaluationModule,
+):
     print(
         "Test WER: {:.3f}".format(
             wer_metric.compute(
@@ -86,7 +128,20 @@ def get_test_results(results, wer_metric, cer_metric):
 
 
 @log_function_name
-def load_test_data(data_path):
+def load_test_data(data_path: str) -> Dataset:
+    """
+    Load the test data
+
+    Parameters
+    ----------
+    data_path : str
+        Path to the test data
+
+    Returns
+    -------
+    Dataset
+        Test data
+    """
     test_df = pd.read_feather(os.path.join(data_path, "test.feather"))
     test_ds = Dataset.from_pandas(test_df)
     return test_ds
@@ -94,6 +149,9 @@ def load_test_data(data_path):
 
 @log_function_name
 def main():
+    """
+    Main function
+    """
     test_ds = load_test_data(PROCESSED_DIR)
     device = get_device()
     model_to_evaluate = "Hubert"  # "Wav2Vec2"

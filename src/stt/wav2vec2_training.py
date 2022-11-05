@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
+import torch
 from constants import (
     PROCESSED_DIR,
     VOCAB_DIR,
@@ -12,7 +13,7 @@ from constants import (
     WAV2VEC2_NUM_EPOCHS,
 )
 from decorators import log_function_name
-from transformers import Wav2Vec2ForCTC
+from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
     DataCollatorCTCWithPadding,
@@ -33,7 +34,24 @@ wandb.init(
 
 
 @log_function_name
-def load_model(processor, device):
+def load_model(
+    processor: Wav2Vec2Processor, device: torch.device
+) -> Wav2Vec2ForCTC:
+    """
+    Load the model
+
+    Parameters
+    ----------
+    processor : Wav2Vec2Processor
+        Processor to use
+    device : torch.device
+        Torch device
+
+    Returns
+    -------
+    Wav2Vec2ForCTC
+        Model to use
+    """
 
     model = Wav2Vec2ForCTC.from_pretrained(
         WAV2VEC2_MODEL,
@@ -50,6 +68,9 @@ def load_model(processor, device):
 
 @log_function_name
 def main():
+    """
+    Main function
+    """
     train_ds, val_ds = load_datasets(PROCESSED_DIR)
     processor = load_processor(VOCAB_DIR)
 

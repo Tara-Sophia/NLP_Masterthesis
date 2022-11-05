@@ -5,7 +5,7 @@ import speech_recognition as sr
 import torch
 from decorators import log_function_name
 from pydub import AudioSegment
-from transformers import pipeline
+from transformers import Pipeline, pipeline
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
@@ -14,7 +14,17 @@ from utils import (
 
 
 @log_function_name
-def transcribe_audio(pipe, rec):
+def transcribe_audio(pipe: Pipeline, rec: sr.Recognizer) -> None:
+    """
+    Transcribe audio from a microphone
+
+    Parameters
+    ----------
+    pipe : Pipeline
+        Speech recognition pipeline
+    rec : sr.Recognizer
+        Speech recognition recognizer
+    """
     with sr.Microphone(sample_rate=16000) as source:
         print("Say something!")
         audio = rec.listen(source, phrase_time_limit=2)
@@ -29,6 +39,9 @@ def transcribe_audio(pipe, rec):
 
 @log_function_name
 def main():
+    """
+    Main function
+    """
     device = get_device()
     model_to_predict_with = "Hubert"  # "Wav2Vec2"
     print(f"Loading model: {model_to_predict_with}")
