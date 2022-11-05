@@ -8,8 +8,9 @@ from pydub import AudioSegment
 from transformers import pipeline
 from utils import (
     get_device,
-    load_trained_model_and_processor_wav2vec2,
+    load_trained_model_and_processor,
 )
+from constants import WAV2VEC2_MODEL_DIR, HUBERT_MODEL_DIR
 
 
 @log_function_name
@@ -29,8 +30,8 @@ def transcribe_audio(pipe, rec):
 @log_function_name
 def main():
     device = get_device()
-    model, processor = load_trained_model_and_processor_wav2vec2(
-        device
+    model, processor = load_trained_model_and_processor(
+        device, WAV2VEC2_MODEL_DIR
     )
     pipe = pipeline(
         "automatic-speech-recognition",

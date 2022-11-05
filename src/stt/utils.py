@@ -67,8 +67,8 @@ def load_processor(processor_path):
 
 # FACEBOOK WAV2VEC2
 @log_function_name
-def load_trained_model_and_processor_wav2vec2(device):
-    model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
+def load_trained_model_and_processor(device, model):
+    model = Wav2Vec2ForCTC.from_pretrained(model)
     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
     return model, processor

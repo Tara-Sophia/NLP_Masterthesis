@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sounddevice as sd
 import torch
-from constants import WAV2VEC2_MODEL_DIR
+from constants import WAV2VEC2_MODEL_DIR, VOCAB_DIR
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline
 
 import streamlit as st
@@ -28,7 +28,7 @@ def get_device() -> torch.device:
 @st.experimental_memo
 def load_model_and_processor(device):
     model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
-    processor = Wav2Vec2Processor.from_pretrained(WAV2VEC2_MODEL_DIR)
+    processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
     return model, processor
 
