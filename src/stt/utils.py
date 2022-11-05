@@ -5,7 +5,12 @@ from typing import Optional, Union
 import pandas as pd
 import numpy as np
 import torch
-from constants import WAV2VEC2_MODEL_DIR, SAMPLING_RATE, VOCAB_DIR
+from constants import (
+    WAV2VEC2_MODEL_DIR,
+    HUBERT_MODEL_DIR,
+    SAMPLING_RATE,
+    VOCAB_DIR,
+)
 from decorators import log_function_name
 from datasets import Dataset
 from transformers import (
@@ -16,6 +21,7 @@ from transformers import (
     EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
+    HubertForCTC,
 )
 from evaluate import load
 
@@ -67,8 +73,17 @@ def load_processor(processor_path):
 
 # FACEBOOK WAV2VEC2
 @log_function_name
-def load_trained_model_and_processor(device, model):
-    model = Wav2Vec2ForCTC.from_pretrained(model)
+def load_trained_model_and_processor_wav2vec2(device):
+    model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
+    processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
+    model.to(device)
+    return model, processor
+
+
+# FACEBOOK HUBERT
+@log_function_name
+def load_trained_model_and_processor_hubert(device):
+    model = HubertForCTC.from_pretrained(HUBERT_MODEL_DIR)
     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
     return model, processor
