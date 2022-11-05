@@ -28,13 +28,34 @@ from transformers import (
 
 @log_function_name
 def get_device() -> torch.device:
+    """
+    Get torch device
+
+    Returns
+    -------
+    torch.device
+        Torch device
+    """
     return torch.device(
         "cuda" if torch.cuda.is_available() else "cpu"
     )
 
 
 @log_function_name
-def load_datasets(data_path):
+def load_datasets(data_path: str) -> tuple(Dataset, Dataset):
+    """
+    Load train and validation datasets
+
+    Parameters
+    ----------
+    data_path : str
+        Path to the data
+
+    Returns
+    -------
+    tuple(Dataset, Dataset)
+        Train and validation datasets
+    """
     train_df = pd.read_feather(
         os.path.join(data_path, "train.feather")
     )
@@ -47,7 +68,20 @@ def load_datasets(data_path):
 
 
 @log_function_name
-def load_processor(processor_path):
+def load_processor(processor_path: str) -> Wav2Vec2Processor:
+    """
+    Load the processor with Tokenizer and Feature Extractor
+
+    Parameters
+    ----------
+    processor_path : str
+        Path to the processor
+
+    Returns
+    -------
+    Wav2Vec2Processor
+        Loaded processor
+    """
 
     tokenizer = Wav2Vec2CTCTokenizer.from_pretrained(
         processor_path,
@@ -73,7 +107,22 @@ def load_processor(processor_path):
 
 # FACEBOOK WAV2VEC2
 @log_function_name
-def load_trained_model_and_processor_wav2vec2(device):
+def load_trained_model_and_processor_wav2vec2(
+    device: torch.device,
+) -> tuple(Wav2Vec2ForCTC, Wav2Vec2Processor):
+    """
+    Load the trained model and processor for wav2vec2
+
+    Parameters
+    ----------
+    device : torch.device
+        Torch device
+
+    Returns
+    -------
+    tuple(Wav2Vec2ForCTC, Wav2Vec2Processor)
+        Trained wav2vec2 model and processor
+    """
     model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
@@ -82,7 +131,22 @@ def load_trained_model_and_processor_wav2vec2(device):
 
 # FACEBOOK HUBERT
 @log_function_name
-def load_trained_model_and_processor_hubert(device):
+def load_trained_model_and_processor_hubert(
+    device: torch.device,
+) -> tuple(HubertForCTC, Wav2Vec2Processor):
+    """
+    Load the trained model and processor for hubert
+
+    Parameters
+    ----------
+    device : torch.device,
+        Torch device
+
+    Returns
+    -------
+    tuple(HubertForCTC, Wav2Vec2Processor)
+        Trained hubert model and processor
+    """
     model = HubertForCTC.from_pretrained(HUBERT_MODEL_DIR)
     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
@@ -90,8 +154,6 @@ def load_trained_model_and_processor_hubert(device):
 
 
 # TRAINING
-
-
 class DataCollatorCTCWithPadding:
     """
     _summary_
@@ -153,7 +215,6 @@ class DataCollatorCTCWithPadding:
 
 
 class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
-    "A callback that prints a message at the beginning of training"
 
     def __init__(self, start_epoch, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -166,7 +227,7 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             )
 
 
-def compute_metrics(pred):
+def compute_metrics(pred) -> dict[str, Union[float, str]]:
     processor = load_processor(VOCAB_DIR)
     cer_metric = load("cer")
     wer_metric = load("wer")

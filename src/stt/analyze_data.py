@@ -4,8 +4,9 @@ import os
 import librosa
 import numpy as np
 import pandas as pd
-from constants import CSV_FILE, REL_PATH_RECORDINGS, STT_REPORT
+from constants import RECORDINGS_FILE, RAW_RECORDINGS_DIR, STT_REPORT
 from pandas_profiling import ProfileReport
+from decorators import log_function_name
 
 # ! Todo
 # # Load files
@@ -24,21 +25,51 @@ from pandas_profiling import ProfileReport
 # # librsa.feature.mfcc
 
 
-def get_librosa_features(row):
+def get_librosa_features(row) -> tuple(int, float):
     file_path = row.file_location
     sr = librosa.get_samplerate(file_path)
     duration = librosa.get_duration(filename=file_path)
     return sr, np.round(duration, 3)
 
 
-def load_dataframe(filename, columns):
+@log_function_name
+def load_dataframe(filename: str, columns: list[str]) -> pd.DataFrame:
+    """
+    Load the dataframe from the csv file
+
+    Parameters
+    ----------
+    filename : str
+        Name of the csv file
+    columns : list[str]
+        List of columns to load
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the loaded data
+    """
     df = pd.read_csv(filename, usecols=columns)
     return df
 
 
-def transform_dataframe(df):
+@log_function_name
+def transform_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Transform the dataframe
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe to transform
+
+    Returns
+    -------
+    pd.DataFrame
+        Transformed dataframe
+    """
     df["file_location"] = df["file_name"].apply(
-        lambda x: os.path.join(REL_PATH_RECORDINGS, "recordings", x)
+        lambda x: os.path.join(RAW_RECORDINGS_DIR, x)
     )
     df[["sr", "duration"]] = df.apply(
         lambda x: get_librosa_features(x),
@@ -48,20 +79,58 @@ def transform_dataframe(df):
     return df
 
 
-def create_dir(file_path):
+@log_function_name
+def create_dir(file_path: str) -> None:
+    """
+    Create the directory if it does not exist
+
+    Parameters
+    ----------
+    file_path : str
+        Path to the directory
+    """
     os.makedirs(file_path, exist_ok=True)
 
 
-def make_report(df):
+@log_function_name
+def make_report(df: pd.DataFrame) -> ProfileReport:
+    """
+    Create a report of the dataframe with pandas profiling
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe to create the report for
+
+    Returns
+    -------
+    ProfileReport
+        Report of the dataframe
+    """
     report = ProfileReport(df, title="STT Report", explorative=True)
     return report
 
 
-def save_report(report, file_path):
+@log_function_name
+def save_report(report: ProfileReport, file_path: str) -> None:
+    """
+    Save the report to the file path as an html file
+
+    Parameters
+    ----------
+    report : ProfileReport
+        Report to save
+    file_path : str
+        Path to save the report to
+    """
     report.to_file(os.path.join(file_path, "report.html"))
 
 
+@log_function_name
 def main():
+    """
+    Main function
+    """
     important_columns = [
         "audio_clipping",
         "overall_quality_of_the_audio",
@@ -72,7 +141,7 @@ def main():
         "prompt",
         "writer_id",
     ]
-    df = load_dataframe(CSV_FILE, important_columns)
+    df = load_dataframe(RECORDINGS_FILE, important_columns)
     df = transform_dataframe(df)
     create_dir(STT_REPORT)
     report = make_report(df)
