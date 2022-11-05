@@ -39,7 +39,7 @@ HUBERT_MODEL_CHECKPOINTS = os.path.join(
     "models", "stt", "hubert", "checkpoints"
 )
 
-HUBERT_NUM_EPOCHS = 30
+HUBERT_NUM_EPOCHS = 2
 HUBERT_BATCH_SIZE_TRAIN = 16
 HUBERT_BATCH_SIZE_EVAL = 16
 
