@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Decorator to log the name of the function
+"""
 import logging
 from functools import wraps
 from typing import Callable, ParamSpec, TypeVar
@@ -20,13 +24,13 @@ logging.basicConfig(
 )
 
 
-def log_function_name(f: Callable[P, Callable]) -> Callable[P, R]:
+def log_function_name(f: Callable[P, R]) -> Callable[P, R]:
     """
     Decorator to log the name of the function
 
     Parameters
     ----------
-    f : Callable[P, Callable]
+    f : Callable[P, R]
         Function to decorate
 
     Returns

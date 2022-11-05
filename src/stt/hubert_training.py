@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Training script for the Hubert model
+
+Usage:
+    $ python src/data/hubert_training.py
+"""
 import os
 
 import torch

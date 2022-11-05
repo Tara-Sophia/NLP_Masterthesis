@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Evaluate the trained model on the test set
+
+Usage:
+    $ python src/data/evaluate_model.py
+"""
 import os
 import random
 from typing import Union
@@ -7,13 +14,14 @@ import pandas as pd
 import torch
 from constants import PROCESSED_DIR
 from datasets import Dataset
+from datasets.arrow_dataset import Example
 from decorators import log_function_name
+from evaluate import EvaluationModule, load
 from transformers import (
     HubertForCTC,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
 )
-from evaluate import EvaluationModule, load
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
@@ -22,10 +30,27 @@ from utils import (
 
 
 def map_to_result(
-    batch,
+    batch: Example,
     model: Union[HubertForCTC, Wav2Vec2ForCTC],
     processor: Wav2Vec2Processor,
-):
+) -> Example:
+    """
+    Map batch to results for evaluation
+
+    Parameters
+    ----------
+    batch : Example
+        Batch of data
+    model : Union[HubertForCTC, Wav2Vec2ForCTC]
+        Trained model
+    processor : Wav2Vec2Processor
+        Processor used to transform data
+
+    Returns
+    -------
+    Example
+        Batch with results
+    """
     with torch.no_grad():
         input_values = torch.tensor(
             batch["input_values"], device="cuda"
@@ -105,10 +130,22 @@ def showcase_test(
 
 @log_function_name
 def get_test_results(
-    results,
+    results: Dataset,
     wer_metric: EvaluationModule,
     cer_metric: EvaluationModule,
-):
+) -> None:
+    """
+    Print WER and CER of the test dataset
+
+    Parameters
+    ----------
+    results : Dataset
+        Test dataset with predictions and labels
+    wer_metric : EvaluationModule
+        WER metric
+    cer_metric : EvaluationModule
+        CER metric
+    """
     print(
         "Test WER: {:.3f}".format(
             wer_metric.compute(

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Helper functions that are used in multiple places
+"""
 import os
 from typing import Optional, Union
 
@@ -16,8 +20,11 @@ from decorators import log_function_name
 from evaluate import load
 from transformers import (
     EarlyStoppingCallback,
+    EvalPrediction,
     HubertForCTC,
     Trainer,
+    TrainerControl,
+    TrainerState,
     TrainingArguments,
     Wav2Vec2CTCTokenizer,
     Wav2Vec2FeatureExtractor,
@@ -42,7 +49,7 @@ def get_device() -> torch.device:
 
 
 @log_function_name
-def load_datasets(data_path: str) -> tuple(Dataset, Dataset):
+def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
     Load train and validation datasets
 
@@ -109,7 +116,7 @@ def load_processor(processor_path: str) -> Wav2Vec2Processor:
 @log_function_name
 def load_trained_model_and_processor_wav2vec2(
     device: torch.device,
-) -> tuple(Wav2Vec2ForCTC, Wav2Vec2Processor):
+) -> tuple[Wav2Vec2ForCTC, Wav2Vec2Processor]:
     """
     Load the trained model and processor for wav2vec2
 
@@ -133,7 +140,7 @@ def load_trained_model_and_processor_wav2vec2(
 @log_function_name
 def load_trained_model_and_processor_hubert(
     device: torch.device,
-) -> tuple(HubertForCTC, Wav2Vec2Processor):
+) -> tuple[HubertForCTC, Wav2Vec2Processor]:
     """
     Load the trained model and processor for hubert
 
@@ -156,7 +163,7 @@ def load_trained_model_and_processor_hubert(
 # TRAINING
 class DataCollatorCTCWithPadding:
     """
-    _summary_
+    Data collator that will dynamically pad the inputs received.
     """
 
     def __init__(
@@ -168,6 +175,24 @@ class DataCollatorCTCWithPadding:
         pad_to_multiple_of: Optional[int] = None,
         pad_to_multiple_of_labels: Optional[int] = None,
     ):
+        """
+        Constructs all the necessary attributes for the DataCollator object.
+
+        Parameters
+        ----------
+        processor : Wav2Vec2Processor
+            The processor used for proccessing the data.
+        padding : Union[bool, str], optional
+            If padding should be used, by default True
+        max_length : Optional[int], optional
+            Maximum length of padding, by default None
+        max_length_labels : Optional[int], optional
+            Maximum length of labels, by default None
+        pad_to_multiple_of : Optional[int], optional
+            Pad to multiple of, by default None
+        pad_to_multiple_of_labels : Optional[int], optional
+            Pad to multiple of labels, by default None
+        """
         self.processor = processor
         self.padding = padding
         self.max_length = max_length
@@ -179,6 +204,19 @@ class DataCollatorCTCWithPadding:
         self,
         features: list[dict[str, Union[list[int], torch.Tensor]]],
     ) -> dict[str, torch.Tensor]:
+        """
+        Pad inputs and labels
+
+        Parameters
+        ----------
+        features : list[dict[str, Union[list[int], torch.Tensor]]]
+            List of inputs and labels
+
+        Returns
+        -------
+        dict[str, torch.Tensor]
+            Padded inputs and labels
+        """
         # split inputs and labels since they have to be of different lenghts and need
         # different padding methods
         input_features = [
@@ -215,19 +253,68 @@ class DataCollatorCTCWithPadding:
 
 
 class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
+    """
+    Callback to stop training after a number of epochs.
+    Inherits from EarlyStoppingCallback.
+    """
 
-    def __init__(self, start_epoch, *args, **kwargs):
+    def __init__(self, start_epoch: int, *args, **kwargs):
+        """
+        Constructs all the necessary attributes for the
+        EearlyStoppingCallbackAfterNumEpochs object.
+
+        Parameters
+        ----------
+        start_epoch : int
+            Epoch to start the early stopping
+        """
         super().__init__(*args, **kwargs)
         self.start_epoch = start_epoch
 
-    def on_evaluate(self, args, state, control, metrics, **kwargs):
+    def on_evaluate(
+        self,
+        args: TrainingArguments,
+        state: TrainerState,
+        control: TrainerControl,
+        metrics: dict[str, float],
+        **kwargs
+    ) -> None:
+        """
+        Check if the training should be stopped.
+
+        Parameters
+        ----------
+        args : TrainingArguments
+            Training arguments
+        state : TrainerState
+            Trainer state
+        control : TrainerControl
+            Trainer control
+        metrics : dict[str, float]
+            Metrics to evaluate
+        """
         if state.epoch > self.start_epoch:
             super().on_evaluate(
                 args, state, control, metrics, **kwargs
             )
 
 
-def compute_metrics(pred) -> dict[str, Union[float, str]]:
+def compute_metrics(
+    pred: EvalPrediction,
+) -> dict[str, Union[float, str]]:
+    """
+    Compute metrics for the model during training
+
+    Parameters
+    ----------
+    pred : EvalPrediction
+        Predictions from the model
+
+    Returns
+    -------
+    dict[str, Union[float, str]]
+        Metrics to evaluate the performance of the model
+    """
     processor = load_processor(VOCAB_DIR)
     cer_metric = load("cer")
     wer_metric = load("wer")
@@ -262,8 +349,30 @@ def compute_metrics(pred) -> dict[str, Union[float, str]]:
 
 @log_function_name
 def load_training_args(
-    output_dir, batch_size_train, batch_size_val, num_epochs
-):
+    output_dir: str,
+    batch_size_train: int,
+    batch_size_val: int,
+    num_epochs: int,
+) -> TrainingArguments:
+    """
+    Load the training arguments
+
+    Parameters
+    ----------
+    output_dir : str
+        Output directory for checkpoints
+    batch_size_train : int
+        Batch size for training
+    batch_size_val : int
+        Batch size for validation
+    num_epochs : int
+        Number of epochs to train
+
+    Returns
+    -------
+    TrainingArguments
+        Training arguments
+    """
     training_args = TrainingArguments(
         output_dir=output_dir,
         group_by_length=True,
@@ -290,9 +399,36 @@ def load_training_args(
 
 @log_function_name
 def load_trainer(
-    model, data_collator, training_args, train_ds, val_ds, processor
-):
+    model: Union[HubertForCTC, Wav2Vec2ForCTC],
+    data_collator: DataCollatorCTCWithPadding,
+    training_args: TrainingArguments,
+    train_ds: Dataset,
+    val_ds: Dataset,
+    processor: Wav2Vec2Processor,
+) -> Trainer:
+    """
+    Load the trainer for the model
 
+    Parameters
+    ----------
+    model : Union[HubertForCTC, Wav2Vec2ForCTC]
+        Model to train
+    data_collator : DataCollatorCTCWithPadding
+        Data collator for the model
+    training_args : TrainingArguments
+        Training arguments for the training process
+    train_ds : Dataset
+        Training dataset
+    val_ds : Dataset
+        Validation dataset
+    processor : Wav2Vec2Processor
+        Processor for the model
+
+    Returns
+    -------
+    Trainer
+        Trainer for the model
+    """
     trainer = Trainer(
         model=model,
         data_collator=data_collator,

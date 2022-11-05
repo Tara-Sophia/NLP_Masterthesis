@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    Transform the speech data to be used by the model
+
+Usage:
+    $ python src/data/transform_speech_data.py
+"""
 import json
 import os
 import re
 import shutil
-from typing import Union, Optional
+from typing import Optional, Union
 
 import pandas as pd
 from constants import (
@@ -15,11 +22,11 @@ from constants import (
     VOCAB_DIR,
 )
 from datasets import Audio, Dataset
-from datasets.arrow_dataset import Example, Batch
-from transformers import Wav2Vec2Processor
+from datasets.arrow_dataset import Batch, Example
 from decorators import log_function_name
-from utils import load_processor
+from transformers import Wav2Vec2Processor
 from unidecode import unidecode
+from utils import load_processor
 
 
 def remove_special_characters(
