@@ -40,7 +40,7 @@ def load_trained_model_and_processor_hubert(device):
 
 
 st.sidebar.title("Choose the model")
-model_name = st.sidebar.selectbox("Model", ["Wav2Vec2", "Hubert"])
+model_name = st.sidebar.selectbox("Model", ["Hubert", "Wav2Vec2"])
 if model_name == "Wav2Vec2":
     model_to_load = WAV2VEC2_MODEL_DIR
 else:
@@ -70,7 +70,6 @@ if len(audio) > 0:
     st.audio(audio_bytes)
     text = pipe(audio_bytes)
     st.write(text)
-
 
 
 st.write("Take audio from file")
