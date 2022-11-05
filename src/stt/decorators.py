@@ -2,8 +2,6 @@
 import logging
 from functools import wraps
 
-import transformers
-
 GREEN_LOGGER = "\x1b[32m"
 RESET_LOGGER = "\x1b[0m"
 FORMAT = "%(asctime)s.%(msecs)03d  - %(message)s"

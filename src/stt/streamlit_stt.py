@@ -1,15 +1,15 @@
-import streamlit as st
-import io
-import numpy as np
-from audiorecorder import audiorecorder
+# -*- coding: utf-8 -*-
 import torch
-from constants import WAV2VEC2_MODEL_DIR, HUBERT_MODEL_DIR, VOCAB_DIR
+from audiorecorder import audiorecorder
+from constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
 from transformers import (
+    HubertForCTC,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
-    HubertForCTC,
     pipeline,
 )
+
+import streamlit as st
 
 torch.cuda.empty_cache()
 

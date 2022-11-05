@@ -2,28 +2,25 @@
 import os
 
 from constants import (
+    HUBERT_BATCH_SIZE_EVAL,
+    HUBERT_BATCH_SIZE_TRAIN,
     HUBERT_MODEL,
     HUBERT_MODEL_CHECKPOINTS,
-    HUBERT_BATCH_SIZE_TRAIN,
-    HUBERT_BATCH_SIZE_EVAL,
+    HUBERT_MODEL_DIR,
     HUBERT_NUM_EPOCHS,
     PROCESSED_DIR,
-    HUBERT_MODEL_DIR,
     VOCAB_DIR,
 )
 from decorators import log_function_name
-from evaluate import load
-from transformers import (
-    HubertForCTC,
-)
+from transformers import HubertForCTC
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
     DataCollatorCTCWithPadding,
-    load_training_args,
-    load_trainer,
     get_device,
     load_datasets,
     load_processor,
+    load_trainer,
+    load_training_args,
 )
 
 import wandb

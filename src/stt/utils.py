@@ -2,28 +2,28 @@
 import os
 from typing import Optional, Union
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 import torch
 from constants import (
-    WAV2VEC2_MODEL_DIR,
     HUBERT_MODEL_DIR,
     SAMPLING_RATE,
     VOCAB_DIR,
+    WAV2VEC2_MODEL_DIR,
 )
-from decorators import log_function_name
 from datasets import Dataset
+from decorators import log_function_name
+from evaluate import load
 from transformers import (
+    EarlyStoppingCallback,
+    HubertForCTC,
+    Trainer,
+    TrainingArguments,
     Wav2Vec2CTCTokenizer,
     Wav2Vec2FeatureExtractor,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
-    EarlyStoppingCallback,
-    Trainer,
-    TrainingArguments,
-    HubertForCTC,
 )
-from evaluate import load
 
 
 @log_function_name

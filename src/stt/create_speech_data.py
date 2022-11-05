@@ -14,14 +14,37 @@ from decorators import log_function_name
 from sklearn.model_selection import train_test_split
 
 
-def get_wav_file_duration(file_path):
+def get_wav_file_duration(file_path: str) -> float:
+    """
+    Get the duration of a wav file
+
+    Parameters
+    ----------
+    file_path : str
+        Path to the wav file
+
+    Returns
+    -------
+    float
+        Duration of the wav file in seconds
+    """
     return librosa.get_duration(
         filename=os.path.join(RAW_RECORDINGS_DIR, file_path)
     )
 
 
 @log_function_name
-def copy_files(files_list, folder):
+def copy_files(files_list: list[str], folder: str) -> None:
+    """
+    Copy files from the raw data folder to the new folder
+
+    Parameters
+    ----------
+    files_list : list[str]
+        List of files to copy
+    folder : str
+        Name of the folder to copy the files to
+    """
     new_dir = os.path.join(RAW_DATA_DIR, folder)
     if os.path.exists(new_dir) and os.path.isdir(new_dir):
         shutil.rmtree(new_dir)
@@ -35,7 +58,23 @@ def copy_files(files_list, folder):
 
 
 @log_function_name
-def clean_df(df, folder):
+def clean_df(df: pd.DataFrame, folder: str) -> pd.DataFrame:
+    """
+    Clean the dataframe by adjusting, adding and removing the required columns.
+    Adding the files to the new respective folder.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe to clean
+    folder : str
+        Name of the folder to copy the files to
+
+    Returns
+    -------
+    pd.DataFrame
+        Cleaned dataframe
+    """
 
     df["path"] = df["file_name"].apply(
         lambda x: os.path.join(RAW_DATA_DIR, folder, x)
@@ -51,7 +90,22 @@ def clean_df(df, folder):
 
 
 @log_function_name
-def create_own_dataset(file_path):
+def create_own_dataset(
+    file_path: str,
+) -> tuple(pd.DataFrame, pd.DataFrame, pd.DataFrame):
+    """
+    Adjusting the dataset to the required format
+
+    Parameters
+    ----------
+    file_path : str,
+        Path to the csv file
+
+    Returns
+    -------
+    tuple(pd.DataFrame, pd.DataFrame, pd.DataFrame)
+        Tuple of train, validation and test dataframes
+    """
 
     df = pd.read_csv(file_path)
 
@@ -73,7 +127,10 @@ def create_own_dataset(file_path):
 
 
 @log_function_name
-def main():
+def main() -> None:
+    """
+    Main function
+    """
     df_train, df_val, df_test = create_own_dataset(RECORDINGS_FILE)
     df_train.to_csv(
         os.path.join(RAW_DATA_DIR, "train.csv"), index=False
