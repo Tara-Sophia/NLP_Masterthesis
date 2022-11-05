@@ -6,15 +6,14 @@ import pandas as pd
 import torch
 from constants import (
     PROCESSED_DIR,
-    WAV2VEC2_MODEL_DIR,
-    HUBERT_MODEL_DIR,
 )
 from datasets import Dataset
 from decorators import log_function_name
 from evaluate import load
 from utils import (
     get_device,
-    load_trained_model_and_processor,
+    load_trained_model_and_processor_hubert,
+    load_trained_model_and_processor_wav2vec2,
 )
 
 
@@ -97,13 +96,18 @@ def load_test_data(data_path):
 
 @log_function_name
 def main():
-    test_ds = load_test_data(PROCESSED_DIR).select(range(50))
+    test_ds = load_test_data(PROCESSED_DIR)
     device = get_device()
-    model_to_evaluate = HUBERT_MODEL_DIR # WAV2VEC2_MODEL_DIR
-    print(f"Loading model from {model_to_evaluate}")
-    model, processor = load_trained_model_and_processor(
-        device, model_to_evaluate
-    )
+    model_to_evaluate = "Hubert"  # "Wav2Vec2"
+    print(f"Loading model: {model_to_evaluate}")
+    if model_to_evaluate == "Hubert":
+        model, processor = load_trained_model_and_processor_hubert(
+            device
+        )
+    else:
+        model, processor = load_trained_model_and_processor_wav2vec2(
+            device
+        )
 
     results = test_ds.map(
         map_to_result,
