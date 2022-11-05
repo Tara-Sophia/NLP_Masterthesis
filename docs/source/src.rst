@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    src.data
+   src.stt
 
 Module contents
 ---------------
