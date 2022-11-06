@@ -16,7 +16,7 @@ import transformers
 from transformers import pipeline
 
 # apply model semi supervised to text
-def KeywordExtraction(text):
+def KeywordExtraction(df):
     tokenizer = AutoTokenizer.from_pretrained(
         "models/nlp/semi_supervised/model", model_max_lenght=512
     )
@@ -37,7 +37,7 @@ def KeywordExtraction(text):
 
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
-        text,
+        df["transcription"],
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
@@ -46,19 +46,22 @@ def KeywordExtraction(text):
         use_mmr=True,
         diversity=0.5,
     )
-    return keywords
-
-
-def apply_keyword_on_Dataframe(df):
-    df["keywords_outcome_weights"] = df["transcription"].apply(
-        lambda x: KeywordExtraction(x)
-    )
-    # column only with keywords
-    df["transcription_f"] = df["keywords_outcome_weights"].apply(
-        lambda x: [item[0] for item in x]
-    )
+    # put keywords in dataframe
+    df["keywords_outcome_weights"] = keywords
 
     return df
+
+
+# def apply_keyword_on_Dataframe(df):
+#     df["keywords_outcome_weights"] = df["transcription"].apply(
+#         lambda x: KeywordExtraction(x)
+#     )
+#     # column only with keywords
+#     df["transcription_f"] = df["keywords_outcome_weights"].apply(
+#         lambda x: [item[0] for item in x]
+#     )
+
+#     return df
 
 
 def save_dataframe(df):
@@ -75,9 +78,9 @@ def main():
     df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_cleaned.csv")
     df = small_column_df(df_1)
     # apply keyword extraction on dataframe
-    df = apply_keyword_on_Dataframe(df)
+    df_f = KeywordExtraction(df)
     # save dataframe
-    save_dataframe(df)
+    save_dataframe(df_f)
 
 
 # Path: src/Keyword_Bert_Training.py
