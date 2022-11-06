@@ -80,6 +80,12 @@ def create_df(df):
     return df
 
 
+# filter only for classes with more than 100 samples
+def top_11_classes(df):
+    top_11 = df.value_counts("medical_specialty").index[:11]
+    return df[df["medical_specialty"].isin(top_11)].copy()
+
+
 def create_dir(path):
     os.makedirs(path, exist_ok=True)
 
@@ -92,6 +98,10 @@ def save_df(df, path):
 def main():
     df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
     df = create_df(df)
+    print(df.shape)
+    df = top_11_classes(df)
+    # print size of the dataframe
+    print(df.shape)
 
     # save dataframe
     save_df(df, MTSAMPLES_PROCESSED_PATH_DIR)
