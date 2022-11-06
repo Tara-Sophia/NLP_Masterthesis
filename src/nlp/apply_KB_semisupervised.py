@@ -67,7 +67,7 @@ def save_dataframe(df):
 
 # make df column smaller than 512
 def small_column_df(df):
-    df = df[df["transcription"].str.len() < 512]
+    df["transcription"] = df["transcription"].str[:512]
     return df
 
 

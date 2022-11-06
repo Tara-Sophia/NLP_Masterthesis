@@ -15,6 +15,8 @@ import pandas as pd
 import transformers
 from transformers import pipeline
 
+# create also column for keywords from semisupervised model
+
 
 def KeywordExtraction(text):
     tokenizer = AutoTokenizer.from_pretrained(
@@ -62,7 +64,9 @@ def save_dataframe(df):
 
 # make df column smaller than 512
 def small_column_df(df):
-    df = df[df["transcription"].str.len() < 512]
+    # take only the first 512 characters from column transcription
+
+    df["transcription"] = df["transcription"].str[:512]
     return df
 
 
