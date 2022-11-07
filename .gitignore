@@ -128,8 +128,24 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Data
+# Wandb
+wandb/
+
+# Data raw
 data/raw/
 !data/raw/icd9/
-data/interim/icd9/
+
+# NLP
 data/en_ner_bionlp13cg_md-0.5.1/
+
+# Data interim
+data/interim/
+
+# Cache Data
+data/**/cache-*.arrow
+
+# vs code setting
+.vscode/settings.json
+
+# Checkpoints
+models/**/checkpoints/**
