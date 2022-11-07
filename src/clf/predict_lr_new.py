@@ -49,8 +49,6 @@ def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.Dat
         best model from train.py
     value : str
         sample
-    category_list: list[str]
-        list of unique labels
 
     Returns
     -------
@@ -125,11 +123,11 @@ def lime_explainer(model: imblearn.pipeline.Pipeline, value: str):
 
 def main():
     # Load model
-    file_path = os.path.join("models", "clf", "lr_model_masked.pkl")
+    file_path = os.path.join("models", "clf", "lr_test.pkl")
     model = load_model(file_path)
 
     # Predict probability
-    to_pred = "coronary nitroglycerin muscle heart breast oxygen valve artery"
+    to_pred = "leave_heart chest_prepped"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
