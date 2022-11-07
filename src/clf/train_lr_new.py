@@ -15,6 +15,7 @@ import numpy as np
 import pickle
 import imblearn
 import os
+import ast
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_validate
@@ -69,6 +70,32 @@ def get_labels(df: pd.DataFrame) -> list[str]:
     return df["medical_specialty"].tolist()
 
 
+# Transform data for model
+def replace_tab(x):
+    return [i.replace(" ", "_") for i in x]
+
+
+def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
+    """
+    Transform column to list
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        dataframe with labels and NLP features
+    column_name : str
+        column name
+
+    Returns
+    -------
+    pd.DataFrame
+        dataframe with transformed column
+    """
+    df[column_name] = df[column_name].apply(lambda x: ast.literal_eval(x))
+    df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
+    return df
+
+
 # Split the dataframe into test and train data
 def split_data(df: pd.DataFrame) -> tuple:
     """
@@ -99,8 +126,8 @@ def build_pipeline() -> imblearn.pipeline.Pipeline:
     """
     model_pipeline = imbPipeline(
         [
-            ("preprocessing", CountVectorizer()),
-            ("smote", SMOTE(random_state=42)),
+            ("preprocessing", CountVectorizer(analyzer=lambda x: x)),
+            # ("smote", SMOTE(random_state=42)),
             (
                 "classifier",
                 LogisticRegression(
@@ -299,18 +326,26 @@ def get_top_k_predictions(model, X_test, k):
 
 def main():
     # Load data
-    file_path = os.path.join("data", "processed", "mtsamples_nlp.csv")
+    file_path = os.path.join(
+        "data", "processed", "nlp", "mtsamples", "mtsamples_cleaned.csv"
+    )
     df = load_data(file_path)
+    # df = df.groupby("medical_specialty").filter(lambda x: len(x) > 10)
+    df = transform_column(df, "keywords_list")
+    print(df.shape)
 
     # Split data into train and test
     training_data, testing_data = split_data(df)
+    print("Training data shape: ", training_data.shape)
 
     # build model
     model_pipeline = build_pipeline()
 
-    # fit model (without grid search)
+    # # fit model (without grid search)
     # model = fit_model(
-    #     model_pipeline, training_data.transcription_f, training_data.medical_specialty
+    #     model_pipeline,
+    #     training_data.transcription_f_unsupervised,
+    #     training_data.medical_specialty,
     # )
 
     # fit model with grid search
@@ -322,7 +357,7 @@ def main():
     ]
 
     best_model = grid_search(
-        training_data.transcription_f,
+        training_data.keywords_list,
         training_data.medical_specialty,
         model_pipeline,
         param_grid,
@@ -331,13 +366,15 @@ def main():
     # evaluate model
     print("Model metrics not optimized for:")
     report = get_model_metrics(
-        best_model, testing_data.transcription_f, testing_data.medical_specialty
+        best_model,
+        testing_data.keywords_list,
+        testing_data.medical_specialty,
     )
     print(report)
 
     # evaluate model with other metrics
     # GET TOP K PREDICTIONS
-    preds = get_top_k_predictions(best_model, testing_data.transcription_f, 3)
+    preds = get_top_k_predictions(best_model, testing_data.keywords_list, 3)
     # GET PREDICTED VALUES AND GROUND TRUTH INTO A LIST OF LISTS - for ease of evaluation
     eval_items = collect_preds(testing_data.medical_specialty, preds)
     # COMPUTE MRR AT K
@@ -345,10 +382,10 @@ def main():
     print("MRR at k: ", mrr_at_k)
     # COMPUTE ACCURACY AT K
     accuracy = compute_accuracy(eval_items)
-    print("Accuracy: ", accuracy)
+    print("Accuracy at k: ", accuracy)
 
     # Save Model
-    filename = "./models/clf/sklearn_logistic_regression_model.pkl"
+    filename = "./models/clf/lr_model_masked.pkl"
     pickle.dump(best_model, open(filename, "wb"))
 
 
