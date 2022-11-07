@@ -33,7 +33,7 @@ def KeywordExtraction(df):
 
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
-        text,
+        df["transcription"],
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
