@@ -46,18 +46,6 @@ def KeywordExtraction(df):
     return df
 
 
-# def apply_keyword_on_Dataframe(df):
-#     df["keywords_outcome_weights"] = df["transcription"].apply(
-#         lambda x: KeywordExtraction(x)
-#     )
-#     # column only with keywords
-#     df["transcription_f"] = df["keywords_outcome_weights"].apply(
-#         lambda x: [item[0] for item in x]
-#     )
-
-#     return df
-
-
 def save_dataframe(df):
     df.to_csv("data/processed/nlp/mtsamples/mtsamples_semisupervised.csv", index=False)
 

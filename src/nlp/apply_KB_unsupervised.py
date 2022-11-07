@@ -18,7 +18,7 @@ from transformers import pipeline
 # create also column for keywords from semisupervised model
 
 
-def KeywordExtraction(text):
+def KeywordExtraction(df):
     tokenizer = AutoTokenizer.from_pretrained(
         "models/nlp/unsupervised/model", model_max_lenght=512
     )
@@ -42,17 +42,20 @@ def KeywordExtraction(text):
         use_mmr=True,
         diversity=0.5,
     )
-    return keywords
+    df["keywords_outcome_weights_unsupervised"] = keywords
+
+    return df
 
 
 def apply_keyword_on_Dataframe(df):
-    df["keywords_outcome_weights_unsupervised"] = df["transcription"].apply(
-        lambda x: KeywordExtraction(x)
-    )
     # column only with keywords
     df["transcription_f_unsupervised"] = df[
         "keywords_outcome_weights_unsupervised"
     ].apply(lambda x: [item[0] for item in x])
+
+    df["transcription_f_semisupervised"] = df["keywords_outcome_weights"].apply(
+        lambda x: [item[0] for item in x]
+    )
     return df
 
 
@@ -73,6 +76,7 @@ def small_column_df(df):
 def main():
     df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_semisupervised.csv")
     df = small_column_df(df_1)
+    df = KeywordExtraction(df)
     # apply keyword extraction on dataframe
     df = apply_keyword_on_Dataframe(df)
     # save dataframe
