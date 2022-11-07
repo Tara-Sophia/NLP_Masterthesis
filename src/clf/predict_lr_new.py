@@ -125,7 +125,7 @@ def lime_explainer(model: imblearn.pipeline.Pipeline, value: str):
 
 def main():
     # Load model
-    file_path = os.path.join("models", "clf", "sklearn_logistic_regression_model.pkl")
+    file_path = os.path.join("models", "clf", "lr_model_masked.pkl")
     model = load_model(file_path)
 
     # Predict probability
