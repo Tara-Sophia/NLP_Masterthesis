@@ -52,24 +52,6 @@ def load_data(file_path: str) -> pd.DataFrame:
     return df
 
 
-# Retrieve list of labels
-def get_labels(df: pd.DataFrame) -> list[str]:
-    """
-    Get list of labels from dataframe
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        dataframe with labels and NLP features
-
-    Returns
-    -------
-    list
-        list of all labels
-    """
-    return df["medical_specialty"].tolist()
-
-
 # Transform data for model
 def replace_tab(x):
     return [i.replace(" ", "_") for i in x]
@@ -93,29 +75,8 @@ def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
     """
     df[column_name] = df[column_name].apply(lambda x: ast.literal_eval(x))
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
+    df[column_name] = df[column_name].apply(lambda x: " ".join(x))
     return df
-
-
-# Split the dataframe into test and train data
-def split_data(df: pd.DataFrame) -> tuple:
-    """
-    Split the dataframe into test and train data
-
-        Parameters
-        ----------
-        df : pd.DataFrame
-            dataframe with labels and NLP features
-
-        Returns
-        -------
-        training_data : pd.DataFrame
-            train data
-        testing_data : pd.DataFrame
-            test data
-    """
-    training_data, testing_data = train_test_split(df, test_size=0.2, random_state=42)
-
-    return training_data, testing_data
 
 
 # Build pipeline
@@ -123,11 +84,20 @@ def build_pipeline() -> imblearn.pipeline.Pipeline:
     """
     Build pipeline for model
 
+    Parameters
+    ----------
+    analyzer : function
+        analyzer function for CountVectorizer
+
+    Returns
+    -------
+    imblearn.pipeline.Pipeline
+        pipeline for model
     """
     model_pipeline = imbPipeline(
         [
-            ("preprocessing", CountVectorizer(analyzer=lambda x: x)),
-            # ("smote", SMOTE(random_state=42)),
+            ("preprocessing", CountVectorizer()),
+            ("smote", SMOTE(random_state=42)),
             (
                 "classifier",
                 LogisticRegression(
@@ -135,8 +105,9 @@ def build_pipeline() -> imblearn.pipeline.Pipeline:
                     multi_class="multinomial",
                     penalty="l1",
                     solver="saga",
+                    # max_iter=5000,
                 ),
-            ),  # remainder="passthrough"
+            ),
         ]
     )
     return model_pipeline
@@ -144,7 +115,9 @@ def build_pipeline() -> imblearn.pipeline.Pipeline:
 
 # Fit model
 def fit_model(
-    model: imblearn.pipeline.Pipeline, X_train, y_train
+    model: imblearn.pipeline.Pipeline,
+    X_train: list,
+    y_train: pd.core.series.Series,
 ) -> imblearn.pipeline.Pipeline:
     """
     Fit model
@@ -153,10 +126,14 @@ def fit_model(
     ----------
     model : imblearn.pipeline.Pipeline
         pipeline for model
+    X_train : pd.core.series.Series
+        train data
+    y_train : pd.core.series.Series
+        train labels
 
     Returns
     -------
-    Pipeline
+    imblearn.pipeline.Pipeline
         fitted model
     """
     model.fit(X_train, y_train)
@@ -164,7 +141,9 @@ def fit_model(
 
 
 # Grid search and custom scorer with accuracy @k
-def custom_accuracy_function(model, X_train, y_train):
+def custom_accuracy_function(
+    model, X_train: pd.core.series.Series, y_train: pd.core.series.Series
+) -> float:
     """
     Custom scorer with accuracy @3
 
@@ -173,9 +152,9 @@ def custom_accuracy_function(model, X_train, y_train):
     model : imblearn.pipeline.Pipeline
         pipeline for model
     X_test: pd.core.series.Series
-        train data
-    y_test: list
-        train labels
+        test data
+    y_test: pd.core.series.Series
+        test labels
 
     Returns
     -------
@@ -192,7 +171,7 @@ def custom_accuracy_function(model, X_train, y_train):
 
 def grid_search(
     X_train: pd.core.series.Series,
-    y_train: list,
+    y_train: pd.core.series.Series,
     model_pipeline: imblearn.pipeline.Pipeline,
     param_grid: list,
 ) -> imblearn.pipeline.Pipeline:
@@ -201,7 +180,7 @@ def grid_search(
 
     Parameters
     ----------
-    X_train : pd.core.series.Series
+    X_train :
         train data
     y_train : list
         train labels
@@ -228,7 +207,7 @@ def grid_search(
 def get_model_metrics(
     best_model: imblearn.pipeline.Pipeline,
     X_test: pd.core.series.Series,
-    y_test: list,
+    y_test: pd.core.series.Series,
 ) -> str:
     """
     get classification report for model
@@ -239,7 +218,7 @@ def get_model_metrics(
         best model
     X_test: pd.core.series.Series
         test data
-    y_test: list
+    y_test: pd.core.series.Series
         test labels
     Returns
     -------
@@ -252,8 +231,22 @@ def get_model_metrics(
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def _reciprocal_rank(true_labels: list, machine_preds: list):
-    """Compute the reciprocal rank at cutoff k"""
+def _reciprocal_rank(true_labels: list, machine_preds: list) -> float:
+    """
+    Compute the reciprocal rank at cutoff k
+
+    Parameters
+    ----------
+    true_labels : list
+        true labels
+    machine_preds : list
+        machine predictions
+
+    Returns
+    -------
+    float
+        reciprocal rank
+    """
 
     # add index to list only if machine predicted label exists in true labels
     tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
@@ -269,8 +262,20 @@ def _reciprocal_rank(true_labels: list, machine_preds: list):
     return rr
 
 
-def compute_mrr_at_k(items: list):
-    """Compute the MRR (average RR) at cutoff k"""
+def compute_mrr_at_k(items: list) -> float:
+    """
+    Compute the MRR (average RR) at cutoff k
+
+    Parameters
+    ----------
+    items : list
+        list of tuples (true labels, machine predictions)
+
+    Returns
+    -------
+    float
+        MRR @k
+    """
     rr_total = 0
 
     for item in items:
@@ -281,7 +286,20 @@ def compute_mrr_at_k(items: list):
     return mrr
 
 
-def compute_accuracy(eval_items: list):
+def compute_accuracy(eval_items: list) -> float:
+    """
+    Compute the accuracy at cutoff k
+
+    Parameters
+    ----------
+    eval_items : list
+        list of tuples (true labels, machine predictions)
+
+    Returns
+    -------
+    float
+        accuracy @k
+    """
     correct = 0
     total = 0
 
@@ -298,95 +316,125 @@ def compute_accuracy(eval_items: list):
     return accuracy
 
 
-def collect_preds(Y_test, Y_preds):
-    """Collect all predictions and ground truth"""
+def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
+    """
+    Collect all predictions and ground truth
+
+    Parameters
+    ----------
+    Y_test : pd.core.series.Series
+        true labels
+    Y_preds : list
+        list of machine predictions
+
+    Returns
+    -------
+    list
+        list of tuples (true labels, machine predictions)
+    """
 
     pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
     return pred_gold_list
 
 
-def get_top_k_predictions(model, X_test, k):
+def get_top_k_predictions(
+    model: imblearn.pipeline.Pipeline, X_test: pd.core.series.Series, k: int
+) -> list:
+    """
+    Get top k predictions for each test sample
 
-    # get probabilities instead of predicted labels, since we want to collect top 3
+    Parameters
+    ----------
+    model : imblearn.pipeline.Pipeline
+        model
+    X_test : pd.core.series.Series
+        test data
+    k : int
+        number of predictions
+
+    Returns
+    -------
+    list
+        list of top k predictions
+    """
+
     probs = model.predict_proba(X_test)
-
-    # GET TOP K PREDICTIONS BY PROB - note these are just index
     best_n = np.argsort(probs, axis=1)[:, -k:]
-
-    # GET CATEGORY OF PREDICTIONS
     preds = [
         [model.classes_[predicted_cat] for predicted_cat in prediction]
         for prediction in best_n
     ]
 
     preds = [item[::-1] for item in preds]
-
     return preds
 
 
 def main():
     # Load data
     file_path = os.path.join(
-        "data", "processed", "nlp", "mtsamples", "mtsamples_cleaned.csv"
+        "data", "processed", "nlp", "mtsamples", "mtsamples_unsupervised_both_v2.csv"
     )
     df = load_data(file_path)
-    # df = df.groupby("medical_specialty").filter(lambda x: len(x) > 10)
-    df = transform_column(df, "keywords_list")
+    df = transform_column(df, "transcription_f_semisupervised")
     print(df.shape)
 
     # Split data into train and test
-    training_data, testing_data = split_data(df)
-    print("Training data shape: ", training_data.shape)
+    X_train, X_test, y_train, y_test = train_test_split(
+        df.transcription_f_semisupervised.to_list(),
+        df.medical_specialty,
+        test_size=0.2,
+        random_state=42,
+    )
 
     # build model
     model_pipeline = build_pipeline()
 
-    # # fit model (without grid search)
-    # model = fit_model(
-    #     model_pipeline,
-    #     training_data.transcription_f_unsupervised,
-    #     training_data.medical_specialty,
-    # )
-
-    # fit model with grid search
-
-    param_grid = [
-        {
-            "classifier__C": [0.01, 0.1, 1, 10],
-        }
-    ]
-
-    best_model = grid_search(
-        training_data.keywords_list,
-        training_data.medical_specialty,
+    # fit model (without grid search)
+    model = fit_model(
         model_pipeline,
-        param_grid,
+        X_train,
+        y_train,
     )
+
+    # # fit model with grid search
+
+    # param_grid = [
+    #     {
+    #         "classifier__C": [0.01, 0.1, 1, 10],
+    #     }
+    # ]
+
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # evaluate model
     print("Model metrics not optimized for:")
     report = get_model_metrics(
-        best_model,
-        testing_data.keywords_list,
-        testing_data.medical_specialty,
+        model,
+        X_test,
+        y_test,
     )
     print(report)
 
     # evaluate model with other metrics
-    # GET TOP K PREDICTIONS
-    preds = get_top_k_predictions(best_model, testing_data.keywords_list, 3)
-    # GET PREDICTED VALUES AND GROUND TRUTH INTO A LIST OF LISTS - for ease of evaluation
-    eval_items = collect_preds(testing_data.medical_specialty, preds)
-    # COMPUTE MRR AT K
+    # get top k predictions
+    preds = get_top_k_predictions(model, X_test, 3)
+    # get predicted values and ground truth into list of lists
+    eval_items = collect_preds(y_test, preds)
+    # compute mrr at k
     mrr_at_k = compute_mrr_at_k(eval_items)
     print("MRR at k: ", mrr_at_k)
-    # COMPUTE ACCURACY AT K
+    # compute accuracy at k
     accuracy = compute_accuracy(eval_items)
     print("Accuracy at k: ", accuracy)
 
     # Save Model
-    filename = "./models/clf/lr_model_masked.pkl"
-    pickle.dump(best_model, open(filename, "wb"))
+    filename = "./models/clf/lr_test.pkl"
+    pickle.dump(model, open(filename, "wb"))
 
 
 if __name__ == "__main__":
