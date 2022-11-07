@@ -77,6 +77,7 @@ def small_column_df(df):
 def main():
     df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_cleaned.csv")
     df = small_column_df(df_1)
+    df = df.head(4)
     # apply keyword extraction on dataframe
     df_f = KeywordExtraction(df)
     # save dataframe
