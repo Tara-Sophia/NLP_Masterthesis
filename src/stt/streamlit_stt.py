@@ -85,7 +85,7 @@ def load_trained_model_and_processor_hubert(
 
 
 st.sidebar.title("Choose the model")
-model_name = st.sidebar.selectbox("Model", ["Hubert", "Wav2Vec2"])
+model_name = st.sidebar.selectbox("Model", ["Wav2Vec2", "Hubert"])
 if model_name == "Wav2Vec2":
     model_to_load = WAV2VEC2_MODEL_DIR
 else:
@@ -104,7 +104,7 @@ pipe = pipeline(
     model=model,
     tokenizer=processor.tokenizer,
     feature_extractor=processor.feature_extractor,
-    device=0,
+    device=device,
 )
 
 st.title("🎙️ Audio Recorder")
