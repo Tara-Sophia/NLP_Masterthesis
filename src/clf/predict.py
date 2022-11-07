@@ -5,11 +5,6 @@ Description:
     Predicting probability for medical labels from saved model 
     Showing top features model uses per class in general
     Showing features from sample the model uses to predict top classes 
-    
-Usage:
-    
-Possible arguments:
-    * 
 """
 
 import imblearn
@@ -19,24 +14,6 @@ import numpy as np
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 from lime.lime_text import LimeTextExplainer
-
-
-def load_model(file_path: str) -> imblearn.pipeline.Pipeline:
-    """
-    Load model from disk
-
-    Parameters
-    ----------
-    model_name : str
-        path to saved model
-
-    Returns
-    -------
-    imblearn.pipeline.Pipeline
-        best model from train.py
-    """
-    model = pickle.load(open(file_path, "rb"))
-    return model
 
 
 def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.DataFrame:
@@ -80,8 +57,8 @@ def top_symptoms(model: imblearn.pipeline.Pipeline) -> pd.Series:
         Top symptoms for each class
     """
 
-    coef = model.named_steps["classifier"].coef_
-    vectorizer = model.named_steps["preprocessing"]
+    coef = model.named_steps["clf"].coef_
+    vectorizer = model.named_steps["vect"]
     feat = vectorizer.get_feature_names()
     coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
     coef_df = coef_df.abs()
@@ -123,8 +100,8 @@ def lime_explainer(model: imblearn.pipeline.Pipeline, value: str):
 
 def main():
     # Load model
-    file_path = os.path.join("models", "clf", "lr_test.pkl")
-    model = load_model(file_path)
+    file_path = os.path.join("models", "clf", "lr_test_2.pkl")
+    model = pickle.load(open(file_path, "rb"))
 
     # Predict probability
     to_pred = "leave_heart chest_prepped"
