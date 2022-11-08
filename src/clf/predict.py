@@ -62,7 +62,7 @@ def top_symptoms(model: imblearn.pipeline.Pipeline) -> pd.Series:
 
     coef = model.named_steps["clf"].coef_
     vectorizer = model.named_steps["vect"]
-    feat = vectorizer.get_feature_names()
+    feat = vectorizer.get_feature_names_out()
     coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
     top_symptoms = coef_df.apply(
         lambda x: x.nlargest(5).index.tolist(), axis=1
@@ -110,6 +110,9 @@ def lime_explainer(model: imblearn.pipeline.Pipeline, value: str):
 
 
 def main():
+    """
+    Main function
+    """
     # Load model
     model = pickle.load(open(LR_MODEL_MASKED, "rb"))
 
