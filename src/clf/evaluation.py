@@ -7,7 +7,7 @@ Description:
 """
 import pickle
 
-import imblearn
+from imblearn.pipeline import Pipeline
 import numpy as np
 import pandas as pd
 from constants import (
@@ -19,7 +19,9 @@ from utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
+def reciprocal_rank(
+    true_labels: list[str], machine_preds: list[str]
+) -> float:
     """
     Compute the reciprocal rank at cutoff k
 
@@ -37,7 +39,11 @@ def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     """
 
     # add index to list only if machine predicted label exists in true labels
-    tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
+    tp_pos_list = [
+        (idx + 1)
+        for idx, r in enumerate(machine_preds)
+        if r in true_labels
+    ]
 
     rr = 0.0
     if len(tp_pos_list) > 0:
@@ -50,14 +56,14 @@ def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     return rr
 
 
-def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
+def compute_mrr_at_k(items: list[list[str]]) -> float:
     """
     Compute the MRR (average RR) at cutoff k
 
     Parameters
     ----------
-    items : list[tuple[str, str]]
-        list of tuples (true labels, machine predictions)
+    items : list[list[str]]
+        lists of lists (true labels, machine predictions)
 
     Returns
     -------
@@ -65,6 +71,7 @@ def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
         MRR @k
     """
     rr_total = 0.0
+    mrr = 0.0
 
     for item in items:
         rr_at_k = reciprocal_rank(item[0], item[1])
@@ -74,13 +81,13 @@ def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
     return mrr
 
 
-def compute_accuracy(eval_items: list[str]) -> float:
+def compute_accuracy(eval_items: list[list[str]]) -> float:
     """
     Compute the accuracy at cutoff k
 
     Parameters
     ----------
-    eval_items : list
+    eval_items : list[list[str]]
         list of tuples (true labels, machine predictions)
 
     Returns
@@ -103,54 +110,61 @@ def compute_accuracy(eval_items: list[str]) -> float:
     return accuracy
 
 
-def collect_preds(Y_test: pd.core.series.Series, Y_preds: list[str]) -> list:
+def collect_preds(
+    Y_test: pd.Series, Y_preds: list[list[str]]
+) -> list[list[str]]:
     """
     Collect all predictions and ground truth
 
     Parameters
     ----------
-    Y_test : pd.core.series.Series
+    Y_test : pd.Series
         true labels
-    Y_preds : list
+    Y_preds : list[list[str]]
         list of machine predictions
 
     Returns
     -------
-    list
-        list of tuples (true labels, machine predictions)
+    list[list[str]]
+        lists of lists (true labels, machine predictions)
     """
 
-    pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
+    pred_gold_list = [
+        [[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)
+    ]
     return pred_gold_list
 
 
 def get_top_k_predictions(
-    model: imblearn.pipeline.Pipeline,
-    X_test: pd.core.series.Series,
+    model: Pipeline,
+    X_test: pd.Series,
     k: int,
-) -> list[str]:
+) -> list[list[str]]:
     """
     Get top k predictions for each test sample
 
     Parameters
     ----------
-    model : imblearn.pipeline.Pipeline
+    model : Pipeline
         model
-    X_test : pd.core.series.Series
+    X_test : pd.Series
         test data
     k : int
         number of predictions
 
     Returns
     -------
-    list
+    list[list[str]]
         list of top k predictions
     """
 
     probs = model.predict_proba(X_test)
     best_n = np.argsort(probs, axis=1)[:, -k:]
     preds = [
-        [model.classes_[predicted_cat] for predicted_cat in prediction]
+        [
+            model.classes_[predicted_cat]
+            for predicted_cat in prediction
+        ]
         for prediction in best_n
     ]
 
@@ -159,6 +173,9 @@ def get_top_k_predictions(
 
 
 def main():
+    """
+    Main function
+    """
     # Load test data
     X_test, y_test = load_data(TEST_DATA_DIR)
 

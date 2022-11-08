@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 """
 Description:
-    Training a logistic regression model 
+    Training a logistic regression model
     for predicting probabilities of medical specialties
 """
 import pickle
 
-import imblearn
 import numpy as np
 import pandas as pd
-from constants import LR_MODEL_MASKED, TEST_DATA_DIR, TRAIN_DATA_DIR
+from constants import (
+    LR_MODEL_CLASSIFIED,
+    TRAIN_DATA_DIR,
+)
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
@@ -50,20 +52,20 @@ def build_pipeline(
 
 # Grid search and custom scorer with accuracy @k
 def custom_accuracy_function(
-    model,
-    X_train: pd.core.series.Series,
-    y_train: pd.core.series.Series,
+    model: Pipeline,
+    X_train: pd.Series,
+    y_train: pd.Series,
 ) -> float:
     """
     Custom scorer with accuracy @3
 
     Parameters
     ----------
-    model : imblearn.pipeline.Pipeline
+    model : Pipeline
         pipeline for model
-    X_test: pd.core.series.Series
+    X_test: pd.Series
         test data
-    y_test: pd.core.series.Series
+    y_test: pd.Series
         test labels
 
     Returns
@@ -80,28 +82,28 @@ def custom_accuracy_function(
 
 
 def grid_search(
-    X_train: pd.core.series.Series,
-    y_train: pd.core.series.Series,
-    model_pipeline: imblearn.pipeline.Pipeline,
+    X_train: pd.Series,
+    y_train: pd.Series,
+    model_pipeline: Pipeline,
     param_grid: list[dict[str, list[float]]],
-) -> imblearn.pipeline.Pipeline:
+) -> Pipeline:
     """
     Grid search for best model
 
     Parameters
     ----------
-    X_train : pd.core.series.Series
+    X_train : pd.Series
         train data
-    y_train : pd.core.series.Series
+    y_train : pd.Series
         train labels
-    model_pipeline : imblearn.pipeline.Pipeline
+    model_pipeline : Pipeline
         pipeline for model
     param_grid : list[dict[str, list[float]]]
         list of parameters for grid search
 
     Returns
     -------
-    imblearn.pipeline.Pipeline
+    Pipeline
         best model
     """
     search = GridSearchCV(
@@ -112,16 +114,21 @@ def grid_search(
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
-    print("Best cross-validation score: {:.2f}".format(search.best_score_))
+    print(
+        "Best cross-validation score: {:.2f}".format(
+            search.best_score_
+        )
+    )
     return search.best_estimator_
 
 
 def main():
+    """
+    Main function
+    """
     # Load train data
     X_train, y_train = load_data(TRAIN_DATA_DIR)
-    # Load test data
-    X_test, y_test = load_data(TEST_DATA_DIR)
-
+    
     # Build pipeline
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
@@ -145,7 +152,7 @@ def main():
     )
 
     # Save Model
-    pickle.dump(best_model, open(LR_MODEL_MASKED, "wb"))
+    pickle.dump(best_model, open(LR_MODEL_CLASSIFIED, "wb"))
 
 
 if __name__ == "__main__":

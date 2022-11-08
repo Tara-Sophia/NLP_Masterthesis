@@ -4,14 +4,13 @@ Description:
    Helper functions that are used in multiple places
 """
 
-import imblearn
 import pandas as pd
 from imblearn.over_sampling import SMOTE
-from imblearn.pipeline import Pipeline as imbPipeline
+from imblearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer
 
 
-def load_data(filepath):
+def load_data(filepath) -> tuple[pd.Series, pd.Series]:
     """
     Load data from csv file
 
@@ -22,8 +21,8 @@ def load_data(filepath):
 
     Returns
     -------
-    pd.DataFrame
-        dataframe with data
+    tuple[pd.Series, pd.Series]
+        tuple with X and y
     """
     df = pd.read_csv(filepath)
     X = df.keywords
@@ -31,7 +30,7 @@ def load_data(filepath):
     return X, y
 
 
-def preprocessing_pipeline() -> imblearn.pipeline.Pipeline:
+def preprocessing_pipeline() -> Pipeline:
     """
     Create preprocessing pipeline
 
@@ -40,7 +39,7 @@ def preprocessing_pipeline() -> imblearn.pipeline.Pipeline:
     Pipeline
         pipeline with preprocessing steps
     """
-    pipeline = imbPipeline(
+    pipeline = Pipeline(
         [
             ("vect", CountVectorizer()),
             ("smote", SMOTE(random_state=42)),

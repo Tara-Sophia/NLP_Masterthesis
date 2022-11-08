@@ -2,7 +2,8 @@
 
 """
 Description:
-    Training a logistic regression model for predicting probabilities of medical specialties
+    Training a logistic regression model
+    for predicting probabilities of medical specialties
 
 Usage:
 
@@ -48,7 +49,9 @@ def replace_tab(x):
     return [i.replace(" ", "_") for i in x]
 
 
-def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
+def transform_column(
+    df: pd.DataFrame, column_name: str
+) -> pd.DataFrame:
     """
     Transform column to list
 
@@ -64,7 +67,9 @@ def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
     pd.DataFrame
         dataframe with transformed column
     """
-    df[column_name] = df[column_name].apply(lambda x: ast.literal_eval(x))
+    df[column_name] = df[column_name].apply(
+        lambda x: ast.literal_eval(x)
+    )
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
     df[column_name] = df[column_name].apply(lambda x: " ".join(x))
     return df
@@ -195,15 +200,20 @@ def grid_search(
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
-    print("Best cross-validation score: {:.2f}".format(search.best_score_))
+    print(
+        "Best cross-validation score: {:.2f}".format(
+            search.best_score_
+        )
+    )
     return search.best_estimator_
 
 
-# Classification report with common metrics for the model (not the metrics we are optimizing for)
+# Classification report with common metrics for the model
+# (not the metrics we are optimizing for)
 def get_model_metrics(
     best_model: imblearn.pipeline.Pipeline,
-    X_test: pd.core.series.Series,
-    y_test: pd.core.series.Series,
+    X_test: pd.Series,
+    y_test: pd.Series,
 ) -> str:
     """
     get classification report for model
@@ -212,9 +222,9 @@ def get_model_metrics(
     ----------
     best_model : GridSearchCV
         best model
-    X_test: pd.core.series.Series
+    X_test: pd.Series
         test data
-    y_test: pd.core.series.Series
+    y_test: pd.Series
         test labels
     Returns
     -------
@@ -222,7 +232,9 @@ def get_model_metrics(
         classification report
     """
     y_pred = best_model.predict(X_test)
-    report = classification_report(y_test, y_pred, target_names=best_model.classes_)
+    report = classification_report(
+        y_test, y_pred, target_names=best_model.classes_
+    )
     return report
 
 
@@ -245,7 +257,11 @@ def _reciprocal_rank(true_labels: list, machine_preds: list) -> float:
     """
 
     # add index to list only if machine predicted label exists in true labels
-    tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
+    tp_pos_list = [
+        (idx + 1)
+        for idx, r in enumerate(machine_preds)
+        if r in true_labels
+    ]
 
     rr = 0.0
     if len(tp_pos_list) > 0:
@@ -282,13 +298,13 @@ def compute_mrr_at_k(items: list) -> float:
     return mrr
 
 
-def compute_accuracy(eval_items: list) -> float:
+def compute_accuracy(eval_items: list[tuple[str, str]]) -> float:
     """
     Compute the accuracy at cutoff k
 
     Parameters
     ----------
-    eval_items : list
+    eval_items : list[tuple[str, str]]
         list of tuples (true labels, machine predictions)
 
     Returns
@@ -311,13 +327,13 @@ def compute_accuracy(eval_items: list) -> float:
     return accuracy
 
 
-def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
+def collect_preds(Y_test: pd.Series, Y_preds: list) -> list:
     """
     Collect all predictions and ground truth
 
     Parameters
     ----------
-    Y_test : pd.core.series.Series
+    Y_test : pd.Series
         true labels
     Y_preds : list
         list of machine predictions
@@ -328,7 +344,9 @@ def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
         list of tuples (true labels, machine predictions)
     """
 
-    pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
+    pred_gold_list = [
+        [[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)
+    ]
     return pred_gold_list
 
 
@@ -358,7 +376,10 @@ def get_top_k_predictions(
     probs = model.predict_proba(X_test)
     best_n = np.argsort(probs, axis=1)[:, -k:]
     preds = [
-        [model.classes_[predicted_cat] for predicted_cat in prediction]
+        [
+            model.classes_[predicted_cat]
+            for predicted_cat in prediction
+        ]
         for prediction in best_n
     ]
 
