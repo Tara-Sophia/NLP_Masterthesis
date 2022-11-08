@@ -5,17 +5,17 @@ Description:
     Comparing the performance of the different models
 
 """
-import pandas as pd
-import numpy as np
-import imblearn
-import os
 import pickle
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report
-from sklearn.metrics import make_scorer
+
+import imblearn
+import numpy as np
+import pandas as pd
+from constants import (
+    LR_MODEL_CLASSIFIED,
+    LR_MODEL_MASKED,
+    TEST_DATA_DIR,
+)
 from utils import load_data
-from constants import TEST_DATA_DIR
-from constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
@@ -25,9 +25,9 @@ def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
 
     Parameters
     ----------
-    true_labels : list
+    true_labels : list[str]
         true labels
-    machine_preds : list
+    machine_preds : list[str]
         machine predictions
 
     Returns
@@ -39,7 +39,7 @@ def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     # add index to list only if machine predicted label exists in true labels
     tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
 
-    rr = 0
+    rr = 0.0
     if len(tp_pos_list) > 0:
         # for RR we need position of first correct item
         first_pos_list = tp_pos_list[0]
@@ -56,7 +56,7 @@ def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
 
     Parameters
     ----------
-    items : list
+    items : list[tuple[str, str]]
         list of tuples (true labels, machine predictions)
 
     Returns
@@ -64,7 +64,7 @@ def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
     float
         MRR @k
     """
-    rr_total = 0
+    rr_total = 0.0
 
     for item in items:
         rr_at_k = reciprocal_rank(item[0], item[1])
@@ -74,7 +74,7 @@ def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
     return mrr
 
 
-def compute_accuracy(eval_items: list) -> float:
+def compute_accuracy(eval_items: list[str]) -> float:
     """
     Compute the accuracy at cutoff k
 
@@ -89,7 +89,6 @@ def compute_accuracy(eval_items: list) -> float:
         accuracy @k
     """
     correct = 0
-    total = 0
 
     for item in eval_items:
         true_pred = item[0]
@@ -126,7 +125,9 @@ def collect_preds(Y_test: pd.core.series.Series, Y_preds: list[str]) -> list:
 
 
 def get_top_k_predictions(
-    model: imblearn.pipeline.Pipeline, X_test: pd.core.series.Series, k: int
+    model: imblearn.pipeline.Pipeline,
+    X_test: pd.core.series.Series,
+    k: int,
 ) -> list[str]:
     """
     Get top k predictions for each test sample

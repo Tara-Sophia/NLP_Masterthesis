@@ -2,22 +2,22 @@
 
 """
 Description:
-    Predicting probability for medical labels from saved model 
+    Predicting probability for medical labels from saved model
     Showing top features model uses per class in general
-    Showing features from sample the model uses to predict top classes 
+    Showing features from sample the model uses to predict top classes
 """
 
-import imblearn
 import pickle
+
+import imblearn
 import pandas as pd
-import numpy as np
-import os
-from sklearn.feature_extraction.text import CountVectorizer
+from constants import LR_MODEL_MASKED
 from lime.lime_text import LimeTextExplainer
-from constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED
 
 
-def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.DataFrame:
+def predict_probability(
+    model: imblearn.pipeline.Pipeline, value: str
+) -> pd.DataFrame:
     """
     get probabilities for sample
 
@@ -36,7 +36,9 @@ def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.Dat
 
     prob_array = model.predict_proba(value)
     prob_df = (
-        pd.DataFrame(prob_array, index=["Probability"], columns=model.classes_)
+        pd.DataFrame(
+            prob_array, index=["Probability"], columns=model.classes_
+        )
         .transpose()
         .sort_values(by="Probability", ascending=False)
     )
@@ -62,7 +64,9 @@ def top_symptoms(model: imblearn.pipeline.Pipeline) -> pd.Series:
     vectorizer = model.named_steps["vect"]
     feat = vectorizer.get_feature_names()
     coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
-    top_symptoms = coef_df.apply(lambda x: x.nlargest(5).index.tolist(), axis=1)
+    top_symptoms = coef_df.apply(
+        lambda x: x.nlargest(5).index.tolist(), axis=1
+    )
     return top_symptoms
 
 
@@ -85,15 +89,22 @@ def lime_explainer(model: imblearn.pipeline.Pipeline, value: str):
     explainer = LimeTextExplainer(class_names=model.classes_)
     num_features = len(value.split())
     exp = explainer.explain_instance(
-        value, model.predict_proba, num_features=num_features, top_labels=3
+        value,
+        model.predict_proba,
+        num_features=num_features,
+        top_labels=3,
     )
     feat_importance = exp.as_map()
-    feat_importance = {model.classes_[k]: v for k, v in feat_importance.items()}
     feat_importance = {
-        k: [(value.split()[i], v) for i, v in v] for k, v in feat_importance.items()
+        model.classes_[k]: v for k, v in feat_importance.items()
+    }
+    feat_importance = {
+        k: [(value.split()[i], v) for i, v in v]
+        for k, v in feat_importance.items()
     }
     feat_importance_pos = {
-        k: [v for v in v if v[1] > 0] for k, v in feat_importance.items()
+        k: [v for v in v if v[1] > 0]
+        for k, v in feat_importance.items()
     }
     return feat_importance_pos
 
