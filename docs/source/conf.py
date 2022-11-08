@@ -7,8 +7,12 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join("..", "..")))
-sys.path.insert(0, os.path.abspath(os.path.join("..", "..", "src", "clf")))
+sys.path.insert(
+    0, os.path.abspath(os.path.join("..", "..", "src", "data"))
+)
+sys.path.insert(
+    1, os.path.abspath(os.path.join("..", "..", "src", "clf"))
+)
 
 
 # -- Project information -----------------------------------------------------
@@ -16,7 +20,9 @@ sys.path.insert(0, os.path.abspath(os.path.join("..", "..", "src", "clf")))
 
 project = "Masterthesis"
 copyright = "2022, Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
-author = "Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
+author = (
+    "Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
+)
 release = "0.1"
 
 # -- General configuration ---------------------------------------------------
