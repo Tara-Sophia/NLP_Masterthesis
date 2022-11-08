@@ -15,10 +15,12 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from imblearn.pipeline import Pipeline as imbPipeline
 
-from traitlets import List
-
 from utils import load_data
 from utils import preprocessing_pipeline
+
+from constants import TRAIN_DATA_DIR
+from constants import TEST_DATA_DIR
+from constants import LR_MODEL_MASKED
 
 # Build pipeline
 def build_pipeline(pipeline: imblearn.pipeline.Pipeline) -> imblearn.pipeline.Pipeline:
@@ -43,6 +45,7 @@ def build_pipeline(pipeline: imblearn.pipeline.Pipeline) -> imblearn.pipeline.Pi
                 multi_class="multinomial",
                 penalty="l1",
                 solver="saga",
+                max_iter=1000,
             ),
         )
     )
@@ -82,7 +85,7 @@ def grid_search(
     X_train: pd.core.series.Series,
     y_train: pd.core.series.Series,
     model_pipeline: imblearn.pipeline.Pipeline,
-    param_grid: list,
+    param_grid: list[dict[str, list[float]]],
 ) -> imblearn.pipeline.Pipeline:
     """
     Grid search for best model
@@ -95,7 +98,7 @@ def grid_search(
         train labels
     model_pipeline : imblearn.pipeline.Pipeline
         pipeline for model
-    param_grid : list
+    param_grid : list[dict[str, list[float]]]
         list of parameters for grid search
 
     Returns
@@ -114,38 +117,34 @@ def grid_search(
 
 def main():
     # Load train data
-    train_file_path = os.path.join("data", "processed", "clf", "train.csv")
-    X_train, y_train = load_data(train_file_path)
-    print(type(X_train))
+    X_train, y_train = load_data(TRAIN_DATA_DIR)
     # Load test data
-    test_file_path = os.path.join("data", "processed", "clf", "test.csv")
-    X_test, y_test = load_data(test_file_path)
+    X_test, y_test = load_data(TEST_DATA_DIR)
 
     # Build pipeline
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    model = model_pipeline.fit(X_train, y_train)
+    # model = model_pipeline.fit(X_train, y_train)
 
-    # # fit model with grid search
+    # fit model with grid search
 
-    # param_grid = [
-    #     {
-    #         "classifier__C": [0.01, 0.1, 1, 10],
-    #     }
-    # ]
+    param_grid = [
+        {
+            "clf__C": [0.01, 0.1, 1, 10],
+        }
+    ]
 
-    # best_model = grid_search(
-    #     X_train,
-    #     y_train,
-    #     model_pipeline,
-    #     param_grid,
-    # )
+    best_model = grid_search(
+        X_train,
+        y_train,
+        model_pipeline,
+        param_grid,
+    )
 
     # Save Model
-    filename = "./models/clf/lr_test_2.pkl"
-    pickle.dump(model, open(filename, "wb"))
+    pickle.dump(best_model, open(LR_MODEL_MASKED, "wb"))
 
 
 if __name__ == "__main__":

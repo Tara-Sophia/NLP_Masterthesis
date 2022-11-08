@@ -7,7 +7,9 @@ import os
 import pandas as pd
 import ast
 from sklearn.model_selection import train_test_split
-
+from constants import RAW_DATA_DIR
+from constants import X_MASKED
+from constants import X_CLASSIFIED
 
 # transform input data for model
 def replace_tab(x):
@@ -38,11 +40,8 @@ def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
 
 def main():
     # Load data
-    file_path = os.path.join(
-        "data", "processed", "nlp", "mtsamples", "mtsamples_unsupervised_both_v2.csv"
-    )
-    df = pd.read_csv(file_path)
-    df = transform_column(df, "transcription_f_semisupervised")
+    df = pd.read_csv(RAW_DATA_DIR)
+    df = transform_column(df, X_MASKED)
     print(df.shape)
 
     # Split data into train and test
