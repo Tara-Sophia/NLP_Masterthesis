@@ -1,0 +1,1510 @@
+630-679 Complications Of Pregnancy, Childbirth, And The Puerperium
+	630-639 Ectopic And Molar Pregnancy And Other Pregnancy With Abortive Outcome
+		630 Hydatidiform mole
+			630 Hydatidiform mole
+		631 Other abnormal product of conception
+			631 Other abnormal product of conception
+			631.0 Inappropriate change in quantitative human chorionic gonadotropin (hCG) in early pregnancy
+			631.8 Other abnormal products of conception
+		632 Missed abortion
+			632 Missed abortion
+		633 Ectopic pregnancy
+			633 Ectopic pregnancy
+			633.0 Abdominal pregnancy
+			633.00 Abdominal pregnancy without intrauterine pregnancy
+			633.01 Abdominal pregnancy with intrauterine pregnancy
+			633.1 Tubal pregnancy
+			633.10 Tubal pregnancy without intrauterine pregnancy
+			633.11 Tubal pregnancy with intrauterine pregnancy
+			633.2 Ovarian pregnancy
+			633.20 Ovarian pregnancy without intrauterine pregnancy
+			633.21 Ovarian pregnancy with intrauterine pregnancy
+			633.8 Other ectopic pregnancy
+			633.80 Other ectopic pregnancy without intrauterine pregnancy
+			633.81 Other ectopic pregnancy with intrauterine pregnancy
+			633.9 Unspecified ectopic pregnancy
+			633.90 Unspecified ectopic pregnancy without intrauterine pregnancy
+			633.91 Unspecified ectopic pregnancy with intrauterine pregnancy
+		634 Spontaneous abortion
+			634 Spontaneous abortion
+			634.0 Spontaneous abortion complicated by genital tract and pelvic infection
+			634.00 Spontaneous abortion, complicated by genital tract and pelvic infection, unspecified
+			634.01 Spontaneous abortion, complicated by genital tract and pelvic infection, incomplete
+			634.02 Spontaneous abortion, complicated by genital tract and pelvic infection, complete
+			634.1 Spontaneous abortion complicated by delayed or excessive hemorrhage
+			634.10 Spontaneous abortion, complicated by delayed or excessive hemorrhage, unspecified
+			634.11 Spontaneous abortion, complicated by delayed or excessive hemorrhage, incomplete
+			634.12 Spontaneous abortion, complicated by delayed or excessive hemorrhage, complete
+			634.2 Spontaneous abortion complicated by damage to pelvic organs or tissues
+			634.20 Spontaneous abortion, complicated by damage to pelvic organs or tissues, unspecified
+			634.21 Spontaneous abortion, complicated by damage to pelvic organs or tissues, incomplete
+			634.22 Spontaneous abortion, complicated by damage to pelvic organs or tissues, complete
+			634.3 Spontaneous abortion complicated by renal failure
+			634.30 Spontaneous abortion, complicated by renal failure, unspecified
+			634.31 Spontaneous abortion, complicated by renal failure, incomplete
+			634.32 Spontaneous abortion, complicated by renal failure, complete
+			634.4 Spontaneous abortion complicated by metabolic disorder
+			634.40 Spontaneous abortion, complicated by metabolic disorder, unspecified
+			634.41 Spontaneous abortion, complicated by metabolic disorder, incomplete
+			634.42 Spontaneous abortion, complicated by metabolic disorder, complete
+			634.5 Spontaneous abortion complicated by shock
+			634.50 Spontaneous abortion, complicated by shock, unspecified
+			634.51 Spontaneous abortion, complicated by shock, incomplete
+			634.52 Spontaneous abortion, complicated by shock, complete
+			634.6 Spontaneous abortion complicated by embolism
+			634.60 Spontaneous abortion, complicated by embolism, unspecified
+			634.61 Spontaneous abortion, complicated by embolism, incomplete
+			634.62 Spontaneous abortion, complicated by embolism, complete
+			634.7 Spontaneous abortion with other specified complications
+			634.70 Spontaneous abortion, with other specified complications, unspecified
+			634.71 Spontaneous abortion, with other specified complications, incomplete
+			634.72 Spontaneous abortion, with other specified complications, complete
+			634.8 Spontaneous abortion with unspecified complication
+			634.80 Spontaneous abortion, with unspecified complication, unspecified
+			634.81 Spontaneous abortion, with unspecified complication, incomplete
+			634.82 Spontaneous abortion, with unspecified complication, complete
+			634.9 Spontaneous abortion without mention of complication
+			634.90 Spontaneous abortion, without mention of complication, unspecified
+			634.91 Spontaneous abortion, without mention of complication, incomplete
+			634.92 Spontaneous abortion, without mention of complication, complete
+		635 Legally induced abortion
+			635 Legally induced abortion
+			635.0 Legally induced abortion complicated by genital tract and pelvic infection
+			635.00 Legally induced abortion, complicated by genital tract and pelvic infection, unspecified
+			635.01 Legally induced abortion, complicated by genital tract and pelvic infection, incomplete
+			635.02 Legally induced abortion, complicated by genital tract and pelvic infection, complete
+			635.1 Legally induced abortion complicated by delayed or excessive hemorrhage
+			635.10 Legally induced abortion, complicated by delayed or excessive hemorrhage, unspecified
+			635.11 Legally induced abortion, complicated by delayed or excessive hemorrhage, incomplete
+			635.12 Legally induced abortion, complicated by delayed or excessive hemorrhage, complete
+			635.2 Legally induced abortion complicated by damage to pelvic organs or tissues
+			635.20 Legally induced abortion, complicated by damage to pelvic organs or tissues, unspecified
+			635.21 Legally induced abortion, complicated by damage to pelvic organs or tissues, incomplete
+			635.22 Legally induced abortion, complicated by damage to pelvic organs or tissues, complete
+			635.3 Legally induced abortion complicated by renal failure
+			635.30 Legally induced abortion, complicated by renal failure,unspecified
+			635.31 Legally induced abortion, complicated by renal failure, incomplete
+			635.32 Legally induced abortion, complicated by renal failure, complete
+			635.4 Legally induced abortion complicated by metabolic disorder
+			635.40 Legally induced abortion, complicated by metabolic disorder, unspecified
+			635.41 Legally induced abortion, complicated by metabolic disorder, incomplete
+			635.42 Legally induced abortion, complicated by metabolic disorder, complete
+			635.5 Legally induced abortion complicated by shock
+			635.50 Legally induced abortion, complicated by shock, unspecified
+			635.51 Legally induced abortion, complicated by shock, incomplete
+			635.52 Legally induced abortion, complicated by shock, complete
+			635.6 Legally induced abortion complicated by embolism
+			635.60 Legally induced abortion, complicated by embolism, unspecified
+			635.61 Legally induced abortion, complicated by embolism, incomplete
+			635.62 Legally induced abortion, complicated by embolism, complete
+			635.7 Legally induced abortion with other specified complications
+			635.70 Legally induced abortion, with other specified complications, unspecified
+			635.71 Legally induced abortion, with other specified complications, incomplete
+			635.72 Legally induced abortion, with other specified complications, complete
+			635.8 Legally induced abortion with unspecified complication
+			635.80 Legally induced abortion, with unspecified complication, unspecified
+			635.81 Legally induced abortion, with unspecified complication, incomplete
+			635.82 Legally induced abortion, with unspecified complication, complete
+			635.9 Legally induced abortion without mention of complication
+			635.90 Legally induced abortion, without mention of complication, unspecified
+			635.91 Legally induced abortion, without mention of complication, incomplete
+			635.92 Legally induced abortion, without mention of complication, complete
+		636 Illegal abortion
+			636 Illegal abortion
+			636.0 Illegal abortion complicated by genital tract and pelvic infection
+			636.00 Illegally induced abortion, complicated by genital tract and pelvic infection, unspecified
+			636.01 Illegally induced abortion, complicated by genital tract and pelvic infection, incomplete
+			636.02 Illegally induced abortion, complicated by genital tract and pelvic infection, complete
+			636.1 Illegal abortion complicated by delayed or excessive hemorrhage
+			636.10 Illegally induced abortion, complicated by delayed or excessive hemorrhage, unspecified
+			636.11 Illegally induced abortion, complicated by delayed or excessive hemorrhage, incomplete
+			636.12 Illegally induced abortion, complicated by delayed or excessive hemorrhage, complete
+			636.2 Illegal abortion complicated by damage to pelvic organs or tissues
+			636.20 Illegally induced abortion, complicated by damage to pelvic organs or tissues, unspecified
+			636.21 Illegally induced abortion, complicated by damage to pelvic organs or tissues, incomplete
+			636.22 Illegally induced abortion, complicated by damage to pelvic organs or tissues, complete
+			636.3 Illegal abortion complicated by renal failure
+			636.30 Illegally induced abortion, complicated by renal failure, unspecified
+			636.31 Illegally induced abortion, complicated by renal failure, incomplete
+			636.32 Illegally induced abortion, complicated by renal failure, complete
+			636.4 Illegal abortion complicated by metabolic disorder
+			636.40 Illegally induced abortion, complicated by metabolic disorder, unspecified
+			636.41 Illegally induced abortion, complicated by metabolic disorder, incomplete
+			636.42 Illegally induced abortion, complicated by metabolic disorder, complete
+			636.5 Illegal abortion complicated by shock
+			636.50 Illegally induced abortion, complicated by shock, unspecified
+			636.51 Illegally induced abortion, complicated by shock, incomplete
+			636.52 Illegally induced abortion, complicated by shock, complete
+			636.6 Illegal abortion complicated by embolism
+			636.60 Illegally induced abortion, complicated by embolism, unspecified
+			636.61 Illegally induced abortion, complicated by embolism, incomplete
+			636.62 Illegally induced abortion, complicated by embolism, complete
+			636.7 Illegal abortion with other specified complications
+			636.70 Illegally induced abortion, with other specified complications, unspecified
+			636.71 Illegally induced abortion, with other specified complications, incomplete
+			636.72 Illegally induced abortion, with other specified complications, complete
+			636.8 Illegal abortion with unspecified complication
+			636.80 Illegally induced abortion, with unspecified complication, unspecified
+			636.81 Illegally induced abortion, with unspecified complication, incomplete
+			636.82 Illegally induced abortion, with unspecified complication, complete
+			636.9 Illegal abortion without mention of complication
+			636.90 Illegally induced abortion, without mention of complication, unspecified
+			636.91 Illegally induced abortion, without mention of complication, incomplete
+			636.92 Illegally induced abortion, without mention of complication, complete
+		637 Unspecified abortion
+			637 Unspecified abortion
+			637.0 Unspecified abortion complicated by genital tract and pelvic infection
+			637.00 Unspecified abortion, complicated by genital tract and pelvic infection, unspecified
+			637.01 Unspecified abortion, complicated by genital tract and pelvic infection, incomplete
+			637.02 Unspecified abortion, complicated by genital tract and pelvic infection, complete
+			637.1 Unspecified abortion complicated by delayed or excessive hemorrhage
+			637.10 Unspecified abortion, complicated by delayed or excessive hemorrhage, unspecified
+			637.11 Unspecified abortion, complicated by delayed or excessive hemorrhage, incomplete
+			637.12 Unspecified abortion, complicated by delayed or excessive hemorrhage, complete
+			637.2 Legally unspecified abortion complicated by damage to pelvic organs or tissues
+			637.20 Unspecified abortion, complicated by damage to pelvic organs or tissues, unspecified
+			637.21 Unspecified abortion, complicated by damage to pelvic organs or tissues, incomplete
+			637.22 Unspecified abortion, complicated by damage to pelvic organs or tissues, complete
+			637.3 Legally unspecified abortion complicated by renal failure
+			637.30 Unspecified abortion, complicated by renal failure, unspecified
+			637.31 Unspecified abortion, complicated by renal failure, incomplete
+			637.32 Unspecified abortion, complicated by renal failure, complete
+			637.4 Legally unspecified abortion complicated by metabolic disorder
+			637.40 Unspecified abortion, complicated by metabolic disorder, unspecified
+			637.41 Unspecified abortion, complicated by metabolic disorder, incomplete
+			637.42 Unspecified abortion, complicated by metabolic disorder, complete
+			637.5 Legally unspecified abortion complicated by shock
+			637.50 Unspecified abortion, complicated by shock, unspecified
+			637.51 Unspecified abortion, complicated by shock, incomplete
+			637.52 Unspecified abortion, complicated by shock, complete
+			637.6 Legally unspecified abortion complicated by embolism
+			637.60 Unspecified abortion, complicated by embolism, unspecified
+			637.61 Unspecified abortion, complicated by embolism, incomplete
+			637.62 Unspecified abortion, complicated by embolism, complete
+			637.7 Legally unspecified abortion with other specified complications
+			637.70 Unspecified abortion, with other specified complications, unspecified
+			637.71 Unspecified abortion, with other specified complications, incomplete
+			637.72 Unspecified abortion, with other specified complications, complete
+			637.8 Legally unspecified abortion with unspecified complication
+			637.80 Unspecified abortion, with unspecified complication, unspecified
+			637.81 Unspecified abortion, with unspecified complication, incomplete
+			637.82 Unspecified abortion, with unspecified complication, complete
+			637.9 Legally unspecified abortion without mention of complication
+			637.90 Unspecified abortion, without mention of complication, unspecified
+			637.91 Unspecified abortion, without mention of complication, incomplete
+			637.92 Unspecified abortion, without mention of complication, complete
+		638 Failed attempted abortion
+			638 Failed attempted abortion
+			638.0 Failed attempted abortion complicated by genital tract and pelvic infection
+			638.1 Failed attempted abortion complicated by delayed or excessive hemorrhage
+			638.2 Failed attempted abortion complicated by damage to pelvic organs or tissues
+			638.3 Failed attempted abortion complicated by renal failure
+			638.4 Failed attempted abortion complicated by metabolic disorder
+			638.5 Failed attempted abortion complicated by shock
+			638.6 Failed attempted abortion complicated by embolism
+			638.7 Failed attempted abortion with other specified complications
+			638.8 Failed attempted abortion with unspecified complication
+			638.9 Failed attempted abortion without mention of complication
+		639 Complications following abortion and ectopic and molar pregnancies
+			639 Complications following abortion and ectopic and molar pregnancies
+			639.0 Genital tract and pelvic infection following abortion or ectopic and molar pregnancies
+			639.1 Delayed or excessive hemorrhage following abortion or ectopic and molar pregnancies
+			639.2 Damage to pelvic organs and tissues following abortion or ectopic and molar pregnancies
+			639.3 Kidney failure following abortion and ectopic and molar pregnancies
+			639.4 Metabolic disorders following abortion or ectopic and molar pregnancies
+			639.5 Shock following abortion or ectopic and molar pregnancies
+			639.6 Embolism following abortion or ectopic and molar pregnancies
+			639.8 Other specified complications following abortion or ectopic and molar pregnancy
+			639.9 Unspecified complication following abortion or ectopic and molar pregnancy
+	640-649 Complications Mainly Related To Pregnancy
+		640 Hemorrhage in early pregnancy
+			640 Hemorrhage in early pregnancy
+			640.0 Threatened abortion
+			640.00 Threatened abortion, unspecified as to episode of care or not applicable
+			640.01 Threatened abortion, delivered, with or without mention of antepartum condition
+			640.03 Threatened abortion, antepartum condition or complication
+			640.8 Other specified hemorrhage in early pregnancy
+			640.80 Other specified hemorrhage in early pregnancy, unspecified as to episode of care or not applicable
+			640.81 Other specified hemorrhage in early pregnancy, delivered, with or without mention of antepartum condition
+			640.83 Other specified hemorrhage in early pregnancy, antepartum condition or complication
+			640.9 Unspecified hemorrhage in early pregnancy
+			640.90 Unspecified hemorrhage in early pregnancy, unspecified as to episode of care or not applicable
+			640.91 Unspecified hemorrhage in early pregnancy, delivered, with or without mention of antepartum condition
+			640.93 Unspecified hemorrhage in early pregnancy, antepartum condition or complication
+		641 Antepartum hemorrhage abruptio placentae and placenta previa
+			641 Antepartum hemorrhage abruptio placentae and placenta previa
+			641.0 Placenta previa without hemorrhage
+			641.00 Placenta previa without hemorrhage, unspecified as to episode of care or not applicable
+			641.01 Placenta previa without hemorrhage, delivered, with or without mention of antepartum condition
+			641.03 Placenta previa without hemorrhage, antepartum condition or complication
+			641.1 Hemorrhage from placenta previa
+			641.10 Hemorrhage from placenta previa, unspecified as to episode of care or not applicable
+			641.11 Hemorrhage from placenta previa, delivered, with or without mention of antepartum condition
+			641.13 Hemorrhage from placenta previa, antepartum condition or complication
+			641.2 Premature separation of placenta
+			641.20 Premature separation of placenta, unspecified as to episode of care or not applicable
+			641.21 Premature separation of placenta, delivered, with or without mention of antepartum condition
+			641.23 Premature separation of placenta, antepartum condition or complication
+			641.3 Antepartum hemorrhage associated with coagulation defects
+			641.30 Antepartum hemorrhage associated with coagulation defects, unspecified as to episode of care or not applicable
+			641.31 Antepartum hemorrhage associated with coagulation defects, delivered, with or without mention of antepartum condition
+			641.33 Antepartum hemorrhage associated with coagulation defects, antepartum condition or complication
+			641.8 Other antepartum hemorrhage
+			641.80 Other antepartum hemorrhage, unspecified as to episode of care or not applicable
+			641.81 Other antepartum hemorrhage, delivered, with or without mention of antepartum condition
+			641.83 Other antepartum hemorrhage, antepartum condition or complication
+			641.9 Unspecified antepartum hemorrhage
+			641.90 Unspecified antepartum hemorrhage, unspecified as to episode of care or not applicable
+			641.91 Unspecified antepartum hemorrhage, delivered, with or without mention of antepartum condition
+			641.93 Unspecified antepartum hemorrhage, antepartum condition or complication
+		642 Hypertension complicating pregnancy childbirth and the puerperium
+			642 Hypertension complicating pregnancy childbirth and the puerperium
+			642.0 Benign essential hypertension complicating pregnancy childbirth and the puerperium
+			642.00 Benign essential hypertension complicating pregnancy, childbirth, and the puerperium, unspecified as to episode of care or not applicable
+			642.01 Benign essential hypertension complicating pregnancy, childbirth, and the puerperium, delivered, with or without mention of antepartum condition
+			642.02 Benign essential hypertension, complicating pregnancy, childbirth, and the puerperium, delivered, with mention of postpartum complication
+			642.03 Benign essential hypertension complicating pregnancy, childbirth, and the puerperium, antepartum condition or complication
+			642.04 Benign essential hypertension complicating pregnancy, childbirth, and the puerperium, postpartum condition or complication
+			642.1 Hypertension secondary to renal disease complicating pregnancy childbirth and the puerperium
+			642.10 Hypertension secondary to renal disease, complicating pregnancy, childbirth, and the puerperium, unspecified as to episode of care or not applicable
+			642.11 Hypertension secondary to renal disease, complicating pregnancy, childbirth, and the puerperium, delivered, with or without mention of antepartum condition
+			642.12 Hypertension secondary to renal disease, complicating pregnancy, childbirth, and the puerperium, delivered, with mention of postpartum complication
+			642.13 Hypertension secondary to renal disease, complicating pregnancy, childbirth, and the puerperium, antepartum condition or complication
+			642.14 Hypertension secondary to renal disease, complicating pregnancy, childbirth, and the puerperium, postpartum condition or complication
+			642.2 Other pre-existing hypertension complicating pregnancy childbirth and the puerperium
+			642.20 Other pre-existing hypertension complicating pregnancy, childbirth, and the puerperium, unspecified as to episode of care or not applicable
+			642.21 Other pre-existing hypertension, complicating pregnancy, childbirth, and the puerperium, delivered, with or without mention of antepartum condition
+			642.22 Other pre-existing hypertension, complicating pregnancy, childbirth, and the puerperium, delivered, with mention of postpartum complication
+			642.23 Other pre-existing hypertension, complicating pregnancy, childbirth, and the puerperium, antepartum condition or complication
+			642.24 Other pre-existing hypertension,complicating pregnancy, childbirth, and the puerperium, , postpartum condition or complication
+			642.3 Transient hypertension of pregnancy
+			642.30 Transient hypertension of pregnancy, unspecified as to episode of care or not applicable
+			642.31 Transient hypertension of pregnancy, delivered , with or without mention of antepartum condition
+			642.32 Transient hypertension of pregnancy, delivered, with mention of postpartum complication
+			642.33 Transient hypertension of pregnancy, antepartum condition or complication
+			642.34 Transient hypertension of pregnancy, postpartum condition or complication
+			642.4 Mild or unspecified pre-eclampsia
+			642.40 Mild or unspecified pre-eclampsia, unspecified as to episode of care or not applicable
+			642.41 Mild or unspecified pre-eclampsia, delivered, with or without mention of antepartum condition
+			642.42 Mild or unspecified pre-eclampsia, delivered, with mention of postpartum complication
+			642.43 Mild or unspecified pre-eclampsia, antepartum condition or complication
+			642.44 Mild or unspecified pre-eclampsia, postpartum condition or complication
+			642.5 Severe pre-eclampsia
+			642.50 Severe pre-eclampsia, unspecified as to episode of care or not applicable
+			642.51 Severe pre-eclampsia, delivered, with or without mention of antepartum condition
+			642.52 Severe pre-eclampsia, delivered, with mention of postpartum complication
+			642.53 Severe pre-eclampsia, antepartum condition or complication
+			642.54 Severe pre-eclampsia, postpartum condition or complication
+			642.6 Eclampsia complicating pregnancy childbirth or the puerperium
+			642.60 Eclampsia, unspecified as to episode of care or not applicable
+			642.61 Eclampsia, delivered, with or without mention of antepartum condition
+			642.62 Eclampsia, delivered, with mention of postpartum complication
+			642.63 Eclampsia, antepartum condition or complication
+			642.64 Eclampsia, postpartum condition or complication
+			642.7 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension
+			642.70 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension, unspecified as to episode of care or not applicable
+			642.71 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension, delivered, with or without mention of antepartum condition
+			642.72 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension, delivered, with mention of postpartum complication
+			642.73 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension, antepartum condition or complication
+			642.74 Pre-eclampsia or eclampsia superimposed on pre-existing hypertension, postpartum condition or complication
+			642.9 Unspecified hypertension complicating pregnancy childbirth or the puerperium
+			642.90 Unspecified hypertension complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			642.91 Unspecified hypertension,complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			642.92 Unspecified hypertension, complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			642.93 Unspecified hypertension complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			642.94 Unspecified hypertension complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+		643 Excessive vomiting in pregnancy
+			643 Excessive vomiting in pregnancy
+			643.0 Mild hyperemesis gravidarum
+			643.00 Mild hyperemesis gravidarum, unspecified as to episode of care or not applicable
+			643.01 Mild hyperemesis gravidarum, delivered, with or without mention of antepartum condition
+			643.03 Mild hyperemesis gravidarum, antepartum condition or complication
+			643.1 Hyperemesis gravidarum with metabolic disturbance
+			643.10 Hyperemesis gravidarum with metabolic disturbance, unspecified as to episode of care or not applicable
+			643.11 Hyperemesis gravidarum with metabolic disturbance, delivered, with or without mention of antepartum condition
+			643.13 Hyperemesis gravidarum with metabolic disturbance, antepartum condition or complication
+			643.2 Late vomiting of pregnancy
+			643.20 Late vomiting of pregnancy, unspecified as to episode of care or not applicable
+			643.21 Late vomiting of pregnancy, delivered, with or without mention of antepartum condition
+			643.23 Late vomiting of pregnancy, antepartum condition or complication
+			643.8 Other vomiting complicating pregnancy
+			643.80 Other vomiting complicating pregnancy, unspecified as to episode of care or not applicable
+			643.81 Other vomiting complicating pregnancy, delivered, with or without mention of antepartum condition
+			643.83 Other vomiting complicating pregnancy, antepartum condition or complication
+			643.9 Unspecified vomiting of pregnancy
+			643.90 Unspecified vomiting of pregnancy, unspecified as to episode of care or not applicable
+			643.91 Unspecified vomiting of pregnancy, delivered, with or without mention of antepartum condition
+			643.93 Unspecified vomiting of pregnancy, antepartum condition or complication
+		644 Early or threatened labor
+			644 Early or threatened labor
+			644.0 Threatened premature labor
+			644.00 Threatened premature labor, unspecified as to episode of care or not applicable
+			644.03 Threatened premature labor, antepartum condition or complication
+			644.1 Other threatened labor
+			644.10 Other threatened labor, unspecified as to episode of care or not applicable
+			644.13 Other threatened labor, antepartum condition or complication
+			644.2 Early onset of delivery
+			644.20 Early onset of delivery, unspecified as to episode of care or not applicable
+			644.21 Early onset of delivery, delivered, with or without mention of antepartum condition
+		645 Late pregnancy
+			645 Late pregnancy
+			645.1 Post term pregnancy
+			645.10 Post term pregnancy, unspecified as to episode of care or not applicable
+			645.11 Post term pregnancy, delivered, with or without mention of antepartum condition
+			645.13 Post term pregnancy, antepartum condition or complication
+			645.2 Prolonged pregnancy
+			645.20 Prolonged pregnancy, unspecified as to episode of care or not applicable
+			645.21 Prolonged pregnancy, delivered, with or without mention of antepartum condition
+			645.23 Prolonged pregnancy, antepartum condition or complication
+		646 Other complications of pregnancy not elsewhere classified
+			646 Other complications of pregnancy not elsewhere classified
+			646.0 Papyraceous fetus
+			646.00 Papyraceous fetus, unspecified as to episode of care or not applicable
+			646.01 Papyraceous fetus, delivered, with or without mention of antepartum condition
+			646.03 Papyraceous fetus, antepartum condition or complication
+			646.1 Edema or excessive weight gain in pregnancy without mention of hypertension
+			646.10 Edema or excessive weight gain in pregnancy, without mention of hypertension, unspecified as to episode of care or not applicable
+			646.11 Edema or excessive weight gain in pregnancy, without mention of hypertension,delivered, with or without mention of antepartum complication
+			646.12 Edema or excessive weight gain in pregnancy, without mention of hypertension, delivered, with mention of postpartum complication
+			646.13 Edema or excessive weight gain in pregnancy, without mention of hypertension, antepartum condition or complication
+			646.14 Edema or excessive weight gain in pregnancy, without mention of hypertension, postpartum condition or complication
+			646.2 Unspecified renal disease in pregnancy without mention of hypertension
+			646.20 Unspecified renal disease in pregnancy,without mention of hypertension, unspecified as to episode of care or not applicable
+			646.21 Unspecified renal disease in pregnancy, without mention of hypertension, delivered, with or without mention of antepartum condition
+			646.22 Unspecified renal disease in pregnancy, without mention of hypertension, delivered, with mention of postpartum complication
+			646.23 Unspecified renal disease in pregnancy, without mention of hypertension, antepartum condition or complication
+			646.24 Unspecified renal disease in pregnancy, without mention of hypertension, postpartum condition or complication
+			646.3 Habitual aborter currently pregnant
+			646.30 Recurrent pregnancy loss, unspecified as to episode of care or not applicable
+			646.31 Recurrent pregnancy loss, delivered, with or without mention of antepartum condition
+			646.33 Recurrent pregnancy loss, antepartum condition or complication
+			646.4 Peripheral neuritis in pregnancy
+			646.40 Peripheral neuritis in pregnancy, unspecified as to episode of care or not applicable
+			646.41 Peripheral neuritis in pregnancy, delivered, with or without mention of antepartum condition
+			646.42 Peripheral neuritis in pregnancy, delivered, with mention of postpartum complication
+			646.43 Peripheral neuritis in pregnancy, antepartum condition or complication
+			646.44 Peripheral neuritis in pregnancy, postpartum condition or complication
+			646.5 Asymptomatic bacteriuria in pregnancy
+			646.50 Asymptomatic bacteriuria in pregnancy, unspecified as to episode of care or not applicable
+			646.51 Asymptomatic bacteriuria in pregnancy, delivered, with or without mention of antepartum condition
+			646.52 Asymptomatic bacteriuria in pregnancy, delivered, with mention of postpartum complication
+			646.53 Asymptomatic bacteriuria in pregnancy, antepartum condition or complication
+			646.54 Asymptomatic bacteriuria in pregnancy, postpartum condition or complication
+			646.6 Infections of genitourinary tract in pregnancy
+			646.60 Infections of genitourinary tract in pregnancy, unspecified as to episode of care or not applicable
+			646.61 Infections of genitourinary tract in pregnancy, delivered, with or without mention of antepartum condition
+			646.62 Infections of genitourinary tract in pregnancy, delivered, with mention of postpartum complication
+			646.63 Infections of genitourinary tract in pregnancy, antepartum condition or complication
+			646.64 Infections of genitourinary tract in pregnancy, postpartum condition or complication
+			646.7 Liver and biliary tract disorders in pregnancy, unspec as to episode of care or not applicable
+			646.70 Liver and biliary tract disorders in pregnancy, unspecified as to episode of care or not applicable
+			646.71 Liver and biliary tract disorders in pregnancy, delivered, with or without mention of antepartum condition
+			646.73 Liver and biliary tract disorders in pregnancy, antepartum condition or complication
+			646.8 Other specified complications of pregnancy
+			646.80 Other specified complications of pregnancy, unspecified as to episode of care or not applicable
+			646.81 Other specified complications of pregnancy, delivered, with or without mention of antepartum condition
+			646.82 Other specified complications of pregnancy, delivered, with mention of postpartum complication
+			646.83 Other specified complications of pregnancy, antepartum condition or complication
+			646.84 Other specified complications of pregnancy, postpartum condition or complication
+			646.9 Unspecified complication of pregnancy
+			646.90 Unspecified complication of pregnancy, unspecified as to episode of care or not applicable
+			646.91 Unspecified complication of pregnancy, delivered, with or without mention of antepartum condition
+			646.93 Unspecified complication of pregnancy, antepartum condition or complication
+		647 Infectious and parasitic conditions in the mother classifiable elsewhere but complicating pregnancy childbirth or the puerperium
+			647 Infectious and parasitic conditions in the mother classifiable elsewhere but complicating pregnancy childbirth or the puerperium
+			647.0 Syphilis complicating pregnancy childbirth or the puerperium
+			647.00 Syphilis of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			647.01 Syphilis of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			647.02 Syphilis of mother, complicating pregnancy,childbirth, or the puerperium, delivered, with mention of postpartum complication
+			647.03 Syphilis of mother, complicating pregnancy,childbirth, or the puerperium, antepartum condition or complication
+			647.04 Syphilis of mother, complicating pregnancy,childbirth, or the puerperium, postpartum condition or complication
+			647.1 Gonorrhea complicating pregnancy childbirth or the puerperium
+			647.10 Gonorrhea of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			647.11 Gonorrhea of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			647.12 Gonorrhea of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			647.13 Gonorrhea of mother, complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			647.14 Gonorrhea of mother, complicating pregnancy, childbirth, or the puerperium,postpartum condition or complication
+			647.2 Other venereal diseases complicating pregnancy childbirth or the puerperium
+			647.20 Other venereal diseases of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			647.21 Other venereal diseases of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			647.22 Other venereal diseases of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			647.23 Other venereal diseases of mother , complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			647.24 Other venereal diseases of mother, complicating pregnancy, childbirth, or the puerperium,postpartum condition or complication
+			647.3 Tuberculosis complicating pregnancy childbirth or the puerperium
+			647.30 Tuberculosis of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			647.31 Tuberculosis of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			647.32 Tuberculosis of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			647.33 Tuberculosis of mother, complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			647.34 Tuberculosis of mother, complicating pregnancy, childbirth, or the puerperium,postpartum condition or complication
+			647.4 Malaria complicating pregnancy childbirth or the puerperium
+			647.40 Malaria in the mother, unspecified as to episode of care or not applicable
+			647.41 Malaria in the mother, delivered, with or without mention of antepartum condition
+			647.42 Malaria in the mother, delivered, with mention of postpartum complication
+			647.43 Malaria in the mother, antepartum condition or complication
+			647.44 Malaria in the mother, postpartum condition or complication
+			647.5 Rubella complicating pregnancy childbirth or the puerperium
+			647.50 Rubella in the mother, unspecified as to episode of care or not applicable
+			647.51 Rubella in the mother, delivered, with or without mention of antepartum condition
+			647.52 Rubella in the mother, delivered, with mention of postpartum complication
+			647.53 Rubella in the mother, antepartum condition or complication
+			647.54 Rubella in the mother, postpartum condition or complication
+			647.6 Other viral diseases complicating pregnancy childbirth or the puerperium
+			647.60 Other viral diseases in the mother, unspecified as to episode of care or not applicable
+			647.61 Other viral diseases in the mother, delivered, with or without mention of antepartum condition
+			647.62 Other viral diseases in the mother, delivered, with mention of postpartum complication
+			647.63 Other viral diseases in the mother, antepartum condition or complication
+			647.64 Other viral diseases in the mother, postpartum condition or complication
+			647.8 Other specified infectious and parasitic diseases complicating pregnancy childbirth or the puerperium
+			647.80 Other specified infectious and parasitic diseases of mother, unspecified as to episode of care or not applicable
+			647.81 Other specified infectious and parasitic diseases of mother, delivered, with or without mention of antepartum condition
+			647.82 Other specified infectious and parasitic diseases of mother, delivered, with mention of postpartum complication
+			647.83 Other specified infectious and parasitic diseases of mother, antepartum condition or complication
+			647.84 Other specified infectious and parasitic diseases of mother, postpartum condition or complication
+			647.9 Unspecified infection or infestation complicating pregnancy childbirth or the puerperium
+			647.90 Unspecified infection or infestation of mother, unspecified as to episode of care or not applicable
+			647.91 Unspecified infection or infestation of mother, delivered, with or without mention of antepartum condition
+			647.92 Unspecified infection or infestation of mother, delivered, with mention of postpartum complication
+			647.93 Unspecified infection or infestation of mother, antepartum condition or complication
+			647.94 Unspecified infection or infestation of mother, postpartum condition or complication
+		648 Other current conditions in the mother classifiable elsewhere but complicating pregnancy childbirth or the puerperium
+			648 Other current conditions in the mother classifiable elsewhere but complicating pregnancy childbirth or the puerperium
+			648.0 Diabetes mellitus complicating pregnancy childbirth or the puerperium
+			648.00 Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			648.01 Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			648.02 Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			648.03 Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			648.04 Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			648.1 Thyroid dysfunction complicating pregnancy childbirth or the puerperium
+			648.10 Thyroid dysfunction of mother, unspecified as to episode of care or not applicable
+			648.11 Thyroid dysfunction of mother, delivered, with or without mention of antepartum condition
+			648.12 Thyroid dysfunction of mother, delivered, with mention of postpartum complication
+			648.13 Thyroid dysfunction of mother, antepartum condition or complication
+			648.14 Thyroid dysfunction of mother, postpartum condition or complication
+			648.2 Anemia complicating pregnancy childbirth or the puerperium
+			648.20 Anemia of mother, unspecified as to episode of care or not applicable
+			648.21 Anemia of mother, delivered, with or without mention of antepartum condition
+			648.22 Anemia of mother, delivered, with mention of postpartum complication
+			648.23 Anemia of mother, antepartum condition or complication
+			648.24 Anemia of mother, postpartum condition or complication
+			648.3 Drug dependence complicating pregnancy childbirth or the puerperium
+			648.30 Drug dependence of mother, unspecified as to episode of care or not applicable
+			648.31 Drug dependence of mother, delivered, with or without mention of antepartum condition
+			648.32 Drug dependence of mother, delivered, with mention of postpartum complication
+			648.33 Drug dependence of mother, antepartum condition or complication
+			648.34 Drug dependence of mother, postpartum condition or complication
+			648.4 Mental disorders complicating pregnancy childbirth or the puerperium
+			648.40 Mental disorders of mother, unspecified as to episode of care or not applicable
+			648.41 Mental disorders of mother, delivered, with or without mention of antepartum condition
+			648.42 Mental disorders of mother, delivered, with mention of postpartum complication
+			648.43 Mental disorders of mother, antepartum condition or complication
+			648.44 Mental disorders of mother, postpartum condition or complication
+			648.5 Congenital cardiovascular disorders complicating pregnancy childbirth or the puerperium
+			648.50 Congenital cardiovascular disorders of mother, unspecified as to episode of care or not applicable
+			648.51 Congenital cardiovascular disorders of mother, delivered, with or without mention of antepartum condition
+			648.52 Congenital cardiovascular disorders of mother, delivered, with mention of postpartum complication
+			648.53 Congenital cardiovascular disorders of mother, antepartum condition or complication
+			648.54 Congenital cardiovascular disorders of mother, postpartum condition or complication
+			648.6 Other cardiovascular diseases complicating pregnancy childbirth or the puerperium
+			648.60 Other cardiovascular diseases of mother , unspecified as to episode of care or not applicable
+			648.61 Other cardiovascular diseases of mother, delivered, with or without mention of antepartum condition
+			648.62 Other cardiovascular diseases of mother, delivered, with mention of postpartum complication
+			648.63 Other cardiovascular diseases of mother, antepartum condition or complication
+			648.64 Other cardiovascular diseases of mother, postpartum condition or complication
+			648.7 Bone and joint disorders of back pelvis and lower limbs of mother complicating pregnancy childbirth or the puerperium
+			648.70 Bone and joint disorders of back, pelvis, and lower limbs of mother, unspecified as to episode of care or not applicable
+			648.71 Bone and joint disorders of back, pelvis, and lower limbs of mother, delivered, with or without mention of antepartum condition
+			648.72 Bone and joint disorders of back, pelvis, and lower limbs of mother, delivered, with mention of postpartum complication
+			648.73 Bone and joint disorders of back, pelvis, and lower limbs of mother, antepartum condition or complication
+			648.74 Bone and joint disorders of back, pelvis, and lower limbs of mother, postpartum condition or complication
+			648.8 Abnormal glucose tolerance of mother complicating pregnancy childbirth or the puerperium
+			648.80 Abnormal glucose tolerance of mother, unspecified as to episode of care or not applicable
+			648.81 Abnormal glucose tolerance of mother, delivered, with or without mention of antepartum condition
+			648.82 Abnormal glucose tolerance of mother, delivered, with mention of postpartum complication
+			648.83 Abnormal glucose tolerance of mother, antepartum condition or complication
+			648.84 Abnormal glucose tolerance of mother, postpartum condition or complication
+			648.9 Other current conditions complicating pregnancy childbirth or the puerperium
+			648.90 Other current conditions classifiable elsewhere of mother, unspecified as to episode of care or not applicable
+			648.91 Other current conditions classifiable elsewhere of mother, delivered, with or without mention of antepartum condition
+			648.92 Other current conditions classifiable elsewhere of mother, delivered, with mention of postpartum complication
+			648.93 Other current conditions classifiable elsewhere of mother, antepartum condition or complication
+			648.94 Other current conditions classifiable elsewhere of mother, postpartum condition or complication
+		649 Other conditions or status of the mother complicating pregnancy, childbirth, or the puerperium
+			649 Other conditions or status of the mother complicating pregnancy, childbirth, or the puerperium
+			649.0 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium
+			649.00 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			649.01 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			649.02 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			649.03 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			649.04 Tobacco use disorder complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			649.1 Obesity complicating pregnancy, childbirth, or the puerperium
+			649.10 Obesity complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			649.11 Obesity complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			649.12 Obesity complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			649.13 Obesity complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			649.14 Obesity complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			649.2 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium
+			649.20 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			649.21 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			649.22 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			649.23 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			649.24 Bariatric surgery status complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			649.3 Coagulation defects complicating pregnancy, childbirth, or the puerperium
+			649.30 Coagulation defects complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			649.31 Coagulation defects complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			649.32 Coagulation defects complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			649.33 Coagulation defects complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			649.34 Coagulation defects complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			649.4 Epilepsy complicating pregnancy, childbirth, or the puerperium
+			649.40 Epilepsy complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable
+			649.41 Epilepsy complicating pregnancy, childbirth, or the puerperium, delivered, with or without mention of antepartum condition
+			649.42 Epilepsy complicating pregnancy, childbirth, or the puerperium, delivered, with mention of postpartum complication
+			649.43 Epilepsy complicating pregnancy, childbirth, or the puerperium, antepartum condition or complication
+			649.44 Epilepsy complicating pregnancy, childbirth, or the puerperium, postpartum condition or complication
+			649.5 Spotting complicating pregnancy
+			649.50 Spotting complicating pregnancy, unspecified as to episode of care or not applicable
+			649.51 Spotting complicating pregnancy, delivered, with or without mention of antepartum condition
+			649.53 Spotting complicating pregnancy, antepartum condition or complication
+			649.6 Uterine size date discrepancy
+			649.60 Uterine size date discrepancy, unspecified as to episode of care or not applicable
+			649.61 Uterine size date discrepancy, delivered, with or without mention of antepartum condition
+			649.62 Uterine size date discrepancy, delivered, with mention of postpartum complication
+			649.63 Uterine size date discrepancy, antepartum condition or complication
+			649.64 Uterine size date discrepancy, postpartum condition or complication
+			649.7 Cervical shortening
+			649.70 Cervical shortening, unspecified as to episode of care or not applicable
+			649.71 Cervical shortening, delivered, with or without mention of antepartum condition
+			649.73 Cervical shortening, antepartum condition or complication
+			649.8 Onset (spontaneous) of labor after 37 completed weeks of gestation but before 39 completed weeks gestation, with delivery by (planned) cesarean section
+			649.81 Onset (spontaneous) of labor after 37 completed weeks of gestation but before 39 completed weeks gestation, with delivery by (planned) cesarean section, delivered, with or without mention of antepartum condition
+			649.82 Onset (spontaneous) of labor after 37 completed weeks of gestation but before 39 completed weeks gestation, with delivery by (planned) cesarean section, delivered, with mention of postpartum complication
+	650-659 Normal Delivery, And Other Indications For Care In Pregnancy, Labor, And Delivery
+		650 Normal delivery
+			650 Normal delivery
+		651 Multiple gestation
+			651 Multiple gestation
+			651.0 Twin pregnancy
+			651.00 Twin pregnancy, unspecified as to episode of care or not applicable
+			651.01 Twin pregnancy, delivered, with or without mention of antepartum condition
+			651.03 Twin pregnancy, antepartum condition or complication
+			651.1 Triplet pregnancy
+			651.10 Triplet pregnancy, unspecified as to episode of care or not applicable
+			651.11 Triplet pregnancy, delivered, with or without mention of antepartum condition
+			651.13 Triplet pregnancy, antepartum condition or complication
+			651.2 Quadruplet pregnancy
+			651.20 Quadruplet pregnancy, unspecified as to episode of care or not applicable
+			651.21 Quadruplet pregnancy, delivered, with or without mention of antepartum condition
+			651.23 Quadruplet pregnancy, antepartum condition or complication
+			651.3 Twin pregnancy with fetal loss and retention of one fetus
+			651.30 Twin pregnancy with fetal loss and retention of one fetus, unspecified as to episode of care or not applicable
+			651.31 Twin pregnancy with fetal loss and retention of one fetus, delivered, with or without mention of antepartum condition
+			651.33 Twin pregnancy with fetal loss and retention of one fetus, antepartum condition or complication
+			651.4 Triplet pregnancy with fetal loss and retention of one or more fetus(es)
+			651.40 Triplet pregnancy with fetal loss and retention of one or more fetus(es), unspecified as to episode of care or not applicable
+			651.41 Triplet pregnancy with fetal loss and retention of one or more fetus(es), delivered, with or without mention of antepartum condition
+			651.43 Triplet pregnancy with fetal loss and retention of one or more fetus(es), antepartum condition or complication
+			651.5 Quadruplet pregnancy with fetal loss and retention of one or more fetus(es)
+			651.50 Quadruplet pregnancy with fetal loss and retention of one or more fetus(es), unspecified as to episode of care or not applicable
+			651.51 Quadruplet pregnancy with fetal loss and retention of one or more fetus(es), delivered, with or without mention of antepartum condition
+			651.53 Quadruplet pregnancy with fetal loss and retention of one or more fetus(es), antepartum condition or complication
+			651.6 Other multiple pregnancy with fetal loss and retention of one or more fetus(es)
+			651.60 Other multiple pregnancy with fetal loss and retention of one or more fetus(es), unspecified as to episode of care or not applicable
+			651.61 Other multiple pregnancy with fetal loss and retention of one or more fetus(es), delivered, with or without mention of antepartum condition
+			651.63 Other multiple pregnancy with fetal loss and retention of one or more fetus(es), antepartum condition or complication
+			651.7 Multiple gestation following (elective) fetal reduction
+			651.70 Multiple gestation following (elective) fetal reduction, unspecified as to episode of care or not applicable
+			651.71 Multiple gestation following (elective) fetal reduction,delivered, with or without mention of antepartum condition
+			651.73 Multiple gestation following (elective) fetal reduction, antepartum condition or complication
+			651.8 Other specified multiple gestation
+			651.80 Other specified multiple gestation, unspecified as to episode of care or not applicable
+			651.81 Other specified multiple gestation, delivered, with or without mention of antepartum condition
+			651.83 Other specified multiple gestation, antepartum condition or complication
+			651.9 Unspecified multiple gestation
+			651.90 Unspecified multiple gestation, unspecified as to episode of care or not applicable
+			651.91 Unspecified multiple gestation, delivered, with or without mention of antepartum condition
+			651.93 Unspecified multiple gestation, antepartum condition or complication
+		652 Malposition and malpresentation of fetus
+			652 Malposition and malpresentation of fetus
+			652.0 Unstable lie of fetus
+			652.00 Unstable lie, unspecified as to episode of care or not applicable
+			652.01 Unstable lie, delivered, with or without mention of antepartum condition
+			652.03 Unstable lie, antepartum condition or complication
+			652.1 Breech or other malpresentation successfully converted to cephalic presentation
+			652.10 Breech or other malpresentation successfully converted to cephalic presentation, unspecified as to episode of care or not applicable
+			652.11 Breech or other malpresentation successfully converted to cephalic presentation, delivered, with or without mention of antepartum condition
+			652.13 Breech or other malpresentation successfully converted to cephalic presentation, antepartum condition or complication
+			652.2 Breech presentation without mention of version
+			652.20 Breech presentation without mention of version, unspecified as to episode of care or not applicable
+			652.21 Breech presentation without mention of version, delivered, with or without mention of antepartum condition
+			652.23 Breech presentation without mention of version, antepartum condition or complication
+			652.3 Transverse or oblique presentation of fetus
+			652.30 Transverse or oblique presentation, unspecified as to episode of care or not applicable
+			652.31 Transverse or oblique presentation, delivered, with or without mention of antepartum condition
+			652.33 Transverse or oblique presentation, antepartum condition or complication
+			652.4 Face or brow presentation of fetus
+			652.40 Face or brow presentation, unspecified as to episode of care or not applicable
+			652.41 Face or brow presentation, delivered, with or without mention of antepartum condition
+			652.43 Face or brow presentation, antepartum condition or complication
+			652.5 High fetal head at term
+			652.50 High head at term, unspecified as to episode of care or not applicable
+			652.51 High head at term, delivered, with or without mention of antepartum condition
+			652.53 High head at term, antepartum condition or complication
+			652.6 Multiple gestation with malpresentation of one fetus or more
+			652.60 Multiple gestation with malpresentation of one fetus or more, unspecified as to episode of care or not applicable
+			652.61 Multiple gestation with malpresentation of one fetus or more, delivered,
+			652.63 Multiple gestation with malpresentation of one fetus or more, antepartum
+			652.7 Prolapsed arm of fetus
+			652.70 Prolapsed arm of fetus, unspecified as to episode of care or not applicable
+			652.71 Prolapsed arm of fetus, delivered, with or without mention of antepartum condition
+			652.73 Prolapsed arm of fetus, antepartum condition or complication
+			652.8 Other specified malposition or malpresentation of fetus
+			652.80 Other specified malposition or malpresentation, unspecified as to episode of care or not applicable
+			652.81 Other specified malposition or malpresentation, delivered, with or without mention of antepartum condition
+			652.83 Other specified malposition or malpresentation, antepartum condition or complication
+			652.9 Unspecified malposition or malpresentation of fetus
+			652.90 Unspecified malposition or malpresentation, unspecified as to episode of care or not applicable
+			652.91 Unspecified malposition or malpresentation, delivered, with or without mention of antepartum condition
+			652.93 Unspecified malposition or malpresentation, antepartum condition or complication
+		653 Disproportion in pregnancy labor and delivery
+			653 Disproportion in pregnancy labor and delivery
+			653.0 Major abnormality of bony pelvis, not further specified, in pregnancy, labor, and delivery
+			653.00 Major abnormality of bony pelvis, not further specified, unspecified as to episode of care or not applicable
+			653.01 Major abnormality of bony pelvis, not further specified, delivered, with or without mention of antepartum condition
+			653.03 Major abnormality of bony pelvis, not further specified, antepartum condition or complication
+			653.1 Generally contracted pelvis in pregnancy labor and delivery
+			653.10 Generally contracted pelvis, unspecified as to episode of care or not applicable
+			653.11 Generally contracted pelvis, delivered, with or without mention of antepartum condition
+			653.13 Generally contracted pelvis, antepartum condition or complication
+			653.2 Inlet contraction of pelvis in pregnancy labor and delivery
+			653.20 Inlet contraction of pelvis, unspecified as to episode of care or not applicable
+			653.21 Inlet contraction of pelvis, delivered, with or without mention of antepartum condition
+			653.23 Inlet contraction of pelvis, antepartum condition or complication
+			653.3 Outlet contraction of pelvis in pregnancy labor and delivery
+			653.30 Outlet contraction of pelvis, unspecified as to episode of care or not applicable
+			653.31 Outlet contraction of pelvis, delivered, with or without mention of antepartum condition
+			653.33 Outlet contraction of pelvis, antepartum condition or complication
+			653.4 Fetopelvic disproportion
+			653.40 Fetopelvic disproportion, unspecified as to episode of care or not applicable
+			653.41 Fetopelvic disproportion, delivered, with or without mention of antepartum condition
+			653.43 Fetopelvic disproportion, antepartum condition or complication
+			653.5 Unusually large fetus causing disproportion
+			653.50 Unusually large fetus causing disproportion, unspecified as to episode of care or not applicable
+			653.51 Unusually large fetus causing disproportion, delivered, with or without mention of antepartum condition
+			653.53 Unusually large fetus causing disproportion, antepartum condition or complication
+			653.6 Hydrocephalic fetus causing disproportion
+			653.60 Hydrocephalic fetus causing disproportion, unspecified as to episode of care or not applicable
+			653.61 Hydrocephalic fetus causing disproportion, delivered, with or without mention of antepartum condition
+			653.63 Hydrocephalic fetus causing disproportion, antepartum condition or complication
+			653.7 Other fetal abnormality causing disproportion
+			653.70 Other fetal abnormality causing disproportion, unspecified as to episode of care or not applicable
+			653.71 Other fetal abnormality causing disproportion, delivered, with or without mention of antepartum condition
+			653.73 Other fetal abnormality causing disproportion, antepartum condition or complication
+			653.8 Disproportion of other origin in pregnancy labor and delivery
+			653.80 Disproportion of other origin, unspecified as to episode of care or not applicable
+			653.81 Disproportion of other origin, delivered, with or without mention of antepartum condition
+			653.83 Disproportion of other origin, antepartum condition or complication
+			653.9 Unspecified disproportion in pregnancy labor and delivery
+			653.90 Unspecified disproportion, unspecified as to episode of care or not applicable
+			653.91 Unspecified disproportion, delivered, with or without mention of antepartum condition
+			653.93 Unspecified disproportion, antepartum condition or complication
+		654 Abnormality of organs and soft tissues of pelvis
+			654 Abnormality of organs and soft tissues of pelvis
+			654.0 Congenital abnormalities of uterus complicating pregnancy childbirth or the puerperium
+			654.00 Congenital abnormalities of uterus, unspecified as to episode of care or not applicable
+			654.01 Congenital abnormalities of uterus, delivered, with or without mention of antepartum condition
+			654.02 Congenital abnormalities of uterus, delivered, with mention of postpartum complication
+			654.03 Congenital abnormalities of uterus, antepartum condition or complication
+			654.04 Congenital abnormalities of uterus, postpartum condition or complication
+			654.1 Tumors of body of uterus complicating pregnancy childbirth or the puerperium
+			654.10 Tumors of body of uterus, unspecified as to episode of care or not applicable
+			654.11 Tumors of body of uterus, delivered, with or without mention of antepartum condition
+			654.12 Tumors of body of uterus, delivered, with mention of postpartum complication
+			654.13 Tumors of body of uterus, antepartum condition or complication
+			654.14 Tumors of body of uterus, postpartum condition or complication
+			654.2 Previous cesarean delivery complicating pregnancy childbirth or the puerperium
+			654.20 Previous cesarean delivery, unspecified as to episode of care or not applicable
+			654.21 Previous cesarean delivery, delivered, with or without mention of antepartum condition
+			654.23 Previous cesarean delivery, antepartum condition or complication
+			654.3 Retroverted and incarcerated gravid uterus
+			654.30 Retroverted and incarcerated gravid uterus, unspecified as to episode of care or not applicable
+			654.31 Retroverted and incarcerated gravid uterus, delivered, with mention of antepartum condition
+			654.32 Retroverted and incarcerated gravid uterus, delivered, with mention of postpartum complication
+			654.33 Retroverted and incarcerated gravid uterus, antepartum condition or complication
+			654.34 Retroverted and incarcerated gravid uterus, postpartum condition or complication
+			654.4 Other abnormalities in shape or position of gravid uterus and of neighboring structures
+			654.40 Other abnormalities in shape or position of gravid uterus and of neighboring structures, unspecified as to episode of care or not applicable
+			654.41 Other abnormalities in shape or position of gravid uterus and of neighboring structures, delivered, with or without mention of antepartum condition
+			654.42 Other abnormalities in shape or position of gravid uterus and of neighboring structures, delivered, with mention of postpartum complication
+			654.43 Other abnormalities in shape or position of gravid uterus and of neighboring structures, antepartum condition or complication
+			654.44 Other abnormalities in shape or position of gravid uterus and of neighboring structures, postpartum condition or complication
+			654.5 Cervical incompetence complicating pregnancy childbirth or the puerperium
+			654.50 Cervical incompetence, unspecified as to episode of care or not applicable
+			654.51 Cervical incompetence, delivered, with or without mention of antepartum condition
+			654.52 Cervical incompetence, delivered, with mention of postpartum complication
+			654.53 Cervical incompetence, antepartum condition or complication
+			654.54 Cervical incompetence, postpartum condition or complication
+			654.6 Other congenital or acquired abnormality of cervix complicating pregnancy childbirth or the puerperium
+			654.60 Other congenital or acquired abnormality of cervix, unspecified as to episode of care or not applicable
+			654.61 Other congenital or acquired abnormality of cervix, delivered, with or without mention of antepartum condition
+			654.62 Other congenital or acquired abnormality of cervix, delivered, with mention of postpartum complication
+			654.63 Other congenital or acquired abnormality of cervix, antepartum condition or complication
+			654.64 Other congenital or acquired abnormality of cervix, postpartum condition or complication
+			654.7 Congenital or acquired abnormality of vagina complicating pregnancy childbirth or the puerperium
+			654.70 Congenital or acquired abnormality of vagina, unspecified as to episode of care or not applicable
+			654.71 Congenital or acquired abnormality of vagina, delivered, with or without mention of antepartum condition
+			654.72 Congenital or acquired abnormality of vagina, delivered, with mention of postpartum complication
+			654.73 Congenital or acquired abnormality of vagina, antepartum condition or complication
+			654.74 Congenital or acquired abnormality of vagina, postpartum condition or complication
+			654.8 Congenital or acquired abnormality of vulva complicating pregnancy childbirth or the puerperium
+			654.80 Congenital or acquired abnormality of vulva, unspecified as to episode of care or not applicable
+			654.81 Congenital or acquired abnormality of vulva, delivered, with or without mention of antepartum condition
+			654.82 Congenital or acquired abnormality of vulva, delivered, with mention of postpartum complication
+			654.83 Congenital or acquired abnormality of vulva, antepartum condition or complication
+			654.84 Congenital or acquired abnormality of vulva, postpartum condition or complication
+			654.9 Other and unspecified abnormality of organs and soft tissues of pelvis complicating pregnancy childbirth and the puerperium
+			654.90 Other and unspecified abnormality of organs and soft tissues of pelvis, unspecified as to episode of care or not applicable
+			654.91 Other and unspecified abnormality of organs and soft tissues of pelvis, delivered, with or without mention of antepartum condition
+			654.92 Other and unspecified abnormality of organs and soft tissues of pelvis, delivered, with mention of postpartum complication
+			654.93 Other and unspecified abnormality of organs and soft tissues of pelvis, antepartum condition or complication
+			654.94 Other and unspecified abnormality of organs and soft tissues of pelvis, postpartum condition or complication
+		655 Known or suspected fetal abnormality affecting management of mother
+			655 Known or suspected fetal abnormality affecting management of mother
+			655.0 Central nervous system malformation in fetus affecting management of mother
+			655.00 Central nervous system malformation in fetus, unspecified as to episode of care or not applicable
+			655.01 Central nervous system malformation in fetus, delivered, with or without mention of antepartum condition
+			655.03 Central nervous system malformation in fetus, antepartum condition or complication
+			655.1 Chromosomal abnormality in fetus affecting management of mother
+			655.10 Chromosomal abnormality in fetus, affecting management of mother, unspecified as to episode of care or not applicable
+			655.11 Chromosomal abnormality in fetus, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.13 Chromosomal abnormality in fetus, affecting management of mother, antepartum condition or complication
+			655.2 Hereditary disease in family possibly affecting fetus affecting management of mother
+			655.20 Hereditary disease in family possibly affecting fetus, affecting management of mother, unspecified as to episode of care or not applicable
+			655.21 Hereditary disease in family possibly affecting fetus, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.23 Hereditary disease in family possibly affecting fetus, affecting management of mother, antepartum condition or complication
+			655.3 Suspected damage to fetus from viral disease in the mother affecting management of mother
+			655.30 Suspected damage to fetus from viral disease in the mother, affecting management of mother, unspecified as to episode of care or not applicable
+			655.31 Suspected damage to fetus from viral disease in the mother, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.33 Suspected damage to fetus from viral disease in the mother, affecting management of mother, antepartum condition or complication
+			655.4 Suspected damage to fetus from other disease in the mother affecting management of mother
+			655.40 Suspected damage to fetus from other disease in the mother, affecting management of mother, unspecified as to episode of care or not applicable
+			655.41 Suspected damage to fetus from other disease in the mother, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.43 Suspected damage to fetus from other disease in the mother, affecting management of mother, antepartum condition or complication
+			655.5 Suspected damage to fetus from drugs affecting management of mother
+			655.50 Suspected damage to fetus from drugs, affecting management of mother, unspecified as to episode of care or not applicable
+			655.51 Suspected damage to fetus from drugs, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.53 Suspected damage to fetus from drugs, affecting management of mother, antepartum condition or complication
+			655.6 Suspected damage to fetus from radiation affecting management of mother
+			655.60 Suspected damage to fetus from radiation, affecting management of mother, unspecified as to episode of care or not applicable
+			655.61 Suspected damage to fetus from radiation, affecting management of mother, delivered,
+			655.63 Suspected damage to fetus from radiation, affecting management of mother, antepartum condition or complication
+			655.7 Decreased fetal movements affecting management of mother
+			655.70 Decreased fetal movements, affecting management of mother, unspecified as to episode of care
+			655.71 Decreased fetal movements, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.73 Decreased fetal movements, affecting management of mother, antepartum condition or complication
+			655.8 Other known or suspected fetal abnormality not elsewhere classified affecting management of mother
+			655.80 Other known or suspected fetal abnormality, not elsewhere classified, affecting management of mother, unspecified as to episode of care or not applicable
+			655.81 Other known or suspected fetal abnormality, not elsewhere classified, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.83 Other known or suspected fetal abnormality, not elsewhere classified, affecting management of mother, antepartum condition or complication
+			655.9 Known or suspected fetal abnormality affecting management of mother unspecified
+			655.90 Unspecified suspected fetal abnormality, affecting management of mother, unspecified as to episode of care or not applicable
+			655.91 Unspecified suspected fetal abnormality, affecting management of mother, delivered, with or without mention of antepartum condition
+			655.93 Unspecified suspected fetal abnormality, affecting management of mother, antepartum condition or complication
+		656 Other known or suspected fetal and placental problems affecting management of mother
+			656 Other known or suspected fetal and placental problems affecting management of mother
+			656.0 Fetal-maternal hemorrhage affecting management of mother
+			656.00 Fetal-maternal hemorrhage, unspecified as to episode of care or not applicable
+			656.01 Fetal-maternal hemorrhage, delivered, with or without mention of antepartum condition
+			656.03 Fetal-maternal hemorrhage, antepartum condition or complication
+			656.1 Rhesus isoimmunization affecting management of mother
+			656.10 Rhesus isoimmunization, unspecified as to episode of care or not applicable
+			656.11 Rhesus isoimmunization, delivered, with or without mention of antepartum condition
+			656.13 Rhesus isoimmunization, antepartum condition or complication
+			656.2 Isoimmunization from other and unspecified blood-group incompatibility affecting management of mother
+			656.20 Isoimmunization from other and unspecified blood-group incompatibility, unspecified as to episode of care or not applicable
+			656.21 Isoimmunization from other and unspecified blood-group incompatibility, delivered, with or without mention of antepartum condition
+			656.23 Isoimmunization from other and unspecified blood-group incompatibility, antepartum condition or complication
+			656.3 Fetal distress affecting management of mother
+			656.30 Fetal distress, affecting management of mother, unspecified as to episode of care or not applicable
+			656.31 Fetal distress, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.33 Fetal distress, affecting management of mother, antepartum condition or complication
+			656.4 Intrauterine death affecting management of mother
+			656.40 Intrauterine death, affecting management of mother, unspecified as to episode of care or not applicable
+			656.41 Intrauterine death, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.43 Intrauterine death, affecting management of mother, antepartum condition or complication
+			656.5 Poor fetal growth affecting management of mother
+			656.50 Poor fetal growth, affecting management of mother, unspecified as to episode of care or not applicable
+			656.51 Poor fetal growth, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.53 Poor fetal growth, affecting management of mother, antepartum condition or complication
+			656.6 Excessive fetal growth affecting management of mother
+			656.60 Excessive fetal growth, affecting management of mother, unspecified as to episode of care or not applicable
+			656.61 Excessive fetal growth, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.63 Excessive fetal growth, affecting management of mother, antepartum condition or complication
+			656.7 Other placental conditions affecting management of mother
+			656.70 Other placental conditions, affecting management of mother, unspecified as to episode of care or not applicable
+			656.71 Other placental conditions, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.73 Other placental conditions, affecting management of mother, antepartum condition or complication
+			656.8 Other specified fetal and placental problems affecting management of mother
+			656.80 Other specified fetal and placental problems, affecting management of mother, unspecified as to episode of care or not applicable
+			656.81 Other specified fetal and placental problems, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.83 Other specified fetal and placental problems, affecting management of mother, antepartum condition or complication
+			656.9 Unspecified fetal and placental problem affecting management of mother
+			656.90 Unspecified fetal and placental problem, affecting management of mother, unspecified as to episode of care or not applicable
+			656.91 Unspecified fetal and placental problem, affecting management of mother, delivered, with or without mention of antepartum condition
+			656.93 Unspecified fetal and placental problem, affecting management of mother, antepartum condition or complication
+		657 Polyhydramnios
+			657 Polyhydramnios
+			657.0 Polyhydramnios
+			657.00 Polyhydramnios, unspecified as to episode of care or not applicable
+			657.01 Polyhydramnios, delivered, with or without mention of antepartum condition
+			657.03 Polyhydramnios, antepartum condition or complication
+		658 Other problems associated with amniotic cavity and membranes
+			658 Other problems associated with amniotic cavity and membranes
+			658.0 Oligohydramnios
+			658.00 Oligohydramnios, unspecified as to episode of care or not applicable
+			658.01 Oligohydramnios, delivered, with or without mention of antepartum condition
+			658.03 Oligohydramnios, antepartum condition or complication
+			658.1 Premature rupture of membranes
+			658.10 Premature rupture of membranes, unspecified as to episode of care or not applicable
+			658.11 Premature rupture of membranes, delivered, with or without mention of antepartum condition
+			658.13 Premature rupture of membranes, antepartum condition or complication
+			658.2 Delayed delivery after spontaneous or unspecified rupture of membranes
+			658.20 Delayed delivery after spontaneous or unspecified rupture of membranes, unspecified as to episode of care or not applicable
+			658.21 Delayed delivery after spontaneous or unspecified rupture of membranes, delivered, with or without mention of antepartum condition
+			658.23 Delayed delivery after spontaneous or unspecified rupture of membranes, antepartum condition or complication
+			658.3 Delayed delivery after artificial rupture of membranes
+			658.30 Delayed delivery after artificial rupture of membranes, unspecified as to episode of care or not applicable
+			658.31 Delayed delivery after artificial rupture of membranes, delivered, with or without mention of antepartum condition
+			658.33 Delayed delivery after artificial rupture of membranes, antepartum condition or complication
+			658.4 Infection of amniotic cavity
+			658.40 Infection of amniotic cavity, unspecified as to episode of care or not applicable
+			658.41 Infection of amniotic cavity, delivered, with or without mention of antepartum condition
+			658.43 Infection of amniotic cavity, antepartum condition or complication
+			658.8 Other problems associated with amniotic cavity and membranes
+			658.80 Other problems associated with amniotic cavity and membranes, unspecified as to episode of care or not applicable
+			658.81 Other problems associated with amniotic cavity and membranes, delivered, with or without mention of antepartum condition
+			658.83 Other problems associated with amniotic cavity and membranes, antepartum
+			658.9 Unspecified problem associated with amniotic cavity and membranes
+			658.90 Unspecified problem associated with amniotic cavity and membranes, unspecified as to episode of care or not applicable
+			658.91 Unspecified problem associated with amniotic cavity and membranes, delivered, with or without mention of antepartum condition
+			658.93 Unspecified problem associated with amniotic cavity and membranes, antepartum condition or complication
+		659 Other indications for care or intervention related to labor and delivery not elsewhere classified
+			659 Other indications for care or intervention related to labor and delivery not elsewhere classified
+			659.0 Failed mechanical induction of labor
+			659.00 Failed mechanical induction of labor, unspecified as to episode of care or not applicable
+			659.01 Failed mechanical induction of labor, delivered, with or without mention of antepartum condition
+			659.03 Failed mechanical induction of labor, antepartum condition or complication
+			659.1 Failed medical or unspecified induction of labor
+			659.10 Failed medical or unspecified induction of labor, unspecified as to episode of care or not applicable
+			659.11 Failed medical or unspecified induction of labor, delivered, with or without mention of antepartum condition
+			659.13 Failed medical or unspecified induction of labor, antepartum condition or complication
+			659.2 Maternal pyrexia during labor unspecified
+			659.20 Maternal pyrexia during labor, unspecified, unspecified as to episode of care or not applicable
+			659.21 Maternal pyrexia during labor, unspecified, delivered, with or without mention of antepartum condition
+			659.23 Maternal pyrexia during labor, unspecified, antepartum condition or complication
+			659.3 Generalized infection during labor
+			659.30 Generalized infection during labor, unspecified as to episode of care or not applicable
+			659.31 Generalized infection during labor, delivered, with or without mention of antepartum condition
+			659.33 Generalized infection during labor, antepartum condition or complication
+			659.4 Grand multiparity with current pregnancy
+			659.40 Grand multiparity, unspecified as to episode of care or not applicable
+			659.41 Grand multiparity, delivered, with or without mention of antepartum condition
+			659.43 Grand multiparity, antepartum condition or complication
+			659.5 Elderly primigravida
+			659.50 Elderly primigravida, unspecified as to episode of care or not applicable
+			659.51 Elderly primigravida, delivered, with or without mention of antepartum condition
+			659.53 Elderly primigravida, antepartum condition or complication
+			659.6 Elderly multigravida
+			659.60 Elderly multigravida, unspecified as to episode of care or not applicable
+			659.61 Elderly multigravida, delivered with or without mention of antepartum condition
+			659.63 Elderly multigravida, antepartum condition or complication
+			659.7 Abnormality in fetal heart rate or rhythm
+			659.70 Abnormality in fetal heart rate or rhythm, unspecified as to episode of care or not applicable
+			659.71 Abnormality in fetal heart rate or rhythm, delivered, with or without mention of antepartum condition
+			659.73 Abnormality in fetal heart rate or rhythm, antepartum condition or complication
+			659.8 Other specified indications for care or intervention related to labor and delivery
+			659.80 Other specified indications for care or intervention related to labor and delivery, unspecified as to episode of care or not applicable
+			659.81 Other specified indications for care or intervention related to labor and delivery, delivered, with or without mention of antepartum condition
+			659.83 Other specified indications for care or intervention related to labor and delivery, antepartum condition or complication
+			659.9 Unspecified indication for care or intervention related to labor and delivery
+			659.90 Unspecified indication for care or intervention related to labor and delivery, unspecified as to episode of care or not applicable
+			659.91 Unspecified indication for care or intervention related to labor and delivery, delivered, with or without mention of antepartum condition
+			659.93 Unspecified indication for care or intervention related to labor and delivery, antepartum condition or complication
+	660-669 Complications Occurring Mainly In The Course Of Labor And Delivery
+		660 Obstructed labor
+			660 Obstructed labor
+			660.0 Obstruction caused by malposition of fetus at onset of labor
+			660.00 Obstruction caused by malposition of fetus at onset of labor, unspecified as to episode of care or not applicable
+			660.01 Obstruction caused by malposition of fetus at onset of labor, delivered, with or without mention of antepartum condition
+			660.03 Obstruction caused by malposition of fetus at onset of labor, antepartum condition or complication
+			660.1 Obstruction by bony pelvis during labor
+			660.10 Obstruction by bony pelvis during labor, unspecified as to episode of care or not applicable
+			660.11 Obstruction by bony pelvis during labor, delivered, with or without mention of antepartum condition
+			660.13 Obstruction by bony pelvis during labor, antepartum condition or complication
+			660.2 Obstruction by abnormal pelvic soft tissues during labor
+			660.20 Obstruction by abnormal pelvic soft tissues during labor, unspecified as to episode of care or not applicable
+			660.21 Obstruction by abnormal pelvic soft tissues during labor, delivered, with or without mention of antepartum condition
+			660.23 Obstruction by abnormal pelvic soft tissues during labor, antepartum condition or complication
+			660.3 Deep transverse arrest and persistent occipitoposterior position during labor and delivery
+			660.30 Deep transverse arrest and persistent occipitoposterior position, unspecified as to episode of care or not applicable
+			660.31 Deep transverse arrest and persistent occipitoposterior position, delivered, with or without mention of antepartum condition
+			660.33 Deep transverse arrest and persistent occipitoposterior position, antepartum condition or complication
+			660.4 Shoulder (girdle) dystocia during labor and delivery
+			660.40 Shoulder (girdle) dystocia, unspecified as to episode of care or not applicable
+			660.41 Shoulder (girdle) dystocia, delivered, with or without mention of antepartum condition
+			660.43 Shoulder (girdle) dystocia, antepartum condition or complication
+			660.5 Locked twins
+			660.50 Locked twins, unspecified as to episode of care or not applicable
+			660.51 Locked twins, delivered, with or without mention of antepartum condition
+			660.53 Locked twins, antepartum condition or complication
+			660.6 Failed trial of labor unspecified
+			660.60 Unspecified failed trial of labor, unspecified as to episode of care or not applicable
+			660.61 Unspecified failed trial of labor, delivered, with or without mention of antepartum condition
+			660.63 Unspecified failed trial of labor, antepartum condition or complication
+			660.7 Failed forceps or vacuum extractor unspecified
+			660.70 Failed forceps or vacuum extractor, unspecified, unspecified as to episode of care or not applicable
+			660.71 Failed forceps or vacuum extractor, unspecified, delivered, with or without mention of antepartum condition
+			660.73 Failed forceps or vacuum extractor, unspecified, antepartum condition or complication
+			660.8 Other causes of obstructed labor
+			660.80 Other causes of obstructed labor, unspecified as to episode of care or not applicable
+			660.81 Other causes of obstructed labor, delivered, with or without mention of antepartum condition
+			660.83 Other causes of obstructed labor, antepartum condition or complication
+			660.9 Unspecified obstructed labor
+			660.90 Unspecified obstructed labor, unspecified as to episode of care or not applicable
+			660.91 Unspecified obstructed labor, delivered, with or without mention of antepartum condition
+			660.93 Unspecified obstructed labor, antepartum condition or complication
+		661 Abnormality of forces of labor
+			661 Abnormality of forces of labor
+			661.0 Primary uterine inertia
+			661.00 Primary uterine inertia, unspecified as to episode of care or not applicable
+			661.01 Primary uterine inertia, delivered, with or without mention of antepartum condition
+			661.03 Primary uterine inertia, antepartum condition or complication
+			661.1 Secondary uterine inertia
+			661.10 Secondary uterine inertia, unspecified as to episode of care or not applicable
+			661.11 Secondary uterine inertia, delivered, with or without mention of antepartum condition
+			661.13 Secondary uterine inertia, antepartum condition or complication
+			661.2 Other and unspecified uterine inertia
+			661.20 Other and unspecified uterine inertia, unspecified as to episode of care or not applicable
+			661.21 Other and unspecified uterine inertia, delivered, with or without mention of antepartum condition
+			661.23 Other and unspecified uterine inertia, antepartum condition or complication
+			661.3 Precipitate labor
+			661.30 Precipitate labor, unspecified as to episode of care or not applicable
+			661.31 Precipitate labor, delivered, with or without mention of antepartum condition
+			661.33 Precipitate labor, antepartum condition or complication
+			661.4 Hypertonic incoordinate or prolonged uterine contractions
+			661.40 Hypertonic, incoordinate, or prolonged uterine contractions, unspecified as to episode of care or not applicable
+			661.41 Hypertonic, incoordinate, or prolonged uterine contractions, delivered, with or without mention of antepartum condition
+			661.43 Hypertonic, incoordinate, or prolonged uterine contractions, antepartum condition or complication
+			661.9 Unspecified abnormality of labor
+			661.90 Unspecified abnormality of labor, unspecified as to episode of care or not applicable
+			661.91 Unspecified abnormality of labor, delivered, with or without mention of antepartum condition
+			661.93 Unspecified abnormality of labor, antepartum condition or complication
+		662 Long labor
+			662 Long labor
+			662.0 Prolonged first stage of labor
+			662.00 Prolonged first stage of labor, unspecified as to episode of care or not applicable
+			662.01 Prolonged first stage of labor, delivered, with or without mention of antepartum condition
+			662.03 Prolonged first stage of labor, antepartum condition or complication
+			662.1 Prolonged labor unspecified
+			662.10 Unspecified prolonged labor, unspecified as to episode of care or not applicable
+			662.11 Unspecified prolonged labor, delivered, with or without mention of antepartum condition
+			662.13 Unspecified prolonged labor, antepartum condition or complication
+			662.2 Prolonged second stage of labor
+			662.20 Prolonged second stage of labor, unspecified as to episode of care or not applicable
+			662.21 Prolonged second stage of labor, delivered, with or without mention of antepartum condition
+			662.23 Prolonged second stage of labor, antepartum condition or complication
+			662.3 Delayed delivery of second twin triplet etc
+			662.30 Delayed delivery of second twin, triplet, etc., unspecified as to episode of care or not applicable
+			662.31 Delayed delivery of second twin, triplet, etc., delivered, with or without mention of antepartum condition
+			662.33 Delayed delivery of second twin, triplet, etc., antepartum condition or complication
+		663 Umbilical cord complications during labor and delivery
+			663 Umbilical cord complications during labor and delivery
+			663.0 Prolapse of cord complicating labor and delivery
+			663.00 Prolapse of cord complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.01 Prolapse of cord complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.03 Prolapse of cord complicating labor and delivery, antepartum condition or complication
+			663.1 Cord around neck with compression complicating labor and delivery
+			663.10 Cord around neck with compression, complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.11 Cord around neck, with compression, complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.13 Cord around neck, with compression, complicating labor and delivery, antepartum condition or complication
+			663.2 Other and unspecified cord entanglement with compression complicating labor and delivery
+			663.20 Other and unspecified cord entanglement, with compression, complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.21 Other and unspecified cord entanglement, with compression, complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.23 Other and unspecified cord entanglement, with compression, complicating labor and delivery, antepartum condition or complication
+			663.3 Other and unspecified cord entanglement without mention of compression complicating labor and delivery
+			663.30 Other and unspecified cord entanglement, without mention of compression, complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.31 Other and unspecified cord entanglement, without mention of compression, complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.33 Other and unspecified cord entanglement, without mention of compression, complicating labor and delivery, antepartum condition or complication
+			663.4 Short cord complicating labor and delivery
+			663.40 Short cord complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.41 Short cord complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.43 Short cord complicating labor and delivery, antepartum condition or complication
+			663.5 Vasa previa complicating labor and delivery
+			663.50 Vasa previa complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.51 Vasa previa complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.53 Vasa previa complicating labor and delivery, antepartum condition or complication
+			663.6 Vascular lesions of cord complicating labor and delivery
+			663.60 Vascular lesions of cord complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.61 Vascular lesions of cord complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.63 Vascular lesions of cord complicating labor and delivery, antepartum condition or complication
+			663.8 Other umbilical cord complications during labor and delivery
+			663.80 Other umbilical cord complications complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.81 Other umbilical cord complications complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.83 Other umbilical cord complications complicating labor and delivery, antepartum condition or complication
+			663.9 Unspecified umbilical cord complication during labor and delivery
+			663.90 Unspecified umbilical cord complication complicating labor and delivery, unspecified as to episode of care or not applicable
+			663.91 Unspecified umbilical cord complication complicating labor and delivery, delivered, with or without mention of antepartum condition
+			663.93 Unspecified umbilical cord complication complicating labor and delivery, antepartum condition or complication
+		664 Trauma to perineum and vulva during delivery
+			664 Trauma to perineum and vulva during delivery
+			664.0 First-degree perineal laceration during delivery
+			664.00 First-degree perineal laceration, unspecified as to episode of care or not applicable
+			664.01 First-degree perineal laceration,delivered, with or without mention of antepartum condition
+			664.04 First-degree perineal laceration, postpartum condition or complication
+			664.1 Second-degree perineal laceration during delivery
+			664.10 Second-degree perineal laceration, unspecified as to episode of care or not applicable
+			664.11 Second-degree perineal laceration, delivered, with or without mention of antepartum condition
+			664.14 Second-degree perineal laceration, postpartum condition or complication
+			664.2 Third-degree perineal laceration during delivery
+			664.20 Third-degree perineal laceration, unspecified as to episode of care or not applicable
+			664.21 Third-degree perineal laceration, delivered, with or without mention of antepartum condition
+			664.24 Third-degree perineal laceration, postpartum condition or complication
+			664.3 Fourth-degree perineal laceration during delivery
+			664.30 Fourth-degree perineal laceration, unspecified as to episode of care or not applicable
+			664.31 Fourth-degree perineal laceration, delivered, with or without mention of antepartum condition
+			664.34 Fourth-degree perineal laceration, postpartum condition or complication
+			664.4 Unspecified perineal laceration during delivery
+			664.40 Unspecified perineal laceration, unspecified as to episode of care or not applicable
+			664.41 Unspecified perineal laceration, delivered, with or without mention of antepartum condition
+			664.44 Unspecified perineal laceration, postpartum condition or complication
+			664.5 Vulvar and perineal hematoma during delivery
+			664.50 Vulvar and perineal hematoma, unspecified as to episode of care or not applicable
+			664.51 Vulvar and perineal hematoma, delivered, with or without mention of antepartum condition
+			664.54 Vulvar and perineal hematoma, postpartum condition or complication
+			664.6 Anal sphincter tear complicating delivery, not associated with third-degree perineal laceration
+			664.60 Anal sphincter tear complicating delivery, not associated with third-degree perineal laceration, unspecified as to episode of care or not applicable
+			664.61 Anal sphincter tear complicating delivery, not associated with third-degree perineal laceration, delivered, with or without mention of antepartum condition
+			664.64 Anal sphincter tear complicating delivery, not associated with third-degree perineal laceration, postpartum condition or complication
+			664.8 Other specified trauma to perineum and vulva during delivery
+			664.80 Other specified trauma to perineum and vulva, unspecified as to episode of care or not applicable
+			664.81 Other specified trauma to perineum and vulva, delivered, with or without mention of antepartum condition
+			664.84 Other specified trauma to perineum and vulva, postpartum condition or complication
+			664.9 Unspecified trauma to perineum and vulva during delivery
+			664.90 Unspecified trauma to perineum and vulva, unspecified as to episode of care or not applicable
+			664.91 Unspecified trauma to perineum and vulva, delivered, with or without mention of antepartum condition
+			664.94 Unspecified trauma to perineum and vulva, postpartum condition or complication
+		665 Other obstetrical trauma
+			665 Other obstetrical trauma
+			665.0 Rupture of uterus before onset of labor
+			665.00 Rupture of uterus before onset of labor, unspecified as to episode of care or not applicable
+			665.01 Rupture of uterus before onset of labor, delivered, with or without mention of antepartum condition
+			665.03 Rupture of uterus before onset of labor, antepartum condition or complication
+			665.1 Rupture of uterus during labor
+			665.10 Rupture of uterus during labor, unspecified as to episode of care or not applicable
+			665.11 Rupture of uterus during labor, delivered, with or without mention of antepartum condition
+			665.2 Obstetrical inversion of uterus
+			665.20 Inversion of uterus, unspecified as to episode of care or not applicable
+			665.22 Inversion of uterus, delivered, with mention of postpartum complication
+			665.24 Inversion of uterus, postpartum condition or complication
+			665.3 Obstetrical laceration of cervix
+			665.30 Laceration of cervix, unspecified as to episode of care or not applicable
+			665.31 Laceration of cervix, delivered, with or without mention of antepartum condition
+			665.34 Laceration of cervix, postpartum condition or complication
+			665.4 High vaginal laceration during and after labor
+			665.40 High vaginal laceration, unspecified as to episode of care or not applicable
+			665.41 High vaginal laceration, delivered, with or without mention of antepartum condition
+			665.44 High vaginal laceration, postpartum condition or complication
+			665.5 Other obstetrical injury to pelvic organs
+			665.50 Other injury to pelvic organs, unspecified as to episode of care or not applicable
+			665.51 Other injury to pelvic organs, delivered, with or without mention of antepartum condition
+			665.54 Other injury to pelvic organs, postpartum condition or complication
+			665.6 Obstetrical damage to pelvic joints and ligaments
+			665.60 Damage to pelvic joints and ligaments, unspecified as to episode of care or not applicable
+			665.61 Damage to pelvic joints and ligaments, delivered, with or without mention of antepartum condition
+			665.64 Damage to pelvic joints and ligaments, postpartum condition or complication
+			665.7 Obstetrical pelvic hematoma
+			665.70 Pelvic hematoma, unspecified as to episode of care or not applicable
+			665.71 Pelvic hematoma, delivered, with or without mention of antepartum condition
+			665.72 Pelvic hematoma, delivered with mention of postpartum complication
+			665.74 Pelvic hematoma, postpartum condition or complication
+			665.8 Other specified obstetrical trauma
+			665.80 Other specified obstetrical trauma, unspecified as to episode of care or not applicable
+			665.81 Other specified obstetrical trauma, delivered, with or without mention of antepartum condition
+			665.82 Other specified obstetrical trauma, delivered, with mention of postpartum complication
+			665.83 Other specified obstetrical trauma, antepartum condition or complication
+			665.84 Other specified obstetrical trauma, postpartum condition or complication
+			665.9 Unspecified obstetrical trauma
+			665.90 Unspecified obstetrical trauma, unspecified as to episode of care or not applicable
+			665.91 Unspecified obstetrical trauma, delivered, with or without mention of antepartum condition
+			665.92 Unspecified obstetrical trauma, delivered, with mention of postpartum complication
+			665.93 Unspecified obstetrical trauma, antepartum condition or complication
+			665.94 Unspecified obstetrical trauma, postpartum condition or complication
+		666 Postpartum hemorrhage
+			666 Postpartum hemorrhage
+			666.0 Third-stage postpartum hemorrhage
+			666.00 Third-stage postpartum hemorrhage, unspecified as to episode of care or not applicable
+			666.02 Third-stage postpartum hemorrhage, delivered, with mention of postpartum complication
+			666.04 Third-stage postpartum hemorrhage, postpartum condition or complication
+			666.1 Other immediate postpartum hemorrhage
+			666.10 Other immediate postpartum hemorrhage, unspecified as to episode of care or not applicable
+			666.12 Other immediate postpartum hemorrhage, delivered, with mention of postpartum complication
+			666.14 Other immediate postpartum hemorrhage, postpartum condition or complication
+			666.2 Delayed and secondary postpartum hemorrhage
+			666.20 Delayed and secondary postpartum hemorrhage, unspecified as to episode of care or not applicable
+			666.22 Delayed and secondary postpartum hemorrhage, delivered, with mention of postpartum complication
+			666.24 Delayed and secondary postpartum hemorrhage, postpartum condition or complication
+			666.3 Postpartum coagulation defects
+			666.30 Postpartum coagulation defects, unspecified as to episode of care or not applicable
+			666.32 Postpartum coagulation defects, delivered, with mention of postpartum complication
+			666.34 Postpartum coagulation defects, postpartum condition or complication
+		667 Retained placenta or membranes without hemorrhage
+			667 Retained placenta or membranes without hemorrhage
+			667.0 Retained placenta without hemorrhage
+			667.00 Retained placenta without hemorrhage, unspecified as to episode of care or not applicable
+			667.02 Retained placenta without hemorrhage, delivered, with mention of postpartum complication
+			667.04 Retained placenta without hemorrhage, postpartum condition or complication
+			667.1 Retained portions of placenta or membranes without hemorrhage
+			667.10 Retained portions of placenta or membranes, without hemorrhage, unspecified as to episode of care or not applicable
+			667.12 Retained portions of placenta or membranes, without hemorrhage, delivered, with mention of postpartum complication
+			667.14 Retained portions of placenta or membranes, without hemorrhage, postpartum condition or complication
+		668 Complications of the administration of anesthetic or other sedation in labor and delivery
+			668 Complications of the administration of anesthetic or other sedation in labor and delivery
+			668.0 Pulmonary complications of anesthesia or other sedation in labor and delivery
+			668.00 Pulmonary complications of anesthesia or other sedation in labor and delivery, unspecified as to episode of care or not applicable
+			668.01 Pulmonary complications of anesthesia or other sedation in labor and delivery, delivered, with or without mention of antepartum condition
+			668.02 Pulmonary complications of anesthesia or other sedation in labor and delivery, delivered, with mention of postpartum complication
+			668.03 Pulmonary complications of anesthesia or other sedation in labor and delivery, antepartum condition or complication
+			668.04 Pulmonary complications of anesthesia or other sedation in labor and delivery, postpartum condition or complication
+			668.1 Cardiac complications of anesthesia or other sedation in labor and delivery
+			668.10 Cardiac complications of anesthesia or other sedation in labor and delivery, unspecified as to episode of care or not applicable
+			668.11 Cardiac complications of anesthesia or other sedation in labor and delivery, delivered, with or without mention of antepartum condition
+			668.12 Cardiac complications of anesthesia or other sedation in labor and delivery, delivered, with mention of postpartum complication
+			668.13 Cardiac complications of anesthesia or other sedation in labor and delivery, antepartum condition or complication
+			668.14 Cardiac complications of anesthesia or other sedation in labor and delivery, postpartum condition or complication
+			668.2 Central nervous system complications of anesthesia or other sedation in labor and delivery
+			668.20 Central nervous system complications of anesthesia or other sedation in labor and delivery, unspecified as to episode of care or not applicable
+			668.21 Central nervous system complications of anesthesia or other sedation in labor and delivery, delivered, with or without mention of antepartum condition
+			668.22 Central nervous system complications of anesthesia or other sedation in labor and delivery, delivered, with mention of postpartum complication
+			668.23 Central nervous system complications of anesthesia or other sedation in labor and delivery, antepartum condition or complication
+			668.24 Central nervous system complications of anesthesia or other sedation in labor and delivery, postpartum condition or complication
+			668.8 Other complications of anesthesia or other sedation in labor and delivery
+			668.80 Other complications of anesthesia or other sedation in labor and delivery, unspecified as to episode of care or not applicable
+			668.81 Other complications of anesthesia or other sedation in labor and delivery, delivered, with or without mention of antepartum condition
+			668.82 Other complications of anesthesia or other sedation in labor and delivery, delivered, with mention of postpartum complication
+			668.83 Other complications of anesthesia or other sedation in labor and delivery, antepartum condition or complication
+			668.84 Other complications of anesthesia or other sedation in labor and delivery, postpartum condition or complication
+			668.9 Unspecified complication of anesthesia or other sedation in labor and delivery
+			668.90 Unspecified complication of anesthesia and other sedation in labor and delivery, unspecified as to episode of care or not applicable
+			668.91 Unspecified complication of anesthesia and other sedation in labor and delivery, delivered, with or without mention of antepartum condition
+			668.92 Unspecified complication of anesthesia and other sedation in labor and delivery, delivered, with mention of postpartum complication
+			668.93 Unspecified complication of anesthesia and other sedation in labor and delivery, antepartum condition or complication
+			668.94 Unspecified complication of anesthesia and other sedation in labor and delivery, postpartum condition or complication
+		669 Other complications of labor and delivery not elsewhere classified
+			669 Other complications of labor and delivery not elsewhere classified
+			669.0 Maternal distress
+			669.00 Maternal distress complicating labor and delivery, unspecified as to episode of care or not applicable
+			669.01 Maternal distress complicating labor and delivery, delivered, with or without mention of antepartum condition
+			669.02 Maternal distress complicating labor and delivery, delivered, with mention of postpartum complication
+			669.03 Maternal distress complicating labor and delivery, antepartum condition or complication
+			669.04 Maternal distress complicating labor and delivery, postpartum condition or complication
+			669.1 Obstetric shock
+			669.10 Shock during or following labor and delivery, unspecified as to episode of care or not applicable
+			669.11 Shock during or following labor and delivery, delivered, with or without mention of antepartum condition
+			669.12 Shock during or following labor and delivery, delivered, with mention of postpartum complication
+			669.13 Shock during or following labor and delivery, antepartum condition or complication
+			669.14 Shock during or following labor and delivery, postpartum condition or complication
+			669.2 Maternal hypotension syndrome
+			669.20 Maternal hypotension syndrome, unspecified as to episode of care or not applicable
+			669.21 Maternal hypotension syndrome, delivered, with or without mention of antepartum condition
+			669.22 Maternal hypotension syndrome, delivered, with mention of postpartum complication
+			669.23 Maternal hypotension syndrome, antepartum condition or complication
+			669.24 Maternal hypotension syndrome, postpartum condition or complication
+			669.3 Acute kidney failure following labor and delivery
+			669.30 Acute kidney failure following labor and delivery, unspecified as to episode of care or not applicable
+			669.32 Acute kidney failure following labor and delivery, delivered, with mention of postpartum complication
+			669.34 Acute kidney failure following labor and delivery, postpartum condition or complication
+			669.4 Other complications of obstetrical surgery and procedures
+			669.40 Other complications of obstetrical surgery and procedures, unspecified as to episode of care or not applicable
+			669.41 Other complications of obstetrical surgery and procedures, delivered, with or without mention of antepartum condition
+			669.42 Other complications of obstetrical surgery and procedures, delivered, with mention of postpartum complication
+			669.43 Other complications of obstetrical surgery and procedures, antepartum condition or complication
+			669.44 Other complications of obstetrical surgery and procedures, postpartum condition or complication
+			669.5 Forceps or vacuum extractor delivery without mention of indication
+			669.50 Forceps or vacuum extractor delivery without mention of indication, unspecified as to episode of care or not applicable
+			669.51 Forceps or vacuum extractor delivery without mention of indication, delivered, with or without mention of antepartum condition
+			669.6 Breech extraction without mention of indication
+			669.60 Breech extraction, without mention of indication, unspecified as to episode of care or not applicable
+			669.61 Breech extraction, without mention of indication, delivered, with or without mention of antepartum condition
+			669.7 Cesarean delivery without mention of indication
+			669.70 Cesarean delivery, without mention of indication, unspecified as to episode of care or not applicable
+			669.71 Cesarean delivery, without mention of indication, delivered, with or without mention of antepartum condition
+			669.8 Other complications of labor and delivery
+			669.80 Other complications of labor and delivery, unspecified as to episode of care or not applicable
+			669.81 Other complications of labor and delivery, delivered, with or without mention of antepartum condition
+			669.82 Other complications of labor and delivery, delivered, with mention of postpartum complication
+			669.83 Other complications of labor and delivery, antepartum condition or complication
+			669.84 Other complications of labor and delivery, postpartum condition or complication
+			669.9 Unspecified complication of labor and delivery
+			669.90 Unspecified complication of labor and delivery, unspecified as to episode of care or not applicable
+			669.91 Unspecified complication of labor and delivery, delivered, with or without mention of antepartum condition
+			669.92 Unspecified complication of labor and delivery, delivered, with mention of postpartum complication
+			669.93 Unspecified complication of labor and delivery, antepartum condition or complication
+			669.94 Unspecified complication of labor and delivery, postpartum condition or complication
+	670-677 Complications Of The Puerperium
+		670 Major puerperal infection
+			670 Major puerperal infection
+			670.0 Major puerperal infection, unspecified
+			670.00 Major puerperal infection, unspecified as to episode of care or not applicable
+			670.02 Major puerperal infection, delivered, with mention of postpartum complication
+			670.04 Major puerperal infection, postpartum condition or complication
+			670.1 Puerperal endometritis
+			670.10 Puerperal endometritis, unspecified as to episode of care or not applicable
+			670.12 Puerperal endometritis, delivered, with mention of postpartum complication
+			670.14 Puerperal endometritis, postpartum condition or complication
+			670.2 Puerperal sepsis
+			670.20 Puerperal sepsis, unspecified as to episode of care or not applicable
+			670.22 Puerperal sepsis, delivered, with mention of postpartum complication
+			670.24 Puerperal sepsis, postpartum condition or complication
+			670.3 Puerperal septic thrombophlebitis
+			670.30 Puerperal septic thrombophlebitis, unspecified as to episode of care or not applicable
+			670.32 Puerperal septic thrombophlebitis, delivered, with mention of postpartum complication
+			670.34 Puerperal septic thrombophlebitis, postpartum condition or complication
+			670.8 Other major puerperal infection
+			670.80 Other major puerperal infection, unspecified as to episode of care or not applicable
+			670.82 Other major puerperal infection, delivered, with mention of postpartum complication
+			670.84 Other major puerperal infection, postpartum condition or complication
+		671 Venous complications in pregnancy and the puerperium
+			671 Venous complications in pregnancy and the puerperium
+			671.0 Varicose veins of legs in pregnancy and the puerperium
+			671.00 Varicose veins of legs complicating pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.01 Varicose veins of legs complicating pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.02 Varicose veins of legs complicating pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.03 Varicose veins of legs complicating pregnancy and the puerperium, antepartum condition or complication
+			671.04 Varicose veins of legs complicating pregnancy and the puerperium, postpartum condition or complication
+			671.1 Varicose veins of vulva and perineum in pregnancy and the puerperium
+			671.10 Varicose veins of vulva and perineum complicating pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.11 Varicose veins of vulva and perineum complicating pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.12 Varicose veins of vulva and perineum complicating pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.13 Varicose veins of vulva and perineum complicating pregnancy and the puerperium, antepartum condition or complication
+			671.14 Varicose veins of vulva and perineum complicating pregnancy and the puerperium, postpartum condition or complication
+			671.2 Superficial thrombophlebitis in pregnancy and the puerperium
+			671.20 Superficial thrombophlebitis complicating pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.21 Superficial thrombophlebitis complicating pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.22 Superficial thrombophlebitis complicating pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.23 Superficial thrombophlebitis complicating pregnancy and the puerperium, antepartum condition or complication
+			671.24 Superficial thrombophlebitis complicating pregnancy and the puerperium, postpartum condition or complication
+			671.3 Deep phlebothrombosis antepartum
+			671.30 Deep phlebothrombosis, antepartum, unspecified as to episode of care or not applicable
+			671.31 Deep phlebothrombosis, antepartum, delivered, with or without mention of antepartum condition
+			671.33 Deep phlebothrombosis, antepartum, antepartum condition or complication
+			671.4 Deep phlebothrombosis postpartum
+			671.40 Deep phlebothrombosis, postpartum, unspecified as to episode of care or not applicable
+			671.42 Deep phlebothrombosis, postpartum, delivered, with mention of postpartum complication
+			671.44 Deep phlebothrombosis, postpartum, postpartum condition or complication
+			671.5 Other phlebitis and thrombosis in pregnancy and the puerperium
+			671.50 Other phlebitis and thrombosis complicating pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.51 Other phlebitis and thrombosis complicating pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.52 Other phlebitis and thrombosis complicating pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.53 Other phlebitis and thrombosis complicating pregnancy and the puerperium, antepartum condition or complication
+			671.54 Other phlebitis and thrombosis complicating pregnancy and the puerperium, postpartum condition or complication
+			671.8 Other venous complications in pregnancy and the puerperium
+			671.80 Other venous complications of pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.81 Other venous complications of pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.82 Other venous complications of pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.83 Other venous complications of pregnancy and the puerperium, antepartum condition or complication
+			671.84 Other venous complications of pregnancy and the puerperium, postpartum condition or complication
+			671.9 Unspecified venous complication in pregnancy and the puerperium
+			671.90 Unspecified venous complication of pregnancy and the puerperium, unspecified as to episode of care or not applicable
+			671.91 Unspecified venous complication of pregnancy and the puerperium, delivered, with or without mention of antepartum condition
+			671.92 Unspecified venous complication of pregnancy and the puerperium, delivered, with mention of postpartum complication
+			671.93 Unspecified venous complication of pregnancy and the puerperium, antepartum condition or complication
+			671.94 Unspecified venous complication of pregnancy and the puerperium, postpartum condition or complication
+		672 Pyrexia of unknown origin during the puerperium
+			672 Pyrexia of unknown origin during the puerperium
+			672.0 Pyrexia of unknown origin during the puerperium
+			672.00 Pyrexia of unknown origin during the puerperium, unspecified as to episode of care or not applicable
+			672.02 Pyrexia of unknown origin during the puerperium, delivered, with mention of postpartum complication
+			672.04 Pyrexia of unknown origin during the puerperium, postpartum condition or complication
+		673 Obstetrical pulmonary embolism
+			673 Obstetrical pulmonary embolism
+			673.0 Obstetrical air embolism
+			673.00 Obstetrical air embolism, unspecified as to episode of care or not applicable
+			673.01 Obstetrical air embolism, delivered, with or without mention of antepartum condition
+			673.02 Obstetrical air embolism, delivered, with mention of postpartum complication
+			673.03 Obstetrical air embolism, antepartum condition or complication
+			673.04 Obstetrical air embolism, postpartum condition or complication
+			673.1 Amniotic fluid embolism
+			673.10 Amniotic fluid embolism, unspecified as to episode of care or not applicable
+			673.11 Amniotic fluid embolism, delivered, with or without mention of antepartum condition
+			673.12 Amniotic fluid embolism, delivered, with mention of postpartum complication
+			673.13 Amniotic fluid embolism, antepartum condition or complication
+			673.14 Amniotic fluid embolism, postpartum condition or complication
+			673.2 Obstetrical blood-clot embolism
+			673.20 Obstetrical blood-clot embolism, unspecified as to episode of care or not applicable
+			673.21 Obstetrical blood-clot embolism, delivered, with or without mention of antepartum condition
+			673.22 Obstetrical blood-clot embolism, delivered, with mention of postpartum complication
+			673.23 Obstetrical blood-clot embolism, antepartum condition or complication
+			673.24 Obstetrical blood-clot embolism, postpartum condition or complication
+			673.3 Obstetrical pyemic and septic embolism
+			673.30 Obstetrical pyemic and septic embolism, unspecified as to episode of care or not applicable
+			673.31 Obstetrical pyemic and septic embolism, delivered, with or without mention of antepartum condition
+			673.32 Obstetrical pyemic and septic embolism, delivered, with mention of postpartum complication
+			673.33 Obstetrical pyemic and septic embolism, antepartum condition or complication
+			673.34 Obstetrical pyemic and septic embolism, postpartum condition or complication
+			673.8 Other obstetrical pulmonary embolism
+			673.80 Other obstetrical pulmonary embolism, unspecified as to episode of care or not applicable
+			673.81 Other obstetrical pulmonary embolism, delivered, with or without mention of antepartum condition
+			673.82 Other obstetrical pulmonary embolism, delivered, with mention of postpartum complication
+			673.83 Other obstetrical pulmonary embolism, antepartum condition or complication
+			673.84 Other obstetrical pulmonary embolism, postpartum condition or complication
+		674 Other and unspecified complications of the puerperium not elsewhere classified
+			674 Other and unspecified complications of the puerperium not elsewhere classified
+			674.0 Cerebrovascular disorders in the puerperium
+			674.00 Cerebrovascular disorders in the puerperium, unspecified as to episode of care or not applicable
+			674.01 Cerebrovascular disorders in the puerperium, delivered, with or without mention of antepartum condition
+			674.02 Cerebrovascular disorders in the puerperium, delivered, with mention of postpartum complication
+			674.03 Cerebrovascular disorders in the puerperium, antepartum condition or complication
+			674.04 Cerebrovascular disorders in the puerperium, postpartum condition or complication
+			674.1 Disruption of cesarean wound
+			674.10 Disruption of cesarean wound, unspecified as to episode of care or not applicable
+			674.12 Disruption of cesarean wound, delivered, with mention of postpartum complication
+			674.14 Disruption of cesarean wound, postpartum condition or complication
+			674.2 Disruption of obstetrical perineal wound
+			674.20 Disruption of perineal wound, unspecified as to episode of care or not applicable
+			674.22 Disruption of perineal wound, delivered, with mention of postpartum complication
+			674.24 Disruption of perineal wound, postpartum condition or complication
+			674.3 Other complications of obstetrical surgical wounds
+			674.30 Other complications of obstetrical surgical wounds, unspecified as to episode of care or not applicable
+			674.32 Other complications of obstetrical surgical wounds, delivered, with mention of postpartum complication
+			674.34 Other complications of obstetrical surgical wounds, postpartum condition or complication
+			674.4 Placental polyp
+			674.40 Placental polyp, unspecified as to episode of care or not applicable
+			674.42 Placental polyp, delivered, with mention of postpartum complication
+			674.44 Placental polyp, postpartum condition or complication
+			674.5 Peripartum cardiomyopathy
+			674.50 Peripartum cardiomyopathy, unspecified as to episode of care or not applicable
+			674.51 Peripartum cardiomyopathy, delivered, with or without mention of antepartum condition
+			674.52 Peripartum cardiomyopathy, delivered, with mention of postpartum condition
+			674.53 Peripartum cardiomyopathy, antepartum condition or complication
+			674.54 Peripartum cardiomyopathy, postpartum condition or complication
+			674.8 Other complications of the puerperium
+			674.80 Other complications of puerperium, unspecified as to episode of care or not applicable
+			674.82 Other complications of puerperium, delivered, with mention of postpartum complication
+			674.84 Other complications of puerperium, postpartum condition or complication
+			674.9 Unspecified complications of the puerperium
+			674.90 Unspecified complications of puerperium, unspecified as to episode of care or not applicable
+			674.92 Unspecified complications of puerperium, delivered, with mention of postpartum complication
+			674.94 Unspecified complications of puerperium, postpartum condition or complication
+		675 Infections of the breast and nipple associated with childbirth
+			675 Infections of the breast and nipple associated with childbirth
+			675.0 Infections of nipple associated with childbirth
+			675.00 Infections of nipple associated with childbirth, unspecified as to episode of care or not applicable
+			675.01 Infections of nipple associated with childbirth, delivered, with or without mention of antepartum condition
+			675.02 Infections of nipple associated with childbirth, delivered, with mention of postpartum complication
+			675.03 Infections of nipple associated with childbirth, antepartum condition or complication
+			675.04 Infections of nipple associated with childbirth, postpartum condition or complication
+			675.1 Abscess of breast associated with childbirth
+			675.10 Abscess of breast associated with childbirth, unspecified as to episode of care or not applicable
+			675.11 Abscess of breast associated with childbirth, delivered, with or without mention of antepartum condition
+			675.12 Abscess of breast associated with childbirth, delivered, with mention of postpartum complication
+			675.13 Abscess of breast associated with childbirth, antepartum condition or complication
+			675.14 Abscess of breast associated with childbirth, postpartum condition or complication
+			675.2 Nonpurulent mastitis associated with childbirth
+			675.20 Nonpurulent mastitis associated with childbirth, unspecified as to episode of care or not applicable
+			675.21 Nonpurulent mastitis associated with childbirth, delivered, with or without mention of antepartum condition
+			675.22 Nonpurulent mastitis associated with childbirth, delivered, with mention of postpartum complication
+			675.23 Nonpurulent mastitis associated with childbirth, antepartum condition or complication
+			675.24 Nonpurulent mastitis associated with childbirth, postpartum condition or complication
+			675.8 Other specified infections of the breast and nipple associated with childbirth
+			675.80 Other specified infections of the breast and nipple associated with childbirth, unspecified as to episode of care or not applicable
+			675.81 Other specified infections of the breast and nipple associated with childbirth, delivered, with or without mention of antepartum condition
+			675.82 Other specified infections of the breast and nipple associated with childbirth, delivered, with mention of postpartum complication
+			675.83 Other specified infections of the breast and nipple associated with childbirth, antepartum condition or complication
+			675.84 Other specified infections of the breast and nipple associated with childbirth, postpartum condition or complication
+			675.9 Unspecified infection of the breast and nipple associated with childbirth
+			675.90 Unspecified infection of the breast and nipple associated with childbirth, unspecified as to episode of care or not applicable
+			675.91 Unspecified infection of the breast and nipple associated with childbirth, delivered, with or without mention of antepartum condition
+			675.92 Unspecified infection of the breast and nipple associated with childbirth, delivered, with mention of postpartum complication
+			675.93 Unspecified infection of the breast and nipple associated with childbirth, antepartum condition or complication
+			675.94 Unspecified infection of the breast and nipple associated with childbirth, postpartum condition or complication
+		676 Other disorders of the breast associated with childbirth and disorders of lactation
+			676 Other disorders of the breast associated with childbirth and disorders of lactation
+			676.0 Retracted nipple associated with childbirth
+			676.00 Retracted nipple associated with childbirth, unspecified as to episode of care or not applicable
+			676.01 Retracted nipple associated with childbirth, delivered, with or without mention of antepartum condition
+			676.02 Retracted nipple associated with childbirth, delivered, with mention of postpartum complication
+			676.03 Retracted nipple associated with childbirth, antepartum condition or complication
+			676.04 Retracted nipple associated with childbirth, postpartum condition or complication
+			676.1 Cracked nipple associated with childbirth
+			676.10 Cracked nipple associated with childbirth, unspecified as to episode of care or not applicable
+			676.11 Cracked nipple associated with childbirth, delivered, with or without mention of antepartum condition
+			676.12 Cracked nipple associated with childbirth, delivered, with mention of postpartum complication
+			676.13 Cracked nipple associated with childbirth, antepartum condition or complication
+			676.14 Cracked nipple associated with childbirth, postpartum condition or complication
+			676.2 Engorgement of breasts associated with childbirth
+			676.20 Engorgement of breasts associated with childbirth, unspecified as to episode of care or not applicable
+			676.21 Engorgement of breasts associated with childbirth, delivered, with or without mention of antepartum condition
+			676.22 Engorgement of breasts associated with childbirth, delivered, with mention of postpartum complication
+			676.23 Engorgement of breasts associated with childbirth, antepartum condition or complication
+			676.24 Engorgement of breasts associated with childbirth, postpartum condition or complication
+			676.3 Other and unspecified disorder of breast associated with childbirth
+			676.30 Other and unspecified disorder of breast associated with childbirth, unspecified as to episode of care or not applicable
+			676.31 Other and unspecified disorder of breast associated with childbirth, delivered, with or without mention of antepartum condition
+			676.32 Other and unspecified disorder of breast associated with childbirth, delivered, with mention of postpartum complication
+			676.33 Other and unspecified disorder of breast associated with childbirth, antepartum condition or complication
+			676.34 Other and unspecified disorder of breast associated with childbirth, postpartum condition or complication
+			676.4 Failure of lactation
+			676.40 Failure of lactation, unspecified as to episode of care or not applicable
+			676.41 Failure of lactation, delivered, with or without mention of antepartum condition
+			676.42 Failure of lactation, delivered, with mention of postpartum complication
+			676.43 Failure of lactation, antepartum condition or complication
+			676.44 Failure of lactation, postpartum condition or complication
+			676.5 Suppressed lactation
+			676.50 Suppressed lactation, unspecified as to episode of care or not applicable
+			676.51 Suppressed lactation, delivered, with or without mention of antepartum condition
+			676.52 Suppressed lactation, delivered, with mention of postpartum complication
+			676.53 Suppressed lactation, antepartum condition or complication
+			676.54 Suppressed lactation, postpartum condition or complication
+			676.6 Galactorrhea
+			676.60 Galactorrhea associated with childbirth, unspecified as to episode of care or not applicable
+			676.61 Galactorrhea associated with childbirth, delivered, with or without mention of antepartum condition
+			676.62 Galactorrhea associated with childbirth, delivered, with mention of postpartum complication
+			676.63 Galactorrhea associated with childbirth, antepartum condition or complication
+			676.64 Galactorrhea associated with childbirth, postpartum condition or complication
+			676.8 Other disorders of lactation
+			676.80 Other disorders of lactation, unspecified as to episode of care or not applicable
+			676.81 Other disorders of lactation, delivered, with or without mention of antepartum condition
+			676.82 Other disorders of lactation, delivered, with mention of postpartum complication
+			676.83 Other disorders of lactation, antepartum condition or complication
+			676.84 Other disorders of lactation, postpartum condition or complication
+			676.9 Unspecified disorder of lactation
+			676.90 Unspecified disorder of lactation, unspecified as to episode of care or not applicable
+			676.91 Unspecified disorder of lactation, delivered, with or without mention of antepartum condition
+			676.92 Unspecified disorder of lactation, delivered, with mention of postpartum complication
+			676.93 Unspecified disorder of lactation, antepartum condition or complication
+			676.94 Unspecified disorder of lactation, postpartum condition or complication
+		677 Late effect of complication of pregnancy, childbirth, and the puerperium
+			677 Late effect of complication of pregnancy, childbirth, and the puerperium
+	678-679 Other Maternal And Fetal Complications
+		678 Other fetal conditions
+			678 Other fetal conditions
+			678.0 Fetal hematologic conditions
+			678.00 Fetal hematologic conditions, unspecified as to episode of care or not applicable
+			678.01 Fetal hematologic conditions, delivered, with or without mention of antepartum condition
+			678.03 Fetal hematologic conditions, antepartum condition or complication
+			678.1 Fetal conjoined twins
+			678.10 Fetal conjoined twins, unspecified as to episode of care or not applicable
+			678.11 Fetal conjoined twins, delivered, with or without mention of antepartum condition
+			678.13 Fetal conjoined twins, antepartum condition or complication
+		679 Complications of in utero procedures
+			679 Complications of in utero procedures
+			679.0 Maternal complications from in utero procedures
+			679.00 Maternal complications from in utero procedure, unspecified as to episode of care or not applicable
+			679.01 Maternal complications from in utero procedure, delivered, with or without mention of antepartum condition
+			679.02 Maternal complications from in utero procedure, delivered, with mention of postpartum complication
+			679.03 Maternal complications from in utero procedure, antepartum condition or complication
+			679.04 Maternal complications from in utero procedure, postpartum condition or complication
+			679.1 Fetal complications from in utero procedures
+			679.10 Fetal complications from in utero procedure, unspecified as to episode of care or not applicable
+			679.11 Fetal complications from in utero procedure, delivered, with or without mention of antepartum condition
+			679.12 Fetal complications from in utero procedure, delivered, with mention of postpartum complication
+			679.13 Fetal complications from in utero procedure, antepartum condition or complication
+			679.14 Fetal complications from in utero procedure, postpartum condition or complication

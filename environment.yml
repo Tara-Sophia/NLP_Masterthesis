@@ -1,5 +1,6 @@
 name: nlp_masterthesis
 channels:
+  - anaconda
   - conda-forge
   - defaults
 dependencies:

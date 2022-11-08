@@ -16,4 +16,4 @@ This is the data that has been transformed using various machine learning techni
 
 ### Raw
 
-Storing the raw data to further transform it. All data from the hospital will be stored here. This data should be considered immutable
+Storing the raw data to further transform it. All data from the hospital will be stored here. This data should be considered immutable.
