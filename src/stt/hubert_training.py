@@ -7,6 +7,7 @@ Usage:
     $ python src/data/hubert_training.py
 """
 import os
+import sys
 
 import torch
 from constants import (
@@ -18,8 +19,8 @@ from constants import (
     HUBERT_NUM_EPOCHS,
     PROCESSED_DIR,
     VOCAB_DIR,
+    SRC_DIR,
 )
-from decorators import log_function_name
 from transformers import HubertForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
@@ -30,8 +31,11 @@ from utils import (
     load_trainer,
     load_training_args,
 )
-
 import wandb
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
+
 
 wandb.init(
     project="speech-to-text",

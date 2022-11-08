@@ -10,6 +10,7 @@ Usage:
     $ python src/data/create_speech_data.py
 """
 import os
+import sys
 import shutil
 
 import librosa
@@ -19,9 +20,12 @@ from constants import (
     RAW_DATA_DIR,
     RAW_RECORDINGS_DIR,
     RECORDINGS_FILE,
+    SRC_DIR,
 )
-from decorators import log_function_name
 from sklearn.model_selection import train_test_split
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 
 def get_wav_file_duration(file_path: str) -> float:

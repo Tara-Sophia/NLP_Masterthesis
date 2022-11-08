@@ -4,6 +4,7 @@ Description:
     Helper functions that are used in multiple places
 """
 import os
+import sys
 from typing import Optional, Union
 
 import numpy as np
@@ -14,9 +15,9 @@ from constants import (
     SAMPLING_RATE,
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
+    SRC_DIR,
 )
 from datasets import Dataset
-from decorators import log_function_name
 from evaluate import load
 from transformers import (
     EarlyStoppingCallback,
@@ -31,6 +32,9 @@ from transformers import (
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
 )
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 
 @log_function_name

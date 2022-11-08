@@ -8,13 +8,21 @@ Usage:
     $ python src/data/analyze_data.py
 """
 import os
+import sys
 
 import librosa
 import numpy as np
 import pandas as pd
-from constants import RAW_RECORDINGS_DIR, RECORDINGS_FILE, STT_REPORT
-from decorators import log_function_name
+from constants import (
+    RAW_RECORDINGS_DIR,
+    RECORDINGS_FILE,
+    STT_REPORT,
+    SRC_DIR,
+)
 from pandas_profiling import ProfileReport
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 # ! Todo
 # # Load files
