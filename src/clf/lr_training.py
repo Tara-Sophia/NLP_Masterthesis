@@ -1,40 +1,36 @@
+# -*- coding: utf-8 -*-
 """
 Description:
-    Training a logistic regression model for predicting probabilities of medical specialties
+    Training a logistic regression model 
+    for predicting probabilities of medical specialties
 """
-from array import array
-import pandas as pd
-import numpy as np
 import pickle
-import imblearn
-import os
 
+import imblearn
+import numpy as np
+import pandas as pd
+from constants import LR_MODEL_MASKED, TEST_DATA_DIR, TRAIN_DATA_DIR
+from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
+from utils import load_data, preprocessing_pipeline
 
-from sklearn.pipeline import Pipeline
-from imblearn.pipeline import Pipeline as imbPipeline
-
-from utils import load_data
-from utils import preprocessing_pipeline
-
-from constants import TRAIN_DATA_DIR
-from constants import TEST_DATA_DIR
-from constants import LR_MODEL_MASKED
 
 # Build pipeline
-def build_pipeline(pipeline: imblearn.pipeline.Pipeline) -> imblearn.pipeline.Pipeline:
+def build_pipeline(
+    pipeline: Pipeline,
+) -> Pipeline:
     """
     Build pipeline for model
 
     Parameters
     ----------
-    preprocessing_pipeline : imblearn.pipeline.Pipeline
+    preprocessing_pipeline : Pipeline
         pipeline with preprocessing steps
 
     Returns
     -------
-    imblearn.pipeline.Pipeline
+    Pipeline
         pipeline for model
     """
     pipeline.steps.append(
@@ -54,7 +50,9 @@ def build_pipeline(pipeline: imblearn.pipeline.Pipeline) -> imblearn.pipeline.Pi
 
 # Grid search and custom scorer with accuracy @k
 def custom_accuracy_function(
-    model, X_train: pd.core.series.Series, y_train: pd.core.series.Series
+    model,
+    X_train: pd.core.series.Series,
+    y_train: pd.core.series.Series,
 ) -> float:
     """
     Custom scorer with accuracy @3
@@ -107,7 +105,10 @@ def grid_search(
         best model
     """
     search = GridSearchCV(
-        model_pipeline, param_grid, cv=5, scoring=custom_accuracy_function
+        model_pipeline,
+        param_grid,
+        cv=5,
+        scoring=custom_accuracy_function,
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)

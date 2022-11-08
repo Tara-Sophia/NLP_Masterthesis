@@ -1,13 +1,14 @@
+# -*- coding: utf-8 -*-
 """
 Description:
    Helper functions that are used in multiple places
 """
-import os
-import pandas as pd
+
 import imblearn
+import pandas as pd
+from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as imbPipeline
 from sklearn.feature_extraction.text import CountVectorizer
-from imblearn.over_sampling import SMOTE
 
 
 def load_data(filepath):

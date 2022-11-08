@@ -1,15 +1,17 @@
+# -*- coding: utf-8 -*-
 """
 Description:
-   Loading data and transforming data to the format that can be used by the classifier.
+   Loading data and transforming data 
+   to the format that can be used by the classifier.
 """
 
-import os
-import pandas as pd
 import ast
+import os
+
+import pandas as pd
+from constants import RAW_DATA_DIR, X_MASKED
 from sklearn.model_selection import train_test_split
-from constants import RAW_DATA_DIR
-from constants import X_MASKED
-from constants import X_CLASSIFIED
+
 
 # transform input data for model
 def replace_tab(x):
@@ -55,8 +57,14 @@ def main():
     # Save data as csv
     train_df = pd.DataFrame({"keywords": X_train, "medical_specialty": y_train})
     test_df = pd.DataFrame({"keywords": X_test, "medical_specialty": y_test})
-    train_df.to_csv(os.path.join("data", "processed", "clf", "train.csv"), index=False)
-    test_df.to_csv(os.path.join("data", "processed", "clf", "test.csv"), index=False)
+    train_df.to_csv(
+        os.path.join("data", "processed", "clf", "train.csv"),
+        index=False,
+    )
+    test_df.to_csv(
+        os.path.join("data", "processed", "clf", "test.csv"),
+        index=False,
+    )
 
 
 if __name__ == "__main__":

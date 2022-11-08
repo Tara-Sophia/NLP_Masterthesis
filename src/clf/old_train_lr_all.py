@@ -3,35 +3,26 @@
 """
 Description:
     Training a logistic regression model for predicting probabilities of medical specialties
-    
+
 Usage:
-    
+
 Possible arguments:
-    * 
+    *
 """
-from array import array
-import pandas as pd
-import numpy as np
-import pickle
-import imblearn
-import os
 import ast
+import os
+import pickle
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, cross_validate
-from sklearn.model_selection import GridSearchCV
-
-from sklearn.pipeline import Pipeline
-from imblearn.pipeline import Pipeline as imbPipeline
-
-from sklearn.feature_extraction.text import CountVectorizer
-
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report
-from sklearn.metrics import make_scorer
-
+import imblearn
+import numpy as np
+import pandas as pd
 from imblearn.over_sampling import SMOTE
-from traitlets import List
+from imblearn.pipeline import Pipeline as imbPipeline
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.model_selection import GridSearchCV, train_test_split
+
 
 # load data
 def load_data(file_path: str) -> pd.DataFrame:
@@ -142,7 +133,9 @@ def fit_model(
 
 # Grid search and custom scorer with accuracy @k
 def custom_accuracy_function(
-    model, X_train: pd.core.series.Series, y_train: pd.core.series.Series
+    model,
+    X_train: pd.core.series.Series,
+    y_train: pd.core.series.Series,
 ) -> float:
     """
     Custom scorer with accuracy @3
@@ -195,7 +188,10 @@ def grid_search(
         best model
     """
     search = GridSearchCV(
-        model_pipeline, param_grid, cv=5, scoring=custom_accuracy_function
+        model_pipeline,
+        param_grid,
+        cv=5,
+        scoring=custom_accuracy_function,
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
@@ -251,7 +247,7 @@ def _reciprocal_rank(true_labels: list, machine_preds: list) -> float:
     # add index to list only if machine predicted label exists in true labels
     tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
 
-    rr = 0
+    rr = 0.0
     if len(tp_pos_list) > 0:
         # for RR we need position of first correct item
         first_pos_list = tp_pos_list[0]
@@ -276,7 +272,7 @@ def compute_mrr_at_k(items: list) -> float:
     float
         MRR @k
     """
-    rr_total = 0
+    rr_total = 0.0
 
     for item in items:
         rr_at_k = _reciprocal_rank(item[0], item[1])
@@ -301,7 +297,6 @@ def compute_accuracy(eval_items: list) -> float:
         accuracy @k
     """
     correct = 0
-    total = 0
 
     for item in eval_items:
         true_pred = item[0]
@@ -338,7 +333,9 @@ def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
 
 
 def get_top_k_predictions(
-    model: imblearn.pipeline.Pipeline, X_test: pd.core.series.Series, k: int
+    model: imblearn.pipeline.Pipeline,
+    X_test: pd.core.series.Series,
+    k: int,
 ) -> list:
     """
     Get top k predictions for each test sample
@@ -372,7 +369,11 @@ def get_top_k_predictions(
 def main():
     # Load data
     file_path = os.path.join(
-        "data", "processed", "nlp", "mtsamples", "mtsamples_unsupervised_both_v2.csv"
+        "data",
+        "processed",
+        "nlp",
+        "mtsamples",
+        "mtsamples_unsupervised_both_v2.csv",
     )
     df = load_data(file_path)
     df = transform_column(df, "transcription_f_semisupervised")
