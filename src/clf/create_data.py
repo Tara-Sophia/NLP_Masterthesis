@@ -9,7 +9,7 @@ import ast
 import os
 
 import pandas as pd
-from constants import RAW_DATA_DIR, X_MASKED, X_CLASSIFIED
+from constants import RAW_DATA_DIR, X_CLASSIFIED, X_MASKED
 from sklearn.model_selection import train_test_split
 
 
@@ -50,9 +50,9 @@ def transform_column(
         dataframe with transformed column
     """
     if column_name == X_CLASSIFIED:
-        print(f"Transforming X_CLASSIFIED column")
+        print("Transforming X_CLASSIFIED column")
     elif column_name == X_MASKED:
-        print(f"Transforming X_MASKED column")
+        print("Transforming X_MASKED column")
 
     df[column_name] = df[column_name].apply(
         lambda x: ast.literal_eval(x)
