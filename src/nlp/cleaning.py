@@ -16,24 +16,24 @@ from nltk.stem import WordNetLemmatizer
 from constants import MTSAMPLES_RAW_PATH_DIR, MTSAMPLES_PROCESSED_PATH_DIR
 
 
-def convert(lst_kw):
-    """This function converts the keywords to a list of keywords"""
-    list_keywords = lst_kw.split(",")
-    return list_keywords
+# def convert(lst_kw):
+#     """This function converts the keywords to a list of keywords"""
+#     list_keywords = lst_kw.split(",")
+#     return list_keywords
 
 
-def location_indices(stringstext, check_list):
-    """this function finds the location of the keywords in the string"""
+# def location_indices(stringstext, check_list):
+#     """this function finds the location of the keywords in the string"""
 
-    res = dict()
-    for ele in check_list:
-        if ele in stringstext:
-            # getting front index
-            strt = stringstext.index(ele)
+#     res = dict()
+#     for ele in check_list:
+#         if ele in stringstext:
+#             # getting front index
+#             strt = stringstext.index(ele)
 
-            # getting ending index
-            res[ele] = [strt, strt + len(ele) - 1]
-    return res.values()
+#             # getting ending index
+#             res[ele] = [strt, strt + len(ele) - 1]
+#     return res.values()
 
 
 def cleaning_input(sentence):
@@ -74,8 +74,8 @@ def create_df(df):
     df["transcription"] = df["transcription"].apply(cleaning_input)
 
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
-    df["location"] = df.apply(
-        lambda x: location_indices(x.transcription, x.keywords_list), axis=1
+    # df["location"] = df.apply(
+    #     lambda x: location_indices(x.transcription, x.keywords_list), axis=1
     )
     return df
 
