@@ -15,6 +15,7 @@ Possible arguments:
     * -s or --save: Save dataframe to csv
 """
 
+import sys
 import json
 import re
 import unicodedata
@@ -23,6 +24,9 @@ import click
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
+
+sys.path.insert(0, "..")
+from decorators import log_function_name
 
 WIKIPEDIA_BASE = "https://en.wikipedia.org/wiki"
 
