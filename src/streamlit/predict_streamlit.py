@@ -14,6 +14,7 @@ import numpy as np
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 from lime.lime_text import LimeTextExplainer
+from constants import LR_MODEL_MASKED
 
 
 def predict_probability(model: imblearn.pipeline.Pipeline, value: str) -> pd.DataFrame:
@@ -108,8 +109,7 @@ def get_words(x, feat_importance):
 
 def main():
     # Load model
-    file_path = os.path.join("models", "clf", "lr_test_2.pkl")
-    model = pickle.load(open(file_path, "rb"))
+    model = pickle.load(open(LR_MODEL_MASKED, "rb"))
 
     # Predict probability
     to_pred = "coronary nitroglycerin muscle heart breast oxygen valve artery"

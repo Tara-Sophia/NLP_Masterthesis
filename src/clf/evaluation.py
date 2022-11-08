@@ -14,10 +14,12 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.metrics import make_scorer
 from utils import load_data
+from constants import TEST_DATA_DIR
+from constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def reciprocal_rank(true_labels: list, machine_preds: list) -> float:
+def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     """
     Compute the reciprocal rank at cutoff k
 
@@ -48,7 +50,7 @@ def reciprocal_rank(true_labels: list, machine_preds: list) -> float:
     return rr
 
 
-def compute_mrr_at_k(items: list) -> float:
+def compute_mrr_at_k(items: list[tuple[str, str]]) -> float:
     """
     Compute the MRR (average RR) at cutoff k
 
@@ -102,7 +104,7 @@ def compute_accuracy(eval_items: list) -> float:
     return accuracy
 
 
-def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
+def collect_preds(Y_test: pd.core.series.Series, Y_preds: list[str]) -> list:
     """
     Collect all predictions and ground truth
 
@@ -125,7 +127,7 @@ def collect_preds(Y_test: pd.core.series.Series, Y_preds: list) -> list:
 
 def get_top_k_predictions(
     model: imblearn.pipeline.Pipeline, X_test: pd.core.series.Series, k: int
-) -> list:
+) -> list[str]:
     """
     Get top k predictions for each test sample
 
@@ -157,21 +159,23 @@ def get_top_k_predictions(
 
 def main():
     # Load test data
-    test_file_path = os.path.join("data", "processed", "clf", "test.csv")
-    X_test, y_test = load_data(test_file_path)
+    X_test, y_test = load_data(TEST_DATA_DIR)
 
     # Load models
-    file_path = os.path.join("models", "clf", "lr_test_2.pkl")
-    lr_model = pickle.load(open(file_path, "rb"))
+    lr_model_classified = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
+    lr_model_masked = pickle.load(open(LR_MODEL_MASKED, "rb"))
+    # lr_model_mimic = pickle.load(open(LR_MODEL_MIMIC, "rb"))
 
-    # file_path = os.path.join("models", "clf", "rf_test.pkl")
-    # rf_model = load_model(file_path)
+    # rf_model_classified = pickle.load(open(RF_MODEL_CLASSIFIED, "rb"))
+    # rf_model_masked = pickle.load(open(RF_MODEL_MASKED, "rb"))
+    # rf_model_mimic = pickle.load(open(RF_MODEL_MIMIC, "rb"))
 
-    # file_path = os.path.join("models", "clf", "dt_test.pkl")
-    # dt_model = load_model(file_path)
+    # dt_model_classified = pickle.load(open(DT_MODEL_CLASSIFIED, "rb"))
+    # dt_model_masked = pickle.load(open(DT_MODEL_MASKED, "rb"))
+    # dt_model_mimic = pickle.load(open(DT_MODEL_MIMIC, "rb"))
 
     # evaluate model
-    for model in [lr_model]:
+    for model in [lr_model_classified, lr_model_masked]:
         preds = get_top_k_predictions(model, X_test, 3)
         eval_items = collect_preds(y_test, preds)
 
