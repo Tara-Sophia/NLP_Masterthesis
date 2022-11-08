@@ -17,7 +17,7 @@ from utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def _reciprocal_rank(true_labels: list, machine_preds: list) -> float:
+def reciprocal_rank(true_labels: list, machine_preds: list) -> float:
     """
     Compute the reciprocal rank at cutoff k
 
@@ -65,7 +65,7 @@ def compute_mrr_at_k(items: list) -> float:
     rr_total = 0
 
     for item in items:
-        rr_at_k = _reciprocal_rank(item[0], item[1])
+        rr_at_k = reciprocal_rank(item[0], item[1])
         rr_total = rr_total + rr_at_k
         mrr = rr_total / 1 / float(len(items))
 

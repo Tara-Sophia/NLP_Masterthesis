@@ -61,7 +61,6 @@ def top_symptoms(model: imblearn.pipeline.Pipeline) -> pd.Series:
     vectorizer = model.named_steps["vect"]
     feat = vectorizer.get_feature_names()
     coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
-    coef_df = coef_df.abs()
     top_symptoms = coef_df.apply(lambda x: x.nlargest(5).index.tolist(), axis=1)
     return top_symptoms
 
@@ -104,7 +103,7 @@ def main():
     model = pickle.load(open(file_path, "rb"))
 
     # Predict probability
-    to_pred = "leave_heart chest_prepped"
+    to_pred = "coronary nitroglycerin muscle heart breast oxygen valve artery"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
