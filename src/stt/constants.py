@@ -7,6 +7,7 @@ Description:
 import os
 
 # CLEAN DATA
+SRC_DIR = "src"
 RAW_DATA_DIR = os.path.join("data", "raw", "stt")
 RECORDINGS_FILE = os.path.join(
     RAW_DATA_DIR, "overview-of-recordings.csv"

@@ -7,32 +7,37 @@ Usage:
     $ python src/data/evaluate_model.py
 """
 import os
+import sys
 import random
 from typing import Union
 
 import pandas as pd
 import torch
-from constants import PROCESSED_DIR
+from constants import PROCESSED_DIR, SRC_DIR
 from datasets import Dataset
 from datasets.arrow_dataset import Example
-from decorators import log_function_name
 from evaluate import EvaluationModule, load
 from transformers import (
     HubertForCTC,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
 )
+
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
 )
 
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
+
 
 def map_to_result(
     batch: Example,
     model: Union[HubertForCTC, Wav2Vec2ForCTC],
     processor: Wav2Vec2Processor,
+    device: torch.device,
 ) -> Example:
     """
     Map batch to results for evaluation
@@ -45,6 +50,8 @@ def map_to_result(
         Trained model
     processor : Wav2Vec2Processor
         Processor used to transform data
+    device: torch.device
+        Device to use for predictions
 
     Returns
     -------
@@ -53,7 +60,7 @@ def map_to_result(
     """
     with torch.no_grad():
         input_values = torch.tensor(
-            batch["input_values"], device="cuda"
+            batch["input_values"], device=device
         ).unsqueeze(0)
         logits = model(input_values).logits
 
@@ -99,6 +106,7 @@ def showcase_test(
     model: Union[HubertForCTC, Wav2Vec2ForCTC],
     test_ds: Dataset,
     processor: Wav2Vec2Processor,
+    device: torch.device,
 ) -> None:
     """
     Showcase a test predictions with paddings
@@ -111,10 +119,12 @@ def showcase_test(
         Test dataset
     processor : Wav2Vec2Processor
         Processor to decode predictions
+    device: torch.device
+        Device to use for predictions
     """
     with torch.no_grad():
         logits = model(
-            torch.tensor(test_ds[:1]["input_values"], device="cuda")
+            torch.tensor(test_ds[:1]["input_values"], device=device)
         ).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
@@ -206,6 +216,7 @@ def main():
         map_to_result,
         fn_kwargs={"model": model, "processor": processor},
         remove_columns=test_ds.column_names,
+        device=device,
     )
 
     wer_metric = load("wer")
@@ -215,7 +226,7 @@ def main():
 
     show_random_elements(results)
 
-    showcase_test(model, test_ds, processor)
+    showcase_test(model, test_ds, processor, device)
 
 
 if __name__ == "__main__":

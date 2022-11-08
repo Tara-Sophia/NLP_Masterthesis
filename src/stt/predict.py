@@ -7,10 +7,10 @@ Usage:
     $ python src/data/predict.py
 """
 import io
+import sys
 
 import speech_recognition as sr
 import torch
-from decorators import log_function_name
 from pydub import AudioSegment
 from transformers import Pipeline, pipeline
 from utils import (
@@ -18,6 +18,10 @@ from utils import (
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
 )
+from constants import SRC_DIR
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 
 @log_function_name

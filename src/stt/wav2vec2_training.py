@@ -8,6 +8,7 @@ Usage:
     $ python src/data/wav2vec2_training.py
 """
 import os
+import sys
 
 import torch
 from constants import (
@@ -19,8 +20,8 @@ from constants import (
     WAV2VEC2_MODEL_CHECKPOINTS,
     WAV2VEC2_MODEL_DIR,
     WAV2VEC2_NUM_EPOCHS,
+    SRC_DIR,
 )
-from decorators import log_function_name
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
@@ -31,8 +32,10 @@ from utils import (
     load_trainer,
     load_training_args,
 )
-
 import wandb
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 wandb.init(
     project="speech-to-text",

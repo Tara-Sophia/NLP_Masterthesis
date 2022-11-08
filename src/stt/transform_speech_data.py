@@ -8,6 +8,7 @@ Usage:
 """
 import json
 import os
+import sys
 import re
 import shutil
 from typing import Optional, Union
@@ -20,13 +21,16 @@ from constants import (
     RAW_DATA_DIR,
     SAMPLING_RATE,
     VOCAB_DIR,
+    SRC_DIR,
 )
 from datasets import Audio, Dataset
 from datasets.arrow_dataset import Batch, Example
-from decorators import log_function_name
 from transformers import Wav2Vec2Processor
 from unidecode import unidecode
 from utils import load_processor
+
+sys.path.insert(0, SRC_DIR)
+from decorators import log_function_name
 
 
 def remove_special_characters(
