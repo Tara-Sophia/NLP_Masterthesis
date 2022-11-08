@@ -8,10 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import (
-    LR_MODEL_CLASSIFIED,
-    TRAIN_DATA_DIR,
-)
+from constants import LR_MODEL_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
@@ -128,7 +125,7 @@ def main():
     """
     # Load train data
     X_train, y_train = load_data(TRAIN_DATA_DIR)
-    
+
     # Build pipeline
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)

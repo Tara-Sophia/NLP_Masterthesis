@@ -7,7 +7,6 @@ Description:
 """
 import pickle
 
-from imblearn.pipeline import Pipeline
 import numpy as np
 import pandas as pd
 from constants import (
@@ -15,6 +14,7 @@ from constants import (
     LR_MODEL_MASKED,
     TEST_DATA_DIR,
 )
+from imblearn.pipeline import Pipeline
 from utils import load_data
 
 
@@ -56,13 +56,13 @@ def reciprocal_rank(
     return rr
 
 
-def compute_mrr_at_k(items: list[list[str]]) -> float:
+def compute_mrr_at_k(items: list[list[list[str]]]) -> float:
     """
     Compute the MRR (average RR) at cutoff k
 
     Parameters
     ----------
-    items : list[list[str]]
+    items : list[list[list[str]]]
         lists of lists (true labels, machine predictions)
 
     Returns
@@ -81,13 +81,13 @@ def compute_mrr_at_k(items: list[list[str]]) -> float:
     return mrr
 
 
-def compute_accuracy(eval_items: list[list[str]]) -> float:
+def compute_accuracy(eval_items: list[list[list[str]]]) -> float:
     """
     Compute the accuracy at cutoff k
 
     Parameters
     ----------
-    eval_items : list[list[str]]
+    eval_items :  list[list[list[str]]]
         list of tuples (true labels, machine predictions)
 
     Returns
@@ -112,7 +112,7 @@ def compute_accuracy(eval_items: list[list[str]]) -> float:
 
 def collect_preds(
     Y_test: pd.Series, Y_preds: list[list[str]]
-) -> list[list[str]]:
+) -> list[list[list[str]]]:
     """
     Collect all predictions and ground truth
 
@@ -125,7 +125,7 @@ def collect_preds(
 
     Returns
     -------
-    list[list[str]]
+     list[list[list[str]]]
         lists of lists (true labels, machine predictions)
     """
 
@@ -178,6 +178,8 @@ def main():
     """
     # Load test data
     X_test, y_test = load_data(TEST_DATA_DIR)
+    X_test = X_test.iloc[:2]
+    y_test = y_test.iloc[:2]
 
     # Load models
     lr_model_classified = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
