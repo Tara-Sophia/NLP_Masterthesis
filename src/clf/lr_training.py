@@ -21,7 +21,7 @@ from utils import load_data
 from utils import preprocessing_pipeline
 
 # Build pipeline
-def build_pipeline(pipeline) -> imblearn.pipeline.Pipeline:
+def build_pipeline(pipeline: imblearn.pipeline.Pipeline) -> imblearn.pipeline.Pipeline:
     """
     Build pipeline for model
 
@@ -29,6 +29,7 @@ def build_pipeline(pipeline) -> imblearn.pipeline.Pipeline:
     ----------
     preprocessing_pipeline : imblearn.pipeline.Pipeline
         pipeline with preprocessing steps
+
     Returns
     -------
     imblearn.pipeline.Pipeline
@@ -46,33 +47,6 @@ def build_pipeline(pipeline) -> imblearn.pipeline.Pipeline:
         )
     )
     return pipeline
-
-
-# Fit model
-def fit_model(
-    model: imblearn.pipeline.Pipeline,
-    X_train: pd.core.series.Series,
-    y_train: pd.core.series.Series,
-) -> imblearn.pipeline.Pipeline:
-    """
-    Fit model
-
-    Parameters
-    ----------
-    model : imblearn.pipeline.Pipeline
-        pipeline for model
-    X_train : pd.core.series.Series
-        train data
-    y_train : pd.core.series.Series
-        train labels
-
-    Returns
-    -------
-    imblearn.pipeline.Pipeline
-        fitted model
-    """
-    model.fit(X_train, y_train)
-    return model
 
 
 # Grid search and custom scorer with accuracy @k
@@ -152,11 +126,7 @@ def main():
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    model = fit_model(
-        model_pipeline,
-        X_train,
-        y_train,
-    )
+    model = model_pipeline.fit(X_train, y_train)
 
     # # fit model with grid search
 

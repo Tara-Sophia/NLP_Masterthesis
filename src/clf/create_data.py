@@ -55,9 +55,7 @@ def main():
 
     # Save data as csv
     train_df = pd.DataFrame({"keywords": X_train, "medical_specialty": y_train})
-    print(train_df.head())
     test_df = pd.DataFrame({"keywords": X_test, "medical_specialty": y_test})
-    print(test_df.head())
     train_df.to_csv(os.path.join("data", "processed", "clf", "train.csv"), index=False)
     test_df.to_csv(os.path.join("data", "processed", "clf", "test.csv"), index=False)
 
