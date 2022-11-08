@@ -14,14 +14,36 @@ conda env create -f environment.yml
 To *update the existing environment*
 
 ```bash
-conda env update --file environment.yml
+conda env update --name nlp_masterthesis --file environment.yml --prune
 ```
 
 ---
 To *create a new version of the environment.yml file*
 
 ```bash
-conda env export --from-history | grep -v "^prefix: " > environment.yml
+conda env export | grep -v "^prefix: " > environment.yml
+```
+
+## Documentation
+
+To update the documenation delete all files in docs/source/ that end with .rst except for index.rst
+
+Then run:
+
+```bash
+cd docs
+```
+
+```bash
+sphinx-apidoc -o ./source ../src --separate
+```
+
+```bash
+make clean
+```
+
+```bash
+make clean
 ```
 
 ## Directory  Structure

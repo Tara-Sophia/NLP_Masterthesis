@@ -1,0 +1,1060 @@
+710-739 Diseases Of The Musculoskeletal System And Connective Tissue
+	710-719 Arthropathies And Related Disorders
+		710 Diffuse diseases of connective tissue
+			710 Diffuse diseases of connective tissue
+			710.0 Systemic lupus erythematosus
+			710.1 Systemic sclerosis
+			710.2 Sicca syndrome
+			710.3 Dermatomyositis
+			710.4 Polymyositis
+			710.5 Eosinophilia myalgia syndrome
+			710.8 Other specified diffuse diseases of connective tissue
+			710.9 Unspecified diffuse connective tissue disease
+		711 Arthropathy associated with infections
+			711 Arthropathy associated with infections
+			711.0 Pyogenic arthritis
+			711.00 Pyogenic arthritis, site unspecified
+			711.01 Pyogenic arthritis, shoulder region
+			711.02 Pyogenic arthritis, upper arm
+			711.03 Pyogenic arthritis, forearm
+			711.04 Pyogenic arthritis, hand
+			711.05 Pyogenic arthritis, pelvic region and thigh
+			711.06 Pyogenic arthritis, lower leg
+			711.07 Pyogenic arthritis, ankle and foot
+			711.08 Pyogenic arthritis, other specified sites
+			711.09 Pyogenic arthritis, multiple sites
+			711.1 Arthropathy associated with reiter's disease and nonspecific urethritis
+			711.10 Arthropathy associated with Reiter's disease and nonspecific urethritis, site unspecified
+			711.11 Arthropathy associated with Reiter's disease and nonspecific urethritis, shoulder region
+			711.12 Arthropathy associated with Reiter's disease and nonspecific urethritis, upper arm
+			711.13 Arthropathy associated with Reiter's disease and nonspecific urethritis, forearm
+			711.14 Arthropathy associated with Reiter's disease and nonspecific urethritis, hand
+			711.15 Arthropathy associated with Reiter's disease and nonspecific urethritis, pelvic region and thigh
+			711.16 Arthropathy associated with Reiter's disease and nonspecific urethritis, lower leg
+			711.17 Arthropathy associated with Reiter's disease and nonspecific urethritis, ankle and foot
+			711.18 Arthropathy associated with Reiter's disease and nonspecific urethritis, other specified sites
+			711.19 Arthropathy associated with Reiter's disease and nonspecific urethritis, multiple sites
+			711.2 Arthropathy in behcet's syndrome
+			711.20 Arthropathy in Behcet's syndrome, site unspecified
+			711.21 Arthropathy in Behcet's syndrome, shoulder region
+			711.22 Arthropathy in Behcet's syndrome, upper arm
+			711.23 Arthropathy in Behcet's syndrome, forearm
+			711.24 Arthropathy in Behcet's syndrome, hand
+			711.25 Arthropathy in Behcet's syndrome, pelvic region and thigh
+			711.26 Arthropathy in Behcet's syndrome, lower leg
+			711.27 Arthropathy in Behcet's syndrome, ankle and foot
+			711.28 Arthropathy in Behcet's syndrome, other specified sites
+			711.29 Arthropathy in Behcet's syndrome, multiple sites
+			711.3 Postdysenteric arthropathy
+			711.30 Postdysenteric arthropathy, site unspecified
+			711.31 Postdysenteric arthropathy, shoulder region
+			711.32 Postdysenteric arthropathy, upper arm
+			711.33 Postdysenteric arthropathy, forearm
+			711.34 Postdysenteric arthropathy, hand
+			711.35 Postdysenteric arthropathy, pelvic region and thigh
+			711.36 Postdysenteric arthropathy, lower leg
+			711.37 Postdysenteric arthropathy, ankle and foot
+			711.38 Postdysenteric arthropathy, other specified sites
+			711.39 Postdysenteric arthropathy, multiple sites
+			711.4 Arthropathy associated with other bacterial diseases
+			711.40 Arthropathy associated with other bacterial diseases, site unspecified
+			711.41 Arthropathy associated with other bacterial diseases, shoulder region
+			711.42 Arthropathy associated with other bacterial diseases, upper arm
+			711.43 Arthropathy associated with other bacterial diseases, forearm
+			711.44 Arthropathy associated with other bacterial diseases, hand
+			711.45 Arthropathy associated with other bacterial diseases, pelvic region and thigh
+			711.46 Arthropathy associated with other bacterial diseases, lower leg
+			711.47 Arthropathy associated with other bacterial diseases, ankle and foot
+			711.48 Arthropathy associated with other bacterial diseases, other specified sites
+			711.49 Arthropathy associated with other bacterial diseases, multiple sites
+			711.5 Arthropathy associated with other viral diseases
+			711.50 Arthropathy associated with other viral diseases, site unspecified
+			711.51 Arthropathy associated with other viral diseases, shoulder region
+			711.52 Arthropathy associated with other viral diseases, upper arm
+			711.53 Arthropathy associated with other viral diseases, forearm
+			711.54 Arthropathy associated with other viral diseases, hand
+			711.55 Arthropathy associated with other viral diseases, pelvic region and thigh
+			711.56 Arthropathy associated with other viral diseases, lower leg
+			711.57 Arthropathy associated with other viral diseases, ankle and foot
+			711.58 Arthropathy associated with other viral diseases, other specified sites
+			711.59 Arthropathy associated with other viral diseases, multiple sites
+			711.6 Arthropathy associated with mycoses
+			711.60 Arthropathy associated with mycoses, site unspecified
+			711.61 Arthropathy associated with mycoses, shoulder region
+			711.62 Arthropathy associated with mycoses, upper arm
+			711.63 Arthropathy associated with mycoses, forearm
+			711.64 Arthropathy associated with mycoses, hand
+			711.65 Arthropathy associated with mycoses, pelvic region and thigh
+			711.66 Arthropathy associated with mycoses, lower leg
+			711.67 Arthropathy associated with mycoses, ankle and foot
+			711.68 Arthropathy associated with mycoses, other specified sites
+			711.69 Arthropathy associated with mycoses, involving multiple sites
+			711.7 Arthropathy associated with helminthiasis
+			711.70 Arthropathy associated with helminthiasis, site unspecified
+			711.71 Arthropathy associated with helminthiasis, shoulder region
+			711.72 Arthropathy associated with helminthiasis, upper arm
+			711.73 Arthropathy associated with helminthiasis, forearm
+			711.74 Arthropathy associated with helminthiasis, hand
+			711.75 Arthropathy associated with helminthiasis, pelvic region and thigh
+			711.76 Arthropathy associated with helminthiasis, lower leg
+			711.77 Arthropathy associated with helminthiasis, ankle and foot
+			711.78 Arthropathy associated with helminthiasis, other specified sites
+			711.79 Arthropathy associated with helminthiasis, multiple sites
+			711.8 Arthropathy associated with other infectious and parasitic diseases
+			711.80 Arthropathy associated with other infectious and parasitic diseases, site unspecified
+			711.81 Arthropathy associated with other infectious and parasitic diseases, shoulder region
+			711.82 Arthropathy associated with other infectious and parasitic diseases, upper arm
+			711.83 Arthropathy associated with other infectious and parasitic diseases, forearm
+			711.84 Arthropathy associated with other infectious and parasitic diseases, hand
+			711.85 Arthropathy associated with other infectious and parasitic diseases, pelvic region and thigh
+			711.86 Arthropathy associated with other infectious and parasitic diseases, lower leg
+			711.87 Arthropathy associated with other infectious and parasitic diseases, ankle and foot
+			711.88 Arthropathy associated with other infectious and parasitic diseases, other specified sites
+			711.89 Arthropathy associated with other infectious and parasitic diseases, multiple sites
+			711.9 Unspecified infective arthritis
+			711.90 Unspecified infective arthritis, site unspecified
+			711.91 Unspecified infective arthritis, shoulder region
+			711.92 Unspecified infective arthritis, upper arm
+			711.93 Unspecified infective arthritis, forearm
+			711.94 Unspecified infective arthritis, hand
+			711.95 Unspecified infective arthritis, pelvic region and thigh
+			711.96 Unspecified infective arthritis, lower leg
+			711.97 Unspecified infective arthritis, ankle and foot
+			711.98 Unspecified infective arthritis, other specified sites
+			711.99 Unspecified infective arthritis, multiple sites
+		712 Crystal arthropathies
+			712 Crystal arthropathies
+			712.1 Chondrocalcinosis due to dicalcium phosphate crystals
+			712.10 Chondrocalcinosis, due to dicalcium phosphate crystals, site unspecified
+			712.11 Chondrocalcinosis, due to dicalcium phosphate crystals, shoulder region
+			712.12 Chondrocalcinosis, due to dicalcium phosphate crystals, upper arm
+			712.13 Chondrocalcinosis, due to dicalcium phosphate crystals, forearm
+			712.14 Chondrocalcinosis, due to dicalcium phosphate crystals, hand
+			712.15 Chondrocalcinosis, due to dicalcium phosphate crystals, pelvic region and thigh
+			712.16 Chondrocalcinosis, due to dicalcium phosphate crystals, lower leg
+			712.17 Chondrocalcinosis, due to dicalcium phosphate crystals, ankle and foot
+			712.18 Chondrocalcinosis, due to dicalcium phosphate crystals, other specified sites
+			712.19 Chondrocalcinosis, due to dicalcium phosphate crystals, multiple sites
+			712.2 Chondrocalcinosis due to pyrophosphate crystals
+			712.20 Chondrocalcinosis, due to pyrophosphate crystals, site unspecified
+			712.21 Chondrocalcinosis, due to pyrophosphate crystals, shoulder region
+			712.22 Chondrocalcinosis, due to pyrophosphate crystals, upper arm
+			712.23 Chondrocalcinosis, due to pyrophosphate crystals, forearm
+			712.24 Chondrocalcinosis, due to pyrophosphate crystals, hand
+			712.25 Chondrocalcinosis, due to pyrophosphate crystals, pelvic region and thigh
+			712.26 Chondrocalcinosis, due to pyrophosphate crystals, lower leg
+			712.27 Chondrocalcinosis, due to pyrophosphate crystals, ankle and foot
+			712.28 Chondrocalcinosis, due to pyrophosphate crystals, other specified sites
+			712.29 Chondrocalcinosis, due to pyrophosphate crystals, multiple sites
+			712.3 Chondrocalcinosis cause unspecified
+			712.30 Chondrocalcinosis, unspecified, site unspecified
+			712.31 Chondrocalcinosis, unspecified, shoulder region
+			712.32 Chondrocalcinosis, unspecified, upper arm
+			712.33 Chondrocalcinosis, unspecified, forearm
+			712.34 Chondrocalcinosis, unspecified, hand
+			712.35 Chondrocalcinosis, unspecified, pelvic region and thigh
+			712.36 Chondrocalcinosis, unspecified, lower leg
+			712.37 Chondrocalcinosis, unspecified, ankle and foot
+			712.38 Chondrocalcinosis, unspecified, other specified sites
+			712.39 Chondrocalcinosis, unspecified, multiple sites
+			712.8 Other specified crystal arthropathies
+			712.80 Other specified crystal arthropathies, site unspecified
+			712.81 Other specified crystal arthropathies, shoulder region
+			712.82 Other specified crystal arthropathies, upper arm
+			712.83 Other specified crystal arthropathies, forearm
+			712.84 Other specified crystal arthropathies, hand
+			712.85 Other specified crystal arthropathies, pelvic region and thigh
+			712.86 Other specified crystal arthropathies, lower leg
+			712.87 Other specified crystal arthropathies, ankle and foot
+			712.88 Other specified crystal arthropathies, other specified sites
+			712.89 Other specified crystal arthropathies, multiple sites
+			712.9 Unspecified crystal arthropathy
+			712.90 Unspecified crystal arthropathy, site unspecified
+			712.91 Unspecified crystal arthropathy, shoulder region
+			712.92 Unspecified crystal arthropathy, upper arm
+			712.93 Unspecified crystal arthropathy, forearm
+			712.94 Unspecified crystal arthropathy, hand
+			712.95 Unspecified crystal arthropathy, pelvic region and thigh
+			712.96 Unspecified crystal arthropathy, lower leg
+			712.97 Unspecified crystal arthropathy, ankle and foot
+			712.98 Unspecified crystal arthropathy, other specified sites
+			712.99 Unspecified crystal arthropathy, multiple sites
+		713 Arthropathy associated with other disorders classified elsewhere
+			713 Arthropathy associated with other disorders classified elsewhere
+			713.0 Arthropathy associated with other endocrine and metabolic disorders
+			713.1 Arthropathy associated with gastrointestinal conditions other than infections
+			713.2 Arthropathy associated with hematological disorders
+			713.3 Arthropathy associated with dermatological disorders
+			713.4 Arthropathy associated with respiratory disorders
+			713.5 Arthropathy associated with neurological disorders
+			713.6 Arthropathy associated with hypersensitivity reaction
+			713.7 Other general diseases with articular involvement
+			713.8 Arthropathy associated with other conditions classifiable elsewhere
+		714 Rheumatoid arthritis and other inflammatory polyarthropathies
+			714 Rheumatoid arthritis and other inflammatory polyarthropathies
+			714.0 Rheumatoid arthritis
+			714.1 Felty's syndrome
+			714.2 Other rheumatoid arthritis with visceral or systemic involvement
+			714.3 Juvenile chronic polyarthritis
+			714.30 Polyarticular juvenile rheumatoid arthritis, chronic or unspecified
+			714.31 Polyarticular juvenile rheumatoid arthritis, acute
+			714.32 Pauciarticular juvenile rheumatoid arthritis
+			714.33 Monoarticular juvenile rheumatoid arthritis
+			714.4 Chronic postrheumatic arthropathy
+			714.8 Other specified inflammatory polyarthropathies
+			714.81 Rheumatoid lung
+			714.89 Other specified inflammatory polyarthropathies
+			714.9 Unspecified inflammatory polyarthropathy
+		715 Osteoarthrosis and allied disorders
+			715 Osteoarthrosis and allied disorders
+			715.0 Osteoarthrosis generalized
+			715.00 Osteoarthrosis, generalized, site unspecified
+			715.04 Osteoarthrosis, generalized, hand
+			715.09 Osteoarthrosis, generalized, multiple sites
+			715.1 Osteoarthrosis localized primary
+			715.10 Osteoarthrosis, localized, primary, site unspecified
+			715.11 Osteoarthrosis, localized, primary, shoulder region
+			715.12 Osteoarthrosis, localized, primary, upper arm
+			715.13 Osteoarthrosis, localized, primary, forearm
+			715.14 Osteoarthrosis, localized, primary, hand
+			715.15 Osteoarthrosis, localized, primary, pelvic region and thigh
+			715.16 Osteoarthrosis, localized, primary, lower leg
+			715.17 Osteoarthrosis, localized, primary, ankle and foot
+			715.18 Osteoarthrosis, localized, primary, other specified sites
+			715.2 Osteoarthrosis localized secondary
+			715.20 Osteoarthrosis, localized, secondary, site unspecified
+			715.21 Osteoarthrosis, localized, secondary, shoulder region
+			715.22 Osteoarthrosis, localized, secondary, upper arm
+			715.23 Osteoarthrosis, localized, secondary, forearm
+			715.24 Osteoarthrosis, localized, secondary, hand
+			715.25 Osteoarthrosis, localized, secondary, pelvic region and thigh
+			715.26 Osteoarthrosis, localized, secondary, lower leg
+			715.27 Osteoarthrosis, localized, secondary, ankle and foot
+			715.28 Osteoarthrosis, localized, secondary, other specified sites
+			715.3 Osteoarthrosis localized not specified whether primary or secondary
+			715.30 Osteoarthrosis, localized, not specified whether primary or secondary, site unspecified
+			715.31 Osteoarthrosis, localized, not specified whether primary or secondary, shoulder region
+			715.32 Osteoarthrosis, localized, not specified whether primary or secondary, upper arm
+			715.33 Osteoarthrosis, localized, not specified whether primary or secondary, forearm
+			715.34 Osteoarthrosis, localized, not specified whether primary or secondary, hand
+			715.35 Osteoarthrosis, localized, not specified whether primary or secondary, pelvic region and thigh
+			715.36 Osteoarthrosis, localized, not specified whether primary or secondary, lower leg
+			715.37 Osteoarthrosis, localized, not specified whether primary or secondary, ankle and foot
+			715.38 Osteoarthrosis, localized, not specified whether primary or secondary, other specified sites
+			715.8 Osteoarthrosis involving or with mention of more than one site but not specified as generalized
+			715.80 Osteoarthrosis involving, or with mention of more than one site, but not specified as generalized, site unspecified
+			715.89 Osteoarthrosis involving, or with mention of more than one site, but not specified as generalized, multiple sites
+			715.9 Osteoarthrosis unspecified whether generalized or localized
+			715.90 Osteoarthrosis, unspecified whether generalized or localized, site unspecified
+			715.91 Osteoarthrosis, unspecified whether generalized or localized, shoulder region
+			715.92 Osteoarthrosis, unspecified whether generalized or localized, upper arm
+			715.93 Osteoarthrosis, unspecified whether generalized or localized, forearm
+			715.94 Osteoarthrosis, unspecified whether generalized or localized, hand
+			715.95 Osteoarthrosis, unspecified whether generalized or localized, pelvic region and thigh
+			715.96 Osteoarthrosis, unspecified whether generalized or localized, lower leg
+			715.97 Osteoarthrosis, unspecified whether generalized or localized, ankle and foot
+			715.98 Osteoarthrosis, unspecified whether generalized or localized, other specified sites
+		716 Other and unspecified arthropathies
+			716 Other and unspecified arthropathies
+			716.0 Kaschin-beck disease
+			716.00 Kaschin-Beck disease, site unspecified
+			716.01 Kaschin-Beck disease, shoulder region
+			716.02 Kaschin-Beck disease, upper arm
+			716.03 Kaschin-Beck disease, forearm
+			716.04 Kaschin-Beck disease, hand
+			716.05 Kaschin-Beck disease, pelvic region and thigh
+			716.06 Kaschin-Beck disease, lower leg
+			716.07 Kaschin-Beck disease, ankle and foot
+			716.08 Kaschin-Beck disease, other specified sites
+			716.09 Kaschin-Beck disease, multiple sites
+			716.1 Traumatic arthropathy
+			716.10 Traumatic arthropathy, site unspecified
+			716.11 Traumatic arthropathy, shoulder region
+			716.12 Traumatic arthropathy, upper arm
+			716.13 Traumatic arthropathy, forearm
+			716.14 Traumatic arthropathy, hand
+			716.15 Traumatic arthropathy, pelvic region and thigh
+			716.16 Traumatic arthropathy, lower leg
+			716.17 Traumatic arthropathy, ankle and foot
+			716.18 Traumatic arthropathy, other specified sites
+			716.19 Traumatic arthropathy, multiple sites
+			716.2 Allergic arthritis
+			716.20 Allergic arthritis, site unspecified
+			716.21 Allergic arthritis, shoulder region
+			716.22 Allergic arthritis, upper arm
+			716.23 Allergic arthritis, forearm
+			716.24 Allergic arthritis, hand
+			716.25 Allergic arthritis, pelvic region and thigh
+			716.26 Allergic arthritis, lower leg
+			716.27 Allergic arthritis, ankle and foot
+			716.28 Allergic arthritis, other specified sites
+			716.29 Allergic arthritis, multiple sites
+			716.3 Climacteric arthritis
+			716.30 Climacteric arthritis, site unspecified
+			716.31 Climacteric arthritis, shoulder region
+			716.32 Climacteric arthritis, upper arm
+			716.33 Climacteric arthritis, forearm
+			716.34 Climacteric arthritis, hand
+			716.35 Climacteric arthritis, pelvic region and thigh
+			716.36 Climacteric arthritis, lower leg
+			716.37 Climacteric arthritis, ankle and foot
+			716.38 Climacteric arthritis, other specified sites
+			716.39 Climacteric arthritis, multiple sites
+			716.4 Transient arthropathy
+			716.40 Transient arthropathy, site unspecified
+			716.41 Transient arthropathy, shoulder region
+			716.42 Transient arthropathy, upper arm
+			716.43 Transient arthropathy, forearm
+			716.44 Transient arthropathy, hand
+			716.45 Transient arthropathy, pelvic region and thigh
+			716.46 Transient arthropathy, lower leg
+			716.47 Transient arthropathy, ankle and foot
+			716.48 Transient arthropathy, other specified sites
+			716.49 Transient arthropathy, multiple sites
+			716.5 Unspecified polyarthropathy or polyarthritis
+			716.50 Unspecified polyarthropathy or polyarthritis, site unspecified
+			716.51 Unspecified polyarthropathy or polyarthritis, shoulder region
+			716.52 Unspecified polyarthropathy or polyarthritis, upper arm
+			716.53 Unspecified polyarthropathy or polyarthritis, forearm
+			716.54 Unspecified polyarthropathy or polyarthritis, hand
+			716.55 Unspecified polyarthropathy or polyarthritis, pelvic region and thigh
+			716.56 Unspecified polyarthropathy or polyarthritis, lower leg
+			716.57 Unspecified polyarthropathy or polyarthritis, ankle and foot
+			716.58 Unspecified polyarthropathy or polyarthritis, other specified sites
+			716.59 Unspecified polyarthropathy or polyarthritis, multiple sites
+			716.6 Unspecified monoarthritis
+			716.60 Unspecified monoarthritis, site unspecified
+			716.61 Unspecified monoarthritis, shoulder region
+			716.62 Unspecified monoarthritis, upper arm
+			716.63 Unspecified monoarthritis, forearm
+			716.64 Unspecified monoarthritis, hand
+			716.65 Unspecified monoarthritis, pelvic region and thigh
+			716.66 Unspecified monoarthritis, lower leg
+			716.67 Unspecified monoarthritis, ankle and foot
+			716.68 Unspecified monoarthritis, other specified sites
+			716.8 Other specified arthropathy
+			716.80 Other specified arthropathy, site unspecified
+			716.81 Other specified arthropathy, shoulder region
+			716.82 Other specified arthropathy, upper arm
+			716.83 Other specified arthropathy, forearm
+			716.84 Other specified arthropathy, hand
+			716.85 Other specified arthropathy, pelvic region and thigh
+			716.86 Other specified arthropathy, lower leg
+			716.87 Other specified arthropathy, ankle and foot
+			716.88 Other specified arthropathy, other specified sites
+			716.89 Other specified arthropathy, multiple sites
+			716.9 Unspecified arthropathy
+			716.90 Arthropathy, unspecified, site unspecified
+			716.91 Arthropathy, unspecified, shoulder region
+			716.92 Arthropathy, unspecified, upper arm
+			716.93 Arthropathy, unspecified, forearm
+			716.94 Arthropathy, unspecified, hand
+			716.95 Arthropathy, unspecified, pelvic region and thigh
+			716.96 Arthropathy, unspecified, lower leg
+			716.97 Arthropathy, unspecified, ankle and foot
+			716.98 Arthropathy, unspecified, other specified sites
+			716.99 Arthropathy, unspecified, multiple sites
+		717 Internal derangement of knee
+			717 Internal derangement of knee
+			717.0 Old bucket handle tear of medial meniscus
+			717.1 Derangement of anterior horn of medial meniscus
+			717.2 Derangement of posterior horn of medial meniscus
+			717.3 Other and unspecified derangement of medial meniscus
+			717.4 Derangement of lateral meniscus
+			717.40 Derangement of lateral meniscus, unspecified
+			717.41 Bucket handle tear of lateral meniscus
+			717.42 Derangement of anterior horn of lateral meniscus
+			717.43 Derangement of posterior horn of lateral meniscus
+			717.49 Other derangement of lateral meniscus
+			717.5 Derangement of meniscus, not elsewhere classified
+			717.6 Loose body in knee
+			717.7 Chondromalacia of patella
+			717.8 Other internal derangement of knee
+			717.81 Old disruption of lateral collateral ligament
+			717.82 Old disruption of medial collateral ligament
+			717.83 Old disruption of anterior cruciate ligament
+			717.84 Old disruption of posterior cruciate ligament
+			717.85 Old disruption of other ligaments of knee
+			717.89 Other internal derangement of knee
+			717.9 Unspecified internal derangement of knee
+		718 Other derangement of joint
+			718 Other derangement of joint
+			718.0 Articular cartilage disorder
+			718.00 Articular cartilage disorder, site unspecified
+			718.01 Articular cartilage disorder, shoulder region
+			718.02 Articular cartilage disorder, upper arm
+			718.03 Articular cartilage disorder, forearm
+			718.04 Articular cartilage disorder, hand
+			718.05 Articular cartilage disorder, pelvic region and thigh
+			718.07 Articular cartilage disorder, ankle and foot
+			718.08 Articular cartilage disorder, other specified sites
+			718.09 Articular cartilage disorder, multiple sites
+			718.1 Loose body in joint
+			718.10 Loose body in joint, site unspecified
+			718.11 Loose body in joint, shoulder region
+			718.12 Loose body in joint, upper arm
+			718.13 Loose body in joint, forearm
+			718.14 Loose body in joint, hand
+			718.15 Loose body in joint, pelvic region and thigh
+			718.17 Loose body in joint, ankle and foot
+			718.18 Loose body in joint, other specified sites
+			718.19 Loose body in joint, multiple sites
+			718.2 Pathological dislocation
+			718.20 Pathological dislocation of joint, site unspecified
+			718.21 Pathological dislocation of joint, shoulder region
+			718.22 Pathological dislocation of joint, upper arm
+			718.23 Pathological dislocation of joint, forearm
+			718.24 Pathological dislocation of joint, hand
+			718.25 Pathological dislocation of joint, pelvic region and thigh
+			718.26 Pathological dislocation of joint, lower leg
+			718.27 Pathological dislocation of joint, ankle and foot
+			718.28 Pathological dislocation of joint, other specified sites
+			718.29 Pathological dislocation of joint, multiple sites
+			718.3 Recurrent dislocation of joint
+			718.30 Recurrent dislocation of joint, site unspecified
+			718.31 Recurrent dislocation of joint, shoulder region
+			718.32 Recurrent dislocation of joint, upper arm
+			718.33 Recurrent dislocation of joint, forearm
+			718.34 Recurrent dislocation of joint, hand
+			718.35 Recurrent dislocation of joint, pelvic region and thigh
+			718.36 Recurrent dislocation of joint, lower leg
+			718.37 Recurrent dislocation of joint, ankle and foot
+			718.38 Recurrent dislocation of joint, other specified sites
+			718.39 Recurrent dislocation of joint, multiple sites
+			718.4 Contracture of joint
+			718.40 Contracture of joint, site unspecified
+			718.41 Contracture of joint, shoulder region
+			718.42 Contracture of joint, upper arm
+			718.43 Contracture of joint, forearm
+			718.44 Contracture of joint, hand
+			718.45 Contracture of joint, pelvic region and thigh
+			718.46 Contracture of joint, lower leg
+			718.47 Contracture of joint, ankle and foot
+			718.48 Contracture of joint, other specified sites
+			718.49 Contracture of joint, multiple sites
+			718.5 Ankylosis of joint
+			718.50 Ankylosis of joint, site unspecified
+			718.51 Ankylosis of joint, shoulder region
+			718.52 Ankylosis of joint, upper arm
+			718.53 Ankylosis of joint, forearm
+			718.54 Ankylosis of joint, hand
+			718.55 Ankylosis of joint, pelvic region and thigh
+			718.56 Ankylosis of joint, lower leg
+			718.57 Ankylosis of joint, ankle and foot
+			718.58 Ankylosis of joint, other specified sites
+			718.59 Ankylosis of joint, multiple sites
+			718.6 Unspecified intrapelvic protrusion of acetabulum
+			718.65 Unspecified intrapelvic protrusion of acetabulum, pelvic region and thigh
+			718.7 Developmental dislocation of joint
+			718.70 Developmental dislocation of joint, site unspecified
+			718.71 Developmental dislocation of joint, shoulder region
+			718.72 Developmental dislocation of joint, upper arm
+			718.73 Developmental dislocation of joint, forearm
+			718.74 Developmental dislocation of joint, hand
+			718.75 Developmental dislocation of joint, pelvic region and thigh
+			718.76 Developmental dislocation of joint, lower leg
+			718.77 Developmental dislocation of joint, ankle and foot
+			718.78 Developmental dislocation of joint, other specified sites
+			718.79 Developmental dislocation of joint, multiple sites
+			718.8 Other joint derangement not elsewhere classified
+			718.80 Other joint derangement, not elsewhere classified, site unspecified
+			718.81 Other joint derangement, not elsewhere classified, shoulder region
+			718.82 Other joint derangement, not elsewhere classified, upper arm
+			718.83 Other joint derangement, not elsewhere classified, forearm
+			718.84 Other joint derangement, not elsewhere classified, hand
+			718.85 Other joint derangement, not elsewhere classified, pelvic region and thigh
+			718.86 Other joint derangement, not elsewhere classified, lower leg
+			718.87 Other joint derangement, not elsewhere classified, ankle and foot
+			718.88 Other joint derangement, not elsewhere classified, other specified sites
+			718.89 Other joint derangement, not elsewhere classified, multiple sites
+			718.9 Unspecified derangement of joint
+			718.90 Unspecified derangement of joint, site unspecified
+			718.91 Unspecified derangement of joint, shoulder region
+			718.92 Unspecified derangement of joint, upper arm
+			718.93 Unspecified derangement of joint, forearm
+			718.94 Unspecified derangement of joint, hand
+			718.95 Unspecified derangement of joint, pelvic region and thigh
+			718.97 Unspecified derangement of joint, ankle and foot
+			718.98 Unspecified derangement of joint, other specified sites
+			718.99 Unspecified derangement of joint, multiple sites
+		719 Other and unspecified disorders of joint
+			719 Other and unspecified disorders of joint
+			719.0 Effusion of joint
+			719.00 Effusion of joint, site unspecified
+			719.01 Effusion of joint, shoulder region
+			719.02 Effusion of joint, upper arm
+			719.03 Effusion of joint, forearm
+			719.04 Effusion of joint, hand
+			719.05 Effusion of joint, pelvic region and thigh
+			719.06 Effusion of joint, lower leg
+			719.07 Effusion of joint, ankle and foot
+			719.08 Effusion of joint, other specified sites
+			719.09 Effusion of joint, multiple sites
+			719.1 Hemarthrosis
+			719.10 Hemarthrosis, site unspecified
+			719.11 Hemarthrosis, shoulder region
+			719.12 Hemarthrosis, upper arm
+			719.13 Hemarthrosis, forearm
+			719.14 Hemarthrosis, hand
+			719.15 Hemarthrosis, pelvic region and thigh
+			719.16 Hemarthrosis, lower leg
+			719.17 Hemarthrosis, ankle and foot
+			719.18 Hemarthrosis, other specified sites
+			719.19 Hemarthrosis, multiple sites
+			719.2 Villonodular synovitis
+			719.20 Villonodular synovitis, site unspecified
+			719.21 Villonodular synovitis, shoulder region
+			719.22 Villonodular synovitis, upper arm
+			719.23 Villonodular synovitis, forearm
+			719.24 Villonodular synovitis, hand
+			719.25 Villonodular synovitis, pelvic region and thigh
+			719.26 Villonodular synovitis, lower leg
+			719.27 Villonodular synovitis, ankle and foot
+			719.28 Villonodular synovitis, other specified sites
+			719.29 Villonodular synovitis, multiple sites
+			719.3 Palindromic rheumatism
+			719.30 Palindromic rheumatism, site unspecified
+			719.31 Palindromic rheumatism, shoulder region
+			719.32 Palindromic rheumatism, upper arm
+			719.33 Palindromic rheumatism, forearm
+			719.34 Palindromic rheumatism, hand
+			719.35 Palindromic rheumatism, pelvic region and thigh
+			719.36 Palindromic rheumatism, lower leg
+			719.37 Palindromic rheumatism, ankle and foot
+			719.38 Palindromic rheumatism, other specified sites
+			719.39 Palindromic rheumatism, multiple sites
+			719.4 Pain in joint
+			719.40 Pain in joint, site unspecified
+			719.41 Pain in joint, shoulder region
+			719.42 Pain in joint, upper arm
+			719.43 Pain in joint, forearm
+			719.44 Pain in joint, hand
+			719.45 Pain in joint, pelvic region and thigh
+			719.46 Pain in joint, lower leg
+			719.47 Pain in joint, ankle and foot
+			719.48 Pain in joint, other specified sites
+			719.49 Pain in joint, multiple sites
+			719.5 Stiffness of joint not elsewhere classified
+			719.50 Stiffness of joint, not elsewhere classified, site unspecified
+			719.51 Stiffness of joint, not elsewhere classified, shoulder region
+			719.52 Stiffness of joint, not elsewhere classified, upper arm
+			719.53 Stiffness of joint, not elsewhere classified, forearm
+			719.54 Stiffness of joint, not elsewhere classified, hand
+			719.55 Stiffness of joint, not elsewhere classified, pelvic region and thigh
+			719.56 Stiffness of joint, not elsewhere classified, lower leg
+			719.57 Stiffness of joint, not elsewhere classified, ankle and foot
+			719.58 Stiffness of joint, not elsewhere classified, other specified sites
+			719.59 Stiffness of joint, not elsewhere classified, multiple sites
+			719.6 Other symptoms referable to joint
+			719.60 Other symptoms referable to joint, site unspecified
+			719.61 Other symptoms referable to joint, shoulder region
+			719.62 Other symptoms referable to joint, upper arm
+			719.63 Other symptoms referable to joint, forearm
+			719.64 Other symptoms referable to joint, hand
+			719.65 Other symptoms referable to joint, pelvic region and thigh
+			719.66 Other symptoms referable to joint, lower leg
+			719.67 Other symptoms referable to joint, ankle and foot
+			719.68 Other symptoms referable to joint, other specified sites
+			719.69 Other symptoms referable to joint, multiple sites
+			719.7 Difficulty in walking
+			719.8 Other specified disorders of joint
+			719.80 Other specified disorders of joint, site unspecified
+			719.81 Other specified disorders of joint, shoulder region
+			719.82 Other specified disorders of joint, upper arm
+			719.83 Other specified disorders of joint, forearm
+			719.84 Other specified disorders of joint, hand
+			719.85 Other specified disorders of joint, pelvic region and thigh
+			719.86 Other specified disorders of joint, lower leg
+			719.87 Other specified disorders of joint, ankle and foot
+			719.88 Other specified disorders of joint, other specified sites
+			719.89 Other specified disorders of joint, multiple sites
+			719.9 Unspecified disorder of joint
+			719.90 Unspecified disorder of joint, site unspecified
+			719.91 Unspecified disorder of joint, shoulder region
+			719.92 Unspecified disorder of joint, upper arm
+			719.93 Unspecified disorder of joint, forearm
+			719.94 Unspecified disorder of joint, hand
+			719.95 Unspecified disorder of joint, pelvic region and thigh
+			719.96 Unspecified disorder of joint, lower leg
+			719.97 Unspecified disorder of joint, ankle and foot
+			719.98 Unspecified disorder of joint, other specified sites
+			719.99 Unspecified disorder of joint, multiple sites
+	720-724 Dorsopathies
+		720 Ankylosing spondylitis and other inflammatory spondylopathies
+			720 Ankylosing spondylitis and other inflammatory spondylopathies
+			720.0 Ankylosing spondylitis
+			720.1 Spinal enthesopathy
+			720.2 Sacroiliitis, not elsewhere classified
+			720.8 Other inflammatory spondylopathies
+			720.81 Inflammatory spondylopathies in diseases classified elsewhere
+			720.89 Other inflammatory spondylopathies
+			720.9 Unspecified inflammatory spondylopathy
+		721 Spondylosis and allied disorders
+			721 Spondylosis and allied disorders
+			721.0 Cervical spondylosis without myelopathy
+			721.1 Cervical spondylosis with myelopathy
+			721.2 Thoracic spondylosis without myelopathy
+			721.3 Lumbosacral spondylosis without myelopathy
+			721.4 Thoracic or lumbar spondylosis with myelopathy
+			721.41 Spondylosis with myelopathy, thoracic region
+			721.42 Spondylosis with myelopathy, lumbar region
+			721.5 Kissing spine
+			721.6 Ankylosing vertebral hyperostosis
+			721.7 Traumatic spondylopathy
+			721.8 Other allied disorders of spine
+			721.9 Spondylosis of unspecified site
+			721.90 Spondylosis of unspecified site, without mention of myelopathy
+			721.91 Spondylosis of unspecified site, with myelopathy
+		722 Intervertebral disc disorders
+			722 Intervertebral disc disorders
+			722.0 Displacement of cervical intervertebral disc without myelopathy
+			722.1 Displacement of thoracic or lumbar intervertebral disc without myelopathy
+			722.10 Displacement of lumbar intervertebral disc without myelopathy
+			722.11 Displacement of thoracic intervertebral disc without myelopathy
+			722.2 Displacement of intervertebral disc, site unspecified, without myelopathy
+			722.3 Schmorl's nodes
+			722.30 Schmorl's nodes, unspecified region
+			722.31 Schmorl's nodes, thoracic region
+			722.32 Schmorl's nodes, lumbar region
+			722.39 Schmorl's nodes, other region
+			722.4 Degeneration of cervical intervertebral disc
+			722.5 Degeneration of thoracic or lumbar intervertebral disc
+			722.51 Degeneration of thoracic or thoracolumbar intervertebral disc
+			722.52 Degeneration of lumbar or lumbosacral intervertebral disc
+			722.6 Degeneration of intervertebral disc, site unspecified
+			722.7 Intervertebral disc disorder with myelopathy
+			722.70 Intervertebral disc disorder with myelopathy, unspecified region
+			722.71 Intervertebral disc disorder with myelopathy, cervical region
+			722.72 Intervertebral disc disorder with myelopathy, thoracic region
+			722.73 Intervertebral disc disorder with myelopathy, lumbar region
+			722.8 Postlaminectomy syndrome
+			722.80 Postlaminectomy syndrome, unspecified region
+			722.81 Postlaminectomy syndrome, cervical region
+			722.82 Postlaminectomy syndrome, thoracic region
+			722.83 Postlaminectomy syndrome, lumbar region
+			722.9 Other and unspecified disc disorder
+			722.90 Other and unspecified disc disorder, unspecified region
+			722.91 Other and unspecified disc disorder, cervical region
+			722.92 Other and unspecified disc disorder, thoracic region
+			722.93 Other and unspecified disc disorder, lumbar region
+		723 Other disorders of cervical region
+			723 Other disorders of cervical region
+			723.0 Spinal stenosis in cervical region
+			723.1 Cervicalgia
+			723.2 Cervicocranial syndrome
+			723.3 Cervicobrachial syndrome (diffuse)
+			723.4 Brachial neuritis or radiculitis NOS
+			723.5 Torticollis, unspecified
+			723.6 Panniculitis specified as affecting neck
+			723.7 Ossification of posterior longitudinal ligament in cervical region
+			723.8 Other syndromes affecting cervical region
+			723.9 Unspecified musculoskeletal disorders and symptoms referable to neck
+		724 Other and unspecified disorders of back
+			724 Other and unspecified disorders of back
+			724.0 Spinal stenosis other than cervical
+			724.00 Spinal stenosis, unspecified region
+			724.01 Spinal stenosis, thoracic region
+			724.02 Spinal stenosis, lumbar region, without neurogenic claudication
+			724.03 Spinal stenosis, lumbar region, with neurogenic claudication
+			724.09 Spinal stenosis, other region
+			724.1 Pain in thoracic spine
+			724.2 Lumbago
+			724.3 Sciatica
+			724.4 Thoracic or lumbosacral neuritis or radiculitis, unspecified
+			724.5 Backache, unspecified
+			724.6 Disorders of sacrum
+			724.7 Disorders of coccyx
+			724.70 Unspecified disorder of coccyx
+			724.71 Hypermobility of coccyx
+			724.79 Other disorders of coccyx
+			724.8 Other symptoms referable to back
+			724.9 Other unspecified back disorders
+	725-729 Rheumatism, Excluding The Back
+		725 Polymyalgia rheumatica
+			725 Polymyalgia rheumatica
+		726 Peripheral enthesopathies and allied syndromes
+			726 Peripheral enthesopathies and allied syndromes
+			726.0 Adhesive capsulitis of shoulder
+			726.1 Rotator cuff syndrome of shoulder and allied disorders
+			726.10 Disorders of bursae and tendons in shoulder region, unspecified
+			726.11 Calcifying tendinitis of shoulder
+			726.12 Bicipital tenosynovitis
+			726.13 Partial tear of rotator cuff
+			726.19 Other specified disorders of bursae and tendons in shoulder region
+			726.2 Other affections of shoulder region, not elsewhere classified
+			726.3 Enthesopathy of elbow region
+			726.30 Enthesopathy of elbow, unspecified
+			726.31 Medial epicondylitis
+			726.32 Lateral epicondylitis
+			726.33 Olecranon bursitis
+			726.39 Other enthesopathy of elbow region
+			726.4 Enthesopathy of wrist and carpus
+			726.5 Enthesopathy of hip region
+			726.6 Enthesopathy of knee
+			726.60 Enthesopathy of knee, unspecified
+			726.61 Pes anserinus tendinitis or bursitis
+			726.62 Tibial collateral ligament bursitis
+			726.63 Fibular collateral ligament bursitis
+			726.64 Patellar tendinitis
+			726.65 Prepatellar bursitis
+			726.69 Other enthesopathy of knee
+			726.7 Enthesopathy of ankle and tarsus
+			726.70 Enthesopathy of ankle and tarsus, unspecified
+			726.71 Achilles bursitis or tendinitis
+			726.72 Tibialis tendinitis
+			726.73 Calcaneal spur
+			726.79 Other enthesopathy of ankle and tarsus
+			726.8 Other peripheral enthesopathies
+			726.9 Unspecified enthesopathy
+			726.90 Enthesopathy of unspecified site
+			726.91 Exostosis of unspecified site
+		727 Other disorders of synovium tendon and bursa
+			727 Other disorders of synovium tendon and bursa
+			727.0 Synovitis and tenosynovitis
+			727.00 Synovitis and tenosynovitis, unspecified
+			727.01 Synovitis and tenosynovitis in diseases classified elsewhere
+			727.02 Giant cell tumor of tendon sheath
+			727.03 Trigger finger (acquired)
+			727.04 Radial styloid tenosynovitis
+			727.05 Other tenosynovitis of hand and wrist
+			727.06 Tenosynovitis of foot and ankle
+			727.09 Other synovitis and tenosynovitis
+			727.1 Bunion
+			727.2 Specific bursitides often of occupational origin
+			727.3 Other bursitis
+			727.4 Ganglion and cyst of synovium tendon and bursa
+			727.40 Synovial cyst, unspecified
+			727.41 Ganglion of joint
+			727.42 Ganglion of tendon sheath
+			727.43 Ganglion, unspecified
+			727.49 Other ganglion and cyst of synovium, tendon, and bursa
+			727.5 Rupture of synovium
+			727.50 Rupture of synovium, unspecified
+			727.51 Synovial cyst of popliteal space
+			727.59 Other rupture of synovium
+			727.6 Rupture of tendon nontraumatic
+			727.60 Nontraumatic rupture of unspecified tendon
+			727.61 Complete rupture of rotator cuff
+			727.62 Nontraumatic rupture of tendons of biceps (long head)
+			727.63 Nontraumatic rupture of extensor tendons of hand and wrist
+			727.64 Nontraumatic rupture of flexor tendons of hand and wrist
+			727.65 Nontraumatic rupture of quadriceps tendon
+			727.66 Nontraumatic rupture of patellar tendon
+			727.67 Nontraumatic rupture of achilles tendon
+			727.68 Nontraumatic rupture of other tendons of foot and ankle
+			727.69 Nontraumatic rupture of other tendon
+			727.8 Other disorders of synovium tendon and bursa
+			727.81 Contracture of tendon (sheath)
+			727.82 Calcium deposits in tendon and bursa
+			727.83 Plica syndrome
+			727.89 Other disorders of synovium, tendon, and bursa
+			727.9 Unspecified disorder of synovium, tendon, and bursa
+		728 Disorders of muscle ligament and fascia
+			728 Disorders of muscle ligament and fascia
+			728.0 Infective myositis
+			728.1 Muscular calcification and ossification
+			728.10 Calcification and ossification, unspecified
+			728.11 Progressive myositis ossificans
+			728.12 Traumatic myositis ossificans
+			728.13 Postoperative heterotopic calcification
+			728.19 Other muscular calcification and ossification
+			728.2 Muscular wasting and disuse atrophy, not elsewhere classified
+			728.3 Other specific muscle disorders
+			728.4 Laxity of ligament
+			728.5 Hypermobility syndrome
+			728.6 Contracture of palmar fascia
+			728.7 Other fibromatoses of muscle ligament and fascia
+			728.71 Plantar fascial fibromatosis
+			728.79 Other fibromatoses of muscle, ligament, and fascia
+			728.8 Other disorders of muscle ligament and fascia
+			728.81 Interstitial myositis
+			728.82 Foreign body granuloma of muscle
+			728.83 Rupture of muscle, nontraumatic
+			728.84 Diastasis of muscle
+			728.85 Spasm of muscle
+			728.86 Necrotizing fasciitis
+			728.87 Muscle weakness (generalized)
+			728.88 Rhabdomyolysis
+			728.89 Other disorders of muscle, ligament, and fascia
+			728.9 Unspecified disorder of muscle, ligament, and fascia
+		729 Other disorders of soft tissues
+			729 Other disorders of soft tissues
+			729.0 Rheumatism, unspecified and fibrositis
+			729.1 Myalgia and myositis, unspecified
+			729.2 Neuralgia, neuritis, and radiculitis, unspecified
+			729.3 Panniculitis unspecified
+			729.30 Panniculitis, unspecified site
+			729.31 Hypertrophy of fat pad, knee
+			729.39 Panniculitis, other site
+			729.4 Fasciitis, unspecified
+			729.5 Pain in limb
+			729.6 Residual foreign body in soft tissue
+			729.7 Nontraumatic compartment syndrome
+			729.71 Nontraumatic compartment syndrome of upper extremity
+			729.72 Nontraumatic compartment syndrome of lower extremity
+			729.73 Nontraumatic compartment syndrome of abdomen
+			729.79 Nontraumatic compartment syndrome of other sites
+			729.8 Other musculoskeletal symptoms referable to limbs
+			729.81 Swelling of limb
+			729.82 Cramp of limb
+			729.89 Other musculoskeletal symptoms referable to limbs
+			729.9 Other and unspecified disorders of soft tissue
+			729.90 Disorders of soft tissue, unspecified
+			729.91 Post-traumatic seroma
+			729.92 Nontraumatic hematoma of soft tissue
+			729.99 Other disorders of soft tissue
+	730-739 Osteopathies, Chondropathies, And Acquired Musculoskeletal Deformities
+		730 Osteomyelitis periostitis and other infections involving bone
+			730 Osteomyelitis periostitis and other infections involving bone
+			730.0 Acute osteomyelitis
+			730.00 Acute osteomyelitis, site unspecified
+			730.01 Acute osteomyelitis, shoulder region
+			730.02 Acute osteomyelitis, upper arm
+			730.03 Acute osteomyelitis, forearm
+			730.04 Acute osteomyelitis, hand
+			730.05 Acute osteomyelitis, pelvic region and thigh
+			730.06 Acute osteomyelitis, lower leg
+			730.07 Acute osteomyelitis, ankle and foot
+			730.08 Acute osteomyelitis, other specified sites
+			730.09 Acute osteomyelitis, multiple sites
+			730.1 Chronic osteomyelitis
+			730.10 Chronic osteomyelitis, site unspecified
+			730.11 Chronic osteomyelitis, shoulder region
+			730.12 Chronic osteomyelitis, upper arm
+			730.13 Chronic osteomyelitis, forearm
+			730.14 Chronic osteomyelitis, hand
+			730.15 Chronic osteomyelitis, pelvic region and thigh
+			730.16 Chronic osteomyelitis, lower leg
+			730.17 Chronic osteomyelitis, ankle and foot
+			730.18 Chronic osteomyelitis, other specified sites
+			730.19 Chronic osteomyelitis, multiple sites
+			730.2 Unspecified osteomyelitis
+			730.20 Unspecified osteomyelitis, site unspecified
+			730.21 Unspecified osteomyelitis, shoulder region
+			730.22 Unspecified osteomyelitis, upper arm
+			730.23 Unspecified osteomyelitis, forearm
+			730.24 Unspecified osteomyelitis, hand
+			730.25 Unspecified osteomyelitis, pelvic region and thigh
+			730.26 Unspecified osteomyelitis, lower leg
+			730.27 Unspecified osteomyelitis, ankle and foot
+			730.28 Unspecified osteomyelitis, other specified sites
+			730.29 Unspecified osteomyelitis, multiple sites
+			730.3 Periostitis without mention of osteomyelitis
+			730.30 Periostitis, without mention of osteomyelitis, site unspecified
+			730.31 Periostitis, without mention of osteomyelitis, shoulder region
+			730.32 Periostitis, without mention of osteomyelitis, upper arm
+			730.33 Periostitis, without mention of osteomyelitis, forearm
+			730.34 Periostitis, without mention of osteomyelitis, hand
+			730.35 Periostitis, without mention of osteomyelitis, pelvic region and thigh
+			730.36 Periostitis, without mention of osteomyelitis, lower leg
+			730.37 Periostitis, without mention of osteomyelitis, ankle and foot
+			730.38 Periostitis, without mention of osteomyelitis, other specified sites
+			730.39 Periostitis, without mention of osteomyelitis, multiple sites
+			730.7 Osteopathy resulting from poliomyelitis
+			730.70 Osteopathy resulting from poliomyelitis, site unspecified
+			730.71 Osteopathy resulting from poliomyelitis, shoulder region
+			730.72 Osteopathy resulting from poliomyelitis, upper arm
+			730.73 Osteopathy resulting from poliomyelitis, forearm
+			730.74 Osteopathy resulting from poliomyelitis, hand
+			730.75 Osteopathy resulting from poliomyelitis, pelvic region and thigh
+			730.76 Osteopathy resulting from poliomyelitis, lower leg
+			730.77 Osteopathy resulting from poliomyelitis, ankle and foot
+			730.78 Osteopathy resulting from poliomyelitis, other specified sites
+			730.79 Osteopathy resulting from poliomyelitis, multiple sites
+			730.8 Other infections involving bone in diseases classified elsewhere
+			730.80 Other infections involving bone in diseases classified elsewhere, site unspecified
+			730.81 Other infections involving bone in diseases classified elsewhere, shoulder region
+			730.82 Other infections involving bone in diseases classified elsewhere, upper arm
+			730.83 Other infections involving bone in diseases classified elsewhere, forearm
+			730.84 Other infections involving bone in diseases classified elsewhere, hand
+			730.85 Other infections involving bone in diseases classified elsewhere, pelvic region and thigh
+			730.86 Other infections involving bone in diseases classified elsewhere, lower leg
+			730.87 Other infections involving bone in diseases classified elsewhere, ankle and foot
+			730.88 Other infections involving bone in diseases classified elsewhere, other specified sites
+			730.89 Other infections involving bone in diseases classified elsewhere, multiple sites
+			730.9 Unspecified infection of bone
+			730.90 Unspecified infection of bone, site unspecified
+			730.91 Unspecified infection of bone, shoulder region
+			730.92 Unspecified infection of bone, upper arm
+			730.93 Unspecified infection of bone, forearm
+			730.94 Unspecified infection of bone, hand
+			730.95 Unspecified infection of bone, pelvic region and thigh
+			730.96 Unspecified infection of bone, lower leg
+			730.97 Unspecified infection of bone, ankle and foot
+			730.98 Unspecified infection of bone, other specified sites
+			730.99 Unspecified infection of bone, multiple sites
+		731 Osteitis deformans and osteopathies associated with other disorders classified elsewhere
+			731 Osteitis deformans and osteopathies associated with other disorders classified elsewhere
+			731.0 Osteitis deformans without mention of bone tumor
+			731.1 Osteitis deformans in diseases classified elsewhere
+			731.2 Hypertrophic pulmonary osteoarthropathy
+			731.3 Major osseous defects
+			731.8 Other bone involvement in diseases classified elsewhere
+		732 Osteochondropathies
+			732 Osteochondropathies
+			732.0 Juvenile osteochondrosis of spine
+			732.1 Juvenile osteochondrosis of hip and pelvis
+			732.2 Nontraumatic slipped upper femoral epiphysis
+			732.3 Juvenile osteochondrosis of upper extremity
+			732.4 Juvenile osteochondrosis of lower extremity, excluding foot
+			732.5 Juvenile osteochondrosis of foot
+			732.6 Other juvenile osteochondrosis
+			732.7 Osteochondritis dissecans
+			732.8 Other specified forms of osteochondropathy
+			732.9 Unspecified osteochondropathy
+		733 Other disorders of bone and cartilage
+			733 Other disorders of bone and cartilage
+			733.0 Osteoporosis
+			733.00 Osteoporosis, unspecified
+			733.01 Senile osteoporosis
+			733.02 Idiopathic osteoporosis
+			733.03 Disuse osteoporosis
+			733.09 Other osteoporosis
+			733.1 Pathologic fracture
+			733.10 Pathologic fracture, unspecified site
+			733.11 Pathologic fracture of humerus
+			733.12 Pathologic fracture of distal radius and ulna
+			733.13 Pathologic fracture of vertebrae
+			733.14 Pathologic fracture of neck of femur
+			733.15 Pathologic fracture of other specified part of femur
+			733.16 Pathologic fracture of tibia or fibula
+			733.19 Pathologic fracture of other specified site
+			733.2 Cyst of bone
+			733.20 Cyst of bone (localized), unspecified
+			733.21 Solitary bone cyst
+			733.22 Aneurysmal bone cyst
+			733.29 Other bone cyst
+			733.3 Hyperostosis of skull
+			733.4 Aseptic necrosis of bone
+			733.40 Aseptic necrosis of bone, site unspecified
+			733.41 Aseptic necrosis of head of humerus
+			733.42 Aseptic necrosis of head and neck of femur
+			733.43 Aseptic necrosis of medial femoral condyle
+			733.44 Aseptic necrosis of talus
+			733.45 Aseptic necrosis of bone, jaw
+			733.49 Aseptic necrosis of bone, other
+			733.5 Osteitis condensans
+			733.6 Tietze's disease
+			733.7 Algoneurodystrophy
+			733.8 Malunion and nonunion of fracture
+			733.81 Malunion of fracture
+			733.82 Nonunion of fracture
+			733.9 Other and unspecified disorders of bone and cartilage
+			733.90 Disorder of bone and cartilage, unspecified
+			733.91 Arrest of bone development or growth
+			733.92 Chondromalacia
+			733.93 Stress fracture of tibia or fibula
+			733.94 Stress fracture of the metatarsals
+			733.95 Stress fracture of other bone
+			733.96 Stress fracture of femoral neck
+			733.97 Stress fracture of shaft of femur
+			733.98 Stress fracture of pelvis
+			733.99 Other disorders of bone and cartilage
+		734 Flat foot
+			734 Flat foot
+		735 Acquired deformities of toe
+			735 Acquired deformities of toe
+			735.0 Hallux valgus (acquired)
+			735.1 Hallux varus (acquired)
+			735.2 Hallux rigidus
+			735.3 Hallux malleus
+			735.4 Other hammer toe (acquired)
+			735.5 Claw toe (acquired)
+			735.8 Other acquired deformities of toe
+			735.9 Unspecified acquired deformity of toe
+		736 Other acquired deformities of limbs
+			736 Other acquired deformities of limbs
+			736.0 Acquired deformities of forearm excluding fingers
+			736.00 Unspecified deformity of forearm, excluding fingers
+			736.01 Cubitus valgus (acquired)
+			736.02 Cubitus varus (acquired)
+			736.03 Valgus deformity of wrist (acquired)
+			736.04 Varus deformity of wrist (acquired)
+			736.05 Wrist drop (acquired)
+			736.06 Claw hand (acquired)
+			736.07 Club hand, acquired
+			736.09 Other acquired deformities of forearm, excluding fingers
+			736.1 Mallet finger
+			736.2 Other acquired deformities of finger
+			736.20 Unspecified deformity of finger
+			736.21 Boutonniere deformity
+			736.22 Swan-neck deformity
+			736.29 Other acquired deformities of finger
+			736.3 Acquired deformities of hip
+			736.30 Unspecified acquired deformity of hip
+			736.31 Coxa valga (acquired)
+			736.32 Coxa vara (acquired)
+			736.39 Other acquired deformities of hip
+			736.4 Genu valgum or varum (acquired)
+			736.41 Genu valgum (acquired)
+			736.42 Genu varum (acquired)
+			736.5 Genu recurvatum (acquired)
+			736.6 Other acquired deformities of knee
+			736.7 Other acquired deformities of ankle and foot
+			736.70 Unspecified deformity of ankle and foot, acquired
+			736.71 Acquired equinovarus deformity
+			736.72 Equinus deformity of foot, acquired
+			736.73 Cavus deformity of foot, acquired
+			736.74 Claw foot, acquired
+			736.75 Cavovarus deformity of foot, acquired
+			736.76 Other acquired calcaneus deformity
+			736.79 Other acquired deformities of ankle and foot
+			736.8 Acquired deformities of other parts of limbs
+			736.81 Unequal leg length (acquired)
+			736.89 Other acquired deformity of other parts of limb
+			736.9 Acquired deformity of limb, site unspecified
+		737 Curvature of spine
+			737 Curvature of spine
+			737.0 Adolescent postural kyphosis
+			737.1 Kyphosis (acquired)
+			737.10 Kyphosis (acquired) (postural)
+			737.11 Kyphosis due to radiation
+			737.12 Kyphosis, postlaminectomy
+			737.19 Other kyphosis (acquired)
+			737.2 Lordosis (acquired)
+			737.20 Lordosis (acquired) (postural)
+			737.21 Lordosis, postlaminectomy
+			737.22 Other postsurgical lordosis
+			737.29 Other lordosis (acquired)
+			737.3 Kyphoscoliosis and scoliosis
+			737.30 Scoliosis [and kyphoscoliosis], idiopathic
+			737.31 Resolving infantile idiopathic scoliosis
+			737.32 Progressive infantile idiopathic scoliosis
+			737.33 Scoliosis due to radiation
+			737.34 Thoracogenic scoliosis
+			737.39 Other kyphoscoliosis and scoliosis
+			737.4 Curvature of spine associated with other conditions
+			737.40 Curvature of spine, unspecified, associated with other conditions
+			737.41 Kyphosis associated with other conditions
+			737.42 Lordosis associated with other conditions
+			737.43 Scoliosis associated with other conditions
+			737.8 Other curvatures of spine
+			737.9 Unspecified curvature of spine
+		738 Other acquired musculoskeletal deformity
+			738 Other acquired musculoskeletal deformity
+			738.0 Acquired deformity of nose
+			738.1 Other acquired deformity of head
+			738.10 Unspecified acquired deformity of head
+			738.11 Zygomatic hyperplasia
+			738.12 Zygomatic hypoplasia
+			738.19 Other specified acquired deformity of head
+			738.2 Acquired deformity of neck
+			738.3 Acquired deformity of chest and rib
+			738.4 Acquired spondylolisthesis
+			738.5 Other acquired deformity of back or spine
+			738.6 Acquired deformity of pelvis
+			738.7 Cauliflower ear
+			738.8 Acquired deformity of other specified site
+			738.9 Acquired deformity of unspecified site
+		739 Nonallopathic lesions not elsewhere classified
+			739 Nonallopathic lesions not elsewhere classified
+			739.0 Nonallopathic lesions, head region
+			739.1 Nonallopathic lesions, cervical region
+			739.2 Nonallopathic lesions, thoracic region
+			739.3 Nonallopathic lesions, lumbar region
+			739.4 Nonallopathic lesions, sacral region
+			739.5 Nonallopathic lesions, pelvic region
+			739.6 Nonallopathic lesions, lower extremities
+			739.7 Nonallopathic lesions, upper extremities
+			739.8 Nonallopathic lesions, rib cage
+			739.9 Nonallopathic lesions, abdomen and other sites
