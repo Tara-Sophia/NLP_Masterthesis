@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED, TRAIN_DATA_DIR
+from constants import LR_MODEL_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
