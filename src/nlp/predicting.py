@@ -1,21 +1,24 @@
-from keybert import KeyBERT
+# -*- coding: utf-8 -*-
+import string
 
 # allow custom input sentence # input("Enter your text: ")
 import nltk
-from nltk.corpus import stopwords
 
-# nltk.download("stopwords")
-# nltk.download("punkt")
+# from cleaning.py file import cleaning function
+from cleaning import cleaning
+from keybert import KeyBERT
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
 from nltk import word_tokenize
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import string
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoModel, AutoTokenizer
 
-# from cleaning.py file import cleaning function
-from cleaning import cleaning
+# nltk.download("stopwords")
+# nltk.download("punkt")
+
+
 
 
 def KeywordExtraction(text):
@@ -50,7 +53,9 @@ def clean_input(text):
         ]
     )
     # lemmatization
-    text = " ".join([lemmatizer.lemmatize(word) for word in text.split()])
+    text = " ".join(
+        [lemmatizer.lemmatize(word) for word in text.split()]
+    )
     return text
 
 

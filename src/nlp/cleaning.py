@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 # cleaning the dataframe
 import os
-import pandas as pd
 import string
+
 import nltk
+import pandas as pd
 from nltk.corpus import stopwords
 
 nltk.download("stopwords")
@@ -10,11 +12,12 @@ nltk.download("punkt")
 
 nltk.download("wordnet")
 nltk.download("omw-1.4")
+from constants import (
+    MTSAMPLES_PROCESSED_PATH_DIR,
+    MTSAMPLES_RAW_PATH_DIR,
+)
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
-
-from constants import MTSAMPLES_RAW_PATH_DIR, MTSAMPLES_PROCESSED_PATH_DIR
-
 
 # def convert(lst_kw):
 #     """This function converts the keywords to a list of keywords"""

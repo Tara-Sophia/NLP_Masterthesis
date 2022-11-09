@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
 import os
+
 import numpy as np
-import torch
 import pandas as pd
-from datasets import load_dataset, load_metric, Dataset
+import torch
 from constants import (
-    MTSAMPLES_PROCESSED_PATH_DIR,
-    MODEL_SEMI_SUPERVISED_NAME,
     MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR,
     MODEL_SEMI_SUPERVISED_MODEL_DIR,
+    MODEL_SEMI_SUPERVISED_NAME,
+    MTSAMPLES_PROCESSED_PATH_DIR,
 )
+from datasets import Dataset, load_dataset, load_metric
 from transformers import (
-    Trainer,
-    TrainingArguments,
     AutoModelForSequenceClassification,
     AutoTokenizer,
+    Trainer,
+    TrainingArguments,
 )
-
 from transformers.trainer_utils import get_last_checkpoint
+
 import wandb
 
 wandb.init(project="nlp", entity="nlp_masterthesis")
@@ -103,7 +104,7 @@ def load_model(device):
 def load_tokenizer():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_SEMI_SUPERVISED_NAME, model_max_length=512
                                               truncate=True, max_length=512, padding=True)
-                                        
+
     return tokenizer
 
 

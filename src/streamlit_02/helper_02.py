@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # keybert predicting
 # Path: src/predicting.py
 # Compare this snippet from src/training.py:
@@ -5,37 +6,49 @@
 
 # import pretrained model for Keybert
 
-from keybert import KeyBERT
-
 # allow custom input sentence # input("Enter your text: ")
 import nltk
-from nltk.corpus import stopwords
-
-# nltk.download("stopwords")
-# nltk.download("punkt")
+from keybert import KeyBERT
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
 from nltk import word_tokenize
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import string
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoModel, AutoTokenizer
+
+# These download statements are only needed once
+# nltk.download("stopwords")
+# nltk.download("punkt")
 
 
-def KeywordExtraction(text):
-    model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
-    # model = AutoModel.from_pretrained("../models/mtsamples")
-    print("in function")
-    model = KeyBERT(
-        model=model  # model_path="./results_modelBert"
-    )  # "./results_modelBert") #alternative current location - model_path='../models/mtsamples'
+def KeywordExtraction(text: str) -> list[str]:
+    """
+    Extract keywords from text using KeyBERT
+
+    Parameters
+    ----------
+    text : str
+        Text to extract keywords from
+
+    Returns
+    -------
+    list[str]
+        List of keywords
+    """
+    # model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
+    # path might not be right after spliiting the PR
+    model = AutoModel.from_pretrained(
+        "../../../models/mtsamples/semi_supervised"
+    )
+    model = KeyBERT(model=model)
     keywords = model.extract_keywords(
         text,
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
-        nr_candidates=10,
-        top_n=4,
+        nr_candidates=15,
+        top_n=10,
         use_mmr=True,
     )
     return keywords
@@ -58,7 +71,9 @@ def clean_input(text):
         ]
     )
     # lemmatization
-    text = " ".join([lemmatizer.lemmatize(word) for word in text.split()])
+    text = " ".join(
+        [lemmatizer.lemmatize(word) for word in text.split()]
+    )
     return text
 
 

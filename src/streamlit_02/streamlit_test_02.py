@@ -1,33 +1,41 @@
-import streamlit as st
-import numpy as np
-from transformers import BertTokenizer, BertForSequenceClassification
-import torch
+# -*- coding: utf-8 -*-
 import pickle
+import string
 import sys
+
+# allow custom input sentence # input("Enter your text: ")
+import nltk
+import numpy as np
+import torch
 
 # importing predicting.py
 # sys.path.append("src/predicting.py")
 from helper_02 import *
+from keybert import KeyBERT
+
+# nltk.download("wordnet")
+# nltk.download("omw-1.4")
+from nltk import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from transformers import (
+    AutoModel,
+    AutoTokenizer,
+    BertForSequenceClassification,
+    BertTokenizer,
+)
+
+import streamlit as st
 
 # setting path
 # sys.path.append("..")
 # importing
 
-from keybert import KeyBERT
 
-# allow custom input sentence # input("Enter your text: ")
-import nltk
-from nltk.corpus import stopwords
 
 # nltk.download("stopwords")
 # nltk.download("punkt")
 
-# nltk.download("wordnet")
-# nltk.download("omw-1.4")
-from nltk import word_tokenize
-from nltk.stem import WordNetLemmatizer
-import string
-from transformers import AutoTokenizer, AutoModel
 
 
 user_input = st.text_input("Enter your symptom text: ")
