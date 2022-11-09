@@ -111,7 +111,11 @@ def grid_search(
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
-    print("Best cross-validation score: {:.2f}".format(search.best_score_))
+    print(
+        "Best cross-validation score: {:.2f}".format(
+            search.best_score_
+        )
+    )
     return search.best_estimator_
 
 
