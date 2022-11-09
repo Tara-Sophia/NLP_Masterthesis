@@ -16,8 +16,8 @@ import pandas as pd
 from constants import (
     RAW_RECORDINGS_DIR,
     RECORDINGS_FILE,
-    STT_REPORT,
     SRC_DIR,
+    STT_REPORT,
 )
 from pandas_profiling import ProfileReport
 
