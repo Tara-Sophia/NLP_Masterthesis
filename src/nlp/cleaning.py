@@ -5,12 +5,12 @@ import string
 
 import nltk
 import pandas as pd
-from nltk.corpus import stopwords
 from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
 )
 from nltk import word_tokenize
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 nltk.download("stopwords")
@@ -22,7 +22,9 @@ nltk.download("omw-1.4")
 
 def cleaning_input(sentence: str) -> str:
     """
-    This function cleans the input sentence by removing stopwords, numbers and punctuation, and lemmatizing the words.
+    This function cleans the input sentence.
+    Removing stopwords, numbers and punctuation,
+    and lemmatizing the words.
 
     Parameters
     ----------
@@ -35,21 +37,23 @@ def cleaning_input(sentence: str) -> str:
         The cleaned sentence.
     """
     # Basic cleaning
-    sentence = sentence.strip()  ## remove whitespaces
-    sentence = sentence.lower()  ## lowercase
+    sentence = sentence.strip()  # Remove whitespaces
+    sentence = sentence.lower()  # Lowercase
     sentence = "".join(
         char for char in sentence if not char.isdigit()
-    )  ## remove numbers
+    )  # Remove numbers
 
     # Advanced cleaning
     for punctuation in string.punctuation:
-        sentence = sentence.replace(punctuation, "")  ## remove punctuation
+        sentence = sentence.replace(
+            punctuation, ""
+        )  # Remove punctuation
 
-    tokenized_sentence = word_tokenize(sentence)  ## tokenize
-    stop_words = set(stopwords.words("english"))  ## define stopwords
+    tokenized_sentence = word_tokenize(sentence)  # Rokenize
+    stop_words = set(stopwords.words("english"))  # Define stopwords
 
-    tokenized_sentence_cleaned = [  ## remove stopwords
-        w for w in tokenized_sentence if not w in stop_words
+    tokenized_sentence_cleaned = [  # Remove stopwords
+        w for w in tokenized_sentence if w not in stop_words
     ]
 
     lemmatized = [
@@ -64,7 +68,8 @@ def cleaning_input(sentence: str) -> str:
 
 def create_df(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This function drops nan columns, applies the cleaning function and creates a column with the keywords as list
+    This function drops nan columns, applies the cleaning function.
+    Creates a column with the keywords as list.
 
     Parameters
     ----------
@@ -87,7 +92,8 @@ def create_df(df: pd.DataFrame) -> pd.DataFrame:
 
 def top_11_classes(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This function keeps only the top 11 classes, based on count, of the dataframe.
+    This function keeps only the top 11 classes,
+    based on count of the dataframe.
     The reason is that the other classes are too few to be used for training.
 
     Parameters
@@ -128,7 +134,9 @@ def save_df(df: pd.DataFrame, path: str) -> None:
         The path of the directory where the dataframe will be saved.
     """
     create_dir(path)
-    df.to_csv(os.path.join(path, "mtsamples_cleaned.csv"), index=False)
+    df.to_csv(
+        os.path.join(path, "mtsamples_cleaned.csv"), index=False
+    )
 
 
 def main() -> None:
@@ -136,7 +144,9 @@ def main() -> None:
     This function loads the dataframe, cleans it and saves it to a csv file.
     """
 
-    df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
+    df = pd.read_csv(
+        os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv")
+    )
     df = create_df(df)
     df = top_11_classes(df)
 

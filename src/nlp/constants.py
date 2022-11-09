@@ -32,7 +32,7 @@ MODEL_UNSUPERVISED_CHECKPOINTS_DIR = os.path.join(
 MODEL_UNSUPERVISED_MODEL_DIR = os.path.join(
     "models", "nlp", "unsupervised", "model"
 )
-MODEL_UNSUPERVISED_MODEL_DIR = os.path.join(
+MODEL_SEMI_SUPERVISED_MODEL_DIR = os.path.join(
     "models", "nlp", "semi_supervised", "model"
 )
 

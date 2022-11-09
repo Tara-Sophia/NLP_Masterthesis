@@ -10,7 +10,7 @@ from constants import (
     MODEL_SEMI_SUPERVISED_NAME,
     MTSAMPLES_PROCESSED_PATH_DIR,
 )
-from datasets import Dataset, load_dataset, load_metric
+from datasets import Dataset, load_metric
 from transformers import (
     AutoModelForSequenceClassification,
     AutoTokenizer,
@@ -23,8 +23,22 @@ import wandb
 
 wandb.init(project="nlp", entity="nlp_masterthesis")
 
-# map medical specialty to labels
-def map_medical_specialty_to_labels(path):
+
+def map_medical_specialty_to_labels(path: str) -> pd.DataFrame:
+    """
+    Read the csv file
+    Map the medical specialty to labels
+
+    Parameters
+    ----------
+    path : str
+        path to the csv file
+
+    Returns
+    -------
+    pd.DataFrame
+        dataframe with the mapped labels
+    """
     df = pd.read_csv(path)
     dict_medical_specialty = {
         value: idx
@@ -81,7 +95,9 @@ def clean_remove_column(tokenized_dataset):
             "location",
         ]
     )
-    # tokenized_dataset = tokenized_dataset.rename_column("labels_val", "labels")
+    # tokenized_dataset = tokenized_dataset.rename_column(
+    #     "labels_val", "labels"
+    # )
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
 
@@ -103,7 +119,7 @@ def get_device() -> torch.device:
     )
 
 
-def load_model(device):
+def load_model(device: torch.device):
     model = AutoModelForSequenceClassification.from_pretrained(
         MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     ).to(device)
@@ -190,7 +206,6 @@ def main():
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-
     trainer.save_model(MODEL_SEMI_SUPERVISED_MODEL_DIR)
     trainer.save_state()
 
