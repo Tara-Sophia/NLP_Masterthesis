@@ -22,7 +22,7 @@ from constants import (
 from pandas_profiling import ProfileReport
 
 sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name
+from decorators import log_function_name  # noqa: E402
 
 # ! Todo
 # # Load files

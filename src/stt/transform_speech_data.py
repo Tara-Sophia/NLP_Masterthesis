@@ -34,7 +34,7 @@ from unidecode import unidecode
 from utils import load_processor
 
 sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name
+from decorators import log_function_name  # noqa: E402
 
 
 def remove_special_characters(

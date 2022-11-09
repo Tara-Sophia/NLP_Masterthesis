@@ -29,7 +29,7 @@ from constants import (
 from sklearn.model_selection import train_test_split
 
 sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name
+from decorators import log_function_name  # noqa: E402
 
 
 def get_wav_file_duration(file_path: str) -> float:
