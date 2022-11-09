@@ -1,24 +1,15 @@
 # -*- coding: utf-8 -*-
-import string
-
-# allow custom input sentence # input("Enter your text: ")
-import nltk
 
 # from cleaning.py file import cleaning function
-from cleaning import cleaning
 from keybert import KeyBERT
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
-from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from transformers import AutoModel, AutoTokenizer
 
 # nltk.download("stopwords")
 # nltk.download("punkt")
-
-
 
 
 def KeywordExtraction(text):

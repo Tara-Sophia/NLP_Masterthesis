@@ -27,17 +27,22 @@ wandb.init(project="nlp", entity="nlp_masterthesis")
 def map_medical_specialty_to_labels(path):
     df = pd.read_csv(path)
     dict_medical_specialty = {
-        value: idx for idx, value in enumerate(df.medical_specialty.unique())
+        value: idx
+        for idx, value in enumerate(df.medical_specialty.unique())
     }
     df["labels"] = df.medical_specialty.map(dict_medical_specialty)
     return df
 
 
 def load_datasets(data_path):
-    dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
+    dataset = Dataset.from_pandas(
+        map_medical_specialty_to_labels(data_path)
+    )
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
-    dataset_train_val = dataset_train_test["train"].train_test_split(test_size=0.1)
+    dataset_train_val = dataset_train_test["train"].train_test_split(
+        test_size=0.1
+    )
     dataset_train = dataset_train_val["train"]
     # validation dataset
     dataset_val = dataset_train_val["test"]
@@ -79,10 +84,13 @@ def clean_remove_column(tokenized_dataset):
     # tokenized_dataset = tokenized_dataset.rename_column("labels_val", "labels")
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
+
+
 # def load multiple metrics f1, precision, recall, accuracy
 
+
 def compute_metrics(eval_pred):
-    #load multiple metrics
+    # load multiple metrics
     metric = load_metric("accuracy", average="macro")
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
@@ -90,7 +98,9 @@ def compute_metrics(eval_pred):
 
 
 def get_device() -> torch.device:
-    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    return torch.device(
+        "cuda" if torch.cuda.is_available() else "cpu"
+    )
 
 
 def load_model(device):
@@ -102,8 +112,13 @@ def load_model(device):
 
 
 def load_tokenizer():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_SEMI_SUPERVISED_NAME, model_max_length=512
-                                              truncate=True, max_length=512, padding=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_SEMI_SUPERVISED_NAME,
+        model_max_length=512,
+        truncate=True,
+        max_length=512,
+        padding=True,
+    )
 
     return tokenizer
 
@@ -143,7 +158,9 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
 
 def main():
     train_ds, val_ds = load_datasets(
-        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
+        os.path.join(
+            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
+        )
     )
 
     tokenizer = load_tokenizer()
@@ -155,7 +172,9 @@ def main():
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR)
+    training_args = load_training_args(
+        MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR
+    )
     trainer = load_trainer(
         model,
         training_args,

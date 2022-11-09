@@ -7,19 +7,10 @@
 # import pretrained model for Keybert
 
 # allow custom input sentence # input("Enter your text: ")
-import nltk
 from keybert import KeyBERT
-
-# nltk.download("wordnet")
-# nltk.download("omw-1.4")
-from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from transformers import AutoModel, AutoTokenizer
-
-# These download statements are only needed once
-# nltk.download("stopwords")
-# nltk.download("punkt")
+from transformers import AutoModel
 
 
 def KeywordExtraction(text: str) -> list[str]:

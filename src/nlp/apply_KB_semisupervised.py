@@ -1,23 +1,13 @@
 # -*- coding: utf-8 -*-
-import string
-
-import nltk
 import pandas as pd
-import transformers
 from constants import (
     MODEL_UNSUPERVISED_MODEL_DIR,
     MTSAMPLES_FINAL,
     MTSAMPLES_PROCESSED_CLEANED_DIR,
-    NLP_PROCESSED_PATH_DIR,
 )
 from keybert import KeyBERT
-
-# nltk.download("wordnet")
-# nltk.download("omw-1.4")
 from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from transformers import AutoModel, AutoTokenizer, pipeline
+from transformers import AutoTokenizer, pipeline
 
 # nltk.download("stopwords")
 # nltk.download("punkt")

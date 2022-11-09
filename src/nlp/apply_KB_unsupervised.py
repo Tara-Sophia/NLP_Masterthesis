@@ -1,23 +1,8 @@
 # -*- coding: utf-8 -*-
-import string
 
-import nltk
 import pandas as pd
-import transformers
 from keybert import KeyBERT
-
-# nltk.download("wordnet")
-# nltk.download("omw-1.4")
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from transformers import AutoModel, AutoTokenizer, pipeline
-
-# nltk.download("stopwords")
-# nltk.download("punkt")
-
-
-# create also column for keywords from semisupervised model
+from transformers import AutoTokenizer, pipeline
 
 
 def KeywordExtraction(df):
