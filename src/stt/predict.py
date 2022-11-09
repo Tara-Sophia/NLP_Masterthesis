@@ -22,6 +22,7 @@ from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
+    correct_spelling,
 )
 from constants import SRC_DIR
 
@@ -50,7 +51,8 @@ def transcribe_audio(pipe: Pipeline, rec: sr.Recognizer) -> None:
         clip = AudioSegment.from_file(data, format="wav")
         x = torch.FloatTensor(clip.get_array_of_samples()).numpy()
         text = pipe(x)["text"]
-        print(text)
+        text_cleaned = correct_spelling(text)
+        print(text_cleaned)
 
 
 @click.command()

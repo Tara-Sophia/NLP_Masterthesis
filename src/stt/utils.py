@@ -6,16 +6,20 @@ Description:
 import os
 import sys
 from typing import Optional, Union
+import re
 
 import numpy as np
 import pandas as pd
 import torch
+from unidecode import unidecode
 from constants import (
     HUBERT_MODEL_DIR,
     SAMPLING_RATE,
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
     SRC_DIR,
+    CHARS_TO_IGNORE_REGEX,
+    SPELLING_MODEL,
 )
 from datasets import Dataset
 from evaluate import load
@@ -31,10 +35,20 @@ from transformers import (
     Wav2Vec2FeatureExtractor,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
+    pipeline,
 )
+
 
 sys.path.insert(0, SRC_DIR)
 from decorators import log_function_name
+
+# Calling fix spelling pipeline
+fix_spelling_pipeline = pipeline(
+    "text2text-generation",
+    model=SPELLING_MODEL,
+)
+cer_metric = load("cer")
+wer_metric = load("wer")
 
 
 @log_function_name
@@ -303,6 +317,20 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             )
 
 
+def correct_spelling(pred_label: str) -> str:
+    text_spelling_fixed = fix_spelling_pipeline(
+        pred_label, max_length=2024
+    )[0]["generated_text"]
+    text_cleaned = (
+        re.sub(
+            CHARS_TO_IGNORE_REGEX, "", unidecode(text_spelling_fixed)
+        )
+        .lower()
+        .strip()
+    )
+    return text_cleaned
+
+
 def compute_metrics(
     pred: EvalPrediction,
 ) -> dict[str, Union[float, str]]:
@@ -320,8 +348,6 @@ def compute_metrics(
         Metrics to evaluate the performance of the model
     """
     processor = load_processor(VOCAB_DIR)
-    cer_metric = load("cer")
-    wer_metric = load("wer")
 
     pred_logits = pred.predictions
     pred_ids = np.argmax(pred_logits, axis=-1)
@@ -331,7 +357,10 @@ def compute_metrics(
     ] = processor.tokenizer.pad_token_id
 
     pred_str = processor.batch_decode(pred_ids)
-    # we do not want to group tokens when computing the metrics
+
+    # Call spelling correction method
+    pred_str = [correct_spelling(pred) for pred in pred_str]
+
     label_str = processor.batch_decode(
         pred.label_ids, group_tokens=False
     )

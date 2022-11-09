@@ -32,6 +32,7 @@ from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
+    correct_spelling,
 )
 
 sys.path.insert(0, SRC_DIR)
@@ -70,7 +71,9 @@ def map_to_result(
         logits = model(input_values).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
-    batch["pred_str"] = processor.batch_decode(pred_ids)[0]
+    batch["pred_str"] = correct_spelling(
+        processor.batch_decode(pred_ids)[0]
+    )
     batch["text"] = processor.decode(
         batch["labels"], group_tokens=False
     )
@@ -80,7 +83,7 @@ def map_to_result(
 
 @log_function_name
 def show_random_elements(
-    dataset: Dataset, num_examples: int = 10
+    dataset: Dataset, num_examples: int = 5
 ) -> None:
     """
     Show random predictions and labels from a dataset
@@ -103,7 +106,10 @@ def show_random_elements(
         picks.append(pick)
 
     df = pd.DataFrame(dataset[picks])
-    print(df)
+    pd.set_option("display.width", -1)
+    print(
+        df,
+    )
 
 
 @log_function_name
@@ -229,6 +235,7 @@ def main(hubert: bool, wav2vec2: bool) -> None:
         Use Wav2vec2 model to evaluate
     """
     test_ds = load_test_data(PROCESSED_DIR)
+    test_ds = test_ds.select(range(5))
     device = get_device()
 
     # Decide which model to use
