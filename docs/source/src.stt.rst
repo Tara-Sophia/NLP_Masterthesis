@@ -10,7 +10,6 @@ Submodules
    src.stt.analyze_data
    src.stt.constants
    src.stt.create_speech_data
-   src.stt.decorators
    src.stt.evaluate_model
    src.stt.hubert_training
    src.stt.predict
