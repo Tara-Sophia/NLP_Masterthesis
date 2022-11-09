@@ -4,10 +4,15 @@ Description:
     Predict the transcription of an audio file
 
 Usage:
-    $ python src/data/predict.py
+    $ python src/data/predict.py -h or -w
+
+Possible arguments:
+    * -h or --hubert: Use Hubert model
+    * -w or --wav2vec2: Use Wav2Vec2 model
 """
 import io
 import sys
+import click
 
 import speech_recognition as sr
 import torch
@@ -48,22 +53,51 @@ def transcribe_audio(pipe: Pipeline, rec: sr.Recognizer) -> None:
         print(text)
 
 
+@click.command()
+@click.option(
+    "--hubert",
+    "-h",
+    help="Choose Hubert model",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+@click.option(
+    "--wav2vec2",
+    "-w",
+    help="Choose Wav2vec2 model",
+    default=False,
+    is_flag=True,
+    required=False,
+)
 @log_function_name
-def main():
+def main(hubert: bool, wav2vec2: bool) -> None:
     """
     Main function
+
+    Parameters
+    ----------
+    hubert : bool
+        Use Hubert model to predict
+    wav2vec2 : bool
+        Use Wav2vec2 model to predict
     """
     device = get_device()
-    model_to_predict_with = "Hubert"  # "Wav2Vec2"
-    print(f"Loading model: {model_to_predict_with}")
-    if model_to_predict_with == "Hubert":
+    if hubert:
+        print("Using model Hubert")
         model, processor = load_trained_model_and_processor_hubert(
             device
         )
-    else:
+    elif wav2vec2:
+        print("Using model Wav2vec2")
         model, processor = load_trained_model_and_processor_wav2vec2(
             device
         )
+    else:
+        print("No model given as input")
+        print("Please enter: python src/stt/predict.py -h or -w")
+        sys.exit()
+
     pipe = pipeline(
         "automatic-speech-recognition",
         model=model,
