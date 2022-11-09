@@ -31,9 +31,7 @@ def replace_tab(x: list[str]) -> list[str]:
     return [i.replace(" ", "_") for i in x]
 
 
-def transform_column(
-    df: pd.DataFrame, column_name: str
-) -> pd.DataFrame:
+def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
     """
     Transform column to list
 
@@ -54,13 +52,10 @@ def transform_column(
     elif column_name == X_MASKED:
         print("Transforming X_MASKED column")
 
-    df[column_name] = df[column_name].apply(
-        lambda x: ast.literal_eval(x)
-    )
-    print(df.head())
+    df[column_name] = df[column_name].apply(lambda x: ast.literal_eval(x))
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
-    print(df.head())
-    df[column_name] = df[column_name].apply(lambda x: " ".join(x))
+    df["keywords"] = df[column_name].apply(lambda x: " ".join(x))
+    print(df.keywords.head())
     return df
 
 
@@ -74,19 +69,15 @@ def main():
 
     # Split data into train and test
     X_train, X_test, y_train, y_test = train_test_split(
-        df.transcription_f_semisupervised.to_list(),
+        df.keywords.to_list(),
         df.medical_specialty,
         test_size=0.2,
         random_state=42,
     )
 
     # Save data as csv
-    train_df = pd.DataFrame(
-        {"keywords": X_train, "medical_specialty": y_train}
-    )
-    test_df = pd.DataFrame(
-        {"keywords": X_test, "medical_specialty": y_test}
-    )
+    train_df = pd.DataFrame({"keywords": X_train, "medical_specialty": y_train})
+    test_df = pd.DataFrame({"keywords": X_test, "medical_specialty": y_test})
     train_df.to_csv(
         os.path.join("data", "processed", "clf", "train.csv"),
         index=False,

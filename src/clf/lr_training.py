@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import LR_MODEL_CLASSIFIED, TRAIN_DATA_DIR
+from constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
@@ -111,11 +111,7 @@ def grid_search(
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
-    print(
-        "Best cross-validation score: {:.2f}".format(
-            search.best_score_
-        )
-    )
+    print("Best cross-validation score: {:.2f}".format(search.best_score_))
     return search.best_estimator_
 
 
