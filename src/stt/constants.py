@@ -23,6 +23,8 @@ NUM_PROC = 7
 PROCESSED_DIR = os.path.join("data", "processed", "stt")
 VOCAB_DIR = os.path.join("models", "stt", "vocab")
 
+# SPELLING CORRECTION MODEL
+SPELLING_MODEL = "oliverguhr/spelling-correction-english-base"
 
 # FACEBOOK WAV2VEC2
 WAV2VEC2_MODEL = "facebook/wav2vec2-base"
@@ -35,7 +37,7 @@ WAV2VEC2_MODEL_CHECKPOINTS = os.path.join(
 
 WAV2VEC2_NUM_EPOCHS = 30
 WAV2VEC2_BATCH_SIZE_TRAIN = 16
-WAV2VEC2_BATCH_SIZE_EVAL = 16
+WAV2VEC2_BATCH_SIZE_EVAL = 32
 
 
 # HUBERT TRAINING
@@ -47,7 +49,7 @@ HUBERT_MODEL_CHECKPOINTS = os.path.join(
 
 HUBERT_NUM_EPOCHS = 2
 HUBERT_BATCH_SIZE_TRAIN = 16
-HUBERT_BATCH_SIZE_EVAL = 16
+HUBERT_BATCH_SIZE_EVAL = 32
 
 
 # STT Report HTML
