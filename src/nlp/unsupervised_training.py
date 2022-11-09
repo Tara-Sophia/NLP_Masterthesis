@@ -3,11 +3,8 @@
 import multiprocessing
 import os
 
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import torch
-import transformers
 from constants import (
     EVAL_BATCH_SIZE,
     LEARNING_RATE,
@@ -20,14 +17,9 @@ from constants import (
     TRAIN_BATCH_SIZE,
     WEIGHT_DECAY,
 )
-from datasets import Dataset, load_dataset, load_metric, metric
+from datasets import Dataset, metric
 from sklearn.model_selection import train_test_split
-from tokenizers import BertWordPieceTokenizer
 from transformers import (
-    AutoConfig,
-    AutoModelForMaskedLM,
-    AutoModelForSequenceClassification,
-    AutoTokenizer,
     BertForMaskedLM,
     BertTokenizer,
     DataCollatorForLanguageModeling,

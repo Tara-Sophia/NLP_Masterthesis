@@ -6,12 +6,6 @@ import string
 import nltk
 import pandas as pd
 from nltk.corpus import stopwords
-
-nltk.download("stopwords")
-nltk.download("punkt")
-
-nltk.download("wordnet")
-nltk.download("omw-1.4")
 from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
@@ -19,31 +13,27 @@ from constants import (
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-# def convert(lst_kw):
-#     """This function converts the keywords to a list of keywords"""
-#     list_keywords = lst_kw.split(",")
-#     return list_keywords
+nltk.download("stopwords")
+nltk.download("punkt")
+
+nltk.download("wordnet")
+nltk.download("omw-1.4")
 
 
-# def location_indices(stringstext, check_list):
-#     """this function finds the location of the keywords in the string"""
-
-#     res = dict()
-#     for ele in check_list:
-#         if ele in stringstext:
-#             # getting front index
-#             strt = stringstext.index(ele)
-
-#             # getting ending index
-#             res[ele] = [strt, strt + len(ele) - 1]
-#     return res.values()
-
-
-def cleaning_input(sentence):
-    """This function takes a column and cleans it by removing punctuation, stopwords, and lemmatizing
-    NEXT STEPS : personalize the stop words list, check for different aspects of the words
+def cleaning_input(sentence: str) -> str:
     """
+    This function cleans the input sentence by removing stopwords, numbers and punctuation, and lemmatizing the words.
 
+    Parameters
+    ----------
+    sentence : str
+        The sentence to be cleaned.
+
+    Returns
+    -------
+    str
+        The cleaned sentence.
+    """
     # Basic cleaning
     sentence = sentence.strip()  ## remove whitespaces
     sentence = sentence.lower()  ## lowercase
@@ -72,39 +62,83 @@ def cleaning_input(sentence):
     return cleaned_sentence
 
 
-def create_df(df):
+def create_df(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function drops nan columns, applies the cleaning function and creates a column with the keywords as list
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to be worked on.
+
+    Returns
+    -------
+    pd.DataFrame
+        The cleaned, without nan values dataframe.
+    """
     df = df.dropna().copy()
     df["transcription"] = df["transcription"].apply(cleaning_input)
 
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
     # df["location"] = df.apply(
     #     lambda x: location_indices(x.transcription, x.keywords_list), axis=1
-    )
     return df
 
 
-# filter only for classes with more than 100 samples
-def top_11_classes(df):
+def top_11_classes(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function keeps only the top 11 classes, based on count, of the dataframe.
+    The reason is that the other classes are too few to be used for training.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to be worked on.
+
+    Returns
+    -------
+    pd.DataFrame
+        The dataframe with only the top 11 classes.
+    """
     top_11 = df.value_counts("medical_specialty").index[:11]
     return df[df["medical_specialty"].isin(top_11)].copy()
 
 
-def create_dir(path):
+def create_dir(path: str) -> None:
+    """
+    This function creates a directory if it does not exist.
+
+    Parameters
+    ----------
+    path : str
+        The path of the directory to be created.
+    """
     os.makedirs(path, exist_ok=True)
 
 
-def save_df(df, path):
+def save_df(df: pd.DataFrame, path: str) -> None:
+    """
+    This function saves the dataframe to a csv file.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to be saved.
+    path : str
+        The path of the directory where the dataframe will be saved.
+    """
     create_dir(path)
     df.to_csv(os.path.join(path, "mtsamples_cleaned.csv"), index=False)
 
 
-def main():
+def main() -> None:
+    """
+    This function loads the dataframe, cleans it and saves it to a csv file.
+    """
+
     df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
     df = create_df(df)
-    print(df.shape)
     df = top_11_classes(df)
-    # print size of the dataframe
-    print(df.shape)
 
     # save dataframe
     save_df(df, MTSAMPLES_PROCESSED_PATH_DIR)
