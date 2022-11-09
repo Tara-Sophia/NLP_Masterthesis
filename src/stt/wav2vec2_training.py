@@ -12,11 +12,12 @@ Possible arguments:
 """
 import os
 import sys
-import click
 
+import click
 import torch
 from constants import (
     PROCESSED_DIR,
+    SRC_DIR,
     VOCAB_DIR,
     WAV2VEC2_BATCH_SIZE_EVAL,
     WAV2VEC2_BATCH_SIZE_TRAIN,
@@ -24,7 +25,6 @@ from constants import (
     WAV2VEC2_MODEL_CHECKPOINTS,
     WAV2VEC2_MODEL_DIR,
     WAV2VEC2_NUM_EPOCHS,
-    SRC_DIR,
 )
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
@@ -36,6 +36,7 @@ from utils import (
     load_trainer,
     load_training_args,
 )
+
 import wandb
 
 sys.path.insert(0, SRC_DIR)

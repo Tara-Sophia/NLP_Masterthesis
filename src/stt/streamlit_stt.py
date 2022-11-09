@@ -7,6 +7,7 @@ Usage:
     $ streamlit run src/data/streamlit_stt.py
 """
 import re
+
 import torch
 from audiorecorder import audiorecorder
 from constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
@@ -63,49 +64,6 @@ def load_trained_model_and_processor_wav2vec2(
     return model, processor
 
 
-@st.experimental_memo
-def load_spelling_pipeline() -> pipeline:
-    """
-    Load the pipeline for correcting spelling mistakes
-
-    Returns
-    -------
-    pipeline
-        Pipeline for correcting spelling mistakes
-    """
-    return pipeline(
-        "text2text-generation",
-        model="oliverguhr/spelling-correction-english-base",
-    )
-
-
-@st.experimental_memo
-def correct_spelling(text: str) -> str:
-    """
-    Correcting spelling mistakes
-
-    Parameters
-    ----------
-    text : str
-        Uncorrected text
-
-    Returns
-    -------
-    str
-        Corrected text
-    """
-    fix_spelling_pipeline = load_spelling_pipeline()
-    text_spelling_fixed = fix_spelling_pipeline(
-        text, max_length=2024
-    )[0]["generated_text"]
-    text_cleaned = (
-        re.sub(CHARS_TO_IGNORE_REGEX, "", text_spelling_fixed)
-        .lower()
-        .strip()
-    )
-    return text_cleaned
-
-
 # FACEBOOK HUBERT
 @st.experimental_memo
 def load_trained_model_and_processor_hubert(
@@ -160,13 +118,9 @@ if len(audio) > 0:
     audio_bytes = audio.tobytes()
     st.audio(audio_bytes)
     text = pipe(audio_bytes)
-    text_cleaned = correct_spelling(text["text"])
     st.subheader("Transcription")
     st.write("Text without spelling correction")
     st.write(text["text"])
-    st.write("\n")
-    st.write("Text with spelling correction")
-    st.write(text_cleaned)
 
 
 st.header("Take audio from file")

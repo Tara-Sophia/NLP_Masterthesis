@@ -11,12 +11,12 @@ Possible arguments:
 """
 import json
 import os
-import sys
 import re
 import shutil
+import sys
 from typing import Optional, Union
-import click
 
+import click
 import pandas as pd
 from constants import (
     CHARS_TO_IGNORE_REGEX,
@@ -24,8 +24,8 @@ from constants import (
     PROCESSED_DIR,
     RAW_DATA_DIR,
     SAMPLING_RATE,
-    VOCAB_DIR,
     SRC_DIR,
+    VOCAB_DIR,
 )
 from datasets import Audio, Dataset
 from datasets.arrow_dataset import Batch, Example

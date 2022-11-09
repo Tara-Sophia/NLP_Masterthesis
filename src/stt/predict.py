@@ -12,19 +12,19 @@ Possible arguments:
 """
 import io
 import sys
-import click
 
+import click
 import speech_recognition as sr
 import torch
+from constants import SRC_DIR
 from pydub import AudioSegment
 from transformers import Pipeline, pipeline
 from utils import (
+    correct_spelling,
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
-    correct_spelling,
 )
-from constants import SRC_DIR
 
 sys.path.insert(0, SRC_DIR)
 from decorators import log_function_name

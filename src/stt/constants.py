@@ -23,9 +23,6 @@ NUM_PROC = 7
 PROCESSED_DIR = os.path.join("data", "processed", "stt")
 VOCAB_DIR = os.path.join("models", "stt", "vocab")
 
-# SPELLING CORRECTION MODEL
-SPELLING_MODEL = "oliverguhr/spelling-correction-english-base"
-
 # FACEBOOK WAV2VEC2
 WAV2VEC2_MODEL = "facebook/wav2vec2-base"
 WAV2VEC2_MODEL_DIR = os.path.join(

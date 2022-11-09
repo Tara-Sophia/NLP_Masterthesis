@@ -13,10 +13,10 @@ Possible arguments:
     * -s or --save: Save dataframe to csv
 """
 import os
-import sys
 import shutil
-import click
+import sys
 
+import click
 import librosa
 import pandas as pd
 from constants import (

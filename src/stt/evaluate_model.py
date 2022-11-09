@@ -11,11 +11,11 @@ Possible arguments:
     * -w or --wav2vec2: Use Wav2Vec2 model
 """
 import os
-import sys
 import random
+import sys
 from typing import Union
-import click
 
+import click
 import pandas as pd
 import torch
 from constants import PROCESSED_DIR, SRC_DIR
@@ -27,12 +27,10 @@ from transformers import (
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
 )
-
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
-    correct_spelling,
 )
 
 sys.path.insert(0, SRC_DIR)
@@ -71,9 +69,7 @@ def map_to_result(
         logits = model(input_values).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
-    batch["pred_str"] = correct_spelling(
-        processor.batch_decode(pred_ids)[0]
-    )
+    batch["pred_str"] = processor.batch_decode(pred_ids)[0]
     batch["text"] = processor.decode(
         batch["labels"], group_tokens=False
     )
