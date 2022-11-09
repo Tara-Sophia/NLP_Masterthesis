@@ -26,16 +26,14 @@ conda env export | grep -v "^prefix: " > environment.yml
 
 ## Documentation
 
-To update the documenation delete all files in docs/source/ that end with .rst except for index.rst
-
-Then run:
+To update the documenation run the following commands:
 
 ```bash
 cd docs
 ```
 
 ```bash
-sphinx-apidoc -o ./source ../src --separate
+sphinx-apidoc -o ./source ../src --separate --force
 ```
 
 ```bash
