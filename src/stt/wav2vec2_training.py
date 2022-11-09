@@ -5,10 +5,14 @@ Description:
     Training script for the Wav2vec2 model
 
 Usage:
-    $ python src/data/wav2vec2_training.py
+    $ python src/data/wav2vec2_training.py -s
+
+Possible arguments:
+    * -s or --save: Save the data
 """
 import os
 import sys
+import click
 
 import torch
 from constants import (
@@ -77,11 +81,28 @@ def load_model(
     return model
 
 
+@click.command()
+@click.option(
+    "--save",
+    "-s",
+    help="Save dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
 @log_function_name
-def main():
+def main(save: bool) -> None:
     """
     Main function
+
+    Parameters
+    ----------
+    save : bool
+        Flag if training should be saved
     """
+    if not save:
+        print("No data will be saved")
+
     train_ds, val_ds = load_datasets(PROCESSED_DIR)
     processor = load_processor(VOCAB_DIR)
 
@@ -113,9 +134,10 @@ def main():
     else:
         last_checkpoint = None
 
-    trainer.train(resume_from_checkpoint=last_checkpoint)
-    trainer.save_model(WAV2VEC2_MODEL_DIR)
-    trainer.save_state()
+    if save:
+        trainer.train(resume_from_checkpoint=last_checkpoint)
+        trainer.save_model(WAV2VEC2_MODEL_DIR)
+        trainer.save_state()
 
 
 if __name__ == "__main__":

@@ -4,7 +4,10 @@ Description:
     Transform the speech data to be used by the model
 
 Usage:
-    $ python src/data/transform_speech_data.py
+    $ python src/data/transform_speech_data.py -s
+
+Possible arguments:
+    * -s or --save: Save the data
 """
 import json
 import os
@@ -12,6 +15,7 @@ import sys
 import re
 import shutil
 from typing import Optional, Union
+import click
 
 import pandas as pd
 from constants import (
@@ -307,11 +311,28 @@ def save_datasets(
     )
 
 
+@click.command()
+@click.option(
+    "--save",
+    "-s",
+    help="Save dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
 @log_function_name
-def main():
+def main(save: bool) -> None:
     """
     Main function
+
+    Parameters
+    ----------
+    save : bool
+        Flag if training should be saved
     """
+    if not save:
+        print("No data will be saved")
+
     train_ds = Dataset.from_pandas(
         pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv"))
     )
@@ -340,8 +361,9 @@ def main():
         processor,
     ) = create_labels_and_input_values(train_ds, val_ds, test_ds)
 
-    save_datasets(train_ds, val_ds, test_ds)
-    processor.save_pretrained(VOCAB_DIR)
+    if save:
+        save_datasets(train_ds, val_ds, test_ds)
+        processor.save_pretrained(VOCAB_DIR)
 
 
 if __name__ == "__main__":

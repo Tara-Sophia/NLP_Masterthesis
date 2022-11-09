@@ -7,11 +7,15 @@ Description:
     Filtering out recordings that are too long.
 
 Usage:
-    $ python src/data/create_speech_data.py
+    $ python src/data/create_speech_data.py -s
+
+Possible arguments:
+    * -s or --save: Save dataframe to csv
 """
 import os
 import sys
 import shutil
+import click
 
 import librosa
 import pandas as pd
@@ -140,19 +144,40 @@ def create_own_dataset(
     return df_train, df_val, df_test
 
 
+@click.command()
+@click.option(
+    "--save",
+    "-s",
+    help="Save dataframe",
+    default=False,
+    is_flag=True,
+    required=False,
+)
 @log_function_name
-def main() -> None:
+def main(save: bool) -> None:
     """
     Main function
+
+    Parameters
+    ----------
+    save : bool
+        Flag if data should be saved
     """
+    if not save:
+        print("No data will be saved")
+
     df_train, df_val, df_test = create_own_dataset(RECORDINGS_FILE)
-    df_train.to_csv(
-        os.path.join(RAW_DATA_DIR, "train.csv"), index=False
-    )
-    df_val.to_csv(os.path.join(RAW_DATA_DIR, "val.csv"), index=False)
-    df_test.to_csv(
-        os.path.join(RAW_DATA_DIR, "test.csv"), index=False
-    )
+
+    if save:
+        df_train.to_csv(
+            os.path.join(RAW_DATA_DIR, "train.csv"), index=False
+        )
+        df_val.to_csv(
+            os.path.join(RAW_DATA_DIR, "val.csv"), index=False
+        )
+        df_test.to_csv(
+            os.path.join(RAW_DATA_DIR, "test.csv"), index=False
+        )
 
 
 if __name__ == "__main__":
