@@ -4,6 +4,7 @@ import multiprocessing
 import os
 
 import numpy as np
+import pandas as pd
 import torch
 from constants import (
     EVAL_BATCH_SIZE,
@@ -185,8 +186,6 @@ def main():
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    eval_results = trainer.evaluate()
-
     trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
     trainer.save_state()
 

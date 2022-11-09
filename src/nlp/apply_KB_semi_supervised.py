@@ -6,17 +6,13 @@ from constants import (
     MTSAMPLES_PROCESSED_CLEANED_DIR,
 )
 from keybert import KeyBERT
-from nltk import word_tokenize
 from transformers import AutoTokenizer, pipeline
 
-# nltk.download("stopwords")
-# nltk.download("punkt")
 
-
-# apply model semi supervised to text
 def KeywordExtraction(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Extract keywords from text using KeyBERT. KeyBert uses the pretrained model.
+    Extract keywords from text using KeyBERT.
+    KeyBert uses the pretrained model.
 
     Parameters
     ----------
@@ -32,7 +28,7 @@ def KeywordExtraction(df: pd.DataFrame) -> pd.DataFrame:
         MODEL_UNSUPERVISED_MODEL_DIR, model_max_lenght=512
     )
 
-    # truncate all the text to 512 tokens
+    # Truncate all the text to 512 tokens
 
     hf_model = pipeline(
         "feature-extraction",
@@ -51,7 +47,7 @@ def KeywordExtraction(df: pd.DataFrame) -> pd.DataFrame:
         use_mmr=True,
         diversity=0.5,
     )
-    # put keywords in dataframe
+    # Put keywords in dataframe
     df["keywords_outcome_weights"] = keywords
 
     return df
@@ -92,11 +88,13 @@ def main():
     """
     Main function to run the script
     """
-    df_1 = pd.read_csv(MTSAMPLES_PROCESSED_CLEANED_DIR)
-    df = small_column_df(df_1)
-    # apply keyword extraction on dataframe
+    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_CLEANED_DIR)
+    df = small_column_df(df_large_column)
+
+    # Apply keyword extraction on dataframe
     df_f = KeywordExtraction(df)
-    # save dataframe
+
+    # Save dataframe
     save_dataframe(df_f)
 
 
