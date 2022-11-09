@@ -1,31 +1,52 @@
-from keybert import KeyBERT
-import nltk
-from nltk.corpus import stopwords
+# -*- coding: utf-8 -*-
+import string
 
-# nltk.download("stopwords")
-# nltk.download("punkt")
+import nltk
+import pandas as pd
+import transformers
+from constants import (
+    MODEL_UNSUPERVISED_MODEL_DIR,
+    MTSAMPLES_FINAL,
+    MTSAMPLES_PROCESSED_CLEANED_DIR,
+    NLP_PROCESSED_PATH_DIR,
+)
+from keybert import KeyBERT
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
 from nltk import word_tokenize
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import string
-from transformers import AutoTokenizer, AutoModel
-import pandas as pd
-import transformers
-from transformers import pipeline
+from transformers import AutoModel, AutoTokenizer, pipeline
+
+# nltk.download("stopwords")
+# nltk.download("punkt")
+
 
 # apply model semi supervised to text
-def KeywordExtraction(df):
+def KeywordExtraction(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Extract keywords from text using KeyBERT. KeyBert uses the pretrained model.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with the medical transcription text to extract keywords from
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the additional keywords column
+    """
     tokenizer = AutoTokenizer.from_pretrained(
-        "models/nlp/semi_supervised/model", model_max_lenght=512
+        MODEL_UNSUPERVISED_MODEL_DIR, model_max_lenght=512
     )
 
     # truncate all the text to 512 tokens
 
     hf_model = pipeline(
         "feature-extraction",
-        model="models/nlp/semi_supervised/model",
+        model=MODEL_UNSUPERVISED_MODEL_DIR,
         tokenizer=tokenizer,  # "models/nlp/semi_supervised/model",
     )
 
@@ -46,18 +67,42 @@ def KeywordExtraction(df):
     return df
 
 
-def save_dataframe(df):
-    df.to_csv("data/processed/nlp/mtsamples/mtsamples_semisupervised.csv", index=False)
+def save_dataframe(df: pd.DataFrame) -> None:
+    """
+    Save dataframe to csv file
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        This is the final dataframe with the keywords and weights to save
+    """
+    df.to_csv(MTSAMPLES_FINAL, index=False)
 
 
 # make df column smaller than 512
-def small_column_df(df):
+def small_column_df(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Make the transcription column smaller than 512 tokens
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with the medical transcription text to extract keywords from
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the transcription column smaller than 512 tokens
+    """
     df["transcription"] = df["transcription"].str[:512]
     return df
 
 
 def main():
-    df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_cleaned.csv")
+    """
+    Main function to run the script
+    """
+    df_1 = pd.read_csv(MTSAMPLES_PROCESSED_CLEANED_DIR)
     df = small_column_df(df_1)
     # apply keyword extraction on dataframe
     df_f = KeywordExtraction(df)
@@ -68,5 +113,3 @@ def main():
 # Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()
-
-import string

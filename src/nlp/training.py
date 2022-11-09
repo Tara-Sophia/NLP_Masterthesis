@@ -1,13 +1,16 @@
+# -*- coding: utf-8 -*-
 # this is the training for the keyword Bert model
 
+import pandas as pd
 import torch
 import torch.nn as nn
-from datasets import Dataset, DatasetDict
-from datasets import load_dataset
-import pandas as pd
-
-from transformers import BertTokenizer, BertForSequenceClassification
-from transformers import AutoTokenizer, utoModelForSequenceClassification
+from datasets import Dataset, DatasetDict, load_dataset
+from transformers import (
+    AutoTokenizer,
+    BertForSequenceClassification,
+    BertTokenizer,
+    utoModelForSequenceClassification,
+)
 
 
 def load_dataset(data_path):
@@ -28,7 +31,10 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
 def tokenize_function(batch):
     return tokenizer(
-        batch["transcription"], padding="max_length", truncation=True, max_length=512
+        batch["transcription"],
+        padding="max_length",
+        truncation=True,
+        max_length=512,
     )
 
 
@@ -50,14 +56,20 @@ def clean_remove_column(tokenized_dataset):
             "location",
         ]
     )
-    tokenized_dataset = tokenized_dataset.rename_column("labels_val", "labels")
+    tokenized_dataset = tokenized_dataset.rename_column(
+        "labels_val", "labels"
+    )
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
 
 
-from datasets import load_metric
 import numpy as np
-from transformers import Trainer, TrainingArguments, AutoModelForSequenceClassification
+from datasets import load_metric
+from transformers import (
+    AutoModelForSequenceClassification,
+    Trainer,
+    TrainingArguments,
+)
 
 
 def compute_metrics(eval_pred):
@@ -108,4 +120,3 @@ def main():
 # Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()
-    

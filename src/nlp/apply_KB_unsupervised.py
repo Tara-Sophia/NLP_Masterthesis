@@ -1,19 +1,21 @@
-from keybert import KeyBERT
-import nltk
-from nltk.corpus import stopwords
+# -*- coding: utf-8 -*-
+import string
 
-# nltk.download("stopwords")
-# nltk.download("punkt")
+import nltk
+import pandas as pd
+import transformers
+from keybert import KeyBERT
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
 from nltk import word_tokenize
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import string
-from transformers import AutoTokenizer, AutoModel
-import pandas as pd
-import transformers
-from transformers import pipeline
+from transformers import AutoModel, AutoTokenizer, pipeline
+
+# nltk.download("stopwords")
+# nltk.download("punkt")
+
 
 # create also column for keywords from semisupervised model
 
@@ -53,15 +55,16 @@ def apply_keyword_on_Dataframe(df):
         "keywords_outcome_weights_unsupervised"
     ].apply(lambda x: [item[0] for item in x])
 
-    df["transcription_f_semisupervised"] = df["keywords_outcome_weights"].apply(
-        lambda x: [item[0] for item in x]
-    )
+    df["transcription_f_semisupervised"] = df[
+        "keywords_outcome_weights"
+    ].apply(lambda x: [item[0] for item in x])
     return df
 
 
 def save_dataframe(df):
     df.to_csv(
-        "data/processed/nlp/mtsamples/mtsamples_unsupervised_both.csv", index=False
+        "data/processed/nlp/mtsamples/mtsamples_unsupervised_both.csv",
+        index=False,
     )
 
 
@@ -74,7 +77,9 @@ def small_column_df(df):
 
 
 def main():
-    df_1 = pd.read_csv("data/processed/nlp/mtsamples/mtsamples_semisupervised.csv")
+    df_1 = pd.read_csv(
+        "data/processed/nlp/mtsamples/mtsamples_semisupervised.csv"
+    )
     df = small_column_df(df_1)
     df = KeywordExtraction(df)
     # apply keyword extraction on dataframe
