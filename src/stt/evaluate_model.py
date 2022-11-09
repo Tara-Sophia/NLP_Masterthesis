@@ -27,6 +27,7 @@ from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
+    correct_spelling,
 )
 
 sys.path.insert(0, SRC_DIR)
@@ -65,7 +66,9 @@ def map_to_result(
         logits = model(input_values).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
-    batch["pred_str"] = processor.batch_decode(pred_ids)[0]
+    batch["pred_str"] = correct_spelling(
+        processor.batch_decode(pred_ids)[0]
+    )
     batch["text"] = processor.decode(
         batch["labels"], group_tokens=False
     )
@@ -75,7 +78,7 @@ def map_to_result(
 
 @log_function_name
 def show_random_elements(
-    dataset: Dataset, num_examples: int = 10
+    dataset: Dataset, num_examples: int = 5
 ) -> None:
     """
     Show random predictions and labels from a dataset
@@ -98,7 +101,10 @@ def show_random_elements(
         picks.append(pick)
 
     df = pd.DataFrame(dataset[picks])
-    print(df)
+    pd.set_option("display.width", -1)
+    print(
+        df,
+    )
 
 
 @log_function_name
@@ -200,6 +206,7 @@ def main():
     Main function
     """
     test_ds = load_test_data(PROCESSED_DIR)
+    test_ds = test_ds.select(range(5))
     device = get_device()
     model_to_evaluate = "Hubert"  # "Wav2Vec2"
     print(f"Loading model: {model_to_evaluate}")
@@ -214,9 +221,12 @@ def main():
 
     results = test_ds.map(
         map_to_result,
-        fn_kwargs={"model": model, "processor": processor},
+        fn_kwargs={
+            "model": model,
+            "processor": processor,
+            "device": device,
+        },
         remove_columns=test_ds.column_names,
-        device=device,
     )
 
     wer_metric = load("wer")
