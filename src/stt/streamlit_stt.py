@@ -6,8 +6,6 @@ Description:
 Usage:
     $ streamlit run src/data/streamlit_stt.py
 """
-import re
-
 import torch
 from audiorecorder import audiorecorder
 from constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR

@@ -34,7 +34,7 @@ from transformers import (
 )
 
 sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name
+from decorators import log_function_name  # noqa: E402
 
 
 @log_function_name
