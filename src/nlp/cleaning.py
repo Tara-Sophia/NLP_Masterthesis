@@ -52,9 +52,9 @@ def cleaning_input(sentence: str) -> str:
     tokenized_sentence = word_tokenize(sentence)  # Rokenize
     stop_words = set(stopwords.words("english"))  # Define stopwords
 
-    tokenized_sentence_cleaned = [  # Remove stopwords
+    tokenized_sentence_cleaned = [
         w for w in tokenized_sentence if w not in stop_words
-    ]
+    ]  # Remove stopwords
 
     lemmatized = [
         WordNetLemmatizer().lemmatize(word, pos="v")
@@ -150,7 +150,7 @@ def main() -> None:
     df = create_df(df)
     df = top_11_classes(df)
 
-    # save dataframe
+    # Save dataframe
     save_df(df, MTSAMPLES_PROCESSED_PATH_DIR)
 
 
