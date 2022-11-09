@@ -40,6 +40,14 @@ from decorators import log_function_name  # noqa: E402
 # print(f"Get duration: {audio_segment.duration_seconds}")
 # # librsa.feature.mfcc
 
+# Get train, val and test sets
+# Compare length of recordings
+# Compare number of recordings
+# Compare frame rate
+
+# Show example files,
+# https://www.kaggle.com/code/fizzbuzz/beginner-s-guide-to-audio-data
+
 
 def get_librosa_features(row: pd.Series) -> tuple[int, float]:
     """
@@ -109,6 +117,26 @@ def transform_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 @log_function_name
+def evaluate_audio_sample(row: pd.Series) -> None:
+    """
+    Evaluate the audio sample
+
+    Parameters
+    ----------
+    row : pd.Series
+        Row of the dataframe
+    """
+    file_path = row.file_location
+    sr = librosa.get_samplerate(file_path)
+    duration = librosa.get_duration(filename=file_path)
+    # https://www.kaggle.com/code/fizzbuzz/beginner-s-guide-to-audio-data
+    # https://medium.com/hacking-media/beginner-guide-to-visualizing-audio-as-a-spectogram-in-python-65dca2ab1e61
+    # https://towardsdatascience.com/understanding-audio-data-fourier-transform-fft-spectrogram-and-speech-recognition-a4072d228520
+    print(f"Sample rate: {sr}")
+    print(f"Duration: {duration}")
+
+
+@log_function_name
 def create_dir(file_path: str) -> None:
     """
     Create the directory if it does not exist
@@ -171,10 +199,18 @@ def main():
         "writer_id",
     ]
     df = load_dataframe(RECORDINGS_FILE, important_columns)
-    df = transform_dataframe(df)
-    create_dir(STT_REPORT)
-    report = make_report(df)
-    save_report(report, STT_REPORT)
+    # df = transform_dataframe(df)
+
+    # Evaluate sample audio file
+    df_sample = df.iloc[0, :]
+    print(df_sample)
+    print(type(df_sample))
+    evaluate_audio_sample(df_sample)
+
+    # Create report
+    # create_dir(STT_REPORT)
+    # report = make_report(df)
+    # save_report(report, STT_REPORT)
 
 
 if __name__ == "__main__":
