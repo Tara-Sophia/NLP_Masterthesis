@@ -178,8 +178,6 @@ def main():
     """
     # Load test data
     X_test, y_test = load_data(TEST_DATA_DIR)
-    X_test = X_test.iloc[:2]
-    y_test = y_test.iloc[:2]
 
     # Load models
     lr_model_classified = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
