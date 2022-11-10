@@ -89,7 +89,7 @@ def show_random_elements(
     dataset : Dataset
         Dataset to show predictions and labels from
     num_examples : int, optional
-        Number of predictions and labels to show, by default 10
+        Number of predictions and labels to show, by default 5
     """
     assert num_examples <= len(
         dataset
