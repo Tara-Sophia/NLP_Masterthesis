@@ -39,7 +39,7 @@ def get_device() -> torch.device:
 
 
 # FACEBOOK WAV2VEC2
-@st.experimental_memo
+# @st.experimental_memo
 def load_trained_model_and_processor_wav2vec2(
     device: torch.device,
 ) -> tuple[Wav2Vec2ForCTC, Wav2Vec2Processor]:
@@ -63,27 +63,27 @@ def load_trained_model_and_processor_wav2vec2(
 
 
 # FACEBOOK HUBERT
-@st.experimental_memo
-def load_trained_model_and_processor_hubert(
-    device: torch.device,
-) -> tuple[HubertForCTC, Wav2Vec2Processor]:
-    """
-    Load the trained model and processor for hubert
+# @st.experimental_memo
+# def load_trained_model_and_processor_hubert(
+#     device: torch.device,
+# ) -> tuple[HubertForCTC, Wav2Vec2Processor]:
+#     """
+#     Load the trained model and processor for hubert
 
-    Parameters
-    ----------
-    device : torch.device,
-        Torch device
+#     Parameters
+#     ----------
+#     device : torch.device,
+#         Torch device
 
-    Returns
-    -------
-    tuple(HubertForCTC, Wav2Vec2Processor)
-        Trained hubert model and processor
-    """
-    model = HubertForCTC.from_pretrained(HUBERT_MODEL_DIR)
-    processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
-    model.to(device)
-    return model, processor
+#     Returns
+#     -------
+#     tuple(HubertForCTC, Wav2Vec2Processor)
+#         Trained hubert model and processor
+#     """
+#     model = HubertForCTC.from_pretrained(HUBERT_MODEL_DIR)
+#     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
+#     model.to(device)
+#     return model, processor
 
 
 st.sidebar.title("Choose the model")
@@ -96,7 +96,9 @@ else:
 
 device = get_device()
 if model_to_load == HUBERT_MODEL_DIR:
-    model, processor = load_trained_model_and_processor_hubert(device)
+    st.write("Not implemented yet")
+    st.stop()
+    # model, processor = load_trained_model_and_processor_hubert(device)
 else:
     model, processor = load_trained_model_and_processor_wav2vec2(
         device
