@@ -11,6 +11,8 @@ import os
 import sys
 
 import librosa
+import librosa.display
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from constants import (
@@ -18,38 +20,17 @@ from constants import (
     RECORDINGS_FILE,
     SRC_DIR,
     STT_REPORT,
+    RAW_DATA_DIR,
 )
 from pandas_profiling import ProfileReport
 
 sys.path.insert(0, SRC_DIR)
 from decorators import log_function_name  # noqa: E402
 
-# ! Todo
-# # Load files
-# audio_segment = AudioSegment.from_file(
-#     "Downloads/Warm-Memories-Emotional-Inspiring-Piano.wav"
-# )
-# # Print attributes
-# print(f"Channels: {audio_segment.channels}")
-# print(f"Sample width: {audio_segment.sample_width}")
-# print(f"Frame rate (sample rate): {audio_segment.frame_rate}")
-# print(f"Frame width: {audio_segment.frame_width}")
-# print(f"Length (ms): {len(audio_segment)}")
-# print(f"Frame count: {audio_segment.frame_count()}")
-# print(f"Intensity: {audio_segment.dBFS}")
-# print(f"Get duration: {audio_segment.duration_seconds}")
-# # librsa.feature.mfcc
 
-# Get train, val and test sets
-# Compare length of recordings
-# Compare number of recordings
-# Compare frame rate
-
-# Show example files,
-# https://www.kaggle.com/code/fizzbuzz/beginner-s-guide-to-audio-data
-
-
-def get_librosa_features(row: pd.Series) -> tuple[int, float]:
+def get_librosa_features(
+    row: pd.Series,
+) -> tuple[np.ndarray, int, float]:
     """
     Get the duration of a wav file
 
@@ -60,13 +41,13 @@ def get_librosa_features(row: pd.Series) -> tuple[int, float]:
 
     Returns
     -------
-    tuple[int, float]
-        Sample rate and duration of the wav file
+    tuple[np.ndarray, int, float]
+        Audio array list, sample rate and duration of the wav file
     """
-    file_path = row.file_location
-    sr = librosa.get_samplerate(file_path)
+    file_path = row.path
+    audio, sr = librosa.load(file_path, sr=None)
     duration = librosa.get_duration(filename=file_path)
-    return sr, np.round(duration, 3)
+    return audio, sr, np.round(duration, 3)
 
 
 @log_function_name
@@ -105,14 +86,29 @@ def transform_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame
         Transformed dataframe
     """
-    df["file_location"] = df["file_name"].apply(
-        lambda x: os.path.join(RAW_RECORDINGS_DIR, x)
-    )
-    df[["sr", "duration"]] = df.apply(
+    df[["audio", "sr", "duration"]] = df.apply(
         lambda x: get_librosa_features(x),
         result_type="expand",
         axis=1,
     )
+    return df
+
+
+@log_function_name
+def load_train_val_test_data(folder_path: str) -> pd.DataFrame:
+    train_df = pd.read_csv(os.path.join(folder_path, "train.csv"))
+    val_df = pd.read_csv(os.path.join(folder_path, "val.csv"))
+    test_df = pd.read_csv(os.path.join(folder_path, "test.csv"))
+
+    train_df["split_type"] = "train"
+    val_df["split_type"] = "val"
+    test_df["split_type"] = "test"
+
+    df = pd.concat([train_df, val_df, test_df], axis=0).reset_index(
+        drop=True
+    )
+    df["file_name"] = df["path"].apply(lambda x: os.path.split(x)[1])
+    df = transform_dataframe(df)
     return df
 
 
@@ -126,14 +122,18 @@ def evaluate_audio_sample(row: pd.Series) -> None:
     row : pd.Series
         Row of the dataframe
     """
-    file_path = row.file_location
-    sr = librosa.get_samplerate(file_path)
-    duration = librosa.get_duration(filename=file_path)
-    # https://www.kaggle.com/code/fizzbuzz/beginner-s-guide-to-audio-data
-    # https://medium.com/hacking-media/beginner-guide-to-visualizing-audio-as-a-spectogram-in-python-65dca2ab1e61
-    # https://towardsdatascience.com/understanding-audio-data-fourier-transform-fft-spectrogram-and-speech-recognition-a4072d228520
-    print(f"Sample rate: {sr}")
-    print(f"Duration: {duration}")
+    fig, ax = plt.subplots(2, 1, sharex=True, figsize=(12, 8))
+    librosa.display.waveshow(row.audio, sr=row.sr, ax=ax[0])
+    ax[0].set(title="Waveplot")
+    ax[1].specgram(row.audio, Fs=row.sr)
+    ax[0].set(ylabel="Amplitude", title="Waveplot")
+    ax[1].set(
+        xlabel="Time (seconds)",
+        ylabel="Frequency (HZ)",
+        title="Spectogram",
+    )
+    fig.suptitle(f"Text: {row.phrase}")
+    plt.savefig(os.path.join(STT_REPORT, "audio_sample.png"))
 
 
 @log_function_name
@@ -147,6 +147,50 @@ def create_dir(file_path: str) -> None:
         Path to the directory
     """
     os.makedirs(file_path, exist_ok=True)
+
+
+@log_function_name
+def create_charts(
+    df: pd.DataFrame,
+    col_use: str,
+    title: str,
+    xlabel: str,
+    ylabel: str,
+    hist: bool,
+    file_name: str,
+) -> None:
+    train = df.loc[df["split_type"] == "train", col_use]
+    val = df.loc[df["split_type"] == "val", col_use]
+    test = df.loc[df["split_type"] == "test", col_use]
+
+    plt.figure(figsize=(12, 8))
+
+    if hist:
+        # Add three histograms to one plot
+        plt.hist(train, alpha=0.3, label="train", color="blue")
+        plt.hist(val, alpha=0.3, label="val", color="orange")
+        plt.hist(test, alpha=0.3, label="test", color="green")
+
+        # Add legend
+        plt.legend(title="Split Type")
+    else:
+        plt.bar(
+            df["split_type"].unique(),
+            height=df["split_type"].value_counts(),
+            alpha=0.3,
+            color=[
+                "blue",
+                "orange",
+                "green",
+            ],
+        )
+
+    # Add plot title and axis labels
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+
+    plt.savefig(os.path.join(STT_REPORT, file_name))
 
 
 @log_function_name
@@ -184,7 +228,7 @@ def save_report(report: ProfileReport, file_path: str) -> None:
 
 
 @log_function_name
-def main():
+def main() -> None:
     """
     Main function
     """
@@ -198,17 +242,56 @@ def main():
         "prompt",
         "writer_id",
     ]
-    df = load_dataframe(RECORDINGS_FILE, important_columns)
-    # df = transform_dataframe(df)
+    # Load main dataframe
+    df_full = load_dataframe(RECORDINGS_FILE, important_columns)
+
+    # Train, val, test evaulation
+    df_train_val_test = load_train_val_test_data(RAW_DATA_DIR)
+
+    # Merge dataframes
+    df = pd.merge(
+        df_full, df_train_val_test, on="file_name", how="inner"
+    )
+    print(df.shape)
+
+    # Create directory for the report and figures
+    create_dir(STT_REPORT)
+
+    # Create charts
+    create_charts(
+        df,
+        "sr",
+        "Original Sample Rate by Split",
+        "Sample Rate",
+        "Frequency",
+        True,
+        "sample_rate.png",
+    )
+    create_charts(
+        df,
+        "duration",
+        "Duration by Split",
+        "Duration in seconds",
+        "Frequency",
+        True,
+        "duration.png",
+    )
+    create_charts(
+        df,
+        "split_type",
+        "Split Type",
+        "Split Type",
+        "Frequency",
+        False,
+        "split_type_numbers.png",
+    )
 
     # Evaluate sample audio file
-    df_sample = df.iloc[0, :]
-    print(df_sample)
-    print(type(df_sample))
+    # The 6th example is a good one to show
+    df_sample = df.iloc[6, :]
     evaluate_audio_sample(df_sample)
 
     # Create report
-    # create_dir(STT_REPORT)
     # report = make_report(df)
     # save_report(report, STT_REPORT)
 
