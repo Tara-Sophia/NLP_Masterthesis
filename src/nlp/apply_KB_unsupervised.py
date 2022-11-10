@@ -5,7 +5,20 @@ from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
 
-def KeywordExtraction(df):
+def KeywordExtraction(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Extract keywords from text using KeyBERT.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with the medical transcription text to extract keywords from
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the additional keywords column
+    """
     tokenizer = AutoTokenizer.from_pretrained(
         "models/nlp/unsupervised/model", model_max_lenght=512
     )
@@ -34,7 +47,20 @@ def KeywordExtraction(df):
     return df
 
 
-def apply_keyword_on_Dataframe(df):
+def apply_keyword_on_Dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Apply keyword extraction on dataframe to get keywords and weights
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with the medical transcription text to extract keywords from
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the additional keywords column
+    """
     # Column only with keywords
     df["transcription_f_unsupervised"] = df[
         "keywords_outcome_weights_unsupervised"
@@ -46,7 +72,15 @@ def apply_keyword_on_Dataframe(df):
     return df
 
 
-def save_dataframe(df):
+def save_dataframe(df: pd.DataFrame) -> None:
+    """
+    Save dataframe to csv file
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        This is the final dataframe with the keywords and weights to save
+    """
     df.to_csv(
         "data/processed/nlp/mtsamples/mtsamples_unsupervised_both.csv",
         index=False,

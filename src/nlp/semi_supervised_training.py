@@ -11,11 +11,13 @@ from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
 )
 from datasets import Dataset, load_metric
+from datasets.arrow_dataset import Batch
 from transformers import (
     AutoModelForSequenceClassification,
     AutoTokenizer,
     Trainer,
     TrainingArguments,
+    EvalPrediction,
 )
 from transformers.trainer_utils import get_last_checkpoint
 
@@ -48,7 +50,20 @@ def map_medical_specialty_to_labels(path: str) -> pd.DataFrame:
     return df
 
 
-def load_datasets(data_path):
+def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
+    """
+    Load the train and validation datasets
+
+    Parameters
+    ----------
+    data_path : str
+        Path to the dataset
+
+    Returns
+    -------
+    tuple[Dataset, Dataset]
+        train and validation datasets
+    """
     dataset = Dataset.from_pandas(
         map_medical_specialty_to_labels(data_path)
     )
@@ -64,7 +79,9 @@ def load_datasets(data_path):
     return dataset_train, dataset_val
 
 
-def tokenize_function(batch, tokenizer):
+def tokenize_function(
+    batch: Batch, tokenizer: AutoTokenizer
+) -> Batch:
     return tokenizer(
         batch["transcription"],
         padding="max_length",
@@ -73,7 +90,9 @@ def tokenize_function(batch, tokenizer):
     )
 
 
-def tokenize_dataset(dataset, tokenizer):
+def tokenize_dataset(
+    dataset: Dataset, tokenizer: AutoTokenizer
+) -> Dataset:
     tokenized_datasets = dataset.map(
         tokenize_function,
         fn_kwargs={"tokenizer": tokenizer},
@@ -105,7 +124,20 @@ def clean_remove_column(tokenized_dataset):
 # def load multiple metrics f1, precision, recall, accuracy
 
 
-def compute_metrics(eval_pred):
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
+    """
+    Compute the accuracy of the model for the evaluation dataset
+
+    Parameters
+    ----------
+    eval_pred : EvalPrediction
+        Prediction for evaluation dataset
+
+    Returns
+    -------
+    dict[str, float]
+        Accuracy score
+    """
     # load multiple metrics
     metric = load_metric("accuracy", average="macro")
     predictions, labels = eval_pred
@@ -114,12 +146,36 @@ def compute_metrics(eval_pred):
 
 
 def get_device() -> torch.device:
+    """
+    Get the device
+
+    Returns
+    -------
+    torch.device
+        Device
+    """
     return torch.device(
         "cuda" if torch.cuda.is_available() else "cpu"
     )
 
 
-def load_model(device: torch.device):
+def load_model(
+    device: torch.device,
+) -> AutoModelForSequenceClassification:
+    """
+    Load sequence classification model
+
+    Parameters
+    ----------
+    device : torch.device
+        Device
+
+    Returns
+    -------
+    AutoModelForSequenceClassification
+        Sequence classification model
+    """
+
     model = AutoModelForSequenceClassification.from_pretrained(
         MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     ).to(device)
@@ -127,7 +183,15 @@ def load_model(device: torch.device):
     return model
 
 
-def load_tokenizer():
+def load_tokenizer() -> AutoTokenizer:
+    """
+    Load tokenizer
+
+    Returns
+    -------
+    AutoTokenizer
+        Tokenizer
+    """
     tokenizer = AutoTokenizer.from_pretrained(
         MODEL_SEMI_SUPERVISED_NAME,
         model_max_length=512,
@@ -139,7 +203,20 @@ def load_tokenizer():
     return tokenizer
 
 
-def load_training_args(output_dir):
+def load_training_args(output_dir: str) -> TrainingArguments:
+    """
+    Load training arguments
+
+    Parameters
+    ----------
+    output_dir : str
+        Directory to save the model checkpoints
+
+    Returns
+    -------
+    TrainingArguments
+        Training arguments
+    """
     training_args = TrainingArguments(
         output_dir=output_dir,
         evaluation_strategy="epoch",
@@ -159,7 +236,34 @@ def load_training_args(output_dir):
     return training_args
 
 
-def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
+def load_trainer(
+    model: AutoModelForSequenceClassification,
+    training_args: TrainingArguments,
+    train_ds: Dataset,
+    val_ds: Dataset,
+    tokenizer: AutoTokenizer,
+) -> Trainer:
+    """
+    Load Trainer for model training
+
+    Parameters
+    ----------
+    model : AutoModelForSequenceClassification
+        Model to train
+    training_args : TrainingArguments
+        Training arguments for model
+    train_ds : Dataset
+        Training dataset
+    val_ds : Dataset
+        Validation dataset
+    tokenizer : AutoTokenizer
+        Tokenizer for data encoding
+
+    Returns
+    -------
+    Trainer
+        Trainer with set arguments
+    """
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -172,7 +276,11 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
     return trainer
 
 
-def main():
+def main() -> None:
+    """
+    Main function
+    """
+
     train_ds, val_ds = load_datasets(
         os.path.join(
             MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"

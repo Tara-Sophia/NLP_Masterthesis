@@ -26,6 +26,7 @@ from transformers import (
     DataCollatorForLanguageModeling,
     Trainer,
     TrainingArguments,
+    EvalPrediction,
 )
 from transformers.trainer_utils import get_last_checkpoint
 
@@ -34,12 +35,12 @@ import wandb
 wandb.init(project="nlp", entity="nlp_masterthesis")
 
 
-def load_datasets(data_path):
+def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
 
-    dtf_mlm = pd.read_csv(data_path)
+    df_mlm = pd.read_csv(data_path)
     # Train/Valid Split
     df_train, df_valid = train_test_split(
-        dtf_mlm, test_size=0.15, random_state=SEED_SPLIT
+        df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
     # Convert to Dataset object
     dataset_train = Dataset.from_pandas(
@@ -61,7 +62,7 @@ def tokenize_function(batch, tokenizer):  # before row
     )
 
 
-def tokenize_dataset(dataset, tokenizer):
+def tokenize_dataset(dataset: Dataset, tokenizer):
     column_names = dataset.column_names
 
     tokenized_datasets = dataset.map(
@@ -75,7 +76,7 @@ def tokenize_dataset(dataset, tokenizer):
     return tokenized_datasets
 
 
-def compute_metrics(eval_pred):
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
     return metric.compute(predictions=predictions, references=labels)
@@ -112,7 +113,7 @@ def load_trainer(model, training_args, train_ds, val_ds, tokenizer):
     trainer = Trainer(
         model=model,
         args=training_args,
-        data_collator=data_collator,  # masks the tokens
+        data_collator=data_collator,  # Masks the tokens
         train_dataset=train_ds,
         eval_dataset=val_ds,
         tokenizer=tokenizer,
