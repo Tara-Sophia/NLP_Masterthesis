@@ -85,8 +85,6 @@ def create_df(df: pd.DataFrame) -> pd.DataFrame:
     df["transcription"] = df["transcription"].apply(cleaning_input)
 
     df["keywords_list"] = df["keywords"].apply(lambda x: x.split(","))
-    # df["location"] = df.apply(
-    #     lambda x: location_indices(x.transcription, x.keywords_list), axis=1
     return df
 
 
@@ -141,7 +139,7 @@ def save_df(df: pd.DataFrame, path: str) -> None:
 
 def main() -> None:
     """
-    This function loads the dataframe, cleans it and saves it to a csv file.
+    Main function
     """
 
     df = pd.read_csv(

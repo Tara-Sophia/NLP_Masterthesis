@@ -84,7 +84,7 @@ def small_column_df(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def main():
+def main() -> None:
     """
     Main function to run the script
     """

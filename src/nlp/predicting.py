@@ -10,7 +10,20 @@ from nltk.stem import WordNetLemmatizer
 # nltk.download("punkt")
 
 
-def KeywordExtraction(text):
+def KeywordExtraction(text : str) -> list[str]:
+    """
+    This function extracts keywords from the input text.
+
+    Parameters
+    ----------
+    text : str
+        Input sentence.
+
+    Returns
+    -------
+    list[str]
+        List of keywords. 
+    """
     # load our trained model from models nlp semi supervised
     model = KeyBERT("models/nlp/semi_supervised/model")
     keywords = model.extract_keywords(
@@ -25,7 +38,20 @@ def KeywordExtraction(text):
     return keywords
 
 
-def clean_input(text):
+def clean_input(text: str) -> str:
+    """
+    This function cleans the input sentence.
+
+    Parameters
+    ----------
+    text : str
+        Input sentence.
+
+    Returns
+    -------
+    str
+        Cleaned input sentence.
+    """
     lemmatizer = WordNetLemmatizer()
     text = text.replace("\n", " ")
     text = text.replace("\r", " ")
@@ -48,7 +74,10 @@ def clean_input(text):
     return text
 
 
-def main():
+def main() -> None:
+    """
+    Main function
+    """
     text = input("Enter your syntomps: ")
     text = clean_input(text)
     keywords = KeywordExtraction(text)
