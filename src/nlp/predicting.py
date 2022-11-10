@@ -3,75 +3,33 @@
 from keybert import KeyBERT
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from utils import cleaning_input
+from KeyBert_on_Mtsamples import KeywordExtraction
+from constants import MODEL_UNSUPERVISED_MODEL_DIR
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
 # nltk.download("stopwords")
 # nltk.download("punkt")
-
-
-def KeywordExtraction(text : str) -> list[str]:
+# check that text is max 512 tokens long otherwise make it max 512 tokens long
+def max_length(x: str) -> str:
     """
-    This function extracts keywords from the input text.
+    This function checks if the input text is longer than 512 tokens.
+    If it is, it truncates it to 512 tokens.
 
     Parameters
     ----------
-    text : str
-        Input sentence.
-
-    Returns
-    -------
-    list[str]
-        List of keywords. 
-    """
-    # load our trained model from models nlp semi supervised
-    model = KeyBERT("models/nlp/semi_supervised/model")
-    keywords = model.extract_keywords(
-        text,
-        keyphrase_ngram_range=(1, 2),
-        stop_words="english",
-        use_maxsum=True,
-        nr_candidates=10,
-        top_n=5,
-        use_mmr=True,
-    )
-    return keywords
-
-
-def clean_input(text: str) -> str:
-    """
-    This function cleans the input sentence.
-
-    Parameters
-    ----------
-    text : str
-        Input sentence.
+    x : str
+        Input text.
 
     Returns
     -------
     str
-        Cleaned input sentence.
+        Truncated text.
     """
-    lemmatizer = WordNetLemmatizer()
-    text = text.replace("\n", " ")
-    text = text.replace("\r", " ")
-    text = text.replace("\t", " ")
-    text = text.replace("  ", " ")
-    # remove stopwords and numbers and punctuation
-    text = " ".join(  # join the list of words into a string
-        [
-            word
-            for word in text.split()
-            if word not in stopwords.words("english")
-            # remove numbers and punctuation
-            and word.isalpha()
-        ]
-    )
-    # lemmatization
-    text = " ".join(
-        [lemmatizer.lemmatize(word) for word in text.split()]
-    )
-    return text
+    if len(x.split()) > 512:
+        x = " ".join(x.split()[:512])
+    return x
 
 
 def main() -> None:
@@ -79,9 +37,14 @@ def main() -> None:
     Main function
     """
     text = input("Enter your syntomps: ")
-    text = clean_input(text)
-    keywords = KeywordExtraction(text)
+    text = cleaning_input(text)
+    text = max_length(text)
+    model = MODEL_UNSUPERVISED_MODEL_DIR
+
+    keywords = KeywordExtraction(text, model)
+    keywords_without_weight = [keyword[0] for keyword in keywords]
     print(keywords)
+    print(keywords_without_weight)
 
 
 # call script from terminal
