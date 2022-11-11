@@ -18,12 +18,13 @@ import speech_recognition as sr
 import torch
 from pydub import AudioSegment
 from transformers import Pipeline, pipeline
+
+from src.decorators import log_function_name
 from src.stt.utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
 )
-from src.decorators import log_function_name
 
 
 @log_function_name

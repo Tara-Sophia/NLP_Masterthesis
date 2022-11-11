@@ -18,14 +18,15 @@ import shutil
 import click
 import librosa
 import pandas as pd
+from sklearn.model_selection import train_test_split
+
+from src.decorators import log_function_name
 from src.stt.constants import (
     MAX_DURATION_LENGTH,
     RAW_DATA_DIR,
     RAW_RECORDINGS_DIR,
     RECORDINGS_FILE,
 )
-from sklearn.model_selection import train_test_split
-from src.decorators import log_function_name
 
 
 def get_wav_file_duration(file_path: str) -> float:

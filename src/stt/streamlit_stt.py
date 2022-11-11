@@ -8,11 +8,6 @@ Usage:
 """
 import torch
 from audiorecorder import audiorecorder
-from src.stt.constants import (
-    HUBERT_MODEL_DIR,
-    VOCAB_DIR,
-    WAV2VEC2_MODEL_DIR,
-)
 from transformers import (  # HubertForCTC,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
@@ -20,6 +15,11 @@ from transformers import (  # HubertForCTC,
 )
 
 import streamlit as st
+from src.stt.constants import (
+    HUBERT_MODEL_DIR,
+    VOCAB_DIR,
+    WAV2VEC2_MODEL_DIR,
+)
 
 torch.cuda.empty_cache()
 

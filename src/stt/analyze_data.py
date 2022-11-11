@@ -14,13 +14,14 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from pandas_profiling import ProfileReport
+
+from src.decorators import log_function_name
 from src.stt.constants import (
     RAW_DATA_DIR,
     RECORDINGS_FILE,
     STT_REPORT,
 )
-from pandas_profiling import ProfileReport
-from src.decorators import log_function_name
 
 
 def get_librosa_features(
