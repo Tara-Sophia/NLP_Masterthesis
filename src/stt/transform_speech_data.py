@@ -17,6 +17,12 @@ from typing import Optional, Union
 
 import click
 import pandas as pd
+from datasets import Audio, Dataset
+from datasets.arrow_dataset import Batch, Example
+from transformers import Wav2Vec2Processor
+from unidecode import unidecode
+
+from src.decorators import log_function_name
 from src.stt.constants import (
     CHARS_TO_IGNORE_REGEX,
     NUM_PROC,
@@ -25,13 +31,7 @@ from src.stt.constants import (
     SAMPLING_RATE,
     VOCAB_DIR,
 )
-from datasets import Audio, Dataset
-from datasets.arrow_dataset import Batch, Example
-from transformers import Wav2Vec2Processor
-from unidecode import unidecode
 from src.stt.utils import load_processor
-
-from src.decorators import log_function_name 
 
 
 def remove_special_characters(

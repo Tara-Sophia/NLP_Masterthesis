@@ -13,6 +13,11 @@ import os
 
 import click
 import torch
+from transformers import HubertForCTC, Wav2Vec2Processor
+from transformers.trainer_utils import get_last_checkpoint
+
+import wandb
+from src.decorators import log_function_name
 from src.stt.constants import (
     HUBERT_BATCH_SIZE_EVAL,
     HUBERT_BATCH_SIZE_TRAIN,
@@ -23,9 +28,6 @@ from src.stt.constants import (
     PROCESSED_DIR,
     VOCAB_DIR,
 )
-from transformers import HubertForCTC, Wav2Vec2Processor
-from transformers.trainer_utils import get_last_checkpoint
-from src.decorators import log_function_name
 from src.stt.utils import (
     DataCollatorCTCWithPadding,
     get_device,
@@ -34,8 +36,6 @@ from src.stt.utils import (
     load_trainer,
     load_training_args,
 )
-
-import wandb
 
 wandb.init(
     project="speech-to-text",

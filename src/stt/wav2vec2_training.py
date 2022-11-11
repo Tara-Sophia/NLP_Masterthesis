@@ -34,9 +34,9 @@ from utils import (
     load_trainer,
     load_training_args,
 )
-from decorators import log_function_name
-import wandb
 
+import wandb
+from decorators import log_function_name
 
 wandb.init(
     project="speech-to-text",

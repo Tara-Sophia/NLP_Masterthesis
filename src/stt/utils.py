@@ -4,18 +4,11 @@ Description:
     Helper functions that are used in multiple places
 """
 import os
-import sys
 from typing import Optional, Union
 
 import numpy as np
 import pandas as pd
 import torch
-from src.stt.constants import (
-    HUBERT_MODEL_DIR,
-    SAMPLING_RATE,
-    VOCAB_DIR,
-    WAV2VEC2_MODEL_DIR,
-)
 from datasets import Dataset
 from evaluate import load
 from transformers import (
@@ -30,6 +23,13 @@ from transformers import (
     Wav2Vec2FeatureExtractor,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
+)
+
+from src.stt.constants import (
+    HUBERT_MODEL_DIR,
+    SAMPLING_RATE,
+    VOCAB_DIR,
+    WAV2VEC2_MODEL_DIR,
 )
 from src.stt.decorators import log_function_name
 

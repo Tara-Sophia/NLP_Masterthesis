@@ -11,14 +11,13 @@ Possible arguments:
     * -w or --wav2vec2: Use Wav2Vec2 model
 """
 import os
-import sys
 import random
+import sys
 from typing import Union
 
 import click
 import pandas as pd
 import torch
-from src.stt.constants import PROCESSED_DIR
 from datasets import Dataset
 from datasets.arrow_dataset import Example
 from evaluate import EvaluationModule, load
@@ -32,7 +31,9 @@ from utils import (
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
 )
+
 from src.decorators import log_function_name
+from src.stt.constants import PROCESSED_DIR
 
 
 def map_to_result(
