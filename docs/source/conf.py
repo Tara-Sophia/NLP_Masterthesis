@@ -16,7 +16,10 @@ sys.path.insert(
     2, os.path.abspath(os.path.join("..", "..", "src", "data"))
 )
 sys.path.insert(
-    3, os.path.abspath(os.path.join("..", "..", "src", "stt"))
+    3, os.path.abspath(os.path.join("..", "..", "src", "clf"))
+)
+sys.path.insert(
+    4, os.path.abspath(os.path.join("..", "..", "src", "stt"))
 )
 
 # -- Project information -----------------------------------------------------
