@@ -8,23 +8,19 @@ Usage:
     $ python src/data/analyze_data.py
 """
 import os
-import sys
 
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from constants import (
+from src.stt.constants import (
     RAW_DATA_DIR,
     RECORDINGS_FILE,
-    SRC_DIR,
     STT_REPORT,
 )
 from pandas_profiling import ProfileReport
-
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
+from src.decorators import log_function_name
 
 
 def get_librosa_features(

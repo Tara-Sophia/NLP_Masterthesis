@@ -11,13 +11,11 @@ Possible arguments:
     * -s or --save: Save the data
 """
 import os
-import sys
 
 import click
 import torch
 from constants import (
     PROCESSED_DIR,
-    SRC_DIR,
     VOCAB_DIR,
     WAV2VEC2_BATCH_SIZE_EVAL,
     WAV2VEC2_BATCH_SIZE_TRAIN,
@@ -36,11 +34,9 @@ from utils import (
     load_trainer,
     load_training_args,
 )
-
+from decorators import log_function_name
 import wandb
 
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
 
 wandb.init(
     project="speech-to-text",
