@@ -16,11 +16,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from constants import (
-    RAW_RECORDINGS_DIR,
+    RAW_DATA_DIR,
     RECORDINGS_FILE,
     SRC_DIR,
     STT_REPORT,
-    RAW_DATA_DIR,
 )
 from pandas_profiling import ProfileReport
 
@@ -96,6 +95,19 @@ def transform_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 @log_function_name
 def load_train_val_test_data(folder_path: str) -> pd.DataFrame:
+    """
+    Load the train, validation and test data
+
+    Parameters
+    ----------
+    folder_path : str
+        Path to the folder with the train, validation and test data
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the concatenated train, validation and test data
+    """
     train_df = pd.read_csv(os.path.join(folder_path, "train.csv"))
     val_df = pd.read_csv(os.path.join(folder_path, "val.csv"))
     test_df = pd.read_csv(os.path.join(folder_path, "test.csv"))
@@ -159,6 +171,26 @@ def create_charts(
     hist: bool,
     file_name: str,
 ) -> None:
+    """
+    Create charts to visualize the difference between the train, val and test
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe to use
+    col_use : str
+        Column to visualize
+    title : str
+        Title of the chart
+    xlabel : str
+        X label of the chart
+    ylabel : str
+        Y label of the chart
+    hist : bool
+        Flag to indicate if the chart is a histogram
+    file_name : str
+        Name of the file to save
+    """
     train = df.loc[df["split_type"] == "train", col_use]
     val = df.loc[df["split_type"] == "val", col_use]
     test = df.loc[df["split_type"] == "test", col_use]
@@ -292,8 +324,8 @@ def main() -> None:
     evaluate_audio_sample(df_sample)
 
     # Create report
-    # report = make_report(df)
-    # save_report(report, STT_REPORT)
+    report = make_report(df)
+    save_report(report, STT_REPORT)
 
 
 if __name__ == "__main__":
