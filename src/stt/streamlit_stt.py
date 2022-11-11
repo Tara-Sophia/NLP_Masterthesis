@@ -9,8 +9,7 @@ Usage:
 import torch
 from audiorecorder import audiorecorder
 from constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
-from transformers import (
-    HubertForCTC,
+from transformers import (  # HubertForCTC,
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
     pipeline,
