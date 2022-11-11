@@ -16,17 +16,14 @@ import sys
 import click
 import speech_recognition as sr
 import torch
-from constants import SRC_DIR
 from pydub import AudioSegment
 from transformers import Pipeline, pipeline
-from utils import (
+from src.stt.utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,
 )
-
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
+from src.decorators import log_function_name
 
 
 @log_function_name

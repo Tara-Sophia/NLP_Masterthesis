@@ -14,22 +14,18 @@ Possible arguments:
 """
 import os
 import shutil
-import sys
 
 import click
 import librosa
 import pandas as pd
-from constants import (
+from src.stt.constants import (
     MAX_DURATION_LENGTH,
     RAW_DATA_DIR,
     RAW_RECORDINGS_DIR,
     RECORDINGS_FILE,
-    SRC_DIR,
 )
 from sklearn.model_selection import train_test_split
-
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
+from src.decorators import log_function_name
 
 
 def get_wav_file_duration(file_path: str) -> float:

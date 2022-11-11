@@ -10,11 +10,10 @@ Possible arguments:
     * -s or --save: Save training
 """
 import os
-import sys
 
 import click
 import torch
-from constants import (
+from src.stt.constants import (
     HUBERT_BATCH_SIZE_EVAL,
     HUBERT_BATCH_SIZE_TRAIN,
     HUBERT_MODEL,
@@ -22,12 +21,12 @@ from constants import (
     HUBERT_MODEL_DIR,
     HUBERT_NUM_EPOCHS,
     PROCESSED_DIR,
-    SRC_DIR,
     VOCAB_DIR,
 )
 from transformers import HubertForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
-from utils import (
+from src.decorators import log_function_name
+from src.stt.utils import (
     DataCollatorCTCWithPadding,
     get_device,
     load_datasets,
@@ -37,9 +36,6 @@ from utils import (
 )
 
 import wandb
-
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
 
 wandb.init(
     project="speech-to-text",

@@ -10,10 +10,9 @@ from typing import Optional, Union
 import numpy as np
 import pandas as pd
 import torch
-from constants import (
+from src.stt.constants import (
     HUBERT_MODEL_DIR,
     SAMPLING_RATE,
-    SRC_DIR,
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
 )
@@ -32,9 +31,7 @@ from transformers import (
     Wav2Vec2ForCTC,
     Wav2Vec2Processor,
 )
-
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
+from src.stt.decorators import log_function_name
 
 
 @log_function_name

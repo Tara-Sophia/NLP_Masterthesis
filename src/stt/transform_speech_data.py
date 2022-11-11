@@ -13,28 +13,25 @@ import json
 import os
 import re
 import shutil
-import sys
 from typing import Optional, Union
 
 import click
 import pandas as pd
-from constants import (
+from src.stt.constants import (
     CHARS_TO_IGNORE_REGEX,
     NUM_PROC,
     PROCESSED_DIR,
     RAW_DATA_DIR,
     SAMPLING_RATE,
-    SRC_DIR,
     VOCAB_DIR,
 )
 from datasets import Audio, Dataset
 from datasets.arrow_dataset import Batch, Example
 from transformers import Wav2Vec2Processor
 from unidecode import unidecode
-from utils import load_processor
+from src.stt.utils import load_processor
 
-sys.path.insert(0, SRC_DIR)
-from decorators import log_function_name  # noqa: E402
+from src.decorators import log_function_name 
 
 
 def remove_special_characters(

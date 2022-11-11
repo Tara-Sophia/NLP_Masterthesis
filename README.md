@@ -24,6 +24,16 @@ To *create a new version of the environment.yml file*
 conda env export | grep -v "^prefix: " > environment.yml
 ```
 
+Pip installation:
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+pip install -e .
+```
+
 ## Documentation
 
 To update the documenation run the following commands:
