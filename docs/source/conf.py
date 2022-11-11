@@ -26,7 +26,7 @@ copyright = "2022, Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
 author = (
     "Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
 )
-release = "0.1"
+release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

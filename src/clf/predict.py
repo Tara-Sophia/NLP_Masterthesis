@@ -11,8 +11,9 @@ import pickle
 
 import imblearn
 import pandas as pd
-from constants import LR_MODEL_MASKED
 from lime.lime_text import LimeTextExplainer
+
+from src.clf.constants import LR_MODEL_MASKED
 
 
 def predict_probability(

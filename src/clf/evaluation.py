@@ -9,13 +9,14 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import (
+from imblearn.pipeline import Pipeline
+
+from src.clf.constants import (
     LR_MODEL_CLASSIFIED,
     LR_MODEL_MASKED,
     TEST_DATA_DIR,
 )
-from imblearn.pipeline import Pipeline
-from utils import load_data
+from src.clf.utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
