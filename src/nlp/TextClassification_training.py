@@ -3,8 +3,8 @@ import os
 import pandas as pd
 import torch
 from constants import (
-    MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR,
-    MODEL_SEMI_SUPERVISED_MODEL_DIR,
+    MODEL_TC_CHECKPOINTS_DIR,
+    MODEL_TC_MODEL_DIR,
     MODEL_BASE_NAME,
     MTSAMPLES_PROCESSED_PATH_DIR,
 )
@@ -174,7 +174,7 @@ def main() -> None:
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR)
+    training_args = load_training_args(MODEL_TC_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
@@ -191,7 +191,7 @@ def main() -> None:
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    trainer.save_model(MODEL_SEMI_SUPERVISED_MODEL_DIR)
+    trainer.save_model(MODEL_TC_DIR)
     trainer.save_state()
 
 

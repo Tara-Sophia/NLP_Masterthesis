@@ -5,7 +5,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from utils import cleaning_input
 from KeyBert_on_Mtsamples import KeywordExtraction
-from constants import MODEL_UNSUPERVISED_MODEL_DIR
+from constants import MODEL_MLM_DIR
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
@@ -39,7 +39,7 @@ def main() -> None:
     text = input("Enter your syntomps: ")
     text = cleaning_input(text)
     text = max_length(text)
-    model = MODEL_UNSUPERVISED_MODEL_DIR
+    model = MODEL_MLM_DIR
 
     keywords = KeywordExtraction(text, model)
     keywords_without_weight = [keyword[0] for keyword in keywords]

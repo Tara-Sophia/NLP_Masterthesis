@@ -18,21 +18,17 @@ MTSAMPLES_FINAL = os.path.join(
 )
 
 MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
+MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
-# SEMI_SUPERVISED
-MODEL_SEMI_SUPERVISED_MODEL_DIR = os.path.join(
-    "models", "nlp", "semi_supervised", "model"
-)
-MODEL_SEMI_SUPERVISED_CHECKPOINTS_DIR = os.path.join(
+# TEXT CLASSIFICATION MODEL
+MODEL_TC_DIR = os.path.join("models", "nlp", "semi_supervised", "model")
+MODEL_TC_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "semi_supervised", "checkpoints"
 )
 
-# UNSUPERVISED
-MODEL_UNSUPERVISED_NAME = "emilyalsentzer/Bio_ClinicalBERT"
-MODEL_UNSUPERVISED_CHECKPOINTS_DIR = os.path.join(
-    "models", "nlp", "unsupervised", "checkpoints"
-)
-MODEL_UNSUPERVISED_MODEL_DIR = os.path.join("models", "nlp", "unsupervised", "model")
+# MASKEED LANGUAGE MODEL
+MODEL_MLM_CHECKPOINTS_DIR = os.path.join("models", "nlp", "unsupervised", "checkpoints")
+MODEL_MLM_MODEL_DIR = os.path.join("models", "nlp", "unsupervised", "model")
 
 # HYPERPARAMS
 SEED_SPLIT = 0

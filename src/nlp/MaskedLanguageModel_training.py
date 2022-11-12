@@ -7,8 +7,8 @@ import numpy as np
 import pandas as pd
 import torch
 from constants import (
-    MODEL_UNSUPERVISED_CHECKPOINTS_DIR,
-    MODEL_UNSUPERVISED_MODEL_DIR,
+    MODEL_MLM_CHECKPOINTS_DIR,
+    MODEL_MLM_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
@@ -91,7 +91,7 @@ def main():
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_UNSUPERVISED_CHECKPOINTS_DIR)
+    training_args = load_training_args(MODEL_MLM_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
@@ -108,7 +108,7 @@ def main():
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    trainer.save_model(MODEL_UNSUPERVISED_MODEL_DIR)
+    trainer.save_model(MODEL_MLM_DIR)
     trainer.save_state()
 
 
