@@ -27,19 +27,21 @@ TEST_DATA_DIR = os.path.join("data", "processed", "clf", "test.csv")
 
 # path to models
 LR_MODEL_MASKED = os.path.join("models", "clf", "lr_model_masked.pkl")
-LR_MODEL_CLASSIFIED = os.path.join(
-    "models", "clf", "lr_model_classified.pkl"
-)
+LR_MODEL_CLASSIFIED = os.path.join("models", "clf", "lr_model_classified.pkl")
 LR_MODEL_MIMIC = os.path.join("models", "clf", "lr_model_mimic.pkl")
 
 RF_MODEL_MASKED = os.path.join("models", "clf", "rf_model_masked.pkl")
-RF_MODEL_CLASSIFIED = os.path.join(
-    "models", "clf", "rf_model_classified.pkl"
-)
+RF_MODEL_CLASSIFIED = os.path.join("models", "clf", "rf_model_classified.pkl")
 RF_MODEL_MIMIC = os.path.join("models", "clf", "rf_model_mimic.pkl")
 
 DT_MODEL_MASKED = os.path.join("models", "clf", "dt_model_masked.pkl")
-DT_MODEL_CLASSIFIED = os.path.join(
-    "models", "clf", "dt_model_classified.pkl"
-)
+DT_MODEL_CLASSIFIED = os.path.join("models", "clf", "dt_model_classified.pkl")
 DT_MODEL_MIMIC = os.path.join("models", "clf", "dt_model_mimic.pkl")
+
+SVM_MODEL_MASKED = os.path.join("models", "clf", "svm_model_masked.pkl")
+SVM_MODEL_CLASSIFIED = os.path.join("models", "clf", "svm_model_classified.pkl")
+SVM_MODEL_MIMIC = os.path.join("models", "clf", "svm_model_mimic.pkl")
+
+XGB_MODEL_MASKED = os.path.join("models", "clf", "xgb_model_masked.pkl")
+XGB_MODEL_CLASSIFIED = os.path.join("models", "clf", "xgb_model_classified.pkl")
+XGB_MODEL_MIMIC = os.path.join("models", "clf", "xgb_model_mimic.pkl")

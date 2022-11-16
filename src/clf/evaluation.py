@@ -3,7 +3,6 @@
 """
 Description:
     Comparing the performance of the different models
-
 """
 import pickle
 
@@ -12,6 +11,8 @@ import pandas as pd
 from constants import (
     LR_MODEL_CLASSIFIED,
     LR_MODEL_MASKED,
+    SVM_MODEL_CLASSIFIED,
+    SVM_MODEL_MASKED,
     TEST_DATA_DIR,
 )
 from imblearn.pipeline import Pipeline
@@ -19,19 +20,15 @@ from utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def reciprocal_rank(
-    true_labels: list[str], machine_preds: list[str]
-) -> float:
+def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     """
     Compute the reciprocal rank at cutoff k
-
     Parameters
     ----------
     true_labels : list[str]
         true labels
     machine_preds : list[str]
         machine predictions
-
     Returns
     -------
     float
@@ -39,11 +36,7 @@ def reciprocal_rank(
     """
 
     # add index to list only if machine predicted label exists in true labels
-    tp_pos_list = [
-        (idx + 1)
-        for idx, r in enumerate(machine_preds)
-        if r in true_labels
-    ]
+    tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
 
     rr = 0.0
     if len(tp_pos_list) > 0:
@@ -59,12 +52,10 @@ def reciprocal_rank(
 def compute_mrr_at_k(items: list[list[list[str]]]) -> float:
     """
     Compute the MRR (average RR) at cutoff k
-
     Parameters
     ----------
     items : list[list[list[str]]]
         lists of lists (true labels, machine predictions)
-
     Returns
     -------
     float
@@ -84,12 +75,10 @@ def compute_mrr_at_k(items: list[list[list[str]]]) -> float:
 def compute_accuracy(eval_items: list[list[list[str]]]) -> float:
     """
     Compute the accuracy at cutoff k
-
     Parameters
     ----------
     eval_items :  list[list[list[str]]]
         list of tuples (true labels, machine predictions)
-
     Returns
     -------
     float
@@ -110,28 +99,22 @@ def compute_accuracy(eval_items: list[list[list[str]]]) -> float:
     return accuracy
 
 
-def collect_preds(
-    Y_test: pd.Series, Y_preds: list[list[str]]
-) -> list[list[list[str]]]:
+def collect_preds(Y_test: pd.Series, Y_preds: list[list[str]]) -> list[list[list[str]]]:
     """
     Collect all predictions and ground truth
-
     Parameters
     ----------
     Y_test : pd.Series
         true labels
     Y_preds : list[list[str]]
         list of machine predictions
-
     Returns
     -------
      list[list[list[str]]]
         lists of lists (true labels, machine predictions)
     """
 
-    pred_gold_list = [
-        [[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)
-    ]
+    pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
     return pred_gold_list
 
 
@@ -142,7 +125,6 @@ def get_top_k_predictions(
 ) -> list[list[str]]:
     """
     Get top k predictions for each test sample
-
     Parameters
     ----------
     model : Pipeline
@@ -151,7 +133,6 @@ def get_top_k_predictions(
         test data
     k : int
         number of predictions
-
     Returns
     -------
     list[list[str]]
@@ -161,10 +142,7 @@ def get_top_k_predictions(
     probs = model.predict_proba(X_test)
     best_n = np.argsort(probs, axis=1)[:, -k:]
     preds = [
-        [
-            model.classes_[predicted_cat]
-            for predicted_cat in prediction
-        ]
+        [model.classes_[predicted_cat] for predicted_cat in prediction]
         for prediction in best_n
     ]
 
@@ -192,16 +170,27 @@ def main():
     # dt_model_masked = pickle.load(open(DT_MODEL_MASKED, "rb"))
     # dt_model_mimic = pickle.load(open(DT_MODEL_MIMIC, "rb"))
 
-    # evaluate model
-    for model in [lr_model_classified, lr_model_masked]:
+    # svm_model_classified = pickle.load(open(SVM_MODEL_CLASSIFIED, "rb"))
+    svm_model_masked = pickle.load(open(SVM_MODEL_MASKED, "rb"))
+    # lvm_model_mimic = pickle.load(open(LVM_MODEL_MIMIC, "rb"))
+
+    # evaluate model and print results for each model in dataframe
+    models = [
+        ("Logistic Regression (classified)", lr_model_classified),
+        ("Logistic Regression (masked)", lr_model_masked),
+        ("Support Vector Machine (masked)", svm_model_masked),
+    ]
+
+    results = []
+    for name, model in models:
         preds = get_top_k_predictions(model, X_test, 3)
         eval_items = collect_preds(y_test, preds)
-
         accuracy = compute_accuracy(eval_items)
         mrr = compute_mrr_at_k(eval_items)
+        results.append((name, accuracy, mrr))
 
-        print("Accuracy @3: ", accuracy)
-        print("MRR @3: ", mrr)
+    df = pd.DataFrame(results, columns=["Model", "Accuracy @3", "MRR@3"])
+    print(df)
 
 
 if __name__ == "__main__":
