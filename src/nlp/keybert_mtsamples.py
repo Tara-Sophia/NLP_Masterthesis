@@ -3,7 +3,7 @@
 Description:
     This script is used to extract keywords from the medical transcription
 """
-# import lieral_eval
+
 import pandas as pd
 from constants import (
     MODEL_MLM_DIR,
