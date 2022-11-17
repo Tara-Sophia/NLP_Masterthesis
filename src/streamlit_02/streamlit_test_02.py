@@ -2,7 +2,7 @@
 import sys
 
 from constants import MODEL_MLM_DIR
-from keybert import KeywordExtraction
+from keybert import keywordExtraction
 from utils import cleaning_input
 
 import streamlit as st
@@ -22,7 +22,7 @@ def clean_text_input(text):
 # Get keywords from input text with functions from predicting.py
 @st.cache(allow_output_mutation=True)
 def get_keywords(text, model):
-    keywords = KeywordExtraction(text, model)
+    keywords = keywordExtraction(text, model)
     return keywords
 
 
