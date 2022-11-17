@@ -57,10 +57,9 @@ def transform_column(
     df[column_name] = df[column_name].apply(
         lambda x: ast.literal_eval(x)
     )
-    print(df.head())
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
-    print(df.head())
-    df[column_name] = df[column_name].apply(lambda x: " ".join(x))
+    df["keywords"] = df[column_name].apply(lambda x: " ".join(x))
+    print(df.keywords.head())
     return df
 
 
@@ -74,7 +73,7 @@ def main():
 
     # Split data into train and test
     X_train, X_test, y_train, y_test = train_test_split(
-        df.transcription_f_semisupervised.to_list(),
+        df.keywords.to_list(),
         df.medical_specialty,
         test_size=0.2,
         random_state=42,
