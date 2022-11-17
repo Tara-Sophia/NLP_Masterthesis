@@ -3,6 +3,3 @@ multi_line_output = 3
 line_length = 88
 include_trailing_comma = true
 src_paths = ["src"]
-
-[tool.black]
-line_length = 88
