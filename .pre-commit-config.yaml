@@ -24,25 +24,25 @@ repos:
         additional_dependencies: ['types-requests']
 
 -   repo: https://github.com/psf/black
-    rev: 22.8.0
+    rev: 22.10.0
     hooks:
     -   id: black
         args: [--safe, --line-length=70]
 
 -   repo: https://github.com/pycqa/pylint
-    rev: pylint-2.6.0
+    rev: v2.15.5
     hooks:
     -   id: pylint
         args: [--max-line-length=70, --disable=all, --enable=unused-import]
 
 -   repo: https://github.com/PyCQA/flake8
-    rev: 4.0.1
+    rev: 5.0.4
     hooks:
     -   id: flake8
         language_version: python3
 
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
-    rev: v1.0.5
+    rev: v1.0.6
     hooks:
     -   id: python-bandit-vulnerability-check
 
@@ -64,8 +64,8 @@ repos:
     -   id: xenon
         args: ["--max-average=A", "--max-modules=A", "--max-absolute=B"]
 
--   repo: local
-    hooks:
+# -   repo: local
+#     hooks:
     # -   id: pytest
     #     name: pytest
     #     stages: [commit]
@@ -74,11 +74,11 @@ repos:
     #     types: [python]
     #     pass_filenames: false
     #     always_run: false
-    -   id: pytest-cov
-        name: pytest-cov
-        stages: [push]
-        language: system
-        entry: pytest -v --cov=ethosu --cov-fail-under=80
-        types: [python]
-        pass_filenames: false
-        always_run: true
+    # -   id: pytest-cov
+    #     name: pytest-cov
+    #     stages: [commit]
+    #     language: system
+    #     entry: pytest -v --cov=ethosu --cov-fail-under=80
+    #     types: [python]
+    #     pass_filenames: false
+    #     always_run: true
