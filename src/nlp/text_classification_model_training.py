@@ -16,7 +16,10 @@ from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
 )
 from datasets import Dataset
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+)
 from transformers.trainer_utils import get_last_checkpoint
 from utils import (
     get_device,
@@ -52,7 +55,8 @@ def map_medical_specialty_to_labels(path: str) -> pd.DataFrame:
     """
     df = pd.read_csv(path)
     dict_medical_specialty = {
-        value: idx for idx, value in enumerate(df.medical_specialty.unique())
+        value: idx
+        for idx, value in enumerate(df.medical_specialty.unique())
     }
     df["labels"] = df.medical_specialty.map(dict_medical_specialty)
     return df
@@ -72,10 +76,14 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     tuple[Dataset, Dataset]
         train and validation datasets
     """
-    dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
+    dataset = Dataset.from_pandas(
+        map_medical_specialty_to_labels(data_path)
+    )
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
-    dataset_train_val = dataset_train_test["train"].train_test_split(test_size=0.1)
+    dataset_train_val = dataset_train_test["train"].train_test_split(
+        test_size=0.1
+    )
     dataset_train = dataset_train_val["train"]
     # validation dataset
     dataset_val = dataset_train_val["test"]
@@ -83,7 +91,9 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     return dataset_train, dataset_val
 
 
-def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
+def tokenize_dataset(
+    dataset: Dataset, tokenizer: AutoTokenizer
+) -> Dataset:
     """
     Tokenize the dataset
 
@@ -170,7 +180,9 @@ def main() -> None:
     """
 
     train_ds, val_ds = load_datasets(
-        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
+        os.path.join(
+            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
+        )
     )
 
     tokenizer = load_tokenizer()
