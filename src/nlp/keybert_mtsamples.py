@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script is used to extract keywords from the medical transcription
+"""
 # import lieral_eval
 import pandas as pd
 from constants import (
@@ -11,7 +15,7 @@ from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
 
-def KeywordExtraction(
+def Keyword_extraction(
     x: str, model, nr_candidates: int, top_n: int
 ) -> list[tuple]:
     """

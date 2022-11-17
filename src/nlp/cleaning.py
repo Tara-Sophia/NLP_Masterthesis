@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-# cleaning the dataframe
+"""
+Description:
+    This script cleans the data from the mtsamples dataset.
+"""
+
 import os
 
 import nltk
