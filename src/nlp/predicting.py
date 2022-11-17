@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from keybert import KeyBERT
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from utils import cleaning_input
-from KeyBert_on_Mtsamples import KeywordExtraction
 from constants import MODEL_MLM_DIR
+from keybert import keywordExtraction
+from utils import cleaning_input
+
 
 # nltk.download("wordnet")
 # nltk.download("omw-1.4")
@@ -41,7 +39,7 @@ def main() -> None:
     text = max_length(text)
     model = MODEL_MLM_DIR
 
-    keywords = KeywordExtraction(text, model)
+    keywords = keywordExtraction(text, model)
     keywords_without_weight = [keyword[0] for keyword in keywords]
     print(keywords)
     print(keywords_without_weight)

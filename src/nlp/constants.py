@@ -4,31 +4,45 @@ import os
 # RAW DATA NLP
 NLP_RAW_PATH_DIR = os.path.join("data", "raw", "nlp")
 MTSAMPLES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "mtsamples")
-PATIENT_NOTES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "patient_notes")
+PATIENT_NOTES_RAW_PATH_DIR = os.path.join(
+    NLP_RAW_PATH_DIR, "patient_notes"
+)
 
 # PROCESSED DATA NLP
-NLP_PROCESSED_PATH_DIR = os.path.join("data", "processed", "nlp", "mtsamples")
-MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples")
-PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "patient_notes")
+NLP_PROCESSED_PATH_DIR = os.path.join(
+    "data", "processed", "nlp", "mtsamples"
+)
+MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(
+    NLP_PROCESSED_PATH_DIR, "mtsamples"
+)
+PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(
+    NLP_PROCESSED_PATH_DIR, "patient_notes"
+)
 MTSAMPLES_PROCESSED_CLEANED_DIR = os.path.join(
     NLP_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
 )
 MTSAMPLES_FINAL = os.path.join(
-    MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_semisupervised.csv"
+    MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_finaloutput.csv"
 )
 
 MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
 # TEXT CLASSIFICATION MODEL
-MODEL_TC_DIR = os.path.join("models", "nlp", "semi_supervised", "model")
+MODEL_TC_DIR = os.path.join(
+    "models", "nlp", "tectclassification", "model"
+)
 MODEL_TC_CHECKPOINTS_DIR = os.path.join(
-    "models", "nlp", "semi_supervised", "checkpoints"
+    "models", "nlp", "textclassification", "checkpoints"
 )
 
 # MASKEED LANGUAGE MODEL
-MODEL_MLM_CHECKPOINTS_DIR = os.path.join("models", "nlp", "unsupervised", "checkpoints")
-MODEL_MLM_MODEL_DIR = os.path.join("models", "nlp", "unsupervised", "model")
+MODEL_MLM_CHECKPOINTS_DIR = os.path.join(
+    "models", "nlp", "maskedlanguagemodel", "checkpoints"
+)
+MODEL_MLM_DIR = os.path.join(
+    "models", "nlp", "maskedlanguagemodel", "model"
+)
 
 # HYPERPARAMS
 SEED_SPLIT = 0
@@ -43,7 +57,7 @@ WEIGHT_DECAY = 0.01
 
 
 # MTSamples List
-most_common_words_filtered = [
+MOST_COMMON_WORDS_FILTERED = [
     "patient",
     "leave",
     "diagnosis",

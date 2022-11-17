@@ -3,7 +3,6 @@
 import multiprocessing
 import os
 
-import numpy as np
 import pandas as pd
 import torch
 from constants import (
@@ -12,34 +11,37 @@ from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
-from utils import (
-    get_device,
-    load_training_args,
-    load_trainer,
-    load_tokenizer,
-    tokenize_function,
-)
-from datasets import Dataset, metric
+from datasets import Dataset
 from sklearn.model_selection import train_test_split
 from transformers import BertForMaskedLM
 from transformers.trainer_utils import get_last_checkpoint
+from utils import (
+    get_device,
+    load_tokenizer,
+    load_trainer,
+    load_training_args,
+    tokenize_function,
+)
 
 import wandb
 
-wandb.init(project="nlp", entity="nlp_masterthesis")
+wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm"])
 
 
 def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
 
     df_mlm = pd.read_csv(data_path)
-    df_mlm = df_mlm.head(20)
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
     # Convert to Dataset object
-    dataset_train = Dataset.from_pandas(df_train[["transcription"]].dropna())
-    dataset_val = Dataset.from_pandas(df_valid[["transcription"]].dropna())
+    dataset_train = Dataset.from_pandas(
+        df_train[["transcription"]].dropna()
+    )
+    dataset_val = Dataset.from_pandas(
+        df_valid[["transcription"]].dropna()
+    )
     return dataset_train, dataset_val
 
 
@@ -70,9 +72,9 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    ModelClass = BertForMaskedLM
-    bert_type = "bert-base-cased"
-    model = ModelClass.from_pretrained(bert_type).to(device)
+    model = BertForMaskedLM.from_pretrained(
+        MODEL_MLM_CHECKPOINTS_DIR
+    ).to(device)
     # AutoModelForSequenceClassification.from_pretrained(
     #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     # ).to(device)
@@ -82,7 +84,9 @@ def load_model(device: torch.device) -> BertForMaskedLM:
 
 def main():
     train_ds, val_ds = load_datasets(
-        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
+        os.path.join(
+            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
+        )
     )
 
     tokenizer = load_tokenizer()

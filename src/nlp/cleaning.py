@@ -1,18 +1,13 @@
 # -*- coding: utf-8 -*-
 # cleaning the dataframe
 import os
-import string
 
 import nltk
 import pandas as pd
 from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
-    most_common_words_filtered,
 )
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 from utils import cleaning_input
 
 nltk.download("stopwords")
@@ -65,7 +60,9 @@ def top_classes(df: pd.DataFrame) -> pd.DataFrame:
     df = df[
         df["medical_specialty"].isin(
             df["medical_specialty"]
-            .value_counts()[df["medical_specialty"].value_counts() > 100]
+            .value_counts()[
+                df["medical_specialty"].value_counts() > 100
+            ]
             .index
         )
     ]
@@ -98,7 +95,9 @@ def save_df(df: pd.DataFrame, path: str) -> None:
         The path of the directory where the dataframe will be saved.
     """
     create_dir(path)
-    df.to_csv(os.path.join(path, "mtsamples_cleaned.csv"), index=False)
+    df.to_csv(
+        os.path.join(path, "mtsamples_cleaned.csv"), index=False
+    )
 
 
 def main() -> None:
@@ -106,7 +105,9 @@ def main() -> None:
     Main function
     """
 
-    df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
+    df = pd.read_csv(
+        os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv")
+    )
     df = create_df(df)
     df = top_classes(df)
 
