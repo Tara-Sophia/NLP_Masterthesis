@@ -1,5 +1,7 @@
 name: nlp_masterthesis
 channels:
+  - anaconda
+  - conda-forge
   - defaults
 dependencies:
   - pytest
@@ -15,7 +17,6 @@ dependencies:
   - scikit-learn
   - pandas
   - psutil
-  - vs2015_runtime
   - tk
   - decorator
   - setuptools
@@ -59,11 +60,9 @@ dependencies:
   - packaging
   - libffi
   - tornado
-  - ucrt
   - colorama
   - jupyter_core
   - backports
-  - vc
   - ipykernel
   - pre_commit
   - mypy
@@ -75,3 +74,4 @@ dependencies:
   - pylint
   - bandit
   - pytest
+  - nltk

@@ -1,0 +1,521 @@
+740-759 Congenital Anomalies
+	740 Anencephalus and similar anomalies
+			740 Anencephalus and similar anomalies
+			740.0 Anencephalus
+			740.1 Craniorachischisis
+			740.2 Iniencephaly
+	741 Spina bifida
+			741 Spina bifida
+			741.0 Spina bifida with hydrocephalus
+			741.00 Spina bifida with hydrocephalus, unspecified region
+			741.01 Spina bifida with hydrocephalus, cervical region
+			741.02 Spina bifida with hydrocephalus, dorsal (thoracic) region
+			741.03 Spina bifida with hydrocephalus, lumbar region
+			741.9 Spina bifida without mention of hydrocephalus
+			741.90 Spina bifida without mention of hydrocephalus, unspecified region
+			741.91 Spina bifida without mention of hydrocephalus, cervical region
+			741.92 Spina bifida without mention of hydrocephalus, dorsal (thoracic) region
+			741.93 Spina bifida without mention of hydrocephalus, lumbar region
+	742 Other congenital anomalies of nervous system
+			742 Other congenital anomalies of nervous system
+			742.0 Encephalocele
+			742.1 Microcephalus
+			742.2 Congenital reduction deformities of brain
+			742.3 Congenital hydrocephalus
+			742.4 Other specified congenital anomalies of brain
+			742.5 Other specified congenital anomalies of spinal cord
+			742.51 Diastematomyelia
+			742.53 Hydromyelia
+			742.59 Other specified congenital anomalies of spinal cord
+			742.8 Other specified congenital anomalies of nervous system
+			742.9 Unspecified congenital anomaly of brain, spinal cord, and nervous system
+	743 Congenital anomalies of eye
+			743 Congenital anomalies of eye
+			743.0 Anophthalmos
+			743.00 Clinical anophthalmos, unspecified
+			743.03 Cystic eyeball, congenital
+			743.06 Cryptophthalmos
+			743.1 Microphthalmos
+			743.10 Microphthalmos, unspecified
+			743.11 Simple microphthalmos
+			743.12 Microphthalmos associated with other anomalies of eye and adnexa
+			743.2 Buphthalmos
+			743.20 Buphthalmos, unspecified
+			743.21 Simple buphthalmos
+			743.22 Buphthalmos associated with other ocular anomalies
+			743.3 Congenital cataract and lens anomalies
+			743.30 Congenital cataract, unspecified
+			743.31 Congenital capsular and subcapsular cataract
+			743.32 Congenital cortical and zonular cataract
+			743.33 Congenital nuclear cataract
+			743.34 Total and subtotal cataract, congenital
+			743.35 Congenital aphakia
+			743.36 Congenital anomalies of lens shape
+			743.37 Congenital ectopic lens
+			743.39 Other congenital cataract and lens anomalies
+			743.4 Coloboma and other anomalies of anterior segment
+			743.41 Congenital anomalies of corneal size and shape
+			743.42 Corneal opacities, interfering with vision, congenital
+			743.43 Other corneal opacities, congenital
+			743.44 Specified congenital anomalies of anterior chamber, chamber angle, and related structures
+			743.45 Aniridia
+			743.46 Other specified congenital anomalies of iris and ciliary body
+			743.47 Specified congenital anomalies of sclera
+			743.48 Multiple and combined congenital anomalies of anterior segment
+			743.49 Other congenital anomalies of anterior segment
+			743.5 Congenital anomalies of posterior segment
+			743.51 Vitreous anomalies
+			743.52 Fundus coloboma
+			743.53 Chorioretinal degeneration, congenital
+			743.54 Congenital folds and cysts of posterior segment
+			743.55 Congenital macular changes
+			743.56 Other retinal changes, congenital
+			743.57 Specified congenital anomalies of optic disc
+			743.58 Vascular anomalies
+			743.59 Other congenital anomalies of posterior segment
+			743.6 Congenital anomalies of eyelids lacrimal system and orbit
+			743.61 Congenital ptosis
+			743.62 Congenital deformities of eyelids
+			743.63 Other specified congenital anomalies of eyelid
+			743.64 Specified congenital anomalies of lacrimal gland
+			743.65 Specified congenital anomalies of lacrimal passages
+			743.66 Specified congenital anomalies of orbit
+			743.69 Other congenital anomalies of eyelids, lacrimal system, and orbit
+			743.8 Other specified anomalies of eye
+			743.9 Unspecified anomaly of eye
+	744 Congenital anomalies of ear face and neck
+			744 Congenital anomalies of ear face and neck
+			744.0 Congenital anomalies of ear causing impairment of hearing
+			744.00 Unspecified anomaly of ear with impairment of hearing
+			744.01 Absence of external ear
+			744.02 Other anomalies of external ear with impairment of hearing
+			744.03 Anomaly of middle ear, except ossicles
+			744.04 Anomalies of ear ossicles
+			744.05 Anomalies of inner ear
+			744.09 Other anomalies of ear causing impairment of hearing
+			744.1 Accessory auricle
+			744.2 Other specified congenital anomalies of ear
+			744.21 Absence of ear lobe, congenital
+			744.22 Macrotia
+			744.23 Microtia
+			744.24 Specified anomalies of Eustachian tube
+			744.29 Other specified anomalies of ear
+			744.3 Unspecified anomaly of ear
+			744.4 Branchial cleft cyst or fistula; preauricular sinus
+			744.41 Branchial cleft sinus or fistula
+			744.42 Branchial cleft cyst
+			744.43 Cervical auricle
+			744.46 Preauricular sinus or fistula
+			744.47 Preauricular cyst
+			744.49 Other branchial cleft cyst or fistula; preauricular sinus
+			744.5 Webbing of neck
+			744.8 Other specified congenital anomalies of face and neck
+			744.81 Macrocheilia
+			744.82 Microcheilia
+			744.83 Macrostomia
+			744.84 Microstomia
+			744.89 Other specified congenital anomalies of face and neck
+			744.9 Unspecified congenital anomalies of face and neck
+	745 Bulbus cordis anomalies and anomalies of cardiac septal closure
+			745 Bulbus cordis anomalies and anomalies of cardiac septal closure
+			745.0 Common truncus
+			745.1 Transposition of great vessels
+			745.10 Complete transposition of great vessels
+			745.11 Double outlet right ventricle
+			745.12 Corrected transposition of great vessels
+			745.19 Other transposition of great vessels
+			745.2 Tetralogy of fallot
+			745.3 Common ventricle
+			745.4 Ventricular septal defect
+			745.5 Ostium secundum type atrial septal defect
+			745.6 Endocardial cushion defects
+			745.60 Endocardial cushion defect, unspecified type
+			745.61 Ostium primum defect
+			745.69 Other endocardial cushion defects
+			745.7 Cor biloculare
+			745.8 Other bulbus cordis anomalies and anomalies of cardiac septal closure
+			745.9 Unspecified defect of septal closure
+	746 Other congenital anomalies of heart
+			746 Other congenital anomalies of heart
+			746.0 Anomalies of pulmonary valve congenital
+			746.00 Congenital pulmonary valve anomaly, unspecified
+			746.01 Atresia of pulmonary valve, congenital
+			746.02 Stenosis of pulmonary valve, congenital
+			746.09 Other congenital anomalies of pulmonary valve
+			746.1 Tricuspid atresia and stenosis, congenital
+			746.2 Ebstein's anomaly
+			746.3 Congenital stenosis of aortic valve
+			746.4 Congenital insufficiency of aortic valve
+			746.5 Congenital mitral stenosis
+			746.6 Congenital mitral insufficiency
+			746.7 Hypoplastic left heart syndrome
+			746.8 Other specified congenital anomalies of heart
+			746.81 Subaortic stenosis
+			746.82 Cor triatriatum
+			746.83 Infundibular pulmonic stenosis
+			746.84 Obstructive anomalies of heart, not elsewhere classified
+			746.85 Coronary artery anomaly
+			746.86 Congenital heart block
+			746.87 Malposition of heart and cardiac apex
+			746.89 Other specified congenital anomalies of heart
+			746.9 Unspecified congenital anomaly of heart
+	747 Other congenital anomalies of circulatory system
+			747 Other congenital anomalies of circulatory system
+			747.0 Patent ductus arteriosus
+			747.1 Coarctation of aorta
+			747.10 Coarctation of aorta (preductal) (postductal)
+			747.11 Interruption of aortic arch
+			747.2 Other congenital anomalies of aorta
+			747.20 Anomaly of aorta, unspecified
+			747.21 Anomalies of aortic arch
+			747.22 Atresia and stenosis of aorta
+			747.29 Other anomalies of aorta
+			747.3 Congenital anomalies of pulmonary artery
+			747.31 Pulmonary artery coarctation and atresia
+			747.32 Pulmonary arteriovenous malformation
+			747.39 Other anomalies of pulmonary artery and pulmonary circulation
+			747.4 Congenital anomalies of great veins
+			747.40 Anomaly of great veins, unspecified
+			747.41 Total anomalous pulmonary venous connection
+			747.42 Partial anomalous pulmonary venous connection
+			747.49 Other anomalies of great veins
+			747.5 Absence or hypoplasia of umbilical artery
+			747.6 Other congenital anomalies of peripheral vascular system
+			747.60 Anomaly of the peripheral vascular system, unspecified site
+			747.61 Gastrointestinal vessel anomaly
+			747.62 Renal vessel anomaly
+			747.63 Upper limb vessel anomaly
+			747.64 Lower limb vessel anomaly
+			747.69 Anomalies of other specified sites of peripheral vascular system
+			747.8 Other specified congenital anomalies of circulatory system
+			747.81 Anomalies of cerebrovascular system
+			747.82 Spinal vessel anomaly
+			747.83 Persistent fetal circulation
+			747.89 Other specified anomalies of circulatory system
+			747.9 Unspecified anomaly of circulatory system
+	748 Congenital anomalies of respiratory system
+			748 Congenital anomalies of respiratory system
+			748.0 Choanal atresia
+			748.1 Other anomalies of nose
+			748.2 Web of larynx
+			748.3 Other anomalies of larynx, trachea, and bronchus
+			748.4 Congenital cystic lung
+			748.5 Agenesis, hypoplasia, and dysplasia of lung
+			748.6 Other congenital anomalies of lung
+			748.60 Anomaly of lung, unspecified
+			748.61 Congenital bronchiectasis
+			748.69 Other congenital anomalies of lung
+			748.8 Other specified anomalies of respiratory system
+			748.9 Unspecified anomaly of respiratory system
+	749 Cleft palate and cleft lip
+			749 Cleft palate and cleft lip
+			749.0 Cleft palate
+			749.00 Cleft palate, unspecified
+			749.01 Cleft palate, unilateral, complete
+			749.02 Cleft palate, unilateral, incomplete
+			749.03 Cleft palate, bilateral, complete
+			749.04 Cleft palate, bilateral, incomplete
+			749.1 Cleft lip
+			749.10 Cleft lip, unspecified
+			749.11 Cleft lip, unilateral, complete
+			749.12 Cleft lip, unilateral, incomplete
+			749.13 Cleft lip, bilateral, complete
+			749.14 Cleft lip, bilateral, incomplete
+			749.2 Cleft palate with cleft lip
+			749.20 Cleft palate with cleft lip, unspecified
+			749.21 Cleft palate with cleft lip, unilateral, complete
+			749.22 Cleft palate with cleft lip, unilateral, incomplete
+			749.23 Cleft palate with cleft lip, bilateral, complete
+			749.24 Cleft palate with cleft lip, bilateral, incomplete
+			749.25 Other combinations of cleft palate with cleft lip
+	750 Other congenital anomalies of upper alimentary tract
+			750 Other congenital anomalies of upper alimentary tract
+			750.0 Tongue tie
+			750.1 Other congenital anomalies of tongue
+			750.10 Congenital anomaly of tongue, unspecified
+			750.11 Aglossia
+			750.12 Congenital adhesions of tongue
+			750.13 Fissure of tongue
+			750.15 Macroglossia
+			750.16 Microglossia
+			750.19 Other congenital anomalies of tongue
+			750.2 Other specified congenital anomalies of mouth and pharynx
+			750.21 Absence of salivary gland
+			750.22 Accessory salivary gland
+			750.23 Atresia, salivary duct
+			750.24 Congenital fistula of salivary gland
+			750.25 Congenital fistula of lip
+			750.26 Other specified anomalies of mouth
+			750.27 Diverticulum of pharynx
+			750.29 Other specified anomalies of pharynx
+			750.3 Tracheoesophageal fistula, esophageal atresia and stenosis
+			750.4 Other specified anomalies of esophagus
+			750.5 Congenital hypertrophic pyloric stenosis
+			750.6 Congenital hiatus hernia
+			750.7 Other specified anomalies of stomach
+			750.8 Other specified anomalies of upper alimentary tract
+			750.9 Unspecified anomaly of upper alimentary tract
+	751 Other congenital anomalies of digestive system
+			751 Other congenital anomalies of digestive system
+			751.0 Meckel's diverticulum
+			751.1 Atresia and stenosis of small intestine
+			751.2 Atresia and stenosis of large intestine, rectum, and anal canal
+			751.3 Hirschsprung's disease and other congenital functional disorders of colon
+			751.4 Anomalies of intestinal fixation
+			751.5 Other anomalies of intestine
+			751.6 Anomalies of gallbladder bile ducts and liver
+			751.60 Unspecified anomaly of gallbladder, bile ducts, and liver
+			751.61 Biliary atresia
+			751.62 Congenital cystic disease of liver
+			751.69 Other anomalies of gallbladder, bile ducts, and liver
+			751.7 Anomalies of pancreas
+			751.8 Other specified anomalies of digestive system
+			751.9 Unspecified anomaly of digestive system
+	752 Congenital anomalies of genital organs
+			752 Congenital anomalies of genital organs
+			752.0 Anomalies of ovaries
+			752.1 Congenital anomalies of fallopian tubes and broad ligaments
+			752.10 Unspecified anomaly of fallopian tubes and broad ligaments
+			752.11 Embryonic cyst of fallopian tubes and broad ligaments
+			752.19 Other anomalies of fallopian tubes and broad ligaments
+			752.2 Doubling of uterus
+			752.3 Other congenital anomalies of uterus
+			752.31 Agenesis of uterus
+			752.32 Hypoplasia of uterus
+			752.33 Unicornuate uterus
+			752.34 Bicornuate uterus
+			752.35 Septate uterus
+			752.36 Arcuate uterus
+			752.39 Other anomalies of uterus
+			752.4 Congenital anomalies of cervix vagina and external female genitalia
+			752.40 Unspecified anomaly of cervix, vagina, and external female genitalia
+			752.41 Embryonic cyst of cervix, vagina, and external female genitalia
+			752.42 Imperforate hymen
+			752.43 Cervical agenesis
+			752.44 Cervical duplication
+			752.45 Vaginal agenesis
+			752.46 Transverse vaginal septum
+			752.47 Longitudinal vaginal septum
+			752.49 Other anomalies of cervix, vagina, and external female genitalia
+			752.5 Undescended and retractile testicle
+			752.51 Undescended testis
+			752.52 Retractile testis
+			752.6 Hypospadias and epispadias and other penile anomalies
+			752.61 Hypospadias
+			752.62 Epispadias
+			752.63 Congenital chordee
+			752.64 Micropenis
+			752.65 Hidden penis
+			752.69 Other penile anomalies
+			752.7 Indeterminate sex and pseudohermaphroditism
+			752.8 Other specified congenital anomalies of genital organs
+			752.81 Scrotal transposition
+			752.89 Other specified anomalies of genital organs
+			752.9 Unspecified anomaly of genital organs
+	753 Congenital anomalies of urinary system
+			753 Congenital anomalies of urinary system
+			753.0 Renal agenesis and dysgenesis
+			753.1 Cystic kidney disease
+			753.10 Cystic kidney disease, unspecified
+			753.11 Congenital single renal cyst
+			753.12 Polycystic kidney, unspecified type
+			753.13 Polycystic kidney, autosomal dominant
+			753.14 Polycystic kidney, autosomal recessive
+			753.15 Renal dysplasia
+			753.16 Medullary cystic kidney
+			753.17 Medullary sponge kidney
+			753.19 Other specified cystic kidney disease
+			753.2 Obstructive defects of renal pelvis and ureter
+			753.20 Unspecified obstructive defect of renal pelvis and ureter
+			753.21 Congenital obstruction of ureteropelvic junction
+			753.22 Congenital obstruction of ureterovesical junction
+			753.23 Congenital ureterocele
+			753.29 Other obstructive defects of renal pelvis and ureter
+			753.3 Other specified anomalies of kidney
+			753.4 Other specified anomalies of ureter
+			753.5 Exstrophy of urinary bladder
+			753.6 Atresia and stenosis of urethra and bladder neck
+			753.7 Anomalies of urachus
+			753.8 Other specified anomalies of bladder and urethra
+			753.9 Unspecified anomaly of urinary system
+	754 Certain congenital musculoskeletal deformities
+			754 Certain congenital musculoskeletal deformities
+			754.0 Congenital musculoskeletal deformities of skull, face, and jaw
+			754.1 Congenital musculoskeletal deformities of sternocleidomastoid muscle
+			754.2 Congenital musculoskeletal deformities of spine
+			754.3 Congenital dislocation of hip
+			754.30 Congenital dislocation of hip, unilateral
+			754.31 Congenital dislocation of hip, bilateral
+			754.32 Congenital subluxation of hip, unilateral
+			754.33 Congenital subluxation of hip, bilateral
+			754.35 Congenital dislocation of one hip with subluxation of other hip
+			754.4 Congenital genu recurvatum and bowing of long bones of leg
+			754.40 Genu recurvatum
+			754.41 Congenital dislocation of knee (with genu recurvatum)
+			754.42 Congenital bowing of femur
+			754.43 Congenital bowing of tibia and fibula
+			754.44 Congenital bowing of unspecified long bones of leg
+			754.5 Congenital varus deformities of feet
+			754.50 Talipes varus
+			754.51 Talipes equinovarus
+			754.52 Metatarsus primus varus
+			754.53 Metatarsus varus
+			754.59 Other varus deformities of feet
+			754.6 Congenital valgus deformities of feet
+			754.60 Talipes valgus
+			754.61 Congenital pes planus
+			754.62 Talipes calcaneovalgus
+			754.69 Other valgus deformities of feet
+			754.7 Other congenital deformities of feet
+			754.70 Talipes, unspecified
+			754.71 Talipes cavus
+			754.79 Other deformities of feet
+			754.8 Other specified nonteratogenic anomalies
+			754.81 Pectus excavatum
+			754.82 Pectus carinatum
+			754.89 Other specified nonteratogenic anomalies
+	755 Other congenital anomalies of limbs
+			755 Other congenital anomalies of limbs
+			755.0 Polydactyly
+			755.00 Polydactyly, unspecified digits
+			755.01 Polydactyly of fingers
+			755.02 Polydactyly of toes
+			755.1 Syndactyly
+			755.10 Syndactyly of multiple and unspecified sites
+			755.11 Syndactyly of fingers without fusion of bone
+			755.12 Syndactyly of fingers with fusion of bone
+			755.13 Syndactyly of toes without fusion of bone
+			755.14 Syndactyly of toes with fusion of bone
+			755.2 Reduction deformities of upper limb congenital
+			755.20 Unspecified reduction deformity of upper limb
+			755.21 Transverse deficiency of upper limb
+			755.22 Longitudinal deficiency of upper limb, not elsewhere classified
+			755.23 Longitudinal deficiency, combined, involving humerus, radius, and ulna (complete or incomplete)
+			755.24 Longitudinal deficiency, humeral, complete or partial (with or without distal deficiencies, incomplete)
+			755.25 Longitudinal deficiency, radioulnar, complete or partial (with or without distal deficiencies, incomplete)
+			755.26 Longitudinal deficiency, radial, complete or partial (with or without distal deficiencies, incomplete)
+			755.27 Longitudinal deficiency, ulnar, complete or partial (with or without distal deficiencies, incomplete)
+			755.28 Longitudinal deficiency, carpals or metacarpals, complete or partial (with or without incomplete phalangeal deficiency)
+			755.29 Longitudinal deficiency, phalanges, complete or partial
+			755.3 Congenital reduction deformities of lower limb
+			755.30 Unspecified reduction deformity of lower limb,
+			755.31 Transverse deficiency of lower limb
+			755.32 Longitudinal deficiency of lower limb, not elsewhere classified
+			755.33 Longitudinal deficiency, combined, involving femur, tibia, and fibula (complete or incomplete)
+			755.34 Longitudinal deficiency, femoral, complete or partial (with or without distal deficiencies, incomplete)
+			755.35 Longitudinal deficiency, tibiofibular, complete or partial (with or without distal deficiencies, incomplete)
+			755.36 Longitudinal deficiency, tibia, complete or partial (with or without distal deficiencies, incomplete)
+			755.37 Longitudinal deficiency, fibular, complete or partial (with or without distal deficiencies, incomplete)
+			755.38 Longitudinal deficiency, tarsals or metatarsals, complete or partial (with or without incomplete phalangeal deficiency)
+			755.39 Longitudinal deficiency, phalanges, complete or partial
+			755.4 Reduction deformities, unspecified limb
+			755.5 Other congenital anomalies of upper limb including shoulder girdle
+			755.50 Unspecified anomaly of upper limb
+			755.51 Congenital deformity of clavicle
+			755.52 Congenital elevation of scapula
+			755.53 Radioulnar synostosis
+			755.54 Madelung's deformity
+			755.55 Acrocephalosyndactyly
+			755.56 Accessory carpal bones
+			755.57 Macrodactylia (fingers)
+			755.58 Cleft hand, congenital
+			755.59 Other anomalies of upper limb, including shoulder girdle
+			755.6 Other congenital anomalies of lower limb including pelvic girdle
+			755.60 Unspecified anomaly of lower limb
+			755.61 Coxa valga, congenital
+			755.62 Coxa vara, congenital
+			755.63 Other congenital deformity of hip (joint)
+			755.64 Congenital deformity of knee (joint)
+			755.65 Macrodactylia of toes
+			755.66 Other anomalies of toes
+			755.67 Anomalies of foot, not elsewhere classified
+			755.69 Other anomalies of lower limb, including pelvic girdle
+			755.8 Other specified anomalies of unspecified limb
+			755.9 Unspecified anomaly of unspecified limb
+	756 Other congenital musculoskeletal anomalies
+			756 Other congenital musculoskeletal anomalies
+			756.0 Anomalies of skull and face bones
+			756.1 Congenital anomalies of spine
+			756.10 Anomaly of spine, unspecified
+			756.11 Spondylolysis, lumbosacral region
+			756.12 Spondylolisthesis
+			756.13 Absence of vertebra, congenital
+			756.14 Hemivertebra
+			756.15 Fusion of spine (vertebra), congenital
+			756.16 Klippel-Feil syndrome
+			756.17 Spina bifida occulta
+			756.19 Other anomalies of spine
+			756.2 Cervical rib
+			756.3 Other anomalies of ribs and sternum
+			756.4 Chondrodystrophy
+			756.5 Congenital osteodystrophies
+			756.50 Congenital osteodystrophy, unspecified
+			756.51 Osteogenesis imperfecta
+			756.52 Osteopetrosis
+			756.53 Osteopoikilosis
+			756.54 Polyostotic fibrous dysplasia of bone
+			756.55 Chondroectodermal dysplasia
+			756.56 Multiple epiphyseal dysplasia
+			756.59 Other osteodystrophies
+			756.6 Anomalies of diaphragm
+			756.7 Congenital anomalies of abdominal wall
+			756.70 Anomaly of abdominal wall, unspecified
+			756.71 Prune belly syndrome
+			756.72 Omphalocele
+			756.73 Gastroschisis
+			756.79 Other congenital anomalies of abdominal wall
+			756.8 Other specified congenital anomalies of muscle tendon fascia and connective tissue
+			756.81 Absence of muscle and tendon
+			756.82 Accessory muscle
+			756.83 Ehlers-Danlos syndrome
+			756.89 Other specified anomalies of muscle, tendon, fascia, and connective tissue
+			756.9 Other and unspecified anomalies of musculoskeletal system
+	757 Congenital anomalies of the integument
+			757 Congenital anomalies of the integument
+			757.0 Hereditary edema of legs
+			757.1 Ichthyosis congenita
+			757.2 Dermatoglyphic anomalies
+			757.3 Other specified congenital anomalies of skin
+			757.31 Congenital ectodermal dysplasia
+			757.32 Vascular hamartomas
+			757.33 Congenital pigmentary anomalies of skin
+			757.39 Other specified anomalies of skin
+			757.4 Specified anomalies of hair
+			757.5 Specified anomalies of nails
+			757.6 Specified congenital anomalies of breast
+			757.8 Other specified anomalies of the integument
+			757.9 Unspecified congenital anomaly of the integument
+	758 Chromosomal anomalies
+			758 Chromosomal anomalies
+			758.0 Down's syndrome
+			758.1 Patau's syndrome
+			758.2 Edwards' syndrome
+			758.3 Autosomal deletion syndromes
+			758.31 Cri-du-chat syndrome
+			758.32 Velo-cardio-facial syndrome
+			758.33 Other microdeletions
+			758.39 Other autosomal deletions
+			758.4 Balanced autosomal translocation in normal individual
+			758.5 Other conditions due to autosomal anomalies
+			758.6 Gonadal dysgenesis
+			758.7 Klinefelter's syndrome
+			758.8 Other conditions due to chromosome anomalies
+			758.81 Other conditions due to sex chromosome anomalies
+			758.89 Other conditions due to chromosome anomalies
+			758.9 Conditions due to anomaly of unspecified chromosome
+	759 Other and unspecified congenital anomalies
+			759 Other and unspecified congenital anomalies
+			759.0 Anomalies of spleen
+			759.1 Anomalies of adrenal gland
+			759.2 Anomalies of other endocrine glands
+			759.3 Situs inversus
+			759.4 Conjoined twins
+			759.5 Tuberous sclerosis
+			759.6 Other hamartoses, not elsewhere classified
+			759.7 Multiple congenital anomalies, so described
+			759.8 Other specified congenital anomalies
+			759.81 Prader-Willi syndrome
+			759.82 Marfan syndrome
+			759.83 Fragile X syndrome
+			759.89 Other specified congenital anomalies
+			759.9 Congenital anomaly, unspecified

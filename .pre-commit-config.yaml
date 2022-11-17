@@ -5,9 +5,9 @@ repos:
     -   id: check-case-conflict
     -   id: check-json
     -   id: check-yaml
-    -   id: end-of-file-fixer
     -   id: trailing-whitespace
     -   id: mixed-line-ending
+    -   id: end-of-file-fixer
     -   id: detect-private-key
     -   id: check-merge-conflict
     -   id: check-symlinks
@@ -20,6 +20,8 @@ repos:
     rev: v0.971
     hooks:
     -   id: mypy
+        args: [--show-error-codes]
+        additional_dependencies: ['types-requests']
 
 -   repo: https://github.com/psf/black
     rev: 22.8.0
@@ -54,13 +56,13 @@ repos:
     rev: 1.4.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=0]
+        args: [-vv, --fail-under=80, -I]
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
     hooks:
     -   id: xenon
-        args: ["--max-average=A", "--max-modules=B", "--max-absolute=B"]
+        args: ["--max-average=A", "--max-modules=A", "--max-absolute=B"]
 
 -   repo: local
     hooks:

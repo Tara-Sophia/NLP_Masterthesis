@@ -1,0 +1,467 @@
+780-799 Symptoms, Signs, And Ill-Defined Conditions
+	780-789 Symptoms
+		780 General symptoms
+			780 General symptoms
+			780.0 Alteration of consciousness
+			780.01 Coma
+			780.02 Transient alteration of awareness
+			780.03 Persistent vegetative state
+			780.09 Other alteration of consciousness
+			780.1 Hallucinations
+			780.2 Syncope and collapse
+			780.3 Convulsions
+			780.31 Febrile convulsions (simple), unspecified
+			780.32 Complex febrile convulsions
+			780.33 Post traumatic seizures
+			780.39 Other convulsions
+			780.4 Dizziness and giddiness
+			780.5 Sleep disturbances
+			780.50 Sleep disturbance, unspecified
+			780.51 Insomnia with sleep apnea, unspecified
+			780.52 Insomnia, unspecified
+			780.53 Hypersomnia with sleep apnea, unspecified
+			780.54 Hypersomnia, unspecified
+			780.55 Disruption of 24 hour sleep wake cycle, unspecified
+			780.56 Dysfunctions associated with sleep stages or arousal from sleep
+			780.57 Unspecified sleep apnea
+			780.58 Sleep related movement disorder, unspecified
+			780.59 Other sleep disturbances
+			780.6 Fever and other physiologic disturbances of temperature regulation
+			780.60 Fever, unspecified
+			780.61 Fever presenting with conditions classified elsewhere
+			780.62 Postprocedural fever
+			780.63 Postvaccination fever
+			780.64 Chills (without fever)
+			780.65 Hypothermia not associated with low environmental temperature
+			780.66 Febrile nonhemolytic transfusion reaction
+			780.7 Malaise and fatigue
+			780.71 Chronic fatigue syndrome
+			780.72 Functional quadriplegia
+			780.79 Other malaise and fatigue
+			780.8 Generalized hyperhidrosis
+			780.9 Other general symptoms
+			780.91 Fussy infant (baby)
+			780.92 Excessive crying of infant (baby)
+			780.93 Memory loss
+			780.94 Early satiety
+			780.95 Excessive crying of child, adolescent, or adult
+			780.96 Generalized pain
+			780.97 Altered mental status
+			780.99 Other general symptoms
+		781 Symptoms involving nervous and musculoskeletal systems
+			781 Symptoms involving nervous and musculoskeletal systems
+			781.0 Abnormal involuntary movements
+			781.1 Disturbances of sensation of smell and taste
+			781.2 Abnormality of gait
+			781.3 Lack of coordination
+			781.4 Transient paralysis of limb
+			781.5 Clubbing of fingers
+			781.6 Meningismus
+			781.7 Tetany
+			781.8 Neurologic neglect syndrome
+			781.9 Other symptoms involving nervous and musculoskeletal systems
+			781.91 Loss of height
+			781.92 Abnormal posture
+			781.93 Ocular torticollis
+			781.94 Facial weakness
+			781.99 Other symptoms involving nervous and musculoskeletal systems
+		782 Symptoms involving skin and other integumentary tissue
+			782 Symptoms involving skin and other integumentary tissue
+			782.0 Disturbance of skin sensation
+			782.1 Rash and other nonspecific skin eruption
+			782.2 Localized superficial swelling, mass, or lump
+			782.3 Edema
+			782.4 Jaundice, unspecified, not of newborn
+			782.5 Cyanosis
+			782.6 Pallor and flushing
+			782.61 Pallor
+			782.62 Flushing
+			782.7 Spontaneous ecchymoses
+			782.8 Changes in skin texture
+			782.9 Other symptoms involving skin and integumentary tissues
+		783 Symptoms concerning nutrition metabolism and development
+			783 Symptoms concerning nutrition metabolism and development
+			783.0 Anorexia
+			783.1 Abnormal weight gain
+			783.2 Abnormal loss of weight and underweight
+			783.21 Loss of weight
+			783.22 Underweight
+			783.3 Feeding difficulties and mismanagement
+			783.4 Lack of expected normal physiological development in childhood
+			783.40 Lack of normal physiological development, unspecified
+			783.41 Failure to thrive
+			783.42 Delayed milestones
+			783.43 Short stature
+			783.5 Polydipsia
+			783.6 Polyphagia
+			783.7 Adult failure to thrive
+			783.9 Other symptoms concerning nutrition, metabolism, and development
+		784 Symptoms involving head and neck
+			784 Symptoms involving head and neck
+			784.0 Headache
+			784.1 Throat pain
+			784.2 Swelling, mass, or lump in head and neck
+			784.3 Aphasia
+			784.4 Voice disturbance
+			784.40 Voice and resonance disorder, unspecified
+			784.41 Aphonia
+			784.42 Dysphonia
+			784.43 Hypernasality
+			784.44 Hyponasality
+			784.49 Other voice and resonance disorders
+			784.5 Other speech disturbance
+			784.51 Dysarthria
+			784.52 Fluency disorder in conditions classified elsewhere
+			784.59 Other speech disturbance
+			784.6 Other symbolic dysfunction
+			784.60 Symbolic dysfunction, unspecified
+			784.61 Alexia and dyslexia
+			784.69 Other symbolic dysfunction
+			784.7 Epistaxis
+			784.8 Hemorrhage from throat
+			784.9 Other symptoms involving head and neck
+			784.91 Postnasal drip
+			784.92 Jaw pain
+			784.99 Other symptoms involving head and neck
+		785 Symptoms involving cardiovascular system
+			785 Symptoms involving cardiovascular system
+			785.0 Tachycardia, unspecified
+			785.1 Palpitations
+			785.2 Undiagnosed cardiac murmurs
+			785.3 Other abnormal heart sounds
+			785.4 Gangrene
+			785.5 Shock without mention of trauma
+			785.50 Shock, unspecified
+			785.51 Cardiogenic shock
+			785.52 Septic shock
+			785.59 Other shock without mention of trauma
+			785.6 Enlargement of lymph nodes
+			785.9 Other symptoms involving cardiovascular system
+		786 Symptoms involving respiratory system and other chest symptoms
+			786 Symptoms involving respiratory system and other chest symptoms
+			786.0 Dyspnea and respiratory abnormalities
+			786.00 Respiratory abnormality, unspecified
+			786.01 Hyperventilation
+			786.02 Orthopnea
+			786.03 Apnea
+			786.04 Cheyne-Stokes respiration
+			786.05 Shortness of breath
+			786.06 Tachypnea
+			786.07 Wheezing
+			786.09 Other respiratory abnormalities
+			786.1 Stridor
+			786.2 Cough
+			786.3 Hemoptysis
+			786.30 Hemoptysis, unspecified
+			786.31 Acute idiopathic pulmonary hemorrhage in infants [AIPHI]
+			786.39 Other hemoptysis
+			786.4 Abnormal sputum
+			786.5 Chest pain
+			786.50 Chest pain, unspecified
+			786.51 Precordial pain
+			786.52 Painful respiration
+			786.59 Other chest pain
+			786.6 Swelling, mass, or lump in chest
+			786.7 Abnormal chest sounds
+			786.8 Hiccough
+			786.9 Other symptoms involving respiratory system and chest
+		787 Symptoms involving digestive system
+			787 Symptoms involving digestive system
+			787.0 Nausea and vomiting
+			787.01 Nausea with vomiting
+			787.02 Nausea alone
+			787.03 Vomiting alone
+			787.04 Bilious emesis
+			787.1 Heartburn
+			787.2 Dysphagia
+			787.20 Dysphagia, unspecified
+			787.21 Dysphagia, oral phase
+			787.22 Dysphagia, oropharyngeal phase
+			787.23 Dysphagia, pharyngeal phase
+			787.24 Dysphagia, pharyngoesophageal phase
+			787.29 Other dysphagia
+			787.3 Flatulence, eructation, and gas pain
+			787.4 Visible peristalsis
+			787.5 Abnormal bowel sounds
+			787.6 Incontinence of feces
+			787.60 Full incontinence of feces
+			787.61 Incomplete defecation
+			787.62 Fecal smearing
+			787.63 Fecal urgency
+			787.7 Abnormal feces
+			787.9 Other symptoms involving digestive system
+			787.91 Diarrhea
+			787.99 Other symptoms involving digestive system
+		788 Symptoms involving urinary system
+			788 Symptoms involving urinary system
+			788.0 Renal colic
+			788.1 Dysuria
+			788.2 Retention of urine
+			788.20 Retention of urine, unspecified
+			788.21 Incomplete bladder emptying
+			788.29 Other specified retention of urine
+			788.3 Urinary incontinence
+			788.30 Urinary incontinence, unspecified
+			788.31 Urge incontinence
+			788.32 Stress incontinence, male
+			788.33 Mixed incontinence (male) (female)
+			788.34 Incontinence without sensory awareness
+			788.35 Post-void dribbling
+			788.36 Nocturnal enuresis
+			788.37 Continuous leakage
+			788.38 Overflow incontinence
+			788.39 Other urinary incontinence
+			788.4 Frequency of urination and polyuria
+			788.41 Urinary frequency
+			788.42 Polyuria
+			788.43 Nocturia
+			788.5 Oliguria and anuria
+			788.6 Other abnormality of urination
+			788.61 Splitting of urinary stream
+			788.62 Slowing of urinary stream
+			788.63 Urgency of urination
+			788.64 Urinary hesitancy
+			788.65 Straining on urination
+			788.69 Other abnormality of urination
+			788.7 Urethral discharge
+			788.8 Extravasation of urine
+			788.9 Other symptoms involving urinary system
+			788.91 Functional urinary incontinence
+			788.99 Other symptoms involving urinary system
+		789 Other symptoms involving abdomen and pelvis
+			789 Other symptoms involving abdomen and pelvis
+			789.0 Abdominal pain
+			789.00 Abdominal pain, unspecified site
+			789.01 Abdominal pain, right upper quadrant
+			789.02 Abdominal pain, left upper quadrant
+			789.03 Abdominal pain, right lower quadrant
+			789.04 Abdominal pain, left lower quadrant
+			789.05 Abdominal pain, periumbilic
+			789.06 Abdominal pain, epigastric
+			789.07 Abdominal pain, generalized
+			789.09 Abdominal pain, other specified site
+			789.1 Hepatomegaly
+			789.2 Splenomegaly
+			789.3 Abdominal or pelvic swelling mass or lump
+			789.30 Abdominal or pelvic swelling, mass, or lump, unspecified site
+			789.31 Abdominal or pelvic swelling, mass, or lump, right upper quadrant
+			789.32 Abdominal or pelvic swelling, mass, or lump, left upper quadrant
+			789.33 Abdominal or pelvic swelling, mass, or lump, right lower quadrant
+			789.34 Abdominal or pelvic swelling, mass, or lump, left lower quadrant
+			789.35 Abdominal or pelvic swelling, mass, or lump, periumbilic
+			789.36 Abdominal or pelvic swelling, mass, or lump, epigastric
+			789.37 Abdominal or pelvic swelling, mass, or lump, generalized
+			789.39 Abdominal or pelvic swelling, mass, or lump, other specified site
+			789.4 Abdominal rigidity
+			789.40 Abdominal rigidity, unspecified site
+			789.41 Abdominal rigidity, right upper quadrant
+			789.42 Abdominal rigidity, left upper quadrant
+			789.43 Abdominal rigidity, right lower quadrant
+			789.44 Abdominal rigidity, left lower quadrant
+			789.45 Abdominal rigidity, periumbilic
+			789.46 Abdominal rigidity, epigastric
+			789.47 Abdominal rigidity, generalized
+			789.49 Abdominal rigidity, other specified site
+			789.5 Ascites
+			789.51 Malignant ascites
+			789.59 Other ascites
+			789.6 Abdominal tenderness
+			789.60 Abdominal tenderness, unspecified site
+			789.61 Abdominal tenderness, right upper quadrant
+			789.62 Abdominal tenderness, left upper quadrant
+			789.63 Abdominal tenderness, right lower quadrant
+			789.64 Abdominal tenderness, left lower quadrant
+			789.65 Abdominal tenderness, periumbilic
+			789.66 Abdominal tenderness, epigastric
+			789.67 Abdominal tenderness, generalized
+			789.69 Abdominal tenderness, other specified site
+			789.7 Colic
+			789.9 Other symptoms involving abdomen and pelvis
+	790-796 Nonspecific Abnormal Findings
+		790 Nonspecific findings on examination of blood
+			790 Nonspecific findings on examination of blood
+			790.0 Abnormality of red blood cells
+			790.01 Precipitous drop in hematocrit
+			790.09 Other abnormality of red blood cells
+			790.1 Elevated sedimentation rate
+			790.2 Abnormal glucose
+			790.21 Impaired fasting glucose
+			790.22 Impaired glucose tolerance test (oral)
+			790.29 Other abnormal glucose
+			790.3 Excessive blood level of alcohol
+			790.4 Nonspecific elevation of levels of transaminase or lactic acid dehydrogenase [LDH]
+			790.5 Other nonspecific abnormal serum enzyme levels
+			790.6 Other abnormal blood chemistry
+			790.7 Bacteremia
+			790.8 Viremia, unspecified
+			790.9 Other nonspecific findings on examination of blood
+			790.91 Abnormal arterial blood gases
+			790.92 Abnormal coagulation profile
+			790.93 Elevated prostate specific antigen [PSA]
+			790.94 Euthyroid sick syndrome
+			790.95 Elevated C-reactive protein (CRP)
+			790.99 Other nonspecific findings on examination of blood
+		791 Nonspecific findings on examination of urine
+			791 Nonspecific findings on examination of urine
+			791.0 Proteinuria
+			791.1 Chyluria
+			791.2 Hemoglobinuria
+			791.3 Myoglobinuria
+			791.4 Biliuria
+			791.5 Glycosuria
+			791.6 Acetonuria
+			791.7 Other cells and casts in urine
+			791.9 Other nonspecific findings on examination of urine
+		792 Nonspecific abnormal findings in other body substances
+			792 Nonspecific abnormal findings in other body substances
+			792.0 Nonspecific abnormal findings in cerebrospinal fluid
+			792.1 Nonspecific abnormal findings in stool contents
+			792.2 Nonspecific abnormal findings in semen
+			792.3 Nonspecific abnormal findings in amniotic fluid
+			792.4 Nonspecific abnormal findings in saliva
+			792.5 Cloudy (hemodialysis) (peritoneal) dialysis effluent
+			792.9 Other nonspecific abnormal findings in body substances
+		793 Nonspecific (abnormal) findings on radiological and other examination of body structure
+			793 Nonspecific (abnormal) findings on radiological and other examination of body structure
+			793.0 Nonspecific (abnormal) findings on radiological and other examination of skull and head
+			793.1 Nonspecific (abnormal) findings on radiological and other examination of lung field
+			793.11 Solitary pulmonary nodule
+			793.19 Other nonspecific abnormal finding of lung field
+			793.2 Nonspecific (abnormal) findings on radiological and other examination of other intrathoracic organs
+			793.3 Nonspecific (abnormal) findings on radiological and other examination of biliary tract
+			793.4 Nonspecific (abnormal) findings on radiological and other examination of gastrointestinal tract
+			793.5 Nonspecific (abnormal) findings on radiological and other examination of genitourinary organs
+			793.6 Nonspecific (abnormal) findings on radiological and other examination of abdominal area, including retroperitoneum
+			793.7 Nonspecific (abnormal) findings on radiological and other examination of musculoskeletal system
+			793.8 Nonspecific (abnormal) findings on radiological and other examination of breast
+			793.80 Abnormal mammogram, unspecified
+			793.81 Mammographic microcalcification
+			793.82 Inconclusive mammogram
+			793.89 Other (abnormal) findings on radiological examination of breast
+			793.9 Nonspecific abnormal findings on radiological and other examination of other sites of body
+			793.91 Image test inconclusive due to excess body fat
+			793.99 Other nonspecific (abnormal) findings on radiological and other examinations of body structure
+		794 Nonspecific abnormal results of function studies
+			794 Nonspecific abnormal results of function studies
+			794.0 Nonspecific abnormal results of function study of brain and central nervous system
+			794.00 Abnormal function study of brain and central nervous system, unspecified
+			794.01 Nonspecific abnormal echoencephalogram
+			794.02 Nonspecific abnormal electroencephalogram [EEG]
+			794.09 Other nonspecific abnormal results of function study of brain and central nervous system
+			794.1 Nonspecific abnormal results of function study of peripheral nervous system and special senses
+			794.10 Nonspecific abnormal response to nerve stimulation, unspecified
+			794.11 Nonspecific abnormal retinal function studies
+			794.12 Nonspecific abnormal electro-oculogram [EOG]
+			794.13 Nonspecific abnormal visually evoked potential
+			794.14 Nonspecific abnormal oculomotor studies
+			794.15 Nonspecific abnormal auditory function studies
+			794.16 Nonspecific abnormal vestibular function studies
+			794.17 Nonspecific abnormal electromyogram [EMG]
+			794.19 Other nonspecific abnormal results of function study of peripheral nervous system and special senses
+			794.2 Nonspecific abnormal results of pulmonary function study
+			794.3 Nonspecific abnormal results of function study of cardiovascular system
+			794.30 Abnormal cardiovascular function study, unspecified
+			794.31 Nonspecific abnormal electrocardiogram [ECG] [EKG]
+			794.39 Other nonspecific abnormal results of function study of cardiovascular system
+			794.4 Nonspecific abnormal results of function study of kidney
+			794.5 Nonspecific abnormal results of function study of thyroid
+			794.6 Nonspecific abnormal results of other endocrine function study
+			794.7 Nonspecific abnormal results of function study of basal metabolism
+			794.8 Nonspecific abnormal results of function study of liver
+			794.9 Nonspecific abnormal results of other specified function study
+		795 Other and nonspecific abnormal cytological, histological, immunological, and dna test findings
+			795 Other and nonspecific abnormal cytological, histological, immunological, and dna test findings
+			795.0 Abnormal papanicolaou smear of cervix and cervical hpv
+			795.00 Abnormal glandular Papanicolaou smear of cervix
+			795.01 Papanicolaou smear of cervix with atypical squamous cells of undetermined significance (ASC-US)
+			795.02 Papanicolaou smear of cervix with atypical squamous cells cannot exclude high grade squamous intraepithelial lesion (ASC-H)
+			795.03 Papanicolaou smear of cervix with low grade squamous intraepithelial lesion (LGSIL)
+			795.04 Papanicolaou smear of cervix with high grade squamous intraepithelial lesion (HGSIL)
+			795.05 Cervical high risk human papillomavirus (HPV) DNA test positive
+			795.06 Papanicolaou smear of cervix with cytologic evidence of malignancy
+			795.07 Satisfactory cervical smear but lacking transformation zone
+			795.08 Unsatisfactory cervical cytology smear
+			795.09 Other abnormal Papanicolaou smear of cervix and cervical HPV
+			795.1 Abnormal papanicolaou smear of vagina and vaginal hpv
+			795.10 Abnormal glandular Papanicolaou smear of vagina
+			795.11 Papanicolaou smear of vagina with atypical squamous cells of undetermined significance (ASC-US)
+			795.12 Papanicolaou smear of vagina with atypical squamous cells cannot exclude high grade squamous intraepithelial lesion (ASC-H)
+			795.13 Papanicolaou smear of vagina with low grade squamous intraepithelial lesion (LGSIL)
+			795.14 Papanicolaou smear of vagina with high grade squamous intraepithelial lesion (HGSIL)
+			795.15 Vaginal high risk human papillomavirus (HPV) DNA test positive
+			795.16 Papanicolaou smear of vagina with cytologic evidence of malignancy
+			795.18 Unsatisfactory vaginal cytology smear
+			795.19 Other abnormal Papanicolaou smear of vagina and vaginal HPV
+			795.2 Nonspecific abnormal findings on chromosomal analysis
+			795.3 Nonspecific positive culture findings
+			795.31 Nonspecific positive findings for anthrax
+			795.39 Other nonspecific positive culture findings
+			795.4 Other nonspecific abnormal histological findings
+			795.5 Nonspecific reaction to test for tuberculosis
+			795.51 Nonspecific reaction to tuberculin skin test without active tuberculosis
+			795.52 Nonspecific reaction to cell mediated immunity measurement of gamma interferon antigen response without active tuberculosis
+			795.6 False positive serological test for syphilis
+			795.7 Other nonspecific immunological findings
+			795.71 Nonspecific serologic evidence of human immunodeficiency virus [HIV]
+			795.79 Other and unspecified nonspecific immunological findings
+			795.8 Abnormal tumor markers
+			795.81 Elevated carcinoembryonic antigen [CEA]
+			795.82 Elevated cancer antigen 125 [CA 125]
+			795.89 Other abnormal tumor markers
+		796 Other nonspecific abnormal findings
+			796 Other nonspecific abnormal findings
+			796.0 Nonspecific abnormal toxicological findings
+			796.1 Abnormal reflex
+			796.2 Elevated blood pressure reading without diagnosis of hypertension
+			796.3 Nonspecific low blood pressure reading
+			796.4 Other abnormal clinical findings
+			796.5 Abnormal finding on antenatal screening
+			796.6 Abnormal findings on neonatal screening
+			796.7 Abnormal cytologic smear of anus and anal hpv
+			796.70 Abnormal glandular Papanicolaou smear of anus
+			796.71 Papanicolaou smear of anus with atypical squamous cells of undetermined significance (ASC-US)
+			796.72 Papanicolaou smear of anus with atypical squamous cells cannot exclude high grade squamous intraepithelial lesion (ASC-H)
+			796.73 Papanicolaou smear of anus with low grade squamous intraepithelial lesion (LGSIL)
+			796.74 Papanicolaou smear of anus with high grade squamous intraepithelial lesion (HGSIL)
+			796.75 Anal high risk human papillomavirus (HPV) DNA test positive
+			796.76 Papanicolaou smear of anus with cytologic evidence of malignancy
+			796.77 Satisfactory anal smear but lacking transformation zone
+			796.78 Unsatisfactory anal cytology smear
+			796.79 Other abnormal Papanicolaou smear of anus and anal HPV
+			796.9 Other nonspecific abnormal findings
+	797-799 Ill-Defined And Unknown Causes Of Morbidity And Mortality
+		797 Senility without mention of psychosis
+			797 Senility without mention of psychosis
+		798 Sudden death cause unknown
+			798 Sudden death cause unknown
+			798.0 Sudden infant death syndrome
+			798.1 Instantaneous death
+			798.2 Death occurring in less than 24 hours from onset of symptoms, not otherwise explained
+			798.9 Unattended death
+		799 Other ill-defined and unknown causes of morbidity and mortality
+			799 Other ill-defined and unknown causes of morbidity and mortality
+			799.0 Asphyxia and hypoxemia
+			799.01 Asphyxia
+			799.02 Hypoxemia
+			799.1 Respiratory arrest
+			799.2 Nervousness
+			799.21 Nervousness
+			799.22 Irritability
+			799.23 Impulsiveness
+			799.24 Emotional lability
+			799.25 Demoralization and apathy
+			799.29 Other signs and symptoms involving emotional state
+			799.3 Debility, unspecified
+			799.4 Cachexia
+			799.5 Signs and symptoms involving cognition
+			799.51 Attention or concentration deficit
+			799.52 Cognitive communication deficit
+			799.53 Visuospatial deficit
+			799.54 Psychomotor deficit
+			799.55 Frontal lobe and executive function deficit
+			799.59 Other signs and symptoms involving cognition
+			799.8 Other ill-defined conditions
+			799.81 Decreased libido
+			799.82 Apparent life threatening event in infant
+			799.89 Other ill-defined conditions
+			799.9 Other unknown and unspecified cause of morbidity and mortality

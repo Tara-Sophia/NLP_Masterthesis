@@ -1,0 +1,1650 @@
+001-139 Infectious And Parasitic Diseases
+	001-009 Intestinal Infectious Diseases
+		001 Cholera
+			001 Cholera
+			001.0 Cholera due to vibrio cholerae
+			001.1 Cholera due to vibrio cholerae el tor
+			001.9 Cholera, unspecified
+		002 Typhoid and paratyphoid fevers
+			002 Typhoid and paratyphoid fevers
+			002.0 Typhoid fever
+			002.1 Paratyphoid fever A
+			002.2 Paratyphoid fever B
+			002.3 Paratyphoid fever C
+			002.9 Paratyphoid fever, unspecified
+		003 Other salmonella infections
+			003 Other salmonella infections
+			003.0 Salmonella gastroenteritis
+			003.1 Salmonella septicemia
+			003.2 Localized salmonella infections
+			003.20 Localized salmonella infection, unspecified
+			003.21 Salmonella meningitis
+			003.22 Salmonella pneumonia
+			003.23 Salmonella arthritis
+			003.24 Salmonella osteomyelitis
+			003.29 Other localized salmonella infections
+			003.8 Other specified salmonella infections
+			003.9 Salmonella infection, unspecified
+		004 Shigellosis
+			004 Shigellosis
+			004.0 Shigella dysenteriae
+			004.1 Shigella flexneri
+			004.2 Shigella boydii
+			004.3 Shigella sonnei
+			004.8 Other specified shigella infections
+			004.9 Shigellosis, unspecified
+		005 Other food poisoning (bacterial)
+			005 Other food poisoning (bacterial)
+			005.0 Staphylococcal food poisoning
+			005.1 Botulism food poisoning
+			005.2 Food poisoning due to Clostridium perfringens (C. welchii)
+			005.3 Food poisoning due to other Clostridia
+			005.4 Food poisoning due to Vibrio parahaemolyticus
+			005.8 Other bacterial food poisoning
+			005.81 Food poisoning due to Vibrio vulnificus
+			005.89 Other bacterial food poisoning
+			005.9 Food poisoning, unspecified
+		006 Amebiasis
+			006 Amebiasis
+			006.0 Acute amebic dysentery without mention of abscess
+			006.1 Chronic intestinal amebiasis without mention of abscess
+			006.2 Amebic nondysenteric colitis
+			006.3 Amebic liver abscess
+			006.4 Amebic lung abscess
+			006.5 Amebic brain abscess
+			006.6 Amebic skin ulceration
+			006.8 Amebic infection of other sites
+			006.9 Amebiasis, unspecified
+		007 Other protozoal intestinal diseases
+			007 Other protozoal intestinal diseases
+			007.0 Balantidiasis
+			007.1 Giardiasis
+			007.2 Coccidiosis
+			007.3 Intestinal trichomoniasis
+			007.4 Cryptosporidiosis
+			007.5 Cyclosporiasis
+			007.8 Other specified protozoal intestinal diseases
+			007.9 Unspecified protozoal intestinal disease
+		008 Intestinal infections due to other organisms
+			008 Intestinal infections due to other organisms
+			008.0 Intestinal infection due to escherichia coli [e. coli]
+			008.00 Intestinal infection due to E. coli, unspecified
+			008.01 Intestinal infection due to enteropathogenic E. coli
+			008.02 Intestinal infection due to enterotoxigenic E. coli
+			008.03 Intestinal infection due to enteroinvasive E. coli
+			008.04 Intestinal infection due to enterohemorrhagic E. coli
+			008.09 Intestinal infection due to other intestinal E. coli infections
+			008.1 Intestinal infection due to arizona group of paracolon bacilli
+			008.2 Intestinal infection due to aerobacter aerogenes
+			008.3 Intestinal infection due to proteus (mirabilis) (morganii)
+			008.4 Intestinal infection due to other specified bacteria
+			008.41 Intestinal infection due to staphylococcus
+			008.42 Intestinal infection due to pseudomonas
+			008.43 Intestinal infection due to campylobacter
+			008.44 Intestinal infection due to yersinia enterocolitica
+			008.45 Intestinal infection due to Clostridium difficile
+			008.46 Intestinal infection due to other anaerobes
+			008.47 Intestinal infection due to other gram-negative bacteria
+			008.49 Intestinal infection due to other organisms
+			008.5 Bacterial enteritis, unspecified
+			008.6 Enteritis due to specified virus
+			008.61 Enteritis due to rotavirus
+			008.62 Enteritis due to adenovirus
+			008.63 Enteritis due to norwalk virus
+			008.64 Enteritis due to other small round viruses [SRV's]
+			008.65 Enteritis due to calicivirus
+			008.66 Enteritis due to astrovirus
+			008.67 Enteritis due to enterovirus nec
+			008.69 Enteritis due to other viral enteritis
+			008.8 Intestinal infection due to other organism, not elsewhere classified
+		009 Ill-defined intestinal infections
+			009 Ill-defined intestinal infections
+			009.0 Infectious colitis, enteritis, and gastroenteritis
+			009.1 Colitis, enteritis, and gastroenteritis of presumed infectious origin
+			009.2 Infectious diarrhea
+			009.3 Diarrhea of presumed infectious origin
+	010-018 Tuberculosis
+		010 Primary tuberculous infection
+			010 Primary tuberculous infection
+			010.0 Primary tuberculous complex
+			010.00 Primary tuberculous infection, unspecified
+			010.01 Primary tuberculous infection, bacteriological or histological examination not done
+			010.02 Primary tuberculous infection, bacteriological or histological examination unknown (at present)
+			010.03 Primary tuberculous infection, tubercle bacilli found (in sputum) by microscopy
+			010.04 Primary tuberculous infection, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			010.05 Primary tuberculous infection, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			010.06 Primary tuberculous infection, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			010.1 Tuberculous pleurisy in primary progressive tuberculosis
+			010.10 Tuberculous pleurisy in primary progressive tuberculosis, unspecified
+			010.11 Tuberculous pleurisy in primary progressive tuberculosis, bacteriological or histological examination not done
+			010.12 Tuberculous pleurisy in primary progressive tuberculosis, bacteriological or histological examination unknown (at present)
+			010.13 Tuberculous pleurisy in primary progressive tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			010.14 Tuberculous pleurisy in primary progressive tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			010.15 Tuberculous pleurisy in primary progressive tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			010.16 Tuberculous pleurisy in primary progressive tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			010.8 Other primary progressive tuberculosis
+			010.80 Other primary progressive tuberculosis, unspecified
+			010.81 Other primary progressive tuberculosis, bacteriological or histological examination not done
+			010.82 Other primary progressive tuberculosis, bacteriological or histological examination unknown (at present)
+			010.83 Other primary progressive tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			010.84 Other primary progressive tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			010.85 Other primary progressive tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			010.86 Other primary progressive tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			010.9 Primary tuberculous infection unspecified type
+			010.90 Primary tuberculous infection, unspecified, unspecified
+			010.91 Primary tuberculous infection, unspecified, bacteriological or histological examination not done
+			010.92 Primary tuberculous infection, unspecified, bacteriological or histological examination unknown (at present)
+			010.93 Primary tuberculous infection, unspecified, tubercle bacilli found (in sputum) by microscopy
+			010.94 Primary tuberculous infection, unspecified, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			010.95 Primary tuberculous infection, unspecified, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			010.96 Primary tuberculous infection, unspecified, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		011 Pulmonary tuberculosis
+			011 Pulmonary tuberculosis
+			011.0 Tuberculosis of lung infiltrative
+			011.00 Tuberculosis of lung, infiltrative, unspecified
+			011.01 Tuberculosis of lung, infiltrative, bacteriological or histological examination not done
+			011.02 Tuberculosis of lung, infiltrative, bacteriological or histological examination unknown (at present)
+			011.03 Tuberculosis of lung, infiltrative, tubercle bacilli found (in sputum) by microscopy
+			011.04 Tuberculosis of lung, infiltrative, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.05 Tuberculosis of lung, infiltrative, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.06 Tuberculosis of lung, infiltrative, tubercle bacilli not found bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.1 Tuberculosis of lung nodular
+			011.10 Tuberculosis of lung, nodular, unspecified
+			011.11 Tuberculosis of lung, nodular, bacteriological or histological examination not done
+			011.12 Tuberculosis of lung, nodular, bacteriological or histological examination unknown (at present)
+			011.13 Tuberculosis of lung, nodular, tubercle bacilli found (in sputum) by microscopy
+			011.14 Tuberculosis of lung, nodular, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.15 Tuberculosis of lung, nodular, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.16 Tuberculosis of lung, nodular, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.2 Tuberculosis of lung with cavitation
+			011.20 Tuberculosis of lung with cavitation, unspecified
+			011.21 Tuberculosis of lung with cavitation, bacteriological or histological examination not done
+			011.22 Tuberculosis of lung with cavitation, bacteriological or histological examination unknown (at present)
+			011.23 Tuberculosis of lung with cavitation, tubercle bacilli found (in sputum) by microscopy
+			011.24 Tuberculosis of lung with cavitation, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.25 Tuberculosis of lung with cavitation, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.26 Tuberculosis of lung with cavitation, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.3 Tuberculosis of bronchus
+			011.30 Tuberculosis of bronchus, unspecified
+			011.31 Tuberculosis of bronchus, bacteriological or histological examination not done
+			011.32 Tuberculosis of bronchus, bacteriological or histological examination unknown (at present)
+			011.33 Tuberculosis of bronchus, tubercle bacilli found (in sputum) by microscopy
+			011.34 Tuberculosis of bronchus, tubercle bacilli not found (in sputum) by microscopy, but found in bacterial culture
+			011.35 Tuberculosis of bronchus, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.36 Tuberculosis of bronchus, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.4 Tuberculous fibrosis of lung
+			011.40 Tuberculous fibrosis of lung, unspecified
+			011.41 Tuberculous fibrosis of lung, bacteriological or histological examination not done
+			011.42 Tuberculous fibrosis of lung, bacteriological or histological examination unknown (at present)
+			011.43 Tuberculous fibrosis of lung, tubercle bacilli found (in sputum) by microscopy
+			011.44 Tuberculous fibrosis of lung, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.45 Tuberculous fibrosis of lung, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.46 Tuberculous fibrosis of lung, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.5 Tuberculous bronchiectasis
+			011.50 Tuberculous bronchiectasis, unspecified
+			011.51 Tuberculous bronchiectasis, bacteriological or histological examination not done
+			011.52 Tuberculous bronchiectasis, bacteriological or histological examination unknown (at present)
+			011.53 Tuberculous bronchiectasis, tubercle bacilli found (in sputum) by microscopy
+			011.54 Tuberculous bronchiectasis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.55 Tuberculous bronchiectasis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.56 Tuberculous bronchiectasis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.6 Tuberculous pneumonia (any form)
+			011.60 Tuberculous pneumonia [any form], unspecified
+			011.61 Tuberculous pneumonia [any form], bacteriological or histological examination not done
+			011.62 Tuberculous pneumonia [any form], bacteriological or histological examination unknown (at present)
+			011.63 Tuberculous pneumonia [any form], tubercle bacilli found (in sputum) by microscopy
+			011.64 Tuberculous pneumonia [any form], tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.65 Tuberculous pneumonia [any form], tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.66 Tuberculous pneumonia [any form], tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.7 Tuberculous pneumothorax
+			011.70 Tuberculous pneumothorax, unspecified
+			011.71 Tuberculous pneumothorax, bacteriological or histological examination not done
+			011.72 Tuberculous pneumothorax, bacteriological or histological examination unknown (at present)
+			011.73 Tuberculous pneumothorax, tubercle bacilli found (in sputum) by microscopy
+			011.74 Tuberculous pneumothorax, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.75 Tuberculous pneumothorax, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.76 Tuberculous pneumothorax, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.8 Other specified pulmonary tuberculosis
+			011.80 Other specified pulmonary tuberculosis, unspecified
+			011.81 Other specified pulmonary tuberculosis, bacteriological or histological examination not done
+			011.82 Other specified pulmonary tuberculosis, bacteriological or histological examination unknown (at present)
+			011.83 Other specified pulmonary tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			011.84 Other specified pulmonary tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.85 Other specified pulmonary tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.86 Other specified pulmonary tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			011.9 Unspecified pulmonary tuberculosis
+			011.90 Pulmonary tuberculosis, unspecified, unspecified
+			011.91 Pulmonary tuberculosis, unspecified, bacteriological or histological examination not done
+			011.92 Pulmonary tuberculosis, unspecified, bacteriological or histological examination unknown (at present)
+			011.93 Pulmonary tuberculosis, unspecified, tubercle bacilli found (in sputum) by microscopy
+			011.94 Pulmonary tuberculosis, unspecified, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			011.95 Pulmonary tuberculosis, unspecified, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			011.96 Pulmonary tuberculosis, unspecified, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		012 Other respiratory tuberculosis
+			012 Other respiratory tuberculosis
+			012.0 Tuberculous pleurisy
+			012.00 Tuberculous pleurisy, unspecified
+			012.01 Tuberculous pleurisy, bacteriological or histological examination not done
+			012.02 Tuberculous pleurisy, bacteriological or histological examination unknown (at present)
+			012.03 Tuberculous pleurisy, tubercle bacilli found (in sputum) by microscopy
+			012.04 Tuberculous pleurisy, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			012.05 Tuberculous pleurisy, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			012.06 Tuberculous pleurisy, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			012.1 Tuberculosis of intrathoracic lymph nodes
+			012.10 Tuberculosis of intrathoracic lymph nodes, unspecified
+			012.11 Tuberculosis of intrathoracic lymph nodes, bacteriological or histological examination not done
+			012.12 Tuberculosis of intrathoracic lymph nodes, bacteriological or histological examination unknown (at present)
+			012.13 Tuberculosis of intrathoracic lymph nodes, tubercle bacilli found (in sputum) by microscopy
+			012.14 Tuberculosis of intrathoracic lymph nodes, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			012.15 Tuberculosis of intrathoracic lymph nodes, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			012.16 Tuberculosis of intrathoracic lymph nodes, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			012.2 Isolated tracheal or bronchial tuberculosis
+			012.20 Isolated tracheal or bronchial tuberculosis, unspecified
+			012.21 Isolated tracheal or bronchial tuberculosis, bacteriological or histological examination not done
+			012.22 Isolated tracheal or bronchial tuberculosis, bacteriological or histological examination unknown (at present)
+			012.23 Isolated tracheal or bronchial tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			012.24 Isolated tracheal or bronchial tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			012.25 Isolated tracheal or bronchial tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			012.26 Isolated tracheal or bronchial tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			012.3 Tuberculous laryngitis
+			012.30 Tuberculous laryngitis, unspecified
+			012.31 Tuberculous laryngitis, bacteriological or histological examination not done
+			012.32 Tuberculous laryngitis, bacteriological or histological examination unknown (at present)
+			012.33 Tuberculous laryngitis, tubercle bacilli found (in sputum) by microscopy
+			012.34 Tuberculous laryngitis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			012.35 Tuberculous laryngitis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			012.36 Tuberculous laryngitis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			012.8 Other specified respiratory tuberculosis
+			012.80 Other specified respiratory tuberculosis, unspecified
+			012.81 Other specified respiratory tuberculosis, bacteriological or histological examination not done
+			012.82 Other specified respiratory tuberculosis, bacteriological or histological examination unknown (at present)
+			012.83 Other specified respiratory tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			012.84 Other specified respiratory tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			012.85 Other specified respiratory tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			012.86 Other specified respiratory tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		013 Tuberculosis of meninges and central nervous system
+			013 Tuberculosis of meninges and central nervous system
+			013.0 Tuberculous meningitis
+			013.00 Tuberculous meningitis, unspecified
+			013.01 Tuberculous meningitis, bacteriological or histological examination not done
+			013.02 Tuberculous meningitis, bacteriological or histological examination unknown (at present)
+			013.03 Tuberculous meningitis, tubercle bacilli found (in sputum) by microscopy
+			013.04 Tuberculous meningitis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.05 Tuberculous meningitis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.06 Tuberculous meningitis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.1 Tuberculoma of meninges
+			013.10 Tuberculoma of meninges, unspecified
+			013.11 Tuberculoma of meninges, bacteriological or histological examination not done
+			013.12 Tuberculoma of meninges, bacteriological or histological examination unknown (at present)
+			013.13 Tuberculoma of meninges, tubercle bacilli found (in sputum) by microscopy
+			013.14 Tuberculoma of meninges, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.15 Tuberculoma of meninges, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.16 Tuberculoma of meninges, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.2 Tuberculoma of brain
+			013.20 Tuberculoma of brain, unspecified
+			013.21 Tuberculoma of brain, bacteriological or histological examination not done
+			013.22 Tuberculoma of brain, bacteriological or histological examination unknown (at present)
+			013.23 Tuberculoma of brain, tubercle bacilli found (in sputum) by microscopy
+			013.24 Tuberculoma of brain, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.25 Tuberculoma of brain, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.26 Tuberculoma of brain, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.3 Tuberculous abscess of brain
+			013.30 Tuberculous abscess of brain, unspecified
+			013.31 Tuberculous abscess of brain, bacteriological or histological examination not done
+			013.32 Tuberculous abscess of brain, bacteriological or histological examination unknown (at present)
+			013.33 Tuberculous abscess of brain, tubercle bacilli found (in sputum) by microscopy
+			013.34 Tuberculous abscess of brain, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.35 Tuberculous abscess of brain, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.36 Tuberculous abscess of brain, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.4 Tuberculoma of spinal cord
+			013.40 Tuberculoma of spinal cord, unspecified
+			013.41 Tuberculoma of spinal cord, bacteriological or histological examination not done
+			013.42 Tuberculoma of spinal cord, bacteriological or histological examination unknown (at present)
+			013.43 Tuberculoma of spinal cord, tubercle bacilli found (in sputum) by microscopy
+			013.44 Tuberculoma of spinal cord, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.45 Tuberculoma of spinal cord, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.46 Tuberculoma of spinal cord, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.5 Tuberculous abscess of spinal cord
+			013.50 Tuberculous abscess of spinal cord, unspecified
+			013.51 Tuberculous abscess of spinal cord, bacteriological or histological examination not done
+			013.52 Tuberculous abscess of spinal cord, bacteriological or histological examination unknown (at present)
+			013.53 Tuberculous abscess of spinal cord, tubercle bacilli found (in sputum) by microscopy
+			013.54 Tuberculous abscess of spinal cord, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.55 Tuberculous abscess of spinal cord, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.56 Tuberculous abscess of spinal cord, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.6 Tuberculous encephalitis or myelitis
+			013.60 Tuberculous encephalitis or myelitis, unspecified
+			013.61 Tuberculous encephalitis or myelitis, bacteriological or histological examination not done
+			013.62 Tuberculous encephalitis or myelitis, bacteriological or histological examination unknown (at present)
+			013.63 Tuberculous encephalitis or myelitis, tubercle bacilli found (in sputum) by microscopy
+			013.64 Tuberculous encephalitis or myelitis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.65 Tuberculous encephalitis or myelitis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.66 Tuberculous encephalitis or myelitis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.8 Other specified tuberculosis of central nervous system
+			013.80 Other specified tuberculosis of central nervous system, unspecified
+			013.81 Other specified tuberculosis of central nervous system, bacteriological or histological examination not done
+			013.82 Other specified tuberculosis of central nervous system, bacteriological or histological examination unknown (at present)
+			013.83 Other specified tuberculosis of central nervous system, tubercle bacilli found (in sputum) by microscopy
+			013.84 Other specified tuberculosis of central nervous system, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.85 Other specified tuberculosis of central nervous system, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.86 Other specified tuberculosis of central nervous system, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			013.9 Unspecified tuberculosis of central nervous system
+			013.90 Unspecified tuberculosis of central nervous system, unspecified
+			013.91 Unspecified tuberculosis of central nervous system, bacteriological or histological examination not done
+			013.92 Unspecified tuberculosis of central nervous system, bacteriological or histological examination unknown (at present)
+			013.93 Unspecified tuberculosis of central nervous system, tubercle bacilli found (in sputum) by microscopy
+			013.94 Unspecified tuberculosis of central nervous system, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			013.95 Unspecified tuberculosis of central nervous system, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			013.96 Unspecified tuberculosis of central nervous system, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		014 Tuberculosis of intestines peritoneum and mesenteric glands
+			014 Tuberculosis of intestines peritoneum and mesenteric glands
+			014.0 Tuberculous peritonitis
+			014.00 Tuberculous peritonitis, unspecified
+			014.01 Tuberculous peritonitis, bacteriological or histological examination not done
+			014.02 Tuberculous peritonitis, bacteriological or histological examination unknown (at present)
+			014.03 Tuberculous peritonitis, tubercle bacilli found (in sputum) by microscopy
+			014.04 Tuberculous peritonitis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			014.05 Tuberculous peritonitis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			014.06 Tuberculous peritonitis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			014.8 Other tuberculosis of intestines peritoneum and mesenteric glands
+			014.80 Other tuberculosis of intestines, peritoneum, and mesenteric glands, unspecified
+			014.81 Other tuberculosis of intestines, peritoneum, and mesenteric glands, bacteriological or histological examination not done
+			014.82 Other tuberculosis of intestines, peritoneum, and mesenteric glands, bacteriological or histological examination unknown (at present)
+			014.83 Other tuberculosis of intestines, peritoneum, and mesenteric glands, tubercle bacilli found (in sputum) by microscopy
+			014.84 Other tuberculosis of intestines, peritoneum, and mesenteric glands, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			014.85 Other tuberculosis of intestines, peritoneum, and mesenteric glands, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			014.86 Other tuberculosis of intestines, peritoneum, and mesenteric glands, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		015 Tuberculosis of bones and joints
+			015 Tuberculosis of bones and joints
+			015.0 Tuberculosis of vertebral column
+			015.00 Tuberculosis of vertebral column, unspecified
+			015.01 Tuberculosis of vertebral column, bacteriological or histological examination not done
+			015.02 Tuberculosis of vertebral column, bacteriological or histological examination unknown (at present)
+			015.03 Tuberculosis of vertebral column, tubercle bacilli found (in sputum) by microscopy
+			015.04 Tuberculosis of vertebral column, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.05 Tuberculosis of vertebral column, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.06 Tuberculosis of vertebral column, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.1 Tuberculosis of hip
+			015.10 Tuberculosis of hip, unspecified
+			015.11 Tuberculosis of hip, bacteriological or histological examination not done
+			015.12 Tuberculosis of hip, bacteriological or histological examination unknown (at present)
+			015.13 Tuberculosis of hip, tubercle bacilli found (in sputum) by microscopy
+			015.14 Tuberculosis of hip, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.15 Tuberculosis of hip, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.16 Tuberculosis of hip, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.2 Tuberculosis of knee
+			015.20 Tuberculosis of knee, unspecified
+			015.21 Tuberculosis of knee, bacteriological or histological examination not done
+			015.22 Tuberculosis of knee, bacteriological or histological examination unknown (at present)
+			015.23 Tuberculosis of knee, tubercle bacilli found (in sputum) by microscopy
+			015.24 Tuberculosis of knee, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.25 Tuberculosis of knee, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.26 Tuberculosis of knee, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.5 Tuberculosis of limb bones
+			015.50 Tuberculosis of limb bones, unspecified
+			015.51 Tuberculosis of limb bones, bacteriological or histological examination not done
+			015.52 Tuberculosis of limb bones, bacteriological or histological examination unknown (at present)
+			015.53 Tuberculosis of limb bones, tubercle bacilli found (in sputum) by microscopy
+			015.54 Tuberculosis of limb bones, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.55 Tuberculosis of limb bones, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.56 Tuberculosis of limb bones, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.6 Tuberculosis of mastoid
+			015.60 Tuberculosis of mastoid, unspecified
+			015.61 Tuberculosis of mastoid, bacteriological or histological examination not done
+			015.62 Tuberculosis of mastoid, bacteriological or histological examination unknown (at present)
+			015.63 Tuberculosis of mastoid, tubercle bacilli found (in sputum) by microscopy
+			015.64 Tuberculosis of mastoid, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.65 Tuberculosis of mastoid, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.66 Tuberculosis of mastoid, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.7 Tuberculosis of other specified bone
+			015.70 Tuberculosis of other specified bone, unspecified
+			015.71 Tuberculosis of other specified bone, bacteriological or histological examination not done
+			015.72 Tuberculosis of other specified bone, bacteriological or histological examination unknown (at present)
+			015.73 Tuberculosis of other specified bone, tubercle bacilli found (in sputum) by microscopy
+			015.74 Tuberculosis of other specified bone, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.75 Tuberculosis of other specified bone, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.76 Tuberculosis of other specified bone, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.8 Tuberculosis of other specified joint
+			015.80 Tuberculosis of other specified joint, unspecified
+			015.81 Tuberculosis of other specified joint, bacteriological or histological examination not done
+			015.82 Tuberculosis of other specified joint, bacteriological or histological examination unknown (at present)
+			015.83 Tuberculosis of other specified joint, tubercle bacilli found (in sputum) by microscopy
+			015.84 Tuberculosis of other specified joint, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.85 Tuberculosis of other specified joint, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.86 Tuberculosis of other specified joint, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			015.9 Tuberculosis of unspecified bones and joints
+			015.90 Tuberculosis of unspecified bones and joints, unspecified
+			015.91 Tuberculosis of unspecified bones and joints, bacteriological or histological examination not done
+			015.92 Tuberculosis of unspecified bones and joints, bacteriological or histological examination unknown (at present)
+			015.93 Tuberculosis of unspecified bones and joints, tubercle bacilli found (in sputum) by microscopy
+			015.94 Tuberculosis of unspecified bones and joints, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			015.95 Tuberculosis of unspecified bones and joints, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			015.96 Tuberculosis of unspecified bones and joints, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		016 Tuberculosis of genitourinary system
+			016 Tuberculosis of genitourinary system
+			016.0 Tuberculosis of kidney
+			016.00 Tuberculosis of kidney, unspecified
+			016.01 Tuberculosis of kidney, bacteriological or histological examination not done
+			016.02 Tuberculosis of kidney, bacteriological or histological examination unknown (at present)
+			016.03 Tuberculosis of kidney, tubercle bacilli found (in sputum) by microscopy
+			016.04 Tuberculosis of kidney, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.05 Tuberculosis of kidney, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.06 Tuberculosis of kidney, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.1 Tuberculosis of bladder
+			016.10 Tuberculosis of bladder, unspecified
+			016.11 Tuberculosis of bladder, bacteriological or histological examination not done
+			016.12 Tuberculosis of bladder, bacteriological or histological examination unknown (at present)
+			016.13 Tuberculosis of bladder, tubercle bacilli found (in sputum) by microscopy
+			016.14 Tuberculosis of bladder, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.15 Tuberculosis of bladder, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.16 Tuberculosis of bladder, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.2 Tuberculosis of ureter
+			016.20 Tuberculosis of ureter, unspecified
+			016.21 Tuberculosis of ureter, bacteriological or histological examination not done
+			016.22 Tuberculosis of ureter, bacteriological or histological examination unknown (at present)
+			016.23 Tuberculosis of ureter, tubercle bacilli found (in sputum) by microscopy
+			016.24 Tuberculosis of ureter, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.25 Tuberculosis of ureter, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.26 Tuberculosis of ureter, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.3 Tuberculosis of other urinary organs
+			016.30 Tuberculosis of other urinary organs, unspecified
+			016.31 Tuberculosis of other urinary organs, bacteriological or histological examination not done
+			016.32 Tuberculosis of other urinary organs, bacteriological or histological examination unknown (at present)
+			016.33 Tuberculosis of other urinary organs, tubercle bacilli found (in sputum) by microscopy
+			016.34 Tuberculosis of other urinary organs, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.35 Tuberculosis of other urinary organs, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.36 Tuberculosis of other urinary organs, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.4 Tuberculosis of epididymis
+			016.40 Tuberculosis of epididymis, unspecified
+			016.41 Tuberculosis of epididymis, bacteriological or histological examination not done
+			016.42 Tuberculosis of epididymis, bacteriological or histological examination unknown (at present)
+			016.43 Tuberculosis of epididymis, tubercle bacilli found (in sputum) by microscopy
+			016.44 Tuberculosis of epididymis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.45 Tuberculosis of epididymis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.46 Tuberculosis of epididymis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.5 Tuberculosis of other male genital organs
+			016.50 Tuberculosis of other male genital organs, unspecified
+			016.51 Tuberculosis of other male genital organs, bacteriological or histological examination not done
+			016.52 Tuberculosis of other male genital organs, bacteriological or histological examination unknown (at present)
+			016.53 Tuberculosis of other male genital organs, tubercle bacilli found (in sputum) by microscopy
+			016.54 Tuberculosis of other male genital organs, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.55 Tuberculosis of other male genital organs, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.56 Tuberculosis of other male genital organs, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.6 Tuberculous oophoritis and salpingitis
+			016.60 Tuberculous oophoritis and salpingitis, unspecified
+			016.61 Tuberculous oophoritis and salpingitis, bacteriological or histological examination not done
+			016.62 Tuberculous oophoritis and salpingitis, bacteriological or histological examination unknown (at present)
+			016.63 Tuberculous oophoritis and salpingitis, tubercle bacilli found (in sputum) by microscopy
+			016.64 Tuberculous oophoritis and salpingitis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.65 Tuberculous oophoritis and salpingitis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.66 Tuberculous oophoritis and salpingitis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.7 Tuberculosis of other female genital organs
+			016.70 Tuberculosis of other female genital organs, unspecified
+			016.71 Tuberculosis of other female genital organs, bacteriological or histological examination not done
+			016.72 Tuberculosis of other female genital organs, bacteriological or histological examination unknown (at present)
+			016.73 Tuberculosis of other female genital organs, tubercle bacilli found (in sputum) by microscopy
+			016.74 Tuberculosis of other female genital organs, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.75 Tuberculosis of other female genital organs, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.76 Tuberculosis of other female genital organs, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			016.9 Genitourinary tuberculosis unspecified
+			016.90 Genitourinary tuberculosis, unspecified, unspecified
+			016.91 Genitourinary tuberculosis, unspecified, bacteriological or histological examination not done
+			016.92 Genitourinary tuberculosis, unspecified, bacteriological or histological examination unknown (at present)
+			016.93 Genitourinary tuberculosis, unspecified, tubercle bacilli found (in sputum) by microscopy
+			016.94 Genitourinary tuberculosis, unspecified, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			016.95 Genitourinary tuberculosis, unspecified, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			016.96 Genitourinary tuberculosis, unspecified, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		017 Tuberculosis of other organs
+			017 Tuberculosis of other organs
+			017.0 Tuberculosis of skin and subcutaneous cellular tissue
+			017.00 Tuberculosis of skin and subcutaneous cellular tissue, unspecified
+			017.01 Tuberculosis of skin and subcutaneous cellular tissue, bacteriological or histological examination not done
+			017.02 Tuberculosis of skin and subcutaneous cellular tissue, bacteriological or histological examination unknown (at present)
+			017.03 Tuberculosis of skin and subcutaneous cellular tissue, tubercle bacilli found (in sputum) by microscopy
+			017.04 Tuberculosis of skin and subcutaneous cellular tissue, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.05 Tuberculosis of skin and subcutaneous cellular tissue, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.06 Tuberculosis of skin and subcutaneous cellular tissue, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.1 Erythema nodosum with hypersensitivity reaction in tuberculosis
+			017.10 Erythema nodosum with hypersensitivity reaction in tuberculosis, unspecified
+			017.11 Erythema nodosum with hypersensitivity reaction in tuberculosis, bacteriological or histological examination not done
+			017.12 Erythema nodosum with hypersensitivity reaction in tuberculosis, bacteriological or histological examination unknown (at present)
+			017.13 Erythema nodosum with hypersensitivity reaction in tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			017.14 Erythema nodosum with hypersensitivity reaction in tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.15 Erythema nodosum with hypersensitivity reaction in tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.16 Erythema nodosum with hypersensitivity reaction in tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.2 Tuberculosis of peripheral lymph nodes
+			017.20 Tuberculosis of peripheral lymph nodes, unspecified
+			017.21 Tuberculosis of peripheral lymph nodes, bacteriological or histological examination not done
+			017.22 Tuberculosis of peripheral lymph nodes, bacteriological or histological examination unknown (at present)
+			017.23 Tuberculosis of peripheral lymph nodes, tubercle bacilli found (in sputum) by microscopy
+			017.24 Tuberculosis of peripheral lymph nodes, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.25 Tuberculosis of peripheral lymph nodes, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.26 Tuberculosis of peripheral lymph nodes, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.3 Tuberculosis of eye
+			017.30 Tuberculosis of eye, unspecified
+			017.31 Tuberculosis of eye, bacteriological or histological examination not done
+			017.32 Tuberculosis of eye, bacteriological or histological examination unknown (at present)
+			017.33 Tuberculosis of eye, tubercle bacilli found (in sputum) by microscopy
+			017.34 Tuberculosis of eye, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.35 Tuberculosis of eye, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.36 Tuberculosis of eye, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.4 Tuberculosis of ear
+			017.40 Tuberculosis of ear, unspecified
+			017.41 Tuberculosis of ear, bacteriological or histological examination not done
+			017.42 Tuberculosis of ear, bacteriological or histological examination unknown (at present)
+			017.43 Tuberculosis of ear, tubercle bacilli found (in sputum) by microscopy
+			017.44 Tuberculosis of ear, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.45 Tuberculosis of ear, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.46 Tuberculosis of ear, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.5 Tuberculosis of thyroid gland
+			017.50 Tuberculosis of thyroid gland, unspecified
+			017.51 Tuberculosis of thyroid gland, bacteriological or histological examination not done
+			017.52 Tuberculosis of thyroid gland, bacteriological or histological examination unknown (at present)
+			017.53 Tuberculosis of thyroid gland, tubercle bacilli found (in sputum) by microscopy
+			017.54 Tuberculosis of thyroid gland, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.55 Tuberculosis of thyroid gland, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.56 Tuberculosis of thyroid gland, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.6 Tuberculosis of adrenal glands
+			017.60 Tuberculosis of adrenal glands, unspecified
+			017.61 Tuberculosis of adrenal glands, bacteriological or histological examination not done
+			017.62 Tuberculosis of adrenal glands, bacteriological or histological examination unknown (at present)
+			017.63 Tuberculosis of adrenal glands, tubercle bacilli found (in sputum) by microscopy
+			017.64 Tuberculosis of adrenal glands, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.65 Tuberculosis of adrenal glands, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.66 Tuberculosis of adrenal glands, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.7 Tuberculosis of spleen
+			017.70 Tuberculosis of spleen, unspecified
+			017.71 Tuberculosis of spleen, bacteriological or histological examination not done
+			017.72 Tuberculosis of spleen, bacteriological or histological examination unknown (at present)
+			017.73 Tuberculosis of spleen, tubercle bacilli found (in sputum) by microscopy
+			017.74 Tuberculosis of spleen, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.75 Tuberculosis of spleen, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.76 Tuberculosis of spleen, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.8 Tuberculosis of esophagus
+			017.80 Tuberculosis of esophagus, unspecified
+			017.81 Tuberculosis of esophagus, bacteriological or histological examination not done
+			017.82 Tuberculosis of esophagus, bacteriological or histological examination unknown (at present)
+			017.83 Tuberculosis of esophagus, tubercle bacilli found (in sputum) by microscopy
+			017.84 Tuberculosis of esophagus, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.85 Tuberculosis of esophagus, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.86 Tuberculosis of esophagus, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			017.9 Tuberculosis of other specified organs
+			017.90 Tuberculosis of other specified organs, unspecified
+			017.91 Tuberculosis of other specified organs, bacteriological or histological examination not done
+			017.92 Tuberculosis of other specified organs, bacteriological or histological examination unknown (at present)
+			017.93 Tuberculosis of other specified organs, tubercle bacilli found (in sputum) by microscopy
+			017.94 Tuberculosis of other specified organs, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			017.95 Tuberculosis of other specified organs, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			017.96 Tuberculosis of other specified organs, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+		018 Miliary tuberculosis
+			018 Miliary tuberculosis
+			018.0 Acute miliary tuberculosis
+			018.00 Acute miliary tuberculosis, unspecified
+			018.01 Acute miliary tuberculosis, bacteriological or histological examination not done
+			018.02 Acute miliary tuberculosis, bacteriological or histological examination unknown (at present)
+			018.03 Acute miliary tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			018.04 Acute miliary tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			018.05 Acute miliary tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			018.06 Acute miliary tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			018.8 Other specified miliary tuberculosis
+			018.80 Other specified miliary tuberculosis, unspecified
+			018.81 Other specified miliary tuberculosis, bacteriological or histological examination not done
+			018.82 Other specified miliary tuberculosis, bacteriological or histological examination unknown (at present)
+			018.83 Other specified miliary tuberculosis, tubercle bacilli found (in sputum) by microscopy
+			018.84 Other specified miliary tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			018.85 Other specified miliary tuberculosis, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			018.86 Other specified miliary tuberculosis, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+			018.9 Unspecified miliary tuberculosis
+			018.90 Miliary tuberculosis, unspecified, unspecified
+			018.91 Miliary tuberculosis, unspecified, bacteriological or histological examination not done
+			018.92 Miliary tuberculosis, unspecified, bacteriological or histological examination unknown (at present)
+			018.93 Miliary tuberculosis, unspecified, tubercle bacilli found (in sputum) by microscopy
+			018.94 Miliary tuberculosis, unspecified, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture
+			018.95 Miliary tuberculosis, unspecified, tubercle bacilli not found by bacteriological examination, but tuberculosis confirmed histologically
+			018.96 Miliary tuberculosis, unspecified, tubercle bacilli not found by bacteriological or histological examination, but tuberculosis confirmed by other methods [inoculation of animals]
+	020-027 Zoonotic Bacterial Diseases
+		020 Plague
+			020 Plague
+			020.0 Bubonic plague
+			020.1 Cellulocutaneous plague
+			020.2 Septicemic plague
+			020.3 Primary pneumonic plague
+			020.4 Secondary pneumonic plague
+			020.5 Pneumonic plague, unspecified
+			020.8 Other specified types of plague
+			020.9 Plague, unspecified
+		021 Tularemia
+			021 Tularemia
+			021.0 Ulceroglandular tularemia
+			021.1 Enteric tularemia
+			021.2 Pulmonary tularemia
+			021.3 Oculoglandular tularemia
+			021.8 Other specified tularemia
+			021.9 Unspecified tularemia
+		022 Anthrax
+			022 Anthrax
+			022.0 Cutaneous anthrax
+			022.1 Pulmonary anthrax
+			022.2 Gastrointestinal anthrax
+			022.3 Anthrax septicemia
+			022.8 Other specified manifestations of anthrax
+			022.9 Anthrax, unspecified
+		023 Brucellosis
+			023 Brucellosis
+			023.0 Brucella melitensis
+			023.1 Brucella abortus
+			023.2 Brucella suis
+			023.3 Brucella canis
+			023.8 Other brucellosis
+			023.9 Brucellosis, unspecified
+		024 Glanders
+			024 Glanders
+		025 Melioidosis
+			025 Melioidosis
+		026 Rat-bite fever
+			026 Rat-bite fever
+			026.0 Spirillary fever
+			026.1 Streptobacillary fever
+			026.9 Unspecified rat-bite fever
+		027 Other zoonotic bacterial diseases
+			027 Other zoonotic bacterial diseases
+			027.0 Listeriosis
+			027.1 Erysipelothrix infection
+			027.2 Pasteurellosis
+			027.8 Other specified zoonotic bacterial diseases
+			027.9 Unspecified zoonotic bacterial disease
+	030-041 Other Bacterial Diseases
+		030 Leprosy
+			030 Leprosy
+			030.0 Lepromatous leprosy [type L]
+			030.1 Tuberculoid leprosy [type T]
+			030.2 Indeterminate leprosy [group I]
+			030.3 Borderline leprosy [group B]
+			030.8 Other specified leprosy
+			030.9 Leprosy, unspecified
+		031 Diseases due to other mycobacteria
+			031 Diseases due to other mycobacteria
+			031.0 Pulmonary diseases due to other mycobacteria
+			031.1 Cutaneous diseases due to other mycobacteria
+			031.2 Disseminated due to other mycobacteria
+			031.8 Other specified mycobacterial diseases
+			031.9 Unspecified diseases due to mycobacteria
+		032 Diphtheria
+			032 Diphtheria
+			032.0 Faucial diphtheria
+			032.1 Nasopharyngeal diphtheria
+			032.2 Anterior nasal diphtheria
+			032.3 Laryngeal diphtheria
+			032.8 Other specified diphtheria
+			032.81 Conjunctival diphtheria
+			032.82 Diphtheritic myocarditis
+			032.83 Diphtheritic peritonitis
+			032.84 Diphtheritic cystitis
+			032.85 Cutaneous diphtheria
+			032.89 Other specified diphtheria
+			032.9 Diphtheria, unspecified
+		033 Whooping cough
+			033 Whooping cough
+			033.0 Whooping cough due to bordetella pertussis [B. pertussis]
+			033.1 Whooping cough due to bordetella parapertussis [B. parapertussis]
+			033.8 Whooping cough due to other specified organism
+			033.9 Whooping cough, unspecified organism
+		034 Streptococcal sore throat and scarlet fever
+			034 Streptococcal sore throat and scarlet fever
+			034.0 Streptococcal sore throat
+			034.1 Scarlet fever
+		035 Erysipelas
+			035 Erysipelas
+		036 Meningococcal infection
+			036 Meningococcal infection
+			036.0 Meningococcal meningitis
+			036.1 Meningococcal encephalitis
+			036.2 Meningococcemia
+			036.3 Waterhouse-Friderichsen syndrome, meningococcal
+			036.4 Meningococcal carditis
+			036.40 Meningococcal carditis, unspecified
+			036.41 Meningococcal pericarditis
+			036.42 Meningococcal endocarditis
+			036.43 Meningococcal myocarditis
+			036.8 Other specified meningococcal infections
+			036.81 Meningococcal optic neuritis
+			036.82 Meningococcal arthropathy
+			036.89 Other specified meningococcal infections
+			036.9 Meningococcal infection, unspecified
+		037 Tetanus
+			037 Tetanus
+		038 Septicemia
+			038 Septicemia
+			038.0 Streptococcal septicemia
+			038.1 Staphylococcal septicemia
+			038.10 Staphylococcal septicemia, unspecified
+			038.11 Methicillin susceptible Staphylococcus aureus septicemia
+			038.12 Methicillin resistant Staphylococcus aureus septicemia
+			038.19 Other staphylococcal septicemia
+			038.2 Pneumococcal septicemia [Streptococcus pneumoniae septicemia]
+			038.3 Septicemia due to anaerobes
+			038.4 Septicemia due to other gram-negative organisms
+			038.40 Septicemia due to gram-negative organism, unspecified
+			038.41 Septicemia due to hemophilus influenzae [H. influenzae]
+			038.42 Septicemia due to escherichia coli [E. coli]
+			038.43 Septicemia due to pseudomonas
+			038.44 Septicemia due to serratia
+			038.49 Other septicemia due to gram-negative organisms
+			038.8 Other specified septicemias
+			038.9 Unspecified septicemia
+		039 Actinomycotic infections
+			039 Actinomycotic infections
+			039.0 Cutaneous actinomycotic infection
+			039.1 Pulmonary actinomycotic infection
+			039.2 Abdominal actinomycotic infection
+			039.3 Cervicofacial actinomycotic infection
+			039.4 Madura foot
+			039.8 Actinomycotic infection of other specified sites
+			039.9 Actinomycotic infection of unspecified site
+		040 Other bacterial diseases
+			040 Other bacterial diseases
+			040.0 Gas gangrene
+			040.1 Rhinoscleroma
+			040.2 Whipple's disease
+			040.3 Necrobacillosis
+			040.4 Other specified botulism
+			040.41 Infant botulism
+			040.42 Wound botulism
+			040.8 Other specified bacterial diseases
+			040.81 Tropical pyomyositis
+			040.82 Toxic shock syndrome
+			040.89 Other specified bacterial diseases
+		041 Bacterial infection in conditions classified elsewhere and of unspecified site
+			041 Bacterial infection in conditions classified elsewhere and of unspecified site
+			041.0 Streptococcus infection in conditions classified elsewhere and of unspecified site
+			041.00 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, unspecified
+			041.01 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group A
+			041.02 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group B
+			041.03 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group C
+			041.04 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]
+			041.05 Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group G
+			041.09 Streptococcus infection in conditions classified elsewhere and of unspecified site, other streptococcus
+			041.1 Staphylococcus infection in conditions classified elsewhere and of unspecified site
+			041.10 Staphylococcus infection in conditions classified elsewhere and of unspecified site, staphylococcus, unspecified
+			041.11 Methicillin susceptible Staphylococcus aureus in conditions classified elsewhere and of unspecified site
+			041.12 Methicillin resistant Staphylococcus aureus in conditions classified elsewhere and of unspecified site
+			041.19 Staphylococcus infection in conditions classified elsewhere and of unspecified site, other staphylococcus
+			041.2 Pneumococcus infection in conditions classified elsewhere and of unspecified site
+			041.3 Friedländer's bacillus infection in conditions classified elsewhere and of unspecified site
+			041.4 Escherichia coli [e. coli] infection in conditions classified elsewhere and of unspecified site
+			041.41 Shiga toxin-producing Escherichia coli [E. coli] (STEC) O157
+			041.42 Other specified Shiga toxin-producing Escherichia coli [E. coli] (STEC)
+			041.43 Shiga toxin-producing Escherichia coli [E. coli] (STEC), unspecified
+			041.49 Other and unspecified Escherichia coli [E. coli]
+			041.5 Hemophilus influenzae [H. influenzae] infection in conditions classified elsewhere and of unspecified site
+			041.6 Proteus (mirabilis) (morganii) infection in conditions classified elsewhere and of unspecified site
+			041.7 Pseudomonas infection in conditions classified elsewhere and of unspecified site
+			041.8 Other specified bacterial infections in conditions classified elsewhere and of unspecified site
+			041.81 Other specified bacterial infections in conditions classified elsewhere and of unspecified site, mycoplasma
+			041.82 Bacteroides fragilis
+			041.83 Other specified bacterial infections in conditions classified elsewhere and of unspecified site, Clostridium perfringens
+			041.84 Other specified bacterial infections in conditions classified elsewhere and of unspecified site, other anaerobes
+			041.85 Other specified bacterial infections in conditions classified elsewhere and of unspecified site, other gram-negative organisms
+			041.86 Helicobacter pylori [H. pylori]
+			041.89 Other specified bacterial infections in conditions classified elsewhere and of unspecified site, other specified bacteria
+			041.9 Bacterial infection, unspecified, in conditions classified elsewhere and of unspecified site
+	042-042 Human Immunodeficiency Virus
+		042 Human immunodeficiency virus [HIV] disease
+			042 Human immunodeficiency virus [HIV] disease
+	045-049 Poliomyelitis And Other Non-Arthropod-Borne Viral Diseases Of Central Nervous System
+		045 Acute poliomyelitis
+			045 Acute poliomyelitis
+			045.0 Acute paralytic poliomyelitis specified as bulbar
+			045.00 Acute paralytic poliomyelitis specified as bulbar, poliovirus, unspecified type
+			045.01 Acute paralytic poliomyelitis specified as bulbar, poliovirus type I
+			045.02 Acute paralytic poliomyelitis specified as bulbar, poliovirus type II
+			045.03 Acute paralytic poliomyelitis specified as bulbar, poliovirus type III
+			045.1 Acute poliomyelitis with other paralysis
+			045.10 Acute poliomyelitis with other paralysis, poliovirus, unspecified type
+			045.11 Acute poliomyelitis with other paralysis, poliovirus type I
+			045.12 Acute poliomyelitis with other paralysis, poliovirus type II
+			045.13 Acute poliomyelitis with other paralysis, poliovirus type III
+			045.2 Acute nonparalytic poliomyelitis
+			045.20 Acute nonparalytic poliomyelitis, poliovirus, unspecified type
+			045.21 Acute nonparalytic poliomyelitis, poliovirus type I
+			045.22 Acute nonparalytic poliomyelitis, poliovirus type II
+			045.23 Acute nonparalytic poliomyelitis, poliovirus type III
+			045.9 Unspecified acute poliomyelitis
+			045.90 Acute poliomyelitis, unspecified, poliovirus, unspecified type
+			045.91 Acute poliomyelitis, unspecified, poliovirus type I
+			045.92 Acute poliomyelitis, unspecified, poliovirus type II
+			045.93 Acute poliomyelitis, unspecified, poliovirus type III
+		046 Slow virus infection and prion diseases of central nervous system
+			046 Slow virus infection and prion diseases of central nervous system
+			046.0 Kuru
+			046.1 Jakob-creutzfeldt disease
+			046.11 Variant Creutzfeldt-Jakob disease
+			046.19 Other and unspecified Creutzfeldt-Jakob disease
+			046.2 Subacute sclerosing panencephalitis
+			046.3 Progressive multifocal leukoencephalopathy
+			046.7 Other specified prion diseases of central nervous system
+			046.71 Gerstmann-Sträussler-Scheinker syndrome
+			046.72 Fatal familial insomnia
+			046.79 Other and unspecified prion disease of central nervous system
+			046.8 Other specified slow virus infection of central nervous system
+			046.9 Unspecified slow virus infection of central nervous system
+		047 Meningitis due to enterovirus
+			047 Meningitis due to enterovirus
+			047.0 Meningitis due to coxsackie virus
+			047.1 Meningitis due to echo virus
+			047.8 Other specified viral meningitis
+			047.9 Unspecified viral meningitis
+		048 Other enterovirus diseases of central nervous system
+			048 Other enterovirus diseases of central nervous system
+		049 Other non-arthropod-borne viral diseases of central nervous system
+			049 Other non-arthropod-borne viral diseases of central nervous system
+			049.0 Lymphocytic choriomeningitis
+			049.1 Meningitis due to adenovirus
+			049.8 Other specified non-arthropod-borne viral diseases of central nervous system
+			049.9 Unspecified non-arthropod-borne viral diseases of central nervous system
+	050-059 Viral Diseases Accompanied By Exanthem
+		050 Smallpox
+			050 Smallpox
+			050.0 Variola major
+			050.1 Alastrim
+			050.2 Modified smallpox
+			050.9 Smallpox, unspecified
+		051 Cowpox and paravaccinia
+			051 Cowpox and paravaccinia
+			051.0 Cowpox and vaccinia not from vaccination
+			051.01 Cowpox
+			051.02 Vaccinia not from vaccination
+			051.1 Pseudocowpox
+			051.2 Contagious pustular dermatitis
+			051.9 Paravaccinia, unspecified
+		052 Chickenpox
+			052 Chickenpox
+			052.0 Postvaricella encephalitis
+			052.1 Varicella (hemorrhagic) pneumonitis
+			052.2 Postvaricella myelitis
+			052.7 Chickenpox with other specified complications
+			052.8 Chickenpox with unspecified complication
+			052.9 Varicella without mention of complication
+		053 Herpes zoster
+			053 Herpes zoster
+			053.0 Herpes zoster with meningitis
+			053.1 Herpes zoster with other nervous system complications
+			053.10 Herpes zoster with unspecified nervous system complication
+			053.11 Geniculate herpes zoster
+			053.12 Postherpetic trigeminal neuralgia
+			053.13 Postherpetic polyneuropathy
+			053.14 Herpes zoster myelitis
+			053.19 Herpes zoster with other nervous system complications
+			053.2 Herpes zoster with ophthalmic complications
+			053.20 Herpes zoster dermatitis of eyelid
+			053.21 Herpes zoster keratoconjunctivitis
+			053.22 Herpes zoster iridocyclitis
+			053.29 Herpes zoster with other ophthalmic complications
+			053.7 Herpes zoster with other specified complications
+			053.71 Otitis externa due to herpes zoster
+			053.79 Herpes zoster with other specified complications
+			053.8 Herpes zoster with unspecified complication
+			053.9 Herpes zoster without mention of complication
+		054 Herpes simplex
+			054 Herpes simplex
+			054.0 Eczema herpeticum
+			054.1 Genital herpes
+			054.10 Genital herpes, unspecified
+			054.11 Herpetic vulvovaginitis
+			054.12 Herpetic ulceration of vulva
+			054.13 Herpetic infection of penis
+			054.19 Other genital herpes
+			054.2 Herpetic gingivostomatitis
+			054.3 Herpetic meningoencephalitis
+			054.4 Herpes simplex with ophthalmic complications
+			054.40 Herpes simplex with unspecified ophthalmic complication
+			054.41 Herpes simplex dermatitis of eyelid
+			054.42 Dendritic keratitis
+			054.43 Herpes simplex disciform keratitis
+			054.44 Herpes simplex iridocyclitis
+			054.49 Herpes simplex with other ophthalmic complications
+			054.5 Herpetic septicemia
+			054.6 Herpetic whitlow
+			054.7 Herpes simplex with other specified complications
+			054.71 Visceral herpes simplex
+			054.72 Herpes simplex meningitis
+			054.73 Herpes simplex otitis externa
+			054.74 Herpes simplex myelitis
+			054.79 Herpes simplex with other specified complications
+			054.8 Herpes simplex with unspecified complication
+			054.9 Herpes simplex without mention of complication
+		055 Measles
+			055 Measles
+			055.0 Postmeasles encephalitis
+			055.1 Postmeasles pneumonia
+			055.2 Postmeasles otitis media
+			055.7 Measles with other specified complications
+			055.71 Measles keratoconjunctivitis
+			055.79 Measles with other specified complications
+			055.8 Measles with unspecified complication
+			055.9 Measles without mention of complication
+		056 Rubella
+			056 Rubella
+			056.0 Rubella with neurological complications
+			056.00 Rubella with unspecified neurological complication
+			056.01 Encephalomyelitis due to rubella
+			056.09 Rubella with other neurological complications
+			056.7 Rubella with other specified complications
+			056.71 Arthritis due to rubella
+			056.79 Rubella with other specified complications
+			056.8 Rubella with unspecified complications
+			056.9 Rubella without mention of complication
+		057 Other viral exanthemata
+			057 Other viral exanthemata
+			057.0 Erythema infectiosum (fifth disease)
+			057.8 Other specified viral exanthemata
+			057.9 Viral exanthem, unspecified
+		058 Other human herpesvirus
+			058 Other human herpesvirus
+			058.1 Roseola infantum
+			058.10 Roseola infantum, unspecified
+			058.11 Roseola infantum due to human herpesvirus 6
+			058.12 Roseola infantum due to human herpesvirus 7
+			058.2 Other human herpesvirus encephalitis
+			058.21 Human herpesvirus 6 encephalitis
+			058.29 Other human herpesvirus encephalitis
+			058.8 Other human herpesvirus infections
+			058.81 Human herpesvirus 6 infection
+			058.82 Human herpesvirus 7 infection
+			058.89 Other human herpesvirus infection
+		059 Other poxvirus infections
+			059 Other poxvirus infections
+			059.0 Other orthopoxvirus infections
+			059.00 Orthopoxvirus infection, unspecified
+			059.01 Monkeypox
+			059.09 Other orthopoxvirus infections
+			059.1 Other parapoxvirus infections
+			059.10 Parapoxvirus infection, unspecified
+			059.11 Bovine stomatitis
+			059.12 Sealpox
+			059.19 Other parapoxvirus infections
+			059.2 Yatapoxvirus infections
+			059.20 Yatapoxvirus infection, unspecified
+			059.21 Tanapox
+			059.22 Yaba monkey tumor virus
+			059.8 Other poxvirus infections
+			059.9 Poxvirus infections, unspecified
+	060-066 Arthropod-Borne Viral Diseases
+		060 Yellow fever
+			060 Yellow fever
+			060.0 Sylvatic yellow fever
+			060.1 Urban yellow fever
+			060.9 Yellow fever, unspecified
+		061 Dengue
+			061 Dengue
+		062 Mosquito-borne viral encephalitis
+			062 Mosquito-borne viral encephalitis
+			062.0 Japanese encephalitis
+			062.1 Western equine encephalitis
+			062.2 Eastern equine encephalitis
+			062.3 St. Louis encephalitis
+			062.4 Australian encephalitis
+			062.5 California virus encephalitis
+			062.8 Other specified mosquito-borne viral encephalitis
+			062.9 Mosquito-borne viral encephalitis, unspecified
+		063 Tick-borne viral encephalitis
+			063 Tick-borne viral encephalitis
+			063.0 Russian spring-summer [taiga] encephalitis
+			063.1 Louping ill
+			063.2 Central european encephalitis
+			063.8 Other specified tick-borne viral encephalitis
+			063.9 Tick-borne viral encephalitis, unspecified
+		064 Viral encephalitis transmitted by other and unspecified arthropods
+			064 Viral encephalitis transmitted by other and unspecified arthropods
+		065 Arthropod-borne hemorrhagic fever
+			065 Arthropod-borne hemorrhagic fever
+			065.0 Crimean hemorrhagic fever [CHF Congo virus]
+			065.1 Omsk hemorrhagic fever
+			065.2 Kyasanur forest disease
+			065.3 Other tick-borne hemorrhagic fever
+			065.4 Mosquito-borne hemorrhagic fever
+			065.8 Other specified arthropod-borne hemorrhagic fever
+			065.9 Arthropod-borne hemorrhagic fever, unspecified
+		066 Other arthropod-borne viral diseases
+			066 Other arthropod-borne viral diseases
+			066.0 Phlebotomus fever
+			066.1 Tick-borne fever
+			066.2 Venezuelan equine fever
+			066.3 Other mosquito-borne fever
+			066.4 West nile fever
+			066.40 West Nile Fever, unspecified
+			066.41 West Nile Fever with encephalitis
+			066.42 West Nile Fever with other neurologic manifestation
+			066.49 West Nile Fever with other complications
+			066.8 Other specified arthropod-borne viral diseases
+			066.9 Arthropod-borne viral disease, unspecified
+	070-079 Other Diseases Due To Viruses And Chlamydiae
+		070 Viral hepatitis
+			070 Viral hepatitis
+			070.0 Viral hepatitis A with hepatic coma
+			070.1 Viral hepatitis A without mention of hepatic coma
+			070.2 Viral hepatitis b with hepatic coma
+			070.20 Viral hepatitis B with hepatic coma, acute or unspecified, without mention of hepatitis delta
+			070.21 Viral hepatitis B with hepatic coma, acute or unspecified, with hepatitis delta
+			070.22 Chronic viral hepatitis B with hepatic coma without hepatitis delta
+			070.23 Chronic viral hepatitis B with hepatic coma with hepatitis delta
+			070.3 Viral hepatitis b without mention of hepatic coma
+			070.30 Viral hepatitis B without mention of hepatic coma, acute or unspecified, without mention of hepatitis delta
+			070.31 Viral hepatitis B without mention of hepatic coma, acute or unspecified, with hepatitis delta
+			070.32 Chronic viral hepatitis B without mention of hepatic coma without mention of hepatitis delta
+			070.33 Chronic viral hepatitis B without mention of hepatic coma with hepatitis delta
+			070.4 Other specified viral hepatitis with hepatic coma
+			070.41 Acute hepatitis C with hepatic coma
+			070.42 Hepatitis delta without mention of active hepatitis B disease with hepatic coma
+			070.43 Hepatitis E with hepatic coma
+			070.44 Chronic hepatitis C with hepatic coma
+			070.49 Other specified viral hepatitis with hepatic coma
+			070.5 Other specified viral hepatitis without mention of hepatic coma
+			070.51 Acute hepatitis C without mention of hepatic coma
+			070.52 Hepatitis delta without mention of active hepatitis B disease or hepatic coma
+			070.53 Hepatitis E without mention of hepatic coma
+			070.54 Chronic hepatitis C without mention of hepatic coma
+			070.59 Other specified viral hepatitis without mention of hepatic coma
+			070.6 Unspecified viral hepatitis with hepatic coma
+			070.7 Unspecified viral hepatitis c
+			070.70 Unspecified viral hepatitis C without hepatic coma
+			070.71 Unspecified viral hepatitis C with hepatic coma
+			070.9 Unspecified viral hepatitis without mention of hepatic coma
+		071 Rabies
+			071 Rabies
+		072 Mumps
+			072 Mumps
+			072.0 Mumps orchitis
+			072.1 Mumps meningitis
+			072.2 Mumps encephalitis
+			072.3 Mumps pancreatitis
+			072.7 Mumps with other specified complications
+			072.71 Mumps hepatitis
+			072.72 Mumps polyneuropathy
+			072.79 Other mumps with other specified complications
+			072.8 Mumps with unspecified complication
+			072.9 Mumps without mention of complication
+		073 Ornithosis
+			073 Ornithosis
+			073.0 Ornithosis with pneumonia
+			073.7 Ornithosis with other specified complications
+			073.8 Ornithosis with unspecified complication
+			073.9 Ornithosis, unspecified
+		074 Specific diseases due to coxsackie virus
+			074 Specific diseases due to coxsackie virus
+			074.0 Herpangina
+			074.1 Epidemic pleurodynia
+			074.2 Coxsackie carditis
+			074.20 Coxsackie carditis, unspecified
+			074.21 Coxsackie pericarditis
+			074.22 Coxsackie endocarditis
+			074.23 Coxsackie myocarditis
+			074.3 Hand, foot, and mouth disease
+			074.8 Other specified diseases due to Coxsackie virus
+		075 Infectious mononucleosis
+			075 Infectious mononucleosis
+		076 Trachoma
+			076 Trachoma
+			076.0 Trachoma, initial stage
+			076.1 Trachoma, active stage
+			076.9 Trachoma, unspecified
+		077 Other diseases of conjunctiva due to viruses and chlamydiae
+			077 Other diseases of conjunctiva due to viruses and chlamydiae
+			077.0 Inclusion conjunctivitis
+			077.1 Epidemic keratoconjunctivitis
+			077.2 Pharyngoconjunctival fever
+			077.3 Other adenoviral conjunctivitis
+			077.4 Epidemic hemorrhagic conjunctivitis
+			077.8 Other viral conjunctivitis
+			077.9 Unspecified diseases of conjunctiva due to viruses and chlamydiae
+			077.98 Unspecified diseases of conjunctiva due to chlamydiae
+			077.99 Unspecified diseases of conjunctiva due to viruses
+		078 Other diseases due to viruses and chlamydiae
+			078 Other diseases due to viruses and chlamydiae
+			078.0 Molluscum contagiosum
+			078.1 Viral warts
+			078.10 Viral warts, unspecified
+			078.11 Condyloma acuminatum
+			078.12 Plantar wart
+			078.19 Other specified viral warts
+			078.2 Sweating fever
+			078.3 Cat-scratch disease
+			078.4 Foot and mouth disease
+			078.5 Cytomegaloviral disease
+			078.6 Hemorrhagic nephrosonephritis
+			078.7 Arenaviral hemorrhagic fever
+			078.8 Other specified diseases due to viruses and chlamydiae
+			078.81 Epidemic vertigo
+			078.82 Epidemic vomiting syndrome
+			078.88 Other specified diseases due to chlamydiae
+			078.89 Other specified diseases due to viruses
+		079 Viral and chlamydial infection in conditions classified elsewhere and of unspecified site
+			079 Viral and chlamydial infection in conditions classified elsewhere and of unspecified site
+			079.0 Adenovirus infection in conditions classified elsewhere and of unspecified site
+			079.1 Echo virus infection in conditions classified elsewhere and of unspecified site
+			079.2 Coxsackie virus infection in conditions classified elsewhere and of unspecified site
+			079.3 Rhinovirus infection in conditions classified elsewhere and of unspecified site
+			079.4 Human papillomavirus in conditions classified elsewhere and of unspecified site
+			079.5 Retrovirus in conditions classified elsewhere and of unspecified site
+			079.50 Retrovirus, unspecified
+			079.51 Human T-cell lymphotrophic virus, type I [HTLV-I]
+			079.52 Human T-cell lymphotrophic virus, type II [HTLV-II]
+			079.53 Human immunodeficiency virus, type 2 [HIV-2]
+			079.59 Other specified retrovirus
+			079.6 Respiratory syncytial virus (RSV)
+			079.8 Other specified viral and chlamydial infections
+			079.81 Hantavirus infection
+			079.82 SARS-associated coronavirus
+			079.83 Parvovirus B19
+			079.88 Other specified chlamydial infection
+			079.89 Other specified viral infection
+			079.9 Unspecified viral and chlamydial infections
+			079.98 Unspecified chlamydial infection
+			079.99 Unspecified viral infection
+	080-088 Rickettsioses And Other Arthropod-Borne Diseases
+		080 Louse-borne (epidemic) typhus
+			080 Louse-borne (epidemic) typhus
+		081 Other typhus
+			081 Other typhus
+			081.0 Murine (endemic) typhus
+			081.1 Brill's disease
+			081.2 Scrub typhus
+			081.9 Typhus, unspecified
+		082 Tick-borne rickettsioses
+			082 Tick-borne rickettsioses
+			082.0 Spotted fevers
+			082.1 Boutonneuse fever
+			082.2 North Asian tick fever
+			082.3 Queensland tick typhus
+			082.4 Ehrlichiosis
+			082.40 Ehrlichiosis, unspecified
+			082.41 Ehrlichiosis chafeensis [E. chafeensis]
+			082.49 Other ehrlichiosis
+			082.8 Other specified tick-borne rickettsioses
+			082.9 Tick-borne rickettsiosis, unspecified
+		083 Other rickettsioses
+			083 Other rickettsioses
+			083.0 Q fever
+			083.1 Trench fever
+			083.2 Rickettsialpox
+			083.8 Other specified rickettsioses
+			083.9 Rickettsiosis, unspecified
+		084 Malaria
+			084 Malaria
+			084.0 Falciparum malaria [malignant tertian]
+			084.1 Vivax malaria [benign tertian]
+			084.2 Quartan malaria
+			084.3 Ovale malaria
+			084.4 Other malaria
+			084.5 Mixed malaria
+			084.6 Malaria, unspecified
+			084.7 Induced malaria
+			084.8 Blackwater fever
+			084.9 Other pernicious complications of malaria
+		085 Leishmaniasis
+			085 Leishmaniasis
+			085.0 Visceral [kala-azar] leishmaniasis
+			085.1 Cutaneous leishmaniasis, urban
+			085.2 Cutaneous leishmaniasis, Asian desert
+			085.3 Cutaneous leishmaniasis, Ethiopian
+			085.4 Cutaneous leishmaniasis, American
+			085.5 Mucocutaneous leishmaniasis, (American)
+			085.9 Leishmaniasis, unspecified
+		086 Trypanosomiasis
+			086 Trypanosomiasis
+			086.0 Chagas' disease with heart involvement
+			086.1 Chagas' disease with other organ involvement
+			086.2 Chagas' disease without mention of organ involvement
+			086.3 Gambian trypanosomiasis
+			086.4 Rhodesian trypanosomiasis
+			086.5 African trypanosomiasis, unspecified
+			086.9 Trypanosomiasis, unspecified
+		087 Relapsing fever
+			087 Relapsing fever
+			087.0 Relapsing fever, louse-borne
+			087.1 Relapsing fever, tick-borne
+			087.9 Relapsing fever, unspecified
+		088 Other arthropod-borne diseases
+			088 Other arthropod-borne diseases
+			088.0 Bartonellosis
+			088.8 Other specified arthropod-borne diseases
+			088.81 Lyme Disease
+			088.82 Babesiosis
+			088.89 Other specified arthropod-borne diseases, other
+			088.9 Arthropod-borne disease, unspecified
+	090-099 Syphilis And Other Venereal Diseases
+		090 Congenital syphilis
+			090 Congenital syphilis
+			090.0 Early congenital syphilis, symptomatic
+			090.1 Early congenital syphilis, latent
+			090.2 Early congenital syphilis, unspecified
+			090.3 Syphilitic interstitial keratitis
+			090.4 Juvenile neurosyphilis
+			090.40 Juvenile neurosyphilis, unspecified
+			090.41 Congenital syphilitic encephalitis
+			090.42 Congenital syphilitic meningitis
+			090.49 Other juvenile neurosyphilis
+			090.5 Other late congenital syphilis, symptomatic
+			090.6 Late congenital syphilis, latent
+			090.7 Late congenital syphilis, unspecified
+			090.9 Congenital syphilis, unspecified
+		091 Early syphilis symptomatic
+			091 Early syphilis symptomatic
+			091.0 Genital syphilis (primary)
+			091.1 Primary anal syphilis
+			091.2 Other primary syphilis
+			091.3 Secondary syphilis of skin or mucous membranes
+			091.4 Adenopathy due to secondary syphilis
+			091.5 Uveitis due to secondary syphilis
+			091.50 Syphilitic uveitis, unspecified
+			091.51 Syphilitic chorioretinitis (secondary)
+			091.52 Syphilitic iridocyclitis (secondary)
+			091.6 Secondary syphilis of viscera and bone
+			091.61 Secondary syphilitic periostitis
+			091.62 Secondary syphilitic hepatitis
+			091.69 Secondary syphilis of other viscera
+			091.7 Secondary syphilis, relapse
+			091.8 Other forms of secondary syphilis
+			091.81 Acute syphilitic meningitis (secondary)
+			091.82 Syphilitic alopecia
+			091.89 Other forms of secondary syphilis
+			091.9 Unspecified secondary syphilis
+		092 Early syphilis latent
+			092 Early syphilis latent
+			092.0 Early syphilis, latent, serological relapse after treatment
+			092.9 Early syphilis, latent, unspecified
+		093 Cardiovascular syphilis
+			093 Cardiovascular syphilis
+			093.0 Aneurysm of aorta, specified as syphilitic
+			093.1 Syphilitic aortitis
+			093.2 Syphilitic endocarditis
+			093.20 Syphilitic endocarditis of valve, unspecified
+			093.21 Syphilitic endocarditis of mitral valve
+			093.22 Syphilitic endocarditis of aortic valve
+			093.23 Syphilitic endocarditis of tricuspid valve
+			093.24 Syphilitic endocarditis of pulmonary valve
+			093.8 Other specified cardiovascular syphilis
+			093.81 Syphilitic pericarditis
+			093.82 Syphilitic myocarditis
+			093.89 Other specified cardiovascular syphilis
+			093.9 Cardiovascular syphilis, unspecified
+		094 Neurosyphilis
+			094 Neurosyphilis
+			094.0 Tabes dorsalis
+			094.1 General paresis
+			094.2 Syphilitic meningitis
+			094.3 Asymptomatic neurosyphilis
+			094.8 Other specified neurosyphilis
+			094.81 Syphilitic encephalitis
+			094.82 Syphilitic parkinsonism
+			094.83 Syphilitic disseminated retinochoroiditis
+			094.84 Syphilitic optic atrophy
+			094.85 Syphilitic retrobulbar neuritis
+			094.86 Syphilitic acoustic neuritis
+			094.87 Syphilitic ruptured cerebral aneurysm
+			094.89 Other specified neurosyphilis
+			094.9 Neurosyphilis, unspecified
+		095 Other forms of late syphilis with symptoms
+			095 Other forms of late syphilis with symptoms
+			095.0 Syphilitic episcleritis
+			095.1 Syphilis of lung
+			095.2 Syphilitic peritonitis
+			095.3 Syphilis of liver
+			095.4 Syphilis of kidney
+			095.5 Syphilis of bone
+			095.6 Syphilis of muscle
+			095.7 Syphilis of synovium, tendon, and bursa
+			095.8 Other specified forms of late symptomatic syphilis
+			095.9 Late symptomatic syphilis, unspecified
+		096 Late syphilis, latent
+			096 Late syphilis, latent
+		097 Other and unspecified syphilis
+			097 Other and unspecified syphilis
+			097.0 Late syphilis, unspecified
+			097.1 Latent syphilis, unspecified
+			097.9 Syphilis, unspecified
+		098 Gonococcal infections
+			098 Gonococcal infections
+			098.0 Gonococcal infection (acute) of lower genitourinary tract
+			098.1 Gonococcal infection (acute) of upper genitourinary tract
+			098.10 Gonococcal infection (acute) of upper genitourinary tract, site unspecified
+			098.11 Gonococcal cystitis (acute)
+			098.12 Gonococcal prostatitis (acute)
+			098.13 Gonococcal epididymo-orchitis (acute)
+			098.14 Gonococcal seminal vesiculitis (acute)
+			098.15 Gonococcal cervicitis (acute)
+			098.16 Gonococcal endometritis (acute)
+			098.17 Gonococcal salpingitis, specified as acute
+			098.19 Other gonococcal infection (acute) of upper genitourinary tract
+			098.2 Gonococcal infection, chronic, of lower genitourinary tract
+			098.3 Gonococcal infection chronic of upper genitourinary tract
+			098.30 Chronic gonococcal infection of upper genitourinary tract, site unspecified
+			098.31 Gonococcal cystitis, chronic
+			098.32 Gonococcal prostatitis, chronic
+			098.33 Gonococcal epididymo-orchitis, chronic
+			098.34 Gonococcal seminal vesiculitis, chronic
+			098.35 Gonococcal cervicitis, chronic
+			098.36 Gonococcal endometritis, chronic
+			098.37 Gonococcal salpingitis (chronic)
+			098.39 Other chronic gonococcal infection of upper genitourinary tract
+			098.4 Gonococcal infection of eye
+			098.40 Gonococcal conjunctivitis (neonatorum)
+			098.41 Gonococcal iridocyclitis
+			098.42 Gonococcal endophthalmia
+			098.43 Gonococcal keratitis
+			098.49 Other gonococcal infection of eye
+			098.5 Gonococcal infection of joint
+			098.50 Gonococcal arthritis
+			098.51 Gonococcal synovitis and tenosynovitis
+			098.52 Gonococcal bursitis
+			098.53 Gonococcal spondylitis
+			098.59 Other gonococcal infection of joint
+			098.6 Gonococcal infection of pharynx
+			098.7 Gonococcal infection of anus and rectum
+			098.8 Gonococcal infection of other specified sites
+			098.81 Gonococcal keratosis (blennorrhagica)
+			098.82 Gonococcal meningitis
+			098.83 Gonococcal pericarditis
+			098.84 Gonococcal endocarditis
+			098.85 Other gonococcal heart disease
+			098.86 Gonococcal peritonitis
+			098.89 Gonococcal infection of other specified sites
+		099 Other venereal diseases
+			099 Other venereal diseases
+			099.0 Chancroid
+			099.1 Lymphogranuloma venereum
+			099.2 Granuloma inguinale
+			099.3 Reiter's disease
+			099.4 Other nongonococcal urethritis
+			099.40 Other nongonococcal urethritis, unspecified
+			099.41 Other nongonococcal urethritis, chlamydia trachomatis
+			099.49 Other nongonococcal urethritis, other specified organism
+			099.5 Other venereal diseases due to chlamydia trachomatis
+			099.50 Other venereal diseases due to chlamydia trachomatis, unspecified site
+			099.51 Other venereal diseases due to chlamydia trachomatis, pharynx
+			099.52 Other venereal diseases due to chlamydia trachomatis, anus and rectum
+			099.53 Other venereal diseases due to chlamydia trachomatis, lower genitourinary sites
+			099.54 Other venereal diseases due to chlamydia trachomatis, other genitourinary sites
+			099.55 Other venereal diseases due to chlamydia trachomatis, unspecified genitourinary site
+			099.56 Other venereal diseases due to chlamydia trachomatis, peritoneum
+			099.59 Other venereal diseases due to chlamydia trachomatis, other specified site
+			099.8 Other specified venereal diseases
+			099.9 Venereal disease, unspecified
+	100-104 Other Spirochetal Diseases
+		100 Leptospirosis
+			100 Leptospirosis
+			100.0 Leptospirosis icterohemorrhagica
+			100.8 Other specified leptospiral infections
+			100.81 Leptospiral meningitis (aseptic)
+			100.89 Other specified leptospiral infections
+			100.9 Leptospirosis, unspecified
+		101 Vincent's angina
+			101 Vincent's angina
+		102 Yaws
+			102 Yaws
+			102.0 Initial lesions of yaws
+			102.1 Multiple papillomata due to yaws and wet crab yaws
+			102.2 Other early skin lesions of yaws
+			102.3 Hyperkeratosis due to yaws
+			102.4 Gummata and ulcers due to yaws
+			102.5 Gangosa
+			102.6 Bone and joint lesions due to yaws
+			102.7 Other manifestations of yaws
+			102.8 Latent yaws
+			102.9 Yaws, unspecified
+		103 Pinta
+			103 Pinta
+			103.0 Primary lesions of pinta
+			103.1 Intermediate lesions of pinta
+			103.2 Late lesions of pinta
+			103.3 Mixed lesions of pinta
+			103.9 Pinta, unspecified
+		104 Other spirochetal infection
+			104 Other spirochetal infection
+			104.0 Nonvenereal endemic syphilis
+			104.8 Other specified spirochetal infections
+			104.9 Spirochetal infection, unspecified
+	110-118 Mycoses
+		110 Dermatophytosis
+			110 Dermatophytosis
+			110.0 Dermatophytosis of scalp and beard
+			110.1 Dermatophytosis of nail
+			110.2 Dermatophytosis of hand
+			110.3 Dermatophytosis of groin and perianal area
+			110.4 Dermatophytosis of foot
+			110.5 Dermatophytosis of the body
+			110.6 Deep seated dermatophytosis
+			110.8 Dermatophytosis of other specified sites
+			110.9 Dermatophytosis of unspecified site
+		111 Dermatomycosis other and unspecified
+			111 Dermatomycosis other and unspecified
+			111.0 Pityriasis versicolor
+			111.1 Tinea nigra
+			111.2 Tinea blanca
+			111.3 Black piedra
+			111.8 Other specified dermatomycoses
+			111.9 Dermatomycosis, unspecified
+		112 Candidiasis
+			112 Candidiasis
+			112.0 Candidiasis of mouth
+			112.1 Candidiasis of vulva and vagina
+			112.2 Candidiasis of other urogenital sites
+			112.3 Candidiasis of skin and nails
+			112.4 Candidiasis of lung
+			112.5 Disseminated candidiasis
+			112.8 Candidiasis of other specified sites
+			112.81 Candidal endocarditis
+			112.82 Candidal otitis externa
+			112.83 Candidal meningitis
+			112.84 Candidal esophagitis
+			112.85 Candidal enteritis
+			112.89 Other candidiasis of other specified sites
+			112.9 Candidiasis of unspecified site
+		114 Coccidioidomycosis
+			114 Coccidioidomycosis
+			114.0 Primary coccidioidomycosis (pulmonary)
+			114.1 Primary extrapulmonary coccidioidomycosis
+			114.2 Coccidioidal meningitis
+			114.3 Other forms of progressive coccidioidomycosis
+			114.4 Chronic pulmonary coccidioidomycosis
+			114.5 Pulmonary coccidioidomycosis, unspecified
+			114.9 Coccidioidomycosis, unspecified
+		115 Histoplasmosis
+			115 Histoplasmosis
+			115.0 Infection by histoplasma capsulatum
+			115.00 Infection by Histoplasma capsulatum, without mention of manifestation
+			115.01 Infection by Histoplasma capsulatum, meningitis
+			115.02 Infection by Histoplasma capsulatum, retinitis
+			115.03 Infection by Histoplasma capsulatum, pericarditis
+			115.04 Infection by Histoplasma capsulatum, endocarditis
+			115.05 Infection by Histoplasma capsulatum, pneumonia
+			115.09 Infection by Histoplasma capsulatum, other
+			115.1 Infection by histoplasma duboisii
+			115.10 Infection by Histoplasma duboisii, without mention of manifestation
+			115.11 Infection by Histoplasma duboisii, meningitis
+			115.12 Infection by Histoplasma duboisii, retinitis
+			115.13 Infection by Histoplasma duboisii, pericarditis
+			115.14 Infection by Histoplasma duboisii, endocarditis
+			115.15 Infection by Histoplasma duboisii, pneumonia
+			115.19 Infection by Histoplasma duboisii, other
+			115.9 Histoplasmosis unspecified
+			115.90 Histoplasmosis, unspecified, without mention of manifestation
+			115.91 Histoplasmosis, unspecified, meningitis
+			115.92 Histoplasmosis, unspecified, retinitis
+			115.93 Histoplasmosis, unspecified, pericarditis
+			115.94 Histoplasmosis, unspecified, endocarditis
+			115.95 Histoplasmosis, unspecified, pneumonia
+			115.99 Histoplasmosis, unspecified, other
+		116 Blastomycotic infection
+			116 Blastomycotic infection
+			116.0 Blastomycosis
+			116.1 Paracoccidioidomycosis
+			116.2 Lobomycosis
+		117 Other mycoses
+			117 Other mycoses
+			117.0 Rhinosporidiosis
+			117.1 Sporotrichosis
+			117.2 Chromoblastomycosis
+			117.3 Aspergillosis
+			117.4 Mycotic mycetomas
+			117.5 Cryptococcosis
+			117.6 Allescheriosis [Petriellidosis]
+			117.7 Zygomycosis [Phycomycosis or Mucormycosis]
+			117.8 Infection by dematiacious fungi [Phaehyphomycosis]
+			117.9 Other and unspecified mycoses
+		118 Opportunistic mycoses
+			118 Opportunistic mycoses
+	120-129 Helminthiases
+		120 Schistosomiasis (bilharziasis)
+			120 Schistosomiasis (bilharziasis)
+			120.0 Schistosomiasis due to schistosoma haematobium
+			120.1 Schistosomiasis due to schistosoma mansoni
+			120.2 Schistosomiasis due to schistosoma japonicum
+			120.3 Cutaneous schistosomiasis
+			120.8 Other specified schistosomiasis
+			120.9 Schistosomiasis, unspecified
+		121 Other trematode infections
+			121 Other trematode infections
+			121.0 Opisthorchiasis
+			121.1 Clonorchiasis
+			121.2 Paragonimiasis
+			121.3 Fascioliasis
+			121.4 Fasciolopsiasis
+			121.5 Metagonimiasis
+			121.6 Heterophyiasis
+			121.8 Other specified trematode infections
+			121.9 Trematode infection, unspecified
+		122 Echinococcosis
+			122 Echinococcosis
+			122.0 Echinococcus granulosus infection of liver
+			122.1 Echinococcus granulosus infection of lung
+			122.2 Echinococcus granulosus infection of thyroid
+			122.3 Echinococcus granulosus infection, other
+			122.4 Echinococcus granulosus infection, unspecified
+			122.5 Echinococcus multilocularis infection of liver
+			122.6 Echinococcus multilocularis infection, other
+			122.7 Echinococcus multilocularis infection, unspecified
+			122.8 Echinococcosis, unspecified, of liver
+			122.9 Echinococcosis, other and unspecified
+		123 Other cestode infection
+			123 Other cestode infection
+			123.0 Taenia solium infection, intestinal form
+			123.1 Cysticercosis
+			123.2 Taenia saginata infection
+			123.3 Taeniasis, unspecified
+			123.4 Diphyllobothriasis, intestinal
+			123.5 Sparganosis [larval diphyllobothriasis]
+			123.6 Hymenolepiasis
+			123.8 Other specified cestode infection
+			123.9 Cestode infection, unspecified
+		124 Trichinosis
+			124 Trichinosis
+		125 Filarial infection and dracontiasis
+			125 Filarial infection and dracontiasis
+			125.0 Bancroftian filariasis
+			125.1 Malayan filariasis
+			125.2 Loiasis
+			125.3 Onchocerciasis
+			125.4 Dipetalonemiasis
+			125.5 Mansonella ozzardi infection
+			125.6 Other specified filariasis
+			125.7 Dracontiasis
+			125.9 Unspecified filariasis
+		126 Ancylostomiasis and necatoriasis
+			126 Ancylostomiasis and necatoriasis
+			126.0 Ancylostomiasis due to ancylostoma duodenale
+			126.1 Necatoriasis due to necator americanus
+			126.2 Ancylostomiasis due to ancylostoma braziliense
+			126.3 Ancylostomiasis due to ancylostoma ceylanicum
+			126.8 Other specified ancylostoma
+			126.9 Ancylostomiasis and necatoriasis, unspecified
+		127 Other intestinal helminthiases
+			127 Other intestinal helminthiases
+			127.0 Ascariasis
+			127.1 Anisakiasis
+			127.2 Strongyloidiasis
+			127.3 Trichuriasis
+			127.4 Enterobiasis
+			127.5 Capillariasis
+			127.6 Trichostrongyliasis
+			127.7 Other specified intestinal helminthiasis
+			127.8 Mixed intestinal helminthiasis
+			127.9 Intestinal helminthiasis, unspecified
+		128 Other and unspecified helminthiases
+			128 Other and unspecified helminthiases
+			128.0 Toxocariasis
+			128.1 Gnathostomiasis
+			128.8 Other specified helminthiasis
+			128.9 Helminth infection, unspecified
+		129 Intestinal parasitism, unspecified
+			129 Intestinal parasitism, unspecified
+	130-136 Other Infectious And Parasitic Diseases
+		130 Toxoplasmosis
+			130 Toxoplasmosis
+			130.0 Meningoencephalitis due to toxoplasmosis
+			130.1 Conjunctivitis due to toxoplasmosis
+			130.2 Chorioretinitis due to toxoplasmosis
+			130.3 Myocarditis due to toxoplasmosis
+			130.4 Pneumonitis due to toxoplasmosis
+			130.5 Hepatitis due to toxoplasmosis
+			130.7 Toxoplasmosis of other specified sites
+			130.8 Multisystemic disseminated toxoplasmosis
+			130.9 Toxoplasmosis, unspecified
+		131 Trichomoniasis
+			131 Trichomoniasis
+			131.0 Urogenital trichomoniasis
+			131.00 Urogenital trichomoniasis, unspecified
+			131.01 Trichomonal vulvovaginitis
+			131.02 Trichomonal urethritis
+			131.03 Trichomonal prostatitis
+			131.09 Other urogenital trichomoniasis
+			131.8 Trichomoniasis of other specified sites
+			131.9 Trichomoniasis, unspecified
+		132 Pediculosis and phthirus infestation
+			132 Pediculosis and phthirus infestation
+			132.0 Pediculus capitis [head louse]
+			132.1 Pediculus corporis [body louse]
+			132.2 Phthirus pubis [pubic louse]
+			132.3 Mixed pediculosis infestation
+			132.9 Pediculosis, unspecified
+		133 Acariasis
+			133 Acariasis
+			133.0 Scabies
+			133.8 Other acariasis
+			133.9 Acariasis, unspecified
+		134 Other infestation
+			134 Other infestation
+			134.0 Myiasis
+			134.1 Other arthropod infestation
+			134.2 Hirudiniasis
+			134.8 Other specified infestations
+			134.9 Infestation, unspecified
+		135 Sarcoidosis
+			135 Sarcoidosis
+		136 Other and unspecified infectious and parasitic diseases
+			136 Other and unspecified infectious and parasitic diseases
+			136.0 Ainhum
+			136.1 Behcet's syndrome
+			136.2 Specific infections by free-living amebae
+			136.21 Specific infection due to acanthamoeba
+			136.29 Other specific infections by free-living amebae
+			136.3 Pneumocystosis
+			136.4 Psorospermiasis
+			136.5 Sarcosporidiosis
+			136.8 Other specified infectious and parasitic diseases
+			136.9 Unspecified infectious and parasitic diseases
+	137-139 Late Effects Of Infectious And Parasitic Diseases
+		137 Late effects of tuberculosis
+			137 Late effects of tuberculosis
+			137.0 Late effects of respiratory or unspecified tuberculosis
+			137.1 Late effects of central nervous system tuberculosis
+			137.2 Late effects of genitourinary tuberculosis
+			137.3 Late effects of tuberculosis of bones and joints
+			137.4 Late effects of tuberculosis of other specified organs
+		138 Late effects of acute poliomyelitis
+			138 Late effects of acute poliomyelitis
+		139 Late effects of other infectious and parasitic diseases
+			139 Late effects of other infectious and parasitic diseases
+			139.0 Late effects of viral encephalitis
+			139.1 Late effects of trachoma
+			139.8 Late effects of other and unspecified infectious and parasitic diseases
