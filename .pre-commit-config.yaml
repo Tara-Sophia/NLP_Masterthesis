@@ -64,8 +64,8 @@ repos:
     -   id: xenon
         args: ["--max-average=A", "--max-modules=A", "--max-absolute=B"]
 
--   repo: local
-    hooks:
+# -   repo: local
+#     hooks:
     # -   id: pytest
     #     name: pytest
     #     stages: [commit]
@@ -74,11 +74,11 @@ repos:
     #     types: [python]
     #     pass_filenames: false
     #     always_run: false
-    -   id: pytest-cov
-        name: pytest-cov
-        stages: [push]
-        language: system
-        entry: pytest -v --cov=ethosu --cov-fail-under=80
-        types: [python]
-        pass_filenames: false
-        always_run: true
+    # -   id: pytest-cov
+    #     name: pytest-cov
+    #     stages: [commit]
+    #     language: system
+    #     entry: pytest -v --cov=ethosu --cov-fail-under=80
+    #     types: [python]
+    #     pass_filenames: false
+    #     always_run: true
