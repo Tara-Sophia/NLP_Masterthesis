@@ -15,7 +15,9 @@ from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
 
-def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
+def keyword_extraction(
+    x: str, model, nr_candidates: int, top_n: int
+) -> list[tuple]:
     """
     This function extracts keywords from the input text.
     Parameters
@@ -29,7 +31,9 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     list[str]
         List of keywords.
     """
-    tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model, model_max_lenght=512
+    )
 
     # Truncate all the text to 512 tokens
 
@@ -54,7 +58,9 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     return keywords
 
 
-def keywords_from_TC_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
+def keywords_from_TC_model(
+    df: pd.DataFrame, model: str
+) -> pd.DataFrame:
     """
     Extract keywords from the input text using the TC model
     Parameters
@@ -76,13 +82,15 @@ def keywords_from_TC_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
         axis=1,
     )
 
-    df["transcription_f_TC"] = df["keywords_outcome_weights_TC"].apply(
-        lambda x: [i[0] for i in x]
-    )
+    df["transcription_f_TC"] = df[
+        "keywords_outcome_weights_TC"
+    ].apply(lambda x: [i[0] for i in x])
     return df
 
 
-def keywords_from_MLM_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
+def keywords_from_MLM_model(
+    df: pd.DataFrame, model: str
+) -> pd.DataFrame:
     """
     Extract keywords from the input text using the MLM model
     Parameters
@@ -103,9 +111,9 @@ def keywords_from_MLM_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
         axis=1,
     )
 
-    df["transcription_f_MLM"] = df["keywords_outcome_weights_MLM"].apply(
-        lambda x: [item[0] for item in x]
-    )
+    df["transcription_f_MLM"] = df[
+        "keywords_outcome_weights_MLM"
+    ].apply(lambda x: [item[0] for item in x])
     return df
 
 
@@ -164,7 +172,9 @@ def main() -> None:
     """
     df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_CLEANED_DIR)
     df = small_column_df(df_large_column)
-    df["nr_candidates"] = df["transcription"].apply(calculate_optimal_candidate_nr)
+    df["nr_candidates"] = df["transcription"].apply(
+        calculate_optimal_candidate_nr
+    )
     # top n keywords to extract
     df["top_n"] = df["nr_candidates"].apply(lambda x: round(x * 0.5))
     # for MLM model :
