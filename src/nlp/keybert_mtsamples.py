@@ -15,7 +15,7 @@ from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
 
-def Keyword_extraction(
+def keyword_extraction(
     x: str, model, nr_candidates: int, top_n: int
 ) -> list[tuple]:
     """
@@ -76,7 +76,7 @@ def keywords_from_TC_model(
     """
 
     df["keywords_outcome_weights_TC"] = df.apply(
-        lambda x: KeywordExtraction(
+        lambda x: keyword_extraction(
             x["transcription"], model, x["nr_candidates"], x["top_n"]
         ),
         axis=1,
@@ -105,7 +105,7 @@ def keywords_from_MLM_model(
         Dataframe with the keywords and weights extracted from the input text
     """
     df["keywords_outcome_weights_MLM"] = df.apply(
-        lambda x: KeywordExtraction(
+        lambda x: keyword_extraction(
             x["transcription"], model, x["nr_candidates"], x["top_n"]
         ),
         axis=1,

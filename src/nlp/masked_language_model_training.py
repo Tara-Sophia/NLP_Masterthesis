@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Description:
-    This script is used for training the MLM model. It is based on the  HuggingFace Trainer class.  
+    This script is used for training the MLM model.
+    It is based on the  HuggingFace Trainer class.
     The model is trained on the mtsamples dataset.
 """
 # imports
