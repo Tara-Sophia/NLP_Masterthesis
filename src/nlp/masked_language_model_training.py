@@ -42,12 +42,8 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
     # Convert to Dataset object
-    dataset_train = Dataset.from_pandas(
-        df_train[["transcription"]].dropna()
-    )
-    dataset_val = Dataset.from_pandas(
-        df_valid[["transcription"]].dropna()
-    )
+    dataset_train = Dataset.from_pandas(df_train[["transcription"]].dropna())
+    dataset_val = Dataset.from_pandas(df_valid[["transcription"]].dropna())
     return dataset_train, dataset_val
 
 
@@ -78,9 +74,7 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    model = BertForMaskedLM.from_pretrained(
-        MODEL_MLM_CHECKPOINTS_DIR
-    ).to(device)
+    model = BertForMaskedLM.from_pretrained(MODEL_MLM_CHECKPOINTS_DIR).to(device)
     # AutoModelForSequenceClassification.from_pretrained(
     #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     # ).to(device)
@@ -90,9 +84,7 @@ def load_model(device: torch.device) -> BertForMaskedLM:
 
 def main():
     train_ds, val_ds = load_datasets(
-        os.path.join(
-            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
-        )
+        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
     )
 
     tokenizer = load_tokenizer()
