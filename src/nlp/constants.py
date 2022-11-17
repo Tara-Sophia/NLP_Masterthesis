@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script contains all constants used in the project.
+"""
 import os
 
 # RAW DATA NLP

@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
-
+"""
+Description:
+    This script is used for predicting on custom input
+"""
 from constants import MODEL_MLM_DIR
-from keybert import keywordExtraction
+from keybert_mtsamples import keyword_extraction
 from utils import cleaning_input
 
 
@@ -39,7 +42,7 @@ def main() -> None:
     text = max_length(text)
     model = MODEL_MLM_DIR
 
-    keywords = keywordExtraction(text, model)
+    keywords = keyword_extraction(text, model)
     keywords_without_weight = [keyword[0] for keyword in keywords]
     print(keywords)
     print(keywords_without_weight)

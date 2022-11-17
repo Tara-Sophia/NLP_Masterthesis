@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script has all the functions which are used in mutiple files
+"""
 import string
 
 import numpy as np

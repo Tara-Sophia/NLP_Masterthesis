@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script is used to train the text classification model. 
+    The model is trained on the MTSamples dataset.
+    The model is trained using the HuggingFace Trainer class.
+"""
 import os
 
 import pandas as pd
