@@ -14,6 +14,7 @@ import os
 
 import click
 import torch
+import wandb
 from constants import (
     PROCESSED_DIR,
     VOCAB_DIR,
@@ -35,7 +36,6 @@ from utils import (
     load_training_args,
 )
 
-import wandb
 from decorators import log_function_name
 
 wandb.init(
