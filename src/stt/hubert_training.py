@@ -13,10 +13,10 @@ import os
 
 import click
 import torch
+import wandb
 from transformers import HubertForCTC, Wav2Vec2Processor
 from transformers.trainer_utils import get_last_checkpoint
 
-import wandb
 from src.decorators import log_function_name
 from src.stt.constants import (
     HUBERT_BATCH_SIZE_EVAL,

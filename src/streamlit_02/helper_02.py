@@ -7,6 +7,12 @@
 # import pretrained model for Keybert
 
 # allow custom input sentence # input("Enter your text: ")
+"""
+Description:
+    This is a helper function to extract keywords
+    from text using KeyBERT
+"""
+
 from keybert import KeyBERT
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -45,7 +51,20 @@ def KeywordExtraction(text: str) -> list[str]:
     return keywords
 
 
-def clean_input(text):
+def clean_input(text: str) -> str:
+    """
+    Clean the input text
+
+    Parameters
+    ----------
+    text : str
+        Text to clean
+
+    Returns
+    -------
+    str
+        Cleaned text
+    """
     lemmatizer = WordNetLemmatizer()
     text = text.replace("\n", " ")
     text = text.replace("\r", " ")
@@ -69,6 +88,9 @@ def clean_input(text):
 
 
 def main():
+    """
+    Main function
+    """
     text = input("Enter your syntomps: ")
     text = clean_input(text)
     keywords = KeywordExtraction(text)
