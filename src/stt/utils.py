@@ -44,9 +44,7 @@ def get_device() -> torch.device:
     torch.device
         Torch device
     """
-    return torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 @log_function_name
@@ -64,9 +62,7 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     tuple(Dataset, Dataset)
         Train and validation datasets
     """
-    train_df = pd.read_feather(
-        os.path.join(data_path, "train.feather")
-    )
+    train_df = pd.read_feather(os.path.join(data_path, "train.feather"))
     val_df = pd.read_feather(os.path.join(data_path, "val.feather"))
 
     train_ds = Dataset.from_pandas(train_df)
@@ -221,12 +217,9 @@ class DataCollatorCTCWithPadding:
         # split inputs and labels since they have to be of different lenghts and need
         # different padding methods
         input_features = [
-            {"input_values": feature["input_values"]}
-            for feature in features
+            {"input_values": feature["input_values"]} for feature in features
         ]
-        label_features = [
-            {"input_ids": feature["labels"]} for feature in features
-        ]
+        label_features = [{"input_ids": feature["labels"]} for feature in features]
 
         batch = self.processor.pad(
             input_features,
@@ -295,9 +288,7 @@ class EearlyStoppingCallbackAfterNumEpochs(EarlyStoppingCallback):
             Metrics to evaluate
         """
         if state.epoch > self.start_epoch:
-            super().on_evaluate(
-                args, state, control, metrics, **kwargs
-            )
+            super().on_evaluate(args, state, control, metrics, **kwargs)
 
 
 def compute_metrics(
@@ -323,22 +314,14 @@ def compute_metrics(
     pred_logits = pred.predictions
     pred_ids = np.argmax(pred_logits, axis=-1)
 
-    pred.label_ids[
-        pred.label_ids == -100
-    ] = processor.tokenizer.pad_token_id
+    pred.label_ids[pred.label_ids == -100] = processor.tokenizer.pad_token_id
 
     pred_str = processor.batch_decode(pred_ids)
 
-    label_str = processor.batch_decode(
-        pred.label_ids, group_tokens=False
-    )
+    label_str = processor.batch_decode(pred.label_ids, group_tokens=False)
 
-    cer = cer_metric.compute(
-        predictions=pred_str, references=label_str
-    )
-    wer = wer_metric.compute(
-        predictions=pred_str, references=label_str
-    )
+    cer = cer_metric.compute(predictions=pred_str, references=label_str)
+    wer = wer_metric.compute(predictions=pred_str, references=label_str)
 
     return {
         "cer": cer,

@@ -43,9 +43,7 @@ def get_wav_file_duration(file_path: str) -> float:
     float
         Duration of the wav file in seconds
     """
-    return librosa.get_duration(
-        filename=os.path.join(RAW_RECORDINGS_DIR, file_path)
-    )
+    return librosa.get_duration(filename=os.path.join(RAW_RECORDINGS_DIR, file_path))
 
 
 @log_function_name
@@ -91,9 +89,7 @@ def clean_df(df: pd.DataFrame, folder: str) -> pd.DataFrame:
         Cleaned dataframe
     """
 
-    df["path"] = df["file_name"].apply(
-        lambda x: os.path.join(RAW_DATA_DIR, folder, x)
-    )
+    df["path"] = df["file_name"].apply(lambda x: os.path.join(RAW_DATA_DIR, folder, x))
     df["audio"] = df["path"]
     df = df.rename(columns={"phrase": "sentence"})
 
@@ -127,12 +123,8 @@ def create_own_dataset(
     df["duration"] = df["file_name"].apply(get_wav_file_duration)
     df = df[df["duration"] < MAX_DURATION_LENGTH].copy()
 
-    df_train, df_test = train_test_split(
-        df, test_size=0.25, random_state=42
-    )
-    df_train, df_val = train_test_split(
-        df_train, test_size=0.3, random_state=42
-    )
+    df_train, df_test = train_test_split(df, test_size=0.25, random_state=42)
+    df_train, df_val = train_test_split(df_train, test_size=0.3, random_state=42)
 
     df_train = clean_df(df_train, "train")
     df_val = clean_df(df_val, "val")
@@ -166,15 +158,9 @@ def main(save: bool) -> None:
     df_train, df_val, df_test = create_own_dataset(RECORDINGS_FILE)
 
     if save:
-        df_train.to_csv(
-            os.path.join(RAW_DATA_DIR, "train.csv"), index=False
-        )
-        df_val.to_csv(
-            os.path.join(RAW_DATA_DIR, "val.csv"), index=False
-        )
-        df_test.to_csv(
-            os.path.join(RAW_DATA_DIR, "test.csv"), index=False
-        )
+        df_train.to_csv(os.path.join(RAW_DATA_DIR, "train.csv"), index=False)
+        df_val.to_csv(os.path.join(RAW_DATA_DIR, "val.csv"), index=False)
+        df_test.to_csv(os.path.join(RAW_DATA_DIR, "test.csv"), index=False)
 
 
 if __name__ == "__main__":

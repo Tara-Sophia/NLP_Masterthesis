@@ -3,9 +3,9 @@
 Description:
     This script is used for predicting on custom input
 """
-from constants import MODEL_MLM_DIR
-from keybert_mtsamples import keyword_extraction
-from utils import cleaning_input
+from src.nlp.constants import MODEL_MLM_DIR, MOST_COMMON_WORDS_FILTERED
+from src.nlp.keybert_mtsamples import keyword_extraction
+from src.nlp.utils import cleaning_input
 
 
 # nltk.download("wordnet")
@@ -38,11 +38,12 @@ def main() -> None:
     Main function
     """
     text = input("Enter your syntomps: ")
-    text = cleaning_input(text)
+    text = cleaning_input(text, MOST_COMMON_WORDS_FILTERED)
     text = max_length(text)
     model = MODEL_MLM_DIR
 
-    keywords = keyword_extraction(text, model)
+    # TODO: Number of candidates and top_n -> Look at function
+    keywords = keyword_extraction(text, model, 20, 10)
     keywords_without_weight = [keyword[0] for keyword in keywords]
     print(keywords)
     print(keywords_without_weight)

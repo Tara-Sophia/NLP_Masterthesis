@@ -7,16 +7,6 @@ import string
 
 import numpy as np
 import torch
-from constants import (
-    EVAL_BATCH_SIZE,
-    LEARNING_RATE,
-    LR_WARMUP_STEPS,
-    MODEL_BASE_NAME,
-    MOST_COMMON_WORDS_FILTERED,
-    SEED_TRAIN,
-    TRAIN_BATCH_SIZE,
-    WEIGHT_DECAY,
-)
 from datasets import Dataset, load_metric
 
 # import Batch
@@ -26,16 +16,19 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
 # import EvalPrediction
-from transformers import (
-    AutoTokenizer,
-    EvalPrediction,
-    Trainer,
-    TrainingArguments,
-)
+from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
 
 # import DataCollatorForLanguageModeling
-from transformers.data.data_collator import (
-    DataCollatorForLanguageModeling,
+from transformers.data.data_collator import DataCollatorForLanguageModeling
+
+from src.nlp.constants import (
+    EVAL_BATCH_SIZE,
+    LEARNING_RATE,
+    LR_WARMUP_STEPS,
+    MODEL_BASE_NAME,
+    SEED_TRAIN,
+    TRAIN_BATCH_SIZE,
+    WEIGHT_DECAY,
 )
 
 # logic behind most common inputs the stopwords where manually filtered
@@ -55,7 +48,7 @@ from transformers.data.data_collator import (
 # list(common_words_sorted_df.word)[:150]
 
 
-def cleaning_input(sentence: str, handmadestopwords) -> str:
+def cleaning_input(sentence: str, handmadestopwords: list[str]) -> str:
     """
     This function cleans the input sentence.
     Removing stopwords, numbers and punctuation,
@@ -80,22 +73,16 @@ def cleaning_input(sentence: str, handmadestopwords) -> str:
 
     # Advanced cleaning
     for punctuation in string.punctuation:
-        sentence = sentence.replace(
-            punctuation, ""
-        )  # Remove punctuation
+        sentence = sentence.replace(punctuation, "")  # Remove punctuation
 
     tokenized_sentence = word_tokenize(sentence)  # Rokenize
     stop_words = set(stopwords.words("english"))  # Define stopwords
 
-    # w not in stop_words and not in most_common_words_filtered
-    tokenized_sentence = [
-        w for w in tokenized_sentence if w not in stop_words
-    ]
+    # w not in stop_words and not in handmadestopwords
+    tokenized_sentence = [w for w in tokenized_sentence if w not in stop_words]
 
     tokenized_sentence_cleaned = [
-        w
-        for w in tokenized_sentence
-        if w not in MOST_COMMON_WORDS_FILTERED
+        w for w in tokenized_sentence if w not in handmadestopwords
     ]  # Remove stopwords
 
     lemmatized = [
@@ -117,14 +104,10 @@ def get_device() -> torch.device:
     torch.device
         Device
     """
-    return torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def compute_metrics(
-    modeltype: str, eval_pred: EvalPrediction
-) -> dict[str, float]:
+def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, float]:
     """
     Compute the accuracy of the model for the evaluation dataset
 
@@ -241,9 +224,7 @@ def load_trainer(
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        compute_metrics=lambda eval_pred: compute_metrics(
-            modeltype, eval_pred
-        ),
+        compute_metrics=lambda eval_pred: compute_metrics(modeltype, eval_pred),
         data_collator=data_collator,
         tokenizer=tokenizer,
     )

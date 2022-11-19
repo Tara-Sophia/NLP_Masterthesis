@@ -9,19 +9,14 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import (
-    LR_MODEL_CLASSIFIED,
-    LR_MODEL_MASKED,
-    TEST_DATA_DIR,
-)
 from imblearn.pipeline import Pipeline
-from utils import load_data
+
+from src.clf.constants import LR_MODEL_CLASSIFIED, LR_MODEL_MASKED, TEST_DATA_DIR
+from src.clf.utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)
-def reciprocal_rank(
-    true_labels: list[str], machine_preds: list[str]
-) -> float:
+def reciprocal_rank(true_labels: list[str], machine_preds: list[str]) -> float:
     """
     Compute the reciprocal rank at cutoff k
 
@@ -39,11 +34,7 @@ def reciprocal_rank(
     """
 
     # add index to list only if machine predicted label exists in true labels
-    tp_pos_list = [
-        (idx + 1)
-        for idx, r in enumerate(machine_preds)
-        if r in true_labels
-    ]
+    tp_pos_list = [(idx + 1) for idx, r in enumerate(machine_preds) if r in true_labels]
 
     rr = 0.0
     if len(tp_pos_list) > 0:
@@ -110,9 +101,7 @@ def compute_accuracy(eval_items: list[list[list[str]]]) -> float:
     return accuracy
 
 
-def collect_preds(
-    Y_test: pd.Series, Y_preds: list[list[str]]
-) -> list[list[list[str]]]:
+def collect_preds(Y_test: pd.Series, Y_preds: list[list[str]]) -> list[list[list[str]]]:
     """
     Collect all predictions and ground truth
 
@@ -129,9 +118,7 @@ def collect_preds(
         lists of lists (true labels, machine predictions)
     """
 
-    pred_gold_list = [
-        [[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)
-    ]
+    pred_gold_list = [[[Y_test.iloc[idx]], pred] for idx, pred in enumerate(Y_preds)]
     return pred_gold_list
 
 
@@ -161,10 +148,7 @@ def get_top_k_predictions(
     probs = model.predict_proba(X_test)
     best_n = np.argsort(probs, axis=1)[:, -k:]
     preds = [
-        [
-            model.classes_[predicted_cat]
-            for predicted_cat in prediction
-        ]
+        [model.classes_[predicted_cat] for predicted_cat in prediction]
         for prediction in best_n
     ]
 

@@ -8,18 +8,10 @@ Usage:
 """
 import torch
 from audiorecorder import audiorecorder
-from transformers import (  # HubertForCTC,
-    Wav2Vec2ForCTC,
-    Wav2Vec2Processor,
-    pipeline,
-)
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline  # HubertForCTC,
 
 import streamlit as st
-from src.stt.constants import (
-    HUBERT_MODEL_DIR,
-    VOCAB_DIR,
-    WAV2VEC2_MODEL_DIR,
-)
+from src.stt.constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
 
 torch.cuda.empty_cache()
 
@@ -36,9 +28,7 @@ def get_device() -> torch.device:
     torch.device
         Torch device
     """
-    return torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # FACEBOOK WAV2VEC2
@@ -103,9 +93,7 @@ if model_to_load == HUBERT_MODEL_DIR:
     st.stop()
     # model, processor = load_trained_model_and_processor_hubert(device)
 else:
-    model, processor = load_trained_model_and_processor_wav2vec2(
-        device
-    )
+    model, processor = load_trained_model_and_processor_wav2vec2(device)
 pipe = pipeline(
     "automatic-speech-recognition",
     model=model,
