@@ -5,14 +5,15 @@ Description:
 """
 
 import pandas as pd
-from constants import (
+from keybert import KeyBERT
+from transformers import AutoTokenizer, pipeline
+
+from src.nlp.constants import (
     MODEL_MLM_DIR,
     MODEL_TC_DIR,
     MTSAMPLES_FINAL,
     MTSAMPLES_PROCESSED_CLEANED_DIR,
 )
-from keybert import KeyBERT
-from transformers import AutoTokenizer, pipeline
 
 
 def keyword_extraction(

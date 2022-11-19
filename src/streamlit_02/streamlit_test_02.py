@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
-import sys
-
-from constants import MODEL_MLM_DIR
-from keybert import keywordExtraction
-from utils import cleaning_input
-
 import streamlit as st
-
-sys.path.insert(0, "src/nlp")
-
+from src.nlp.constants import MODEL_MLM_DIR
+from src.nlp.keybert_mtsamples import keyword_extraction
+from src.nlp.utils import cleaning_input
 
 user_input = st.text_input("Enter your symptom text: ")
 button = st.button("Analyze", key="1")
@@ -22,7 +16,7 @@ def clean_text_input(text):
 # Get keywords from input text with functions from predicting.py
 @st.cache(allow_output_mutation=True)
 def get_keywords(text, model):
-    keywords = keywordExtraction(text, model)
+    keywords = keyword_extraction(text, model)
     return keywords
 
 

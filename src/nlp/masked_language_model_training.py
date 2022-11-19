@@ -12,17 +12,18 @@ import os
 import pandas as pd
 import torch
 import wandb
-from constants import (
+from datasets import Dataset
+from sklearn.model_selection import train_test_split
+from transformers import BertForMaskedLM
+from transformers.trainer_utils import get_last_checkpoint
+
+from src.nlp.constants import (
     MODEL_MLM_CHECKPOINTS_DIR,
     MODEL_MLM_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
-from datasets import Dataset
-from sklearn.model_selection import train_test_split
-from transformers import BertForMaskedLM
-from transformers.trainer_utils import get_last_checkpoint
-from utils import (
+from src.nlp.utils import (
     get_device,
     load_tokenizer,
     load_trainer,

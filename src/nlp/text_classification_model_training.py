@@ -10,19 +10,20 @@ import os
 import pandas as pd
 import torch
 import wandb
-from constants import (
-    MODEL_BASE_NAME,
-    MODEL_TC_CHECKPOINTS_DIR,
-    MODEL_TC_DIR,
-    MTSAMPLES_PROCESSED_PATH_DIR,
-)
 from datasets import Dataset
 from transformers import (
     AutoModelForSequenceClassification,
     AutoTokenizer,
 )
 from transformers.trainer_utils import get_last_checkpoint
-from utils import (
+
+from src.nlp.constants import (
+    MODEL_BASE_NAME,
+    MODEL_TC_CHECKPOINTS_DIR,
+    MODEL_TC_DIR,
+    MTSAMPLES_PROCESSED_PATH_DIR,
+)
+from src.nlp.utils import (
     get_device,
     load_tokenizer,
     load_trainer,

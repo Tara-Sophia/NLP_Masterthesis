@@ -3,9 +3,9 @@
 Description:
     This script is used for predicting on custom input
 """
-from constants import MODEL_MLM_DIR
-from keybert_mtsamples import keyword_extraction
-from utils import cleaning_input
+from src.nlp.constants import MODEL_MLM_DIR
+from src.nlp.keybert_mtsamples import keyword_extraction
+from src.nlp.utils import cleaning_input
 
 
 # nltk.download("wordnet")
