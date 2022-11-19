@@ -4,11 +4,9 @@ Description:
     Decorator to log the name of the function
 """
 import logging
-import os
+
 from functools import wraps
 from typing import Callable, ParamSpec, TypeVar
-
-os.system("color")
 
 P = ParamSpec("P")
 R = TypeVar("R")
