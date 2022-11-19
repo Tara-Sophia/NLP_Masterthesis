@@ -15,9 +15,9 @@ Possible arguments:
     * -s or --save: Save dataframe to csv
 """
 
-import sys
 import json
 import re
+import sys
 import unicodedata
 
 import click

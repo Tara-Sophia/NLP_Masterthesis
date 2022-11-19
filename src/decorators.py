@@ -3,8 +3,8 @@
 Description:
     Decorator to log the name of the function
 """
-import os
 import logging
+import os
 from functools import wraps
 from typing import Callable, ParamSpec, TypeVar
 
