@@ -6,6 +6,8 @@ Description:
 Usage:
     $ streamlit run src/data/streamlit_stt.py
 """
+import os
+
 import torch
 from audiorecorder import audiorecorder
 from transformers import (  # HubertForCTC,
@@ -19,14 +21,13 @@ from src.stt.constants import (
     HUBERT_MODEL_DIR,
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
+    CHARS_TO_IGNORE_REGEX,
 )
 
-torch.cuda.empty_cache()
-
-CHARS_TO_IGNORE_REGEX = r'[\,\?\.\!\-\;\:"\[\]]'
+# torch.cuda.empty_cache()
 
 
-@st.experimental_memo
+# @st.experimental_memo
 def get_device() -> torch.device:
     """
     Get torch device
@@ -36,9 +37,7 @@ def get_device() -> torch.device:
     torch.device
         Torch device
     """
-    return torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # FACEBOOK WAV2VEC2
@@ -56,10 +55,14 @@ def load_trained_model_and_processor_wav2vec2(
 
     Returns
     -------
-    tuple(Wav2Vec2ForCTC, Wav2Vec2Processor)
+    tuple[Wav2Vec2ForCTC, Wav2Vec2Processor]
         Trained wav2vec2 model and processor
     """
-    model = Wav2Vec2ForCTC.from_pretrained(WAV2VEC2_MODEL_DIR)
+    model = Wav2Vec2ForCTC.from_pretrained(
+        WAV2VEC2_MODEL_DIR,
+        config=os.path.join(WAV2VEC2_MODEL_DIR, "config.json"),
+        local_files_only=True,
+    ).to(device)
     processor = Wav2Vec2Processor.from_pretrained(VOCAB_DIR)
     model.to(device)
     return model, processor
@@ -80,7 +83,7 @@ def load_trained_model_and_processor_wav2vec2(
 
 #     Returns
 #     -------
-#     tuple(HubertForCTC, Wav2Vec2Processor)
+#     tuple[HubertForCTC, Wav2Vec2Processor]
 #         Trained hubert model and processor
 #     """
 #     model = HubertForCTC.from_pretrained(HUBERT_MODEL_DIR)
@@ -102,10 +105,8 @@ if model_to_load == HUBERT_MODEL_DIR:
     st.write("Not implemented yet")
     st.stop()
     # model, processor = load_trained_model_and_processor_hubert(device)
-else:
-    model, processor = load_trained_model_and_processor_wav2vec2(
-        device
-    )
+# else:
+model, processor = load_trained_model_and_processor_wav2vec2(device)
 pipe = pipeline(
     "automatic-speech-recognition",
     model=model,
