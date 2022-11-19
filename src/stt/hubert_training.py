@@ -45,9 +45,7 @@ wandb.init(
 
 
 @log_function_name
-def load_model(
-    processor: Wav2Vec2Processor, device: torch.device
-) -> HubertForCTC:
+def load_model(processor: Wav2Vec2Processor, device: torch.device) -> HubertForCTC:
     """
     Load the model
 
@@ -102,9 +100,7 @@ def main(save: bool) -> None:
     train_ds, val_ds = load_datasets(PROCESSED_DIR)
     processor = load_processor(VOCAB_DIR)
 
-    data_collator = DataCollatorCTCWithPadding(
-        processor=processor, padding=True
-    )
+    data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
 
     device = get_device()
     model = load_model(processor, device)
@@ -124,9 +120,7 @@ def main(save: bool) -> None:
     )
 
     if os.path.isdir(training_args.output_dir):
-        last_checkpoint = get_last_checkpoint(
-            training_args.output_dir
-        )
+        last_checkpoint = get_last_checkpoint(training_args.output_dir)
     else:
         last_checkpoint = None
 

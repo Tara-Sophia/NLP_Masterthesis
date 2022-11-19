@@ -35,9 +35,7 @@ def KeywordExtraction(text: str) -> list[str]:
     """
     # model = AutoModel.from_pretrained("emilyalsentzer/Bio_ClinicalBERT")
     # path might not be right after spliiting the PR
-    model = AutoModel.from_pretrained(
-        "../../../models/mtsamples/semi_supervised"
-    )
+    model = AutoModel.from_pretrained("../../../models/mtsamples/semi_supervised")
     model = KeyBERT(model=model)
     keywords = model.extract_keywords(
         text,
@@ -81,9 +79,7 @@ def clean_input(text: str) -> str:
         ]
     )
     # lemmatization
-    text = " ".join(
-        [lemmatizer.lemmatize(word) for word in text.split()]
-    )
+    text = " ".join([lemmatizer.lemmatize(word) for word in text.split()])
     return text
 
 

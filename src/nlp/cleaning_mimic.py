@@ -1,176 +1,22 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script cleans the data from the mimic-iii dataset.
+"""
+
 import re
 
 import pandas as pd
 from nltk.corpus import stopwords
 
-most_common_words = [
-    "He",
-    "She",
-    "patient",
-    "**]",
-    "[**Hospital1",
-    "The",
-    "given",
-    "showed",
-    "also",
-    "In",
-    "On",
-    "denies",
-    "history",
-    "found",
-    "transferred",
-    "ED",
-    "Patient",
-    "Name",
-    "noted",
-    "s/p",
-    "started",
-    "prior",
-    "18**]",
-    "admitted",
-    "CT",
-    "Pt",
-    "2",
-    "presented",
-    "IV",
-    "reports",
-    "pt",
-    "recent",
-    "last",
-    "received",
-    "No",
-    "BP",
-    "ED,",
-    "year",
-    "old",
-    "[**Known",
-    "past",
-    "1",
-    "days",
-    "lastname",
-    "His",
-    "OSH",
-    "arrival",
-    "time",
-    "[**Last",
-    "yo",
-    "This",
-    "presents",
-    "well",
-    "[**Hospital",
-    "HR",
-    "male",
-    "mg",
-    "x",
-    "day",
-    "Her",
-    "admission",
-    "without",
-    "At",
-    "home",
-    "felt",
-    "initial",
-    "developed",
-    "revealed",
-    "(un)",
-    "3",
-    "since",
-    "placed",
-    "increased",
-    "per",
-    "A",
-    "h/o",
-    "recently",
-    "CXR",
-    "Per",
-    "severe",
-    "significant",
-    "treated",
-    "w/",
-    "transfer",
-    "L",
-    "underwent",
-    "initially",
-    "[**Hospital3",
-    "due",
-    "states",
-    "Denies",
-    "one",
-    "R",
-    "notable",
-    "symptoms",
-    "seen",
-    "ED.",
-    "O2",
-    "called",
-    "RR",
-    "status",
-    "EKG",
-    "several",
-    "review",
-    "Of",
-    "feeling",
-    "continued",
-    "fevers,",
-    "hospital",
-    "[**Location",
-    "(NI)",
-    "Mr.",
-    "went",
-    "HTN,",
-    "T",
-    "(STitle)",
-    "note,",
-    "today",
-    "VS",
-    "became",
-    "discharged",
-    "MICU",
-    "weeks",
-    "ago",
-    "episode",
-    "4",
-    "taken",
-    "new",
-    "sent",
-    "normal",
-    "[**Name",
-    "medical",
-    "episodes",
-    "two",
-    "chills,",
-    "aortic",
-    "100%",
-    "denied",
-    "improved",
-    "possible",
-    "unable",
-    "SOB",
-    "EMS",
-    "morning",
-    "associated",
-    "elevated",
-    "large",
-    "reported",
-    "brought",
-    "week",
-    "[**First",
-    "RA.",
-    "night",
-    "course",
-    "Dr.",
-    "M",
-    "GI",
-    "decreased",
-    "ICU",
-    "WBC",
-]
+from src.nlp.constants import (
+    MIMIC_DATA_CLEANED,
+    MIMIC_DATA_DIR,
+    MIMIC_PERSONALIZED_STOPWORDS_FILTERED,
+)
 
 
-def keep_only_text_from_choosen_headers(
-    text: str, choosen_headers: list
-) -> str:
+def keep_only_text_from_choosen_headers(text: str, choosen_headers: list) -> str:
     """
     Keep only text from choosen headers
 
@@ -196,21 +42,22 @@ def keep_only_text_from_choosen_headers(
     all_headers = [x[1] for x in all_headers]
 
     # get the text after choosen headers until next header
-    for c_h in choosen_headers:
-        if c_h in text:
-            if c_h in all_headers:
+    for chosen_header in choosen_headers:
+        if chosen_header in text:
+            if chosen_header in all_headers:
                 # get index of choosen header
-                index_c_h = all_headers.index(c_h)
+                index_chosen_header = all_headers.index(chosen_header)
                 # get next header
                 try:
-                    next_header = all_headers[index_c_h + 1]
+                    next_header = all_headers[index_chosen_header + 1]
                     # get index of next header
                     index_next_header = text.index(next_header)
-                    text_after_c_h = text[
-                        text.index(c_h) + len(c_h) : index_next_header
+                    text_after_chosen_header = text[
+                        text.index(chosen_header)
+                        + len(chosen_header) : index_next_header
                     ]
                     # add text to new text
-                    new_text += text_after_c_h
+                    new_text += text_after_chosen_header
                 except IndexError:
                     print("IndexError")
                     # raise NameError('IndexError')
@@ -249,23 +96,17 @@ def clean_text(text: str) -> str:
     document = re.sub(r"\[[^]]*\]", "", document)
     # Filter out stop words
     document = " ".join(
-        [
-            word
-            for word in document.split()
-            if word not in stopwords.words("english")
-        ]
+        [word for word in document.split() if word not in stopwords.words("english")]
     )
     # Filter out most common words
     document = " ".join(
         [
             word
             for word in document.split()
-            if word not in most_common_words
+            if word not in MIMIC_PERSONALIZED_STOPWORDS_FILTERED
         ]
     )
-    document = " ".join(
-        [word for word in document.split() if len(word) > 1]
-    )
+    document = " ".join([word for word in document.split() if len(word) > 1])
     return document
 
 
@@ -273,10 +114,9 @@ def main():
     """
     Main function
     """
-    df = pd.read_csv(
-        "../../data/processed/mimic_iii/diagnoses_noteevents.csv"
-    )
-    # choosen headers
+
+    df = pd.read_csv(MIMIC_DATA_DIR)
+    # Choosen headers
     df["TEXT_final"] = df["TEXT"].apply(
         lambda x: keep_only_text_from_choosen_headers(
             x,
@@ -294,3 +134,6 @@ def main():
         )
     )
     df["TEXT_final_cleaned"] = df["TEXT_final"].apply(clean_text)
+
+    # Save to csv
+    df.to_csv(MIMIC_DATA_CLEANED, index=False)

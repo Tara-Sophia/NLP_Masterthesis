@@ -203,9 +203,7 @@ def clean_txt_files(file_path: str, lines: list[str]) -> None:
             f.write(line)
 
 
-def concat_and_save_df_from_csv(
-    source_folder_path: str, target_file_path: str
-) -> None:
+def concat_and_save_df_from_csv(source_folder_path: str, target_file_path: str) -> None:
     """
     Concatenate csv files and save them as a single csv file
 
@@ -224,9 +222,7 @@ def concat_and_save_df_from_csv(
     save_df(df, target_file_path)
 
 
-def make_icd_9_csv(
-    source_folder_path: str, target_folder_path: str
-) -> None:
+def make_icd_9_csv(source_folder_path: str, target_folder_path: str) -> None:
     """
     Create ICD 9 csv file
 
@@ -264,9 +260,7 @@ def make_icd_9_csv(
         # Concatenate all csv files into one dataframe and save file
         concat_and_save_df_from_csv(
             csv_folder,
-            os.path.join(
-                target_folder_path, "icd9_codes_and_des.csv"
-            ),
+            os.path.join(target_folder_path, "icd9_codes_and_des.csv"),
         )
 
 
@@ -283,25 +277,17 @@ def make_icd_10_csv(target_folder_path: str) -> None:
     all_codes = cm.get_all_codes(with_dots=False)
 
     # Extract only category codes
-    category_codes = [
-        code for code in all_codes if cm.is_category(code)
-    ]
+    category_codes = [code for code in all_codes if cm.is_category(code)]
 
     # Build dataframe
     df = pd.DataFrame({"category_codes": category_codes})
-    df["category_codes_des"] = df["category_codes"].apply(
-        cm.get_description
-    )
+    df["category_codes_des"] = df["category_codes"].apply(cm.get_description)
 
     # Get parent codes of category codes
-    df = get_parent_vals(
-        df, "category_codes", "block_codes", cm.is_block
-    )
+    df = get_parent_vals(df, "category_codes", "block_codes", cm.is_block)
 
     # Get parent codes of block codes
-    df = get_parent_vals(
-        df, "block_codes", "chapter_codes", cm.is_chapter
-    )
+    df = get_parent_vals(df, "block_codes", "chapter_codes", cm.is_chapter)
 
     # Save dataframe
     save_df(

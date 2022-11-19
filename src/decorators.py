@@ -4,7 +4,6 @@ Description:
     Decorator to log the name of the function
 """
 import logging
-
 from functools import wraps
 from typing import Callable, ParamSpec, TypeVar
 
