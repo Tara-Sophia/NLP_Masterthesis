@@ -1,26 +1,31 @@
 # -*- coding: utf-8 -*-
+"""
+Description:
+    This script contains all constants used in the project.
+"""
+
 import os
 
 ICD9_SPECIALTY_DICT = {
-    "Certain Conditions Originating In The Perinatal Period": "Obstetrics & Gynaecology",
-    "Complications Of Pregnancy, Childbirth, And The Puerperium": "Obstetrics & Gynaecology",
-    "Congenital Anomalies": "Primary Care",
-    "Diseases Of The Blood And Blood-Forming Organs": "Hematology",
-    "Diseases Of The Circulatory System": "Cardiothoracic & Vascular",
-    "Diseases Of The Digestive System": "Gastroenterology",
-    "Diseases Of The Genitourinary System": "Urology",
-    "Diseases Of The Musculoskeletal System And Connective Tissue": "Orthopedic surgery",
-    "Diseases Of The Nervous System And Sense Organs": "Neurology",
-    "Diseases Of The Respiratory System": "Pulmonology",
-    "Diseases Of The Skin And Subcutaneous Tissue": "Dermatology",
-    "Endocrine, Nutritional And Metabolic Diseases, And Immunity Disorders": "Endocrinology",
-    "Infectious And Parasitic Diseases": "Infectious Disease Specialty",
-    "Injury And Poisoning": "Emergency Department",
-    "Mental Disorders": "Psychiatry",
-    "Neoplasms": "Oncology",
-    "Supplementary Classification Of External Causes Of Injury And Poisoning": "Emergency Department",
-    "Supplementary Classification Of Factors Influencing Health Status And Contact With Health Services": "Internal Medicine Department",
-    "Symptoms, Signs, And Ill-Defined Conditions": "Internal Medicine Department",
+    "Certain Conditions Originating In The Perinatal Period": "Obstetrics & Gynaecology",  # noqa: E501
+    "Complications Of Pregnancy, Childbirth, And The Puerperium": "Obstetrics & Gynaecology",  # noqa: E501
+    "Congenital Anomalies": "Primary Care",  # noqa: E501
+    "Diseases Of The Blood And Blood-Forming Organs": "Hematology",  # noqa: E501
+    "Diseases Of The Circulatory System": "Cardiothoracic & Vascular",  # noqa: E501
+    "Diseases Of The Digestive System": "Gastroenterology",  # noqa: E501
+    "Diseases Of The Genitourinary System": "Urology",  # noqa: E501
+    "Diseases Of The Musculoskeletal System And Connective Tissue": "Orthopedic surgery",  # noqa: E501
+    "Diseases Of The Nervous System And Sense Organs": "Neurology",  # noqa: E501
+    "Diseases Of The Respiratory System": "Pulmonology",  # noqa: E501
+    "Diseases Of The Skin And Subcutaneous Tissue": "Dermatology",  # noqa: E501
+    "Endocrine, Nutritional And Metabolic Diseases, And Immunity Disorders": "Endocrinology",  # noqa: E501
+    "Infectious And Parasitic Diseases": "Infectious Disease Specialty",  # noqa: E501
+    "Injury And Poisoning": "Emergency Department",  # noqa: E501
+    "Mental Disorders": "Psychiatry",  # noqa: E501
+    "Neoplasms": "Oncology",  # noqa: E501
+    "Supplementary Classification Of External Causes Of Injury And Poisoning": "Emergency Department",  # noqa: E501
+    "Supplementary Classification Of Factors Influencing Health Status And Contact With Health Services": "Internal Medicine Department",  # noqa: E501
+    "Symptoms, Signs, And Ill-Defined Conditions": "Internal Medicine Department",  # noqa: E501
 }
 
 
@@ -33,35 +38,15 @@ NOTEEVENTS_COLS = [
     "TEXT",
 ]
 
-MIMIC_DIAGNOSES_CSV = os.path.join(
-    "data", "raw", "mimic_iii", "DIAGNOSES_ICD.csv"
-)
-ICD9_CSV = os.path.join(
-    "data", "interim", "icd", "icd9_codes_and_des.csv"
-)
-MIMIC_NOTEEVENTS_CSV = os.path.join(
-    "data", "raw", "mimic_iii", "NOTEEVENTS.csv"
-)
+MIMIC_DIAGNOSES_CSV = os.path.join("data", "raw", "mimic_iii", "DIAGNOSES_ICD.csv")
+ICD9_CSV = os.path.join("data", "interim", "icd", "icd9_codes_and_des.csv")
+MIMIC_NOTEEVENTS_CSV = os.path.join("data", "raw", "mimic_iii", "NOTEEVENTS.csv")
 
 DIAGNOSES_NOTEEVENTS_CSV = os.path.join(
     "data", "processed", "mimic_iii", "diagnoses_noteevents.csv"
 )
 
-
-# cleaning mimic
-MIMIC_DATA_DIR = os.path.join(
-    "data", "processed", "mimic_iii", "diagnoses_noteevents.csv"
-)
-# saved to
-MIMIC_DATA_CLEANED = os.path.join(
-    "data",
-    "processed",
-    "mimic_iii",
-    "diagnoses_noteevents_cleaned.csv",
-)
-
-
-personalized_stopwords_filtered = [
+MIMIC_PERSONALIZED_STOPWORDS_FILTERED = [
     "He",
     "She",
     "patient",

@@ -34,9 +34,7 @@ from src.stt.constants import (
 from src.stt.utils import load_processor
 
 
-def remove_special_characters(
-    batch: Example, train: Optional[bool] = True
-) -> Example:
+def remove_special_characters(batch: Example, train: Optional[bool] = True) -> Example:
     """
     Remove special characters from the dataset
 
@@ -53,11 +51,7 @@ def remove_special_characters(
         Batch with special characters removed
     """
     batch["sentence"] = (
-        re.sub(
-            CHARS_TO_IGNORE_REGEX, "", unidecode(batch["sentence"])
-        )
-        .lower()
-        .strip()
+        re.sub(CHARS_TO_IGNORE_REGEX, "", unidecode(batch["sentence"])).lower().strip()
     )
     if train:
         batch["sentence"] += " "
@@ -65,9 +59,7 @@ def remove_special_characters(
     return batch
 
 
-def transform_dataset(
-    batch: Example, processor: Wav2Vec2Processor
-) -> Example:
+def transform_dataset(batch: Example, processor: Wav2Vec2Processor) -> Example:
     """
     Transform dataset to be used by the model
 
@@ -171,9 +163,7 @@ def create_vocab(
 
     recreate_folder(folder_path)
 
-    with open(
-        os.path.join(folder_path, "vocab.json"), "w"
-    ) as vocab_file:
+    with open(os.path.join(folder_path, "vocab.json"), "w") as vocab_file:
         json.dump(vocab_dict, vocab_file)
 
 
@@ -199,23 +189,15 @@ def preprocess_data(
     tuple[Dataset, Dataset, Dataset]
         Preprocessed training, validation and test datasets
     """
-    train_ds = train_ds.cast_column(
-        "audio", Audio(sampling_rate=SAMPLING_RATE)
-    )
-    val_ds = val_ds.cast_column(
-        "audio", Audio(sampling_rate=SAMPLING_RATE)
-    )
-    test_ds = test_ds.cast_column(
-        "audio", Audio(sampling_rate=SAMPLING_RATE)
-    )
+    train_ds = train_ds.cast_column("audio", Audio(sampling_rate=SAMPLING_RATE))
+    val_ds = val_ds.cast_column("audio", Audio(sampling_rate=SAMPLING_RATE))
+    test_ds = test_ds.cast_column("audio", Audio(sampling_rate=SAMPLING_RATE))
 
     train_ds = train_ds.map(remove_special_characters)
 
     val_ds = val_ds.map(remove_special_characters)
 
-    test_ds = test_ds.map(
-        remove_special_characters, fn_kwargs={"train": False}
-    )
+    test_ds = test_ds.map(remove_special_characters, fn_kwargs={"train": False})
 
     return train_ds, val_ds, test_ds
 
@@ -280,9 +262,7 @@ def recreate_folder(folder_path: str):
 
 
 @log_function_name
-def save_datasets(
-    train_ds: Dataset, val_ds: Dataset, test_ds: Dataset
-) -> None:
+def save_datasets(train_ds: Dataset, val_ds: Dataset, test_ds: Dataset) -> None:
     """
     Save the datasets to the processed folder
 
@@ -297,15 +277,9 @@ def save_datasets(
     """
     recreate_folder(PROCESSED_DIR)
 
-    train_ds.to_pandas().to_feather(
-        os.path.join(PROCESSED_DIR, "train.feather")
-    )
-    val_ds.to_pandas().to_feather(
-        os.path.join(PROCESSED_DIR, "val.feather")
-    )
-    test_ds.to_pandas().to_feather(
-        os.path.join(PROCESSED_DIR, "test.feather")
-    )
+    train_ds.to_pandas().to_feather(os.path.join(PROCESSED_DIR, "train.feather"))
+    val_ds.to_pandas().to_feather(os.path.join(PROCESSED_DIR, "val.feather"))
+    test_ds.to_pandas().to_feather(os.path.join(PROCESSED_DIR, "test.feather"))
 
 
 @click.command()
@@ -330,19 +304,11 @@ def main(save: bool) -> None:
     if not save:
         print("No data will be saved")
 
-    train_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv"))
-    )
-    val_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(RAW_DATA_DIR, "val.csv"))
-    )
-    test_ds = Dataset.from_pandas(
-        pd.read_csv(os.path.join(RAW_DATA_DIR, "test.csv"))
-    )
+    train_ds = Dataset.from_pandas(pd.read_csv(os.path.join(RAW_DATA_DIR, "train.csv")))
+    val_ds = Dataset.from_pandas(pd.read_csv(os.path.join(RAW_DATA_DIR, "val.csv")))
+    test_ds = Dataset.from_pandas(pd.read_csv(os.path.join(RAW_DATA_DIR, "test.csv")))
 
-    train_ds, val_ds, test_ds = preprocess_data(
-        train_ds, val_ds, test_ds
-    )
+    train_ds, val_ds, test_ds = preprocess_data(train_ds, val_ds, test_ds)
 
     create_vocab(
         folder_path=VOCAB_DIR,

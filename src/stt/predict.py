@@ -83,14 +83,10 @@ def main(hubert: bool, wav2vec2: bool) -> None:
     device = get_device()
     if hubert:
         print("Using model Hubert")
-        model, processor = load_trained_model_and_processor_hubert(
-            device
-        )
+        model, processor = load_trained_model_and_processor_hubert(device)
     elif wav2vec2:
         print("Using model Wav2vec2")
-        model, processor = load_trained_model_and_processor_wav2vec2(
-            device
-        )
+        model, processor = load_trained_model_and_processor_wav2vec2(device)
     else:
         print("No model given as input")
         print("Please enter: python src/stt/predict.py -h or -w")

@@ -16,3 +16,6 @@ ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
 verbose = 1
 quiet = false
 color = true
+
+[tool.mypy]
+ignore_missing_imports = true

@@ -17,7 +17,6 @@ Possible arguments:
 
 import json
 import re
-import sys
 import unicodedata
 
 import click
@@ -25,14 +24,14 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
-sys.path.insert(0, "..")
-from decorators import log_function_name
+from src.decorators import log_function_name
 
 WIKIPEDIA_BASE = "https://en.wikipedia.org/wiki"
 
 NHS_BASE = "https://www.nhs.uk/conditions/"
 
 
+@log_function_name
 def load_cache(file_path: str) -> dict:
     """
     Loading cache with already scraped symptoms
@@ -57,6 +56,7 @@ def load_cache(file_path: str) -> dict:
     return cache
 
 
+@log_function_name
 def get_symptoms_from_wiki(url: str) -> str | None:
     """
     Load symptoms from Wikipedia
@@ -79,9 +79,7 @@ def get_symptoms_from_wiki(url: str) -> str | None:
             parse_only=SoupStrainer("table", class_="infobox"),
         )
         try:
-            text = soup.findAll("th", string="Symptoms")[
-                0
-            ].next_sibling.text
+            text = soup.findAll("th", string="Symptoms")[0].next_sibling.text
             text_cleaned = re.sub(r"[\(\[].*?[\)\]]", "", text)
             return text_cleaned
         except IndexError:
@@ -89,6 +87,7 @@ def get_symptoms_from_wiki(url: str) -> str | None:
     return None
 
 
+@log_function_name
 def get_symptoms_from_nhs(url: str) -> str | None:
     """
     Load symptoms from NHS
@@ -116,12 +115,7 @@ def get_symptoms_from_nhs(url: str) -> str | None:
             else:
                 try:
                     symptoms_list = item.find_next_siblings("ul")[0]
-                    text = ", ".join(
-                        [
-                            li.text
-                            for li in symptoms_list.find_all("li")
-                        ]
-                    )
+                    text = ", ".join([li.text for li in symptoms_list.find_all("li")])
                     text_cleaned = unicodedata.normalize("NFKD", text)
                     return text_cleaned
                 except IndexError:
@@ -131,6 +125,7 @@ def get_symptoms_from_nhs(url: str) -> str | None:
     return None
 
 
+@log_function_name
 def get_symptoms(code_des: str, symptoms_cache: dict) -> str | None:
     """
     Return sypmtoms of ICD code
@@ -172,9 +167,8 @@ def get_symptoms(code_des: str, symptoms_cache: dict) -> str | None:
     return symptoms_cache[code_des]
 
 
-def create_symptoms_col(
-    df: pd.DataFrame, symptoms_cache: dict
-) -> pd.DataFrame:
+@log_function_name
+def create_symptoms_col(df: pd.DataFrame, symptoms_cache: dict) -> pd.DataFrame:
     """
     Creation of symptoms column
 
@@ -196,9 +190,8 @@ def create_symptoms_col(
     return df
 
 
-def save_data(
-    file_path: str, df: pd.DataFrame, save: bool = False
-) -> None:
+@log_function_name
+def save_data(file_path: str, df: pd.DataFrame, save: bool = False) -> None:
     """
     Saving dataframe to csv
 
@@ -215,9 +208,8 @@ def save_data(
         df.to_csv(file_path, index=False)
 
 
-def build_icd_symptoms_dataframe(
-    df: pd.DataFrame, save: bool, name: str
-) -> None:
+@log_function_name
+def build_icd_symptoms_dataframe(df: pd.DataFrame, save: bool, name: str) -> None:
     """
     Creating dataframe with ICD codes and symptoms
 
@@ -240,6 +232,7 @@ def build_icd_symptoms_dataframe(
     save_data(f"./data/interim/{name}.csv", df, save)
 
 
+@log_function_name
 def load_dataframe(file_path: str) -> pd.DataFrame:
     """
     Loading dataframe

@@ -17,11 +17,7 @@ import pandas as pd
 from pandas_profiling import ProfileReport
 
 from src.decorators import log_function_name
-from src.stt.constants import (
-    RAW_DATA_DIR,
-    RECORDINGS_FILE,
-    STT_REPORT,
-)
+from src.stt.constants import RAW_DATA_DIR, RECORDINGS_FILE, STT_REPORT
 
 
 def get_librosa_features(
@@ -113,9 +109,7 @@ def load_train_val_test_data(folder_path: str) -> pd.DataFrame:
     val_df["split_type"] = "val"
     test_df["split_type"] = "test"
 
-    df = pd.concat([train_df, val_df, test_df], axis=0).reset_index(
-        drop=True
-    )
+    df = pd.concat([train_df, val_df, test_df], axis=0).reset_index(drop=True)
     df["file_name"] = df["path"].apply(lambda x: os.path.split(x)[1])
     df = transform_dataframe(df)
     return df
@@ -278,9 +272,7 @@ def main() -> None:
     df_train_val_test = load_train_val_test_data(RAW_DATA_DIR)
 
     # Merge dataframes
-    df = pd.merge(
-        df_full, df_train_val_test, on="file_name", how="inner"
-    )
+    df = pd.merge(df_full, df_train_val_test, on="file_name", how="inner")
     print(df.shape)
 
     # Create directory for the report and figures
