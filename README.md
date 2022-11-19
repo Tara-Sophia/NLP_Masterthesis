@@ -24,18 +24,26 @@ To *create a new version of the environment.yml file*
 conda env export | grep -v "^prefix: " > environment.yml
 ```
 
+Pip installation:
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+pip install -e .
+```
+
 ## Documentation
 
-To update the documenation delete all files in docs/source/ that end with .rst except for index.rst
-
-Then run:
+To update the documenation run the following commands:
 
 ```bash
 cd docs
 ```
 
 ```bash
-sphinx-apidoc -o ./source ../src --separate
+sphinx-apidoc -o ./source ../src --separate --force
 ```
 
 ```bash
@@ -43,70 +51,7 @@ make clean
 ```
 
 ```bash
-make clean
-```
-
-## Directory  Structure
-
-```text
-├── .github                                 # Templates and workflows for PRs
-│
-├── data
-│   ├── external                            # Data from third party sources
-│   │
-│   ├── interim                             # Intermediate data that has been transformed
-│   │
-│   ├── processed                           # The final, canonical data sets for modeling
-│   │
-│   └── raw                                 # The original, immutable data dump
-│
-├── docs                                    # A default Sphinx project
-│
-├── models                                  # Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks                               # Jupyter notebooks
-│
-├── references                              # Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports                                 # Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures                             # Generated graphics and figures to be used in reporting
-│
-├── src                                     # Code for the project
-│   ├── __init__.py                         # Makes src a Python module
-│   │
-│   ├── data                                # Scripts to download or generate data
-│   │   └── make_dataset.py
-│   │
-│   ├── models                              # Scripts to train models and then use trained models to make predictions
-│   │   ├── predict_model.py
-│   │   └── train_model.py
-│   │
-│   ├── transformation                      # Scripts to transform the data and create features
-│   │   └── make_transformations.py
-│   │
-│   └── visualization                       # Scripts to make visualizations
-│       └── visualize.py
-│
-├── tests                                   # Tests for the project
-│   ├── __init__.py                         # Makes tests a Python module
-│   │
-│   ├── data                                # Scripts to test data folder
-│   │   └── test_make_dataset.py
-│   │
-│   ├── models                              # Scripts to test models folder
-│   │   ├── test_predict_model.py
-│   │   └── test_train_model.py
-│   │
-│   ├── transformation                      # Scripts to test transformation folder
-│   │   └── test_make_transformations.py
-│   │
-│   └── visualization                       # Scripts to test visualization folder
-│       └── test_visualize.py
-│
-├── .gitignore                              # File listing names of files Git should ignore
-├── environment.yml                         # File to reproduce environment. For installation look above
-├── LICENSE                                 # MIT License
-└── README.md                               # Top-level README containing usage and description of project
+make html
 ```
 
 ## Contributing
