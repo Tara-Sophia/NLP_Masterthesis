@@ -1,13 +1,15 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
+
 import pandas as pd
 from constants import (
-    ICD9_SPECIALTY_DICT,
-    NOTEEVENTS_COLS,
-    MIMIC_DIAGNOSES_CSV,
-    ICD9_CSV,
-    MIMIC_NOTEEVENTS_CSV,
     DIAGNOSES_NOTEEVENTS_CSV,
+    ICD9_CSV,
+    ICD9_SPECIALTY_DICT,
+    MIMIC_DIAGNOSES_CSV,
+    MIMIC_NOTEEVENTS_CSV,
+    NOTEEVENTS_COLS,
 )
 
 sys.path.insert(0, "src")

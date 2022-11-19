@@ -1,13 +1,14 @@
-import pandas as pd
-import numpy as np
+# -*- coding: utf-8 -*-
 import re
-from nltk.corpus import stopwords
-from nltk.corpus import words
+
+import numpy as np
+import pandas as pd
 from constants import (
-    personalized_stopwords_filtered,
-    MIMIC_DATA_DIR,
     MIMIC_DATA_CLEANED,
+    MIMIC_DATA_DIR,
+    personalized_stopwords_filtered,
 )
+from nltk.corpus import stopwords, words
 
 
 def keep_only_text_from_choosen_headers(text, choosen_headers):
@@ -61,7 +62,11 @@ def clean_text(text):
     document = re.sub(r"\[[^]]*\]", "", document)
     # Filter out stop words
     document = " ".join(
-        [word for word in document.split() if word not in stopwords.words("english")]
+        [
+            word
+            for word in document.split()
+            if word not in stopwords.words("english")
+        ]
     )
     # Filter out most common words
     document = " ".join(
@@ -71,7 +76,9 @@ def clean_text(text):
             if word not in personalized_stopwords_filtered
         ]
     )
-    document = " ".join([word for word in document.split() if len(word) > 1])
+    document = " ".join(
+        [word for word in document.split() if len(word) > 1]
+    )
     return document
 
 

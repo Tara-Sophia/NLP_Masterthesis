@@ -1,12 +1,191 @@
-import pandas as pd
-import numpy as np
+# -*- coding: utf-8 -*-
 import re
 
-df = pd.read_csv("../data/processed/mimic_iii/diagnoses_noteevents.csv")
+import pandas as pd
+from nltk.corpus import stopwords
+
+most_common_words = [
+    "He",
+    "She",
+    "patient",
+    "**]",
+    "[**Hospital1",
+    "The",
+    "given",
+    "showed",
+    "also",
+    "In",
+    "On",
+    "denies",
+    "history",
+    "found",
+    "transferred",
+    "ED",
+    "Patient",
+    "Name",
+    "noted",
+    "s/p",
+    "started",
+    "prior",
+    "18**]",
+    "admitted",
+    "CT",
+    "Pt",
+    "2",
+    "presented",
+    "IV",
+    "reports",
+    "pt",
+    "recent",
+    "last",
+    "received",
+    "No",
+    "BP",
+    "ED,",
+    "year",
+    "old",
+    "[**Known",
+    "past",
+    "1",
+    "days",
+    "lastname",
+    "His",
+    "OSH",
+    "arrival",
+    "time",
+    "[**Last",
+    "yo",
+    "This",
+    "presents",
+    "well",
+    "[**Hospital",
+    "HR",
+    "male",
+    "mg",
+    "x",
+    "day",
+    "Her",
+    "admission",
+    "without",
+    "At",
+    "home",
+    "felt",
+    "initial",
+    "developed",
+    "revealed",
+    "(un)",
+    "3",
+    "since",
+    "placed",
+    "increased",
+    "per",
+    "A",
+    "h/o",
+    "recently",
+    "CXR",
+    "Per",
+    "severe",
+    "significant",
+    "treated",
+    "w/",
+    "transfer",
+    "L",
+    "underwent",
+    "initially",
+    "[**Hospital3",
+    "due",
+    "states",
+    "Denies",
+    "one",
+    "R",
+    "notable",
+    "symptoms",
+    "seen",
+    "ED.",
+    "O2",
+    "called",
+    "RR",
+    "status",
+    "EKG",
+    "several",
+    "review",
+    "Of",
+    "feeling",
+    "continued",
+    "fevers,",
+    "hospital",
+    "[**Location",
+    "(NI)",
+    "Mr.",
+    "went",
+    "HTN,",
+    "T",
+    "(STitle)",
+    "note,",
+    "today",
+    "VS",
+    "became",
+    "discharged",
+    "MICU",
+    "weeks",
+    "ago",
+    "episode",
+    "4",
+    "taken",
+    "new",
+    "sent",
+    "normal",
+    "[**Name",
+    "medical",
+    "episodes",
+    "two",
+    "chills,",
+    "aortic",
+    "100%",
+    "denied",
+    "improved",
+    "possible",
+    "unable",
+    "SOB",
+    "EMS",
+    "morning",
+    "associated",
+    "elevated",
+    "large",
+    "reported",
+    "brought",
+    "week",
+    "[**First",
+    "RA.",
+    "night",
+    "course",
+    "Dr.",
+    "M",
+    "GI",
+    "decreased",
+    "ICU",
+    "WBC",
+]
 
 
-def keep_only_text_from_choosen_headers(text, choosen_headers):
-    # print(text)
+def keep_only_text_from_choosen_headers(
+    text: str, choosen_headers: list
+) -> str:
+    """
+    Keep only text from choosen headers
+
+    Parameters
+    ----------
+    text : str
+        Text to clean
+    choosen_headers : list
+        List of choosen headers
+
+    Returns
+    -------
+    str
+        Text with only choosen headers
+    """
     new_text = ""
     # headers is a list of headers to keep
 
@@ -39,14 +218,21 @@ def keep_only_text_from_choosen_headers(text, choosen_headers):
     return new_text
 
 
-# import stopwords
-from nltk.corpus import stopwords
+def clean_text(text: str) -> str:
+    """
+    Clean text
 
-# import english words
-from nltk.corpus import words
+    Parameters
+    ----------
+    text : str
+        Text to clean
 
+    Returns
+    -------
+    str
+       Cleaned text
+    """
 
-def clean_text(text):
     # replace \n with space
     text = text.replace("\n", " ")
     # Remove all the special characters
@@ -63,19 +249,33 @@ def clean_text(text):
     document = re.sub(r"\[[^]]*\]", "", document)
     # Filter out stop words
     document = " ".join(
-        [word for word in document.split() if word not in stopwords.words("english")]
+        [
+            word
+            for word in document.split()
+            if word not in stopwords.words("english")
+        ]
     )
     # Filter out most common words
     document = " ".join(
-        [word for word in document.split() if word not in most_common_words]
+        [
+            word
+            for word in document.split()
+            if word not in most_common_words
+        ]
     )
-    document = " ".join([word for word in document.split() if len(word) > 1])
+    document = " ".join(
+        [word for word in document.split() if len(word) > 1]
+    )
     return document
 
 
 def main():
-    # import data
-    df = pd.read_csv("../../data/processed/mimic_iii/diagnoses_noteevents.csv")
+    """
+    Main function
+    """
+    df = pd.read_csv(
+        "../../data/processed/mimic_iii/diagnoses_noteevents.csv"
+    )
     # choosen headers
     df["TEXT_final"] = df["TEXT"].apply(
         lambda x: keep_only_text_from_choosen_headers(

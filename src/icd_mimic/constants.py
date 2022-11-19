@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 ICD9_SPECIALTY_DICT = {
@@ -32,9 +33,15 @@ NOTEEVENTS_COLS = [
     "TEXT",
 ]
 
-MIMIC_DIAGNOSES_CSV = os.path.join("data", "raw", "mimic_iii", "DIAGNOSES_ICD.csv")
-ICD9_CSV = os.path.join("data", "interim", "icd", "icd9_codes_and_des.csv")
-MIMIC_NOTEEVENTS_CSV = os.path.join("data", "raw", "mimic_iii", "NOTEEVENTS.csv")
+MIMIC_DIAGNOSES_CSV = os.path.join(
+    "data", "raw", "mimic_iii", "DIAGNOSES_ICD.csv"
+)
+ICD9_CSV = os.path.join(
+    "data", "interim", "icd", "icd9_codes_and_des.csv"
+)
+MIMIC_NOTEEVENTS_CSV = os.path.join(
+    "data", "raw", "mimic_iii", "NOTEEVENTS.csv"
+)
 
 DIAGNOSES_NOTEEVENTS_CSV = os.path.join(
     "data", "processed", "mimic_iii", "diagnoses_noteevents.csv"
@@ -42,9 +49,16 @@ DIAGNOSES_NOTEEVENTS_CSV = os.path.join(
 
 
 # cleaning mimic
-MIMIC_DATA_DIR = os.path.join("data", "processed", "mimic_iii", "diagnoses_noteevents.csv")
-#saved to
-MIMIC_DATA_CLEANED = os.path.join("data", "processed", "mimic_iii", "diagnoses_noteevents_cleaned.csv")
+MIMIC_DATA_DIR = os.path.join(
+    "data", "processed", "mimic_iii", "diagnoses_noteevents.csv"
+)
+# saved to
+MIMIC_DATA_CLEANED = os.path.join(
+    "data",
+    "processed",
+    "mimic_iii",
+    "diagnoses_noteevents_cleaned.csv",
+)
 
 
 personalized_stopwords_filtered = [
