@@ -7,25 +7,13 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join("..", "..")))
-# sys.path.insert(1, os.path.abspath(os.path.join("..", "..", "src")))
-# sys.path.insert(
-#     2, os.path.abspath(os.path.join("..", "..", "src", "data"))
-# )
-# sys.path.insert(
-#     3, os.path.abspath(os.path.join("..", "..", "src", "clf"))
-# )
-# sys.path.insert(
-#     4, os.path.abspath(os.path.join("..", "..", "src", "stt"))
-# )
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "Masterthesis"
 copyright = "2022, Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
-author = (
-    "Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
-)
+author = "Hannha Petry, Tara-Sophia Tumbraegel, Florentin von Haugwitz"
 release = "1.0.0"
 
 # -- General configuration ---------------------------------------------------
@@ -36,12 +24,7 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = [
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "src/data/streamlit/",
-]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "streamlit/**"]
 
 
 # -- Options for HTML output -------------------------------------------------

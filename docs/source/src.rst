@@ -10,7 +10,6 @@ Subpackages
    src.clf
    src.data
    src.nlp
-   src.streamlit
    src.streamlit_02
    src.stt
 
