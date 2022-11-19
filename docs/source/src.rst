@@ -12,6 +12,15 @@ Subpackages
    src.nlp
    src.streamlit
    src.streamlit_02
+   src.stt
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.decorators
 
 Module contents
 ---------------

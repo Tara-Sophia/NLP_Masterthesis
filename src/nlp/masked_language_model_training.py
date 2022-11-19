@@ -5,7 +5,6 @@ Description:
     It is based on the  HuggingFace Trainer class.
     The model is trained on the mtsamples dataset.
 """
-# imports
 import multiprocessing
 import os
 
@@ -14,7 +13,7 @@ import torch
 import wandb
 from datasets import Dataset
 from sklearn.model_selection import train_test_split
-from transformers import BertForMaskedLM
+from transformers import AutoTokenizer, BertForMaskedLM
 from transformers.trainer_utils import get_last_checkpoint
 
 from src.nlp.constants import (
@@ -35,6 +34,19 @@ wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm"])
 
 
 def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
+    """
+    Load the datasets
+
+    Parameters
+    ----------
+    data_path : str
+        Path to the dataset
+
+    Returns
+    -------
+    tuple[Dataset, Dataset]
+        The train and validation datasets
+    """
 
     df_mlm = pd.read_csv(data_path)
     # Train/Valid Split
@@ -51,7 +63,24 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     return dataset_train, dataset_val
 
 
-def tokenize_dataset(dataset: Dataset, tokenizer):
+def tokenize_dataset(
+    dataset: Dataset, tokenizer: AutoTokenizer
+) -> Dataset:
+    """
+    Tokenize the dataset
+
+    Parameters
+    ----------
+    dataset : Dataset
+        The dataset to tokenize
+    tokenizer : AutoTokenizer
+        The tokenizer to use
+
+    Returns
+    -------
+    Dataset
+        The tokenized dataset
+    """
     column_names = dataset.column_names
 
     tokenized_datasets = dataset.map(
@@ -89,6 +118,9 @@ def load_model(device: torch.device) -> BertForMaskedLM:
 
 
 def main():
+    """
+    Main function
+    """
     train_ds, val_ds = load_datasets(
         os.path.join(
             MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
