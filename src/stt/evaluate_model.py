@@ -21,11 +21,7 @@ import torch
 from datasets import Dataset
 from datasets.arrow_dataset import Example
 from evaluate import EvaluationModule, load
-from transformers import (
-    HubertForCTC,
-    Wav2Vec2ForCTC,
-    Wav2Vec2Processor,
-)
+from transformers import HubertForCTC, Wav2Vec2ForCTC, Wav2Vec2Processor
 from utils import (
     get_device,
     load_trained_model_and_processor_hubert,
@@ -62,24 +58,18 @@ def map_to_result(
         Batch with results
     """
     with torch.no_grad():
-        input_values = torch.tensor(
-            batch["input_values"], device=device
-        ).unsqueeze(0)
+        input_values = torch.tensor(batch["input_values"], device=device).unsqueeze(0)
         logits = model(input_values).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
     batch["pred_str"] = processor.batch_decode(pred_ids)[0]
-    batch["text"] = processor.decode(
-        batch["labels"], group_tokens=False
-    )
+    batch["text"] = processor.decode(batch["labels"], group_tokens=False)
 
     return batch
 
 
 @log_function_name
-def show_random_elements(
-    dataset: Dataset, num_examples: int = 5
-) -> None:
+def show_random_elements(dataset: Dataset, num_examples: int = 5) -> None:
     """
     Show random predictions and labels from a dataset
 
@@ -129,17 +119,13 @@ def showcase_test(
         Device to use for predictions
     """
     with torch.no_grad():
-        logits = model(
-            torch.tensor(test_ds[:1]["input_values"], device=device)
-        ).logits
+        logits = model(torch.tensor(test_ds[:1]["input_values"], device=device)).logits
 
     pred_ids = torch.argmax(logits, dim=-1)
 
     # convert ids to tokens
     converted_tokens = " ".join(
-        processor.tokenizer.convert_ids_to_tokens(
-            pred_ids[0].tolist()
-        )
+        processor.tokenizer.convert_ids_to_tokens(pred_ids[0].tolist())
     )
     print(converted_tokens)
 
@@ -236,14 +222,10 @@ def main(hubert: bool, wav2vec2: bool) -> None:
     # Decide which model to use
     if hubert:
         print("Using model Hubert")
-        model, processor = load_trained_model_and_processor_hubert(
-            device
-        )
+        model, processor = load_trained_model_and_processor_hubert(device)
     elif wav2vec2:
         print("Using model Wav2vec2")
-        model, processor = load_trained_model_and_processor_wav2vec2(
-            device
-        )
+        model, processor = load_trained_model_and_processor_wav2vec2(device)
     else:
         print("No model given as input")
         print("Please enter: python src/stt/predict.py -h or -w")

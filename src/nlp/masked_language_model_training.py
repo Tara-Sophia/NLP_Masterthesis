@@ -12,17 +12,18 @@ import os
 import pandas as pd
 import torch
 import wandb
-from constants import (
+from datasets import Dataset
+from sklearn.model_selection import train_test_split
+from transformers import AutoTokenizer, BertForMaskedLM
+from transformers.trainer_utils import get_last_checkpoint
+
+from src.nlp.constants import (
     MODEL_MLM_CHECKPOINTS_DIR,
     MODEL_MLM_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
-from datasets import Dataset
-from sklearn.model_selection import train_test_split
-from transformers import AutoTokenizer, BertForMaskedLM
-from transformers.trainer_utils import get_last_checkpoint
-from utils import (
+from src.nlp.utils import (
     get_device,
     load_tokenizer,
     load_trainer,
@@ -54,18 +55,12 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
     # Convert to Dataset object
-    dataset_train = Dataset.from_pandas(
-        df_train[["transcription"]].dropna()
-    )
-    dataset_val = Dataset.from_pandas(
-        df_valid[["transcription"]].dropna()
-    )
+    dataset_train = Dataset.from_pandas(df_train[["transcription"]].dropna())
+    dataset_val = Dataset.from_pandas(df_valid[["transcription"]].dropna())
     return dataset_train, dataset_val
 
 
-def tokenize_dataset(
-    dataset: Dataset, tokenizer: AutoTokenizer
-) -> Dataset:
+def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
     """
     Tokenize the dataset
 
@@ -107,9 +102,7 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    model = BertForMaskedLM.from_pretrained(
-        MODEL_MLM_CHECKPOINTS_DIR
-    ).to(device)
+    model = BertForMaskedLM.from_pretrained(MODEL_MLM_CHECKPOINTS_DIR).to(device)
     # AutoModelForSequenceClassification.from_pretrained(
     #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     # ).to(device)
@@ -122,9 +115,7 @@ def main():
     Main function
     """
     train_ds, val_ds = load_datasets(
-        os.path.join(
-            MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
-        )
+        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
     )
 
     tokenizer = load_tokenizer()

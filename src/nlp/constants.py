@@ -8,20 +8,12 @@ import os
 # RAW DATA NLP
 NLP_RAW_PATH_DIR = os.path.join("data", "raw", "nlp")
 MTSAMPLES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "mtsamples")
-PATIENT_NOTES_RAW_PATH_DIR = os.path.join(
-    NLP_RAW_PATH_DIR, "patient_notes"
-)
+PATIENT_NOTES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "patient_notes")
 
 # PROCESSED DATA NLP
-NLP_PROCESSED_PATH_DIR = os.path.join(
-    "data", "processed", "nlp", "mtsamples"
-)
-MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(
-    NLP_PROCESSED_PATH_DIR, "mtsamples"
-)
-PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(
-    NLP_PROCESSED_PATH_DIR, "patient_notes"
-)
+NLP_PROCESSED_PATH_DIR = os.path.join("data", "processed", "nlp", "mtsamples")
+MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples")
+PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "patient_notes")
 MTSAMPLES_PROCESSED_CLEANED_DIR = os.path.join(
     NLP_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
 )
@@ -33,9 +25,7 @@ MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
 # TEXT CLASSIFICATION MODEL
-MODEL_TC_DIR = os.path.join(
-    "models", "nlp", "tectclassification", "model"
-)
+MODEL_TC_DIR = os.path.join("models", "nlp", "tectclassification", "model")
 MODEL_TC_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "textclassification", "checkpoints"
 )
@@ -44,9 +34,7 @@ MODEL_TC_CHECKPOINTS_DIR = os.path.join(
 MODEL_MLM_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "maskedlanguagemodel", "checkpoints"
 )
-MODEL_MLM_DIR = os.path.join(
-    "models", "nlp", "maskedlanguagemodel", "model"
-)
+MODEL_MLM_DIR = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
 
 # HYPERPARAMS
 SEED_SPLIT = 0
@@ -149,4 +137,179 @@ MOST_COMMON_WORDS_FILTERED = [
     "come",
     "per",
     "evaluation",
+]
+
+# MIMIC-III
+MIMIC_DATA_DIR = os.path.join(
+    "data", "processed", "mimic_iii", "diagnoses_noteevents.csv"
+)
+
+MIMIC_DATA_CLEANED = os.path.join(
+    "data",
+    "processed",
+    "mimic_iii",
+    "diagnoses_noteevents_cleaned.csv",
+)
+
+MIMIC_PERSONALIZED_STOPWORDS_FILTERED = [
+    "He",
+    "She",
+    "patient",
+    "**]",
+    "[**Hospital1",
+    "The",
+    "given",
+    "showed",
+    "also",
+    "In",
+    "On",
+    "denies",
+    "history",
+    "found",
+    "transferred",
+    "ED",
+    "Patient",
+    "Name",
+    "noted",
+    "s/p",
+    "started",
+    "prior",
+    "18**]",
+    "admitted",
+    "CT",
+    "Pt",
+    "2",
+    "presented",
+    "IV",
+    "reports",
+    "pt",
+    "recent",
+    "last",
+    "received",
+    "No",
+    "BP",
+    "ED,",
+    "year",
+    "old",
+    "[**Known",
+    "past",
+    "1",
+    "days",
+    "lastname",
+    "His",
+    "OSH",
+    "arrival",
+    "time",
+    "[**Last",
+    "yo",
+    "This",
+    "presents",
+    "well",
+    "[**Hospital",
+    "HR",
+    "male",
+    "mg",
+    "x",
+    "day",
+    "Her",
+    "admission",
+    "without",
+    "At",
+    "home",
+    "felt",
+    "initial",
+    "developed",
+    "revealed",
+    "(un)",
+    "3",
+    "since",
+    "placed",
+    "increased",
+    "per",
+    "A",
+    "h/o",
+    "recently",
+    "CXR",
+    "Per",
+    "severe",
+    "significant",
+    "treated",
+    "w/",
+    "transfer",
+    "L",
+    "underwent",
+    "initially",
+    "[**Hospital3",
+    "due",
+    "states",
+    "Denies",
+    "one",
+    "R",
+    "notable",
+    "symptoms",
+    "seen",
+    "ED.",
+    "O2",
+    "called",
+    "RR",
+    "status",
+    "EKG",
+    "several",
+    "review",
+    "Of",
+    "feeling",
+    "continued",
+    "fevers,",
+    "hospital",
+    "[**Location",
+    "(NI)",
+    "Mr.",
+    "went",
+    "HTN,",
+    "T",
+    "(STitle)",
+    "note,",
+    "today",
+    "VS",
+    "became",
+    "discharged",
+    "MICU",
+    "weeks",
+    "ago",
+    "episode",
+    "4",
+    "taken",
+    "new",
+    "sent",
+    "normal",
+    "[**Name",
+    "medical",
+    "episodes",
+    "two",
+    "chills,",
+    "aortic",
+    "100%",
+    "denied",
+    "improved",
+    "possible",
+    "unable",
+    "SOB",
+    "EMS",
+    "morning",
+    "associated",
+    "elevated",
+    "large",
+    "reported",
+    "brought",
+    "week",
+    "[**First",
+    "RA.",
+    "night",
+    "course",
+    "Dr.",
+    "M",
+    "GI",
+    "decreased",
+    "ICU",
+    "WBC",
 ]
