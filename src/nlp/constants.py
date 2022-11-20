@@ -20,6 +20,11 @@ MTSAMPLES_PROCESSED_CLEANED_DIR = os.path.join(
 MTSAMPLES_FINAL = os.path.join(
     MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_finaloutput.csv"
 )
+MIMIC_FINAL = os.path.join("data", "processed", "mimic_iii", "mimic_final.csv")
+MIMIC_PROCESSED_CLEANED_DIR = os.path.join(
+    "data", "processed", "mimic_iii", "diagnoses_noteevents_cleaned.csv"
+)
+
 
 MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
