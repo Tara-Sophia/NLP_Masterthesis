@@ -22,7 +22,7 @@ from datasets import Dataset
 from datasets.arrow_dataset import Example
 from evaluate import EvaluationModule, load
 from transformers import HubertForCTC, Wav2Vec2ForCTC, Wav2Vec2Processor
-from utils import (
+from src.stt.utils import (
     get_device,
     load_trained_model_and_processor_hubert,
     load_trained_model_and_processor_wav2vec2,

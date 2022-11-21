@@ -31,7 +31,7 @@ from src.stt.constants import (
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
 )
-from src.stt.decorators import log_function_name
+from src.decorators import log_function_name
 
 
 @log_function_name
