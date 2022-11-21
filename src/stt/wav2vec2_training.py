@@ -15,6 +15,10 @@ import os
 import click
 import torch
 import wandb
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+from transformers.trainer_utils import get_last_checkpoint
+
+from src.decorators import log_function_name
 from src.stt.constants import (
     PROCESSED_DIR,
     VOCAB_DIR,
@@ -25,8 +29,6 @@ from src.stt.constants import (
     WAV2VEC2_MODEL_DIR,
     WAV2VEC2_NUM_EPOCHS,
 )
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
-from transformers.trainer_utils import get_last_checkpoint
 from src.stt.utils import (
     DataCollatorCTCWithPadding,
     get_device,
@@ -35,8 +37,6 @@ from src.stt.utils import (
     load_trainer,
     load_training_args,
 )
-
-from src.decorators import log_function_name
 
 wandb.init(
     project="speech-to-text",
