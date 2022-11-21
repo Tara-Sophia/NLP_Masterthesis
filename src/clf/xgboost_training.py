@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from constants import XGB_MODEL_MASKED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
+# need to install older version of xgboost for this to work
 import xgboost as xgb
 from sklearn.model_selection import GridSearchCV, ParameterGrid
 from utils import load_data, preprocessing_pipeline
@@ -33,10 +34,7 @@ def build_pipeline(
     pipeline.steps.append(
         (
             "clf",
-            xgb.XGBClassifier(
-                objective="multi:softprob",
-                random_state=42,
-            ),
+            xgb.XGBClassifier(objective="multi:softprob", random_state=42),
         )
     )
     return pipeline
