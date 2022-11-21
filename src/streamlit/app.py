@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Description:
     Implementation of the Streamlit app
@@ -6,11 +7,9 @@ Usage:
     $ streamlit run src/streamlit/app.py
 """
 import streamlit as st
-
-from src.streamlit.app_stt import stt_main
-from src.streamlit.app_nlp import show_nlp
 from src.streamlit.app_clf import show_clf
-
+from src.streamlit.app_nlp import show_nlp
+from src.streamlit.app_stt import stt_main
 
 # Settings
 st.set_page_config(layout="wide")
