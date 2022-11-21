@@ -8,7 +8,7 @@ from audiorecorder import audiorecorder
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, pipeline  # HubertForCTC,
 
 import streamlit as st
-from src.stt.constants import HUBERT_MODEL_DIR, VOCAB_DIR, WAV2VEC2_MODEL_DIR
+from src.stt.constants import VOCAB_DIR, WAV2VEC2_MODEL_DIR
 
 
 def get_device() -> torch.device:
@@ -75,3 +75,5 @@ def stt_main() -> str:
         st.write("Text without spelling correction")
         st.write(text["text"])
         return text["text"]
+
+    return "No transcription possible"
