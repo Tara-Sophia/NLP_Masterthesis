@@ -11,7 +11,7 @@ import pandas as pd
 from constants import (
     LR_MODEL_CLASSIFIED,
     LR_MODEL_MASKED,
-    SVM_MODEL_CLASSIFIED,
+    XGB_MODEL_MASKED,
     SVM_MODEL_MASKED,
     TEST_DATA_DIR,
 )
@@ -172,13 +172,18 @@ def main():
 
     # svm_model_classified = pickle.load(open(SVM_MODEL_CLASSIFIED, "rb"))
     svm_model_masked = pickle.load(open(SVM_MODEL_MASKED, "rb"))
-    # lvm_model_mimic = pickle.load(open(LVM_MODEL_MIMIC, "rb"))
+    # svm_model_mimic = pickle.load(open(LVM_MODEL_MIMIC, "rb"))
+
+    # xgb_model_classified = pickle.load(open(XGB_MODEL_CLASSIFIED, "rb"))
+    xgb_model_masked = pickle.load(open(XGB_MODEL_MASKED, "rb"))
+    # xgb_model_mimic = pickle.load(open(XGB_MODEL_MIMIC, "rb"))
 
     # evaluate model and print results for each model in dataframe
     models = [
         ("Logistic Regression (classified)", lr_model_classified),
         ("Logistic Regression (masked)", lr_model_masked),
         ("Support Vector Machine (masked)", svm_model_masked),
+        ("XGBoost (masked)", xgb_model_masked),
     ]
 
     results = []

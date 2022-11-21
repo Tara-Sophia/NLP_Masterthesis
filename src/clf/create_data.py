@@ -12,6 +12,7 @@ import pandas as pd
 from constants import RAW_DATA_DIR, X_CLASSIFIED, X_MASKED
 from sklearn.model_selection import train_test_split
 
+# from sklearn.preprocessing import LabelEncoder
 
 # transform input data for model
 def replace_tab(x: list[str]) -> list[str]:
@@ -86,6 +87,11 @@ def main():
         os.path.join("data", "processed", "clf", "test.csv"),
         index=False,
     )
+
+    # # Label encode target
+    # le = LabelEncoder()
+    # le.fit(y_train)
+    # y_train = le.transform(y_train)
 
 
 if __name__ == "__main__":
