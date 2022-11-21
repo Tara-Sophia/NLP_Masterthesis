@@ -1,7 +1,7 @@
-stt.streamlit\_stt module
+src.nlp.predicting module
 =========================
 
-.. automodule:: stt.streamlit_stt
+.. automodule:: src.nlp.predicting
    :members:
    :undoc-members:
    :show-inheritance:

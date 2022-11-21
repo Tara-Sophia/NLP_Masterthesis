@@ -1,7 +1,7 @@
-stt.analyze\_data module
+src.nlp.constants module
 ========================
 
-.. automodule:: stt.analyze_data
+.. automodule:: src.nlp.constants
    :members:
    :undoc-members:
    :show-inheritance:

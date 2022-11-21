@@ -13,7 +13,6 @@ Submodules
    src.stt.evaluate_model
    src.stt.hubert_training
    src.stt.predict
-   src.stt.streamlit_stt
    src.stt.transform_speech_data
    src.stt.utils
    src.stt.wav2vec2_training

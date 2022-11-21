@@ -9,6 +9,9 @@ Subpackages
 
    src.clf
    src.data
+   src.icd_mimic
+   src.nlp
+   src.streamlit
    src.stt
 
 Submodules

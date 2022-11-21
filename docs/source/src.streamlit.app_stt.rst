@@ -1,7 +1,7 @@
-stt.wav2vec2\_training module
+src.streamlit.app\_stt module
 =============================
 
-.. automodule:: stt.wav2vec2_training
+.. automodule:: src.streamlit.app_stt
    :members:
    :undoc-members:
    :show-inheritance:

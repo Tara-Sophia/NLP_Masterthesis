@@ -1,7 +1,7 @@
-stt.transform\_speech\_data module
+src.nlp.cleaning\_mtsamples module
 ==================================
 
-.. automodule:: stt.transform_speech_data
+.. automodule:: src.nlp.cleaning_mtsamples
    :members:
    :undoc-members:
    :show-inheritance:

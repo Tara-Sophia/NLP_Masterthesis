@@ -1,7 +1,7 @@
-src.stt.streamlit\_stt module
+src.streamlit.app\_nlp module
 =============================
 
-.. automodule:: src.stt.streamlit_stt
+.. automodule:: src.streamlit.app_nlp
    :members:
    :undoc-members:
    :show-inheritance:
