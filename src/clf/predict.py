@@ -10,7 +10,7 @@ Description:
 import pickle
 
 import pandas as pd
-from constants import SVM_MODEL_MASKED
+from constants import XGB_MODEL_MASKED
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
@@ -123,24 +123,24 @@ def main():
     Main function
     """
     # Load model
-    model = pickle.load(open(SVM_MODEL_MASKED, "rb"))
-    model_name = "Support Vector Machine"
+    model = pickle.load(open(XGB_MODEL_MASKED, "rb"))
+    model_name = "XGBoost"
 
     # Predict probability
     to_pred = "oxygen coronary chest pain"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
-    # if model_name == "Logistic Regression" or model_name == "Support Vector Machine":
-    #     # Get top symptoms
-    #     top_symptoms_df = top_symptoms(model)
-    #     print(type(top_symptoms_df[0]))
-    #     print(top_symptoms_df)
+    if model_name == "Logistic Regression":
+        # Get top symptoms
+        top_symptoms_df = top_symptoms(model)
+        print(type(top_symptoms_df[0]))
+        print(top_symptoms_df)
 
-    # else:
-    #     # Get feature importance
-    #     feat_df = feat_imp(model)
-    #     print(feat_df)
+    else:
+        # Get feature importance
+        feat_df = feat_imp(model)
+        print(feat_df)
 
     # features the model used for top predicted classes
     feat_importance = lime_explainer(model, to_pred)
