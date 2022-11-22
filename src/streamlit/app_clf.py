@@ -2,5 +2,6 @@
 import streamlit as st
 
 
-def show_clf():
-    st.write("CLF")
+def clf_main(text: str) -> None:
+    
+    pass
