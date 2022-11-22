@@ -21,7 +21,7 @@ from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArgumen
 # import DataCollatorForLanguageModeling
 from transformers.data.data_collator import DataCollatorForLanguageModeling
 
-from src.nlp.constants import (
+from constants import (
     EVAL_BATCH_SIZE,
     LEARNING_RATE,
     LR_WARMUP_STEPS,

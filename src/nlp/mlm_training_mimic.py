@@ -1,5 +1,6 @@
 import multiprocessing
 import os
+from datasets.arrow_dataset import Batch
 
 import pandas as pd
 import torch
@@ -9,24 +10,31 @@ from sklearn.model_selection import train_test_split
 from transformers import AutoTokenizer, BertForMaskedLM
 from transformers.trainer_utils import get_last_checkpoint
 
-from src.nlp.masked_language_model_training import tokenize_dataset, load_model
+from masked_language_model_training import load_model
 
-from src.nlp.constants import (
+from constants import (
     MODEL_MLM_CHECKPOINTS_DIR,
     MODEL_MLM_DIR,
-    MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
-from src.nlp.utils import (
+from utils import (
     get_device,
     load_tokenizer,
     load_trainer,
     load_training_args,
-    tokenize_function,
+    
 )
 
-wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
+from tqdm import tqdm
+from tqdm.notebook import tqdm
 
+tqdm.pandas()
+# dont show warnings
+import warnings
+
+wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
+import torch
+torch.cuda.empty_cache()
 
 def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
@@ -54,12 +62,69 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     return dataset_train, dataset_val
 
 
+def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
+    """
+    Tokenize the dataset
+
+    Parameters
+    ----------
+    dataset : Dataset
+        The dataset to tokenize
+    tokenizer : AutoTokenizer
+        The tokenizer to use
+
+    Returns
+    -------
+    Dataset
+        The tokenized dataset
+    """
+    column_names = dataset.column_names
+
+    tokenized_datasets = dataset.map(
+        tokenize_function,
+        batched=True,
+        num_proc=multiprocessing.cpu_count(),
+        remove_columns=column_names,
+        fn_kwargs={"tokenizer": tokenizer, "special_token": True},
+    )
+    return tokenized_datasets
+
+
+def tokenize_function(
+    batch: Batch, tokenizer: AutoTokenizer, special_token: bool
+) -> Batch:
+    """
+    Tokenize the input batch
+
+    Parameters
+    ----------
+    batch : Batch
+        Batch to tokenize
+    tokenizer : AutoTokenizer
+        Tokenizer to use
+    special_token : bool
+        Whether to add special tokens
+
+    Returns
+    -------
+    Batch
+        Tokenized batch
+    """
+    # spcial_token = false for Text classification
+    return tokenizer(
+        batch["TEXT_final_cleaned"],
+        padding="max_length",
+        truncation=True,
+        max_length=512,
+        return_special_tokens_mask=special_token,
+    )
+
 def main():
     """
     Main function
     """
     train_ds, val_ds = load_datasets(
-        os.path.join("../data/processed/mimic_iii/diagnoses_noteevents_cleaned.csv")
+        os.path.join("data/processed/mimic_iii/diagnoses_noteevents_cleaned.csv")
     )
 
     tokenizer = load_tokenizer()
@@ -78,12 +143,11 @@ def main():
         modeltype="MLM",
     )
 
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
-    else:
-        resume_from_checkpoint = True
-
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train()
     trainer.save_model(MODEL_MLM_DIR)
     trainer.save_state()
+
+    
+if __name__ == "__main__":
+    main()
+    

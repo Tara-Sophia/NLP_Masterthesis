@@ -14,14 +14,14 @@ from datasets import Dataset
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from transformers.trainer_utils import get_last_checkpoint
 
-from src.nlp.constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
-from src.nlp.utils import (
+from constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
+from utils import (
     get_device,
     load_tokenizer,
     load_trainer,
     load_training_args,
 )
-from src.nlp.text_classification_model_training import load_datasets
+from text_classification_model_training import load_datasets
 from datasets.arrow_dataset import Batch
 
 # wandb.init(
@@ -202,9 +202,6 @@ def main() -> None:
     tokenizer = load_tokenizer()
     tokenized_train_ds = tokenize_dataset(train_ds, tokenizer)
     tokenized_val_ds = tokenize_dataset(val_ds, tokenizer)
-    # only use sample size for testing
-    tokenized_train_ds = tokenized_train_ds.select(range(10))
-    tokenized_val_ds = tokenized_val_ds.select(range(10))
 
     tokenized_train_ds = clean_remove_column(tokenized_train_ds)
     tokenized_val_ds = clean_remove_column(tokenized_val_ds)
@@ -221,13 +218,8 @@ def main() -> None:
         modeltype="sequence_classification",
     )
 
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
-    else:
-        resume_from_checkpoint = True
 
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train()
     trainer.save_model(MODEL_TC_DIR)
     trainer.save_state()
 
