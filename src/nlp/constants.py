@@ -30,7 +30,7 @@ MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
 # TEXT CLASSIFICATION MODEL
-MODEL_TC_DIR = os.path.join("models", "nlp", "tectclassification", "model")
+MODEL_TC_DIR = os.path.join("models", "nlp", "textclassification", "model")
 MODEL_TC_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "textclassification", "checkpoints"
 )
@@ -46,8 +46,8 @@ SEED_SPLIT = 0
 SEED_TRAIN = 0
 
 MAX_SEQ_LEN = 128
-TRAIN_BATCH_SIZE = 8
-EVAL_BATCH_SIZE = 8
+TRAIN_BATCH_SIZE = 4
+EVAL_BATCH_SIZE = 4
 LEARNING_RATE = 2e-5
 LR_WARMUP_STEPS = 100
 WEIGHT_DECAY = 0.01

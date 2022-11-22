@@ -7,13 +7,25 @@ Description:
 import pandas as pd
 from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
-
-from src.nlp.constants import (
+from tqdm import tqdm
+from tqdm.notebook import tqdm
+tqdm.pandas()
+from constants import (
     MODEL_MLM_DIR,
     MODEL_TC_DIR,
     MIMIC_FINAL,
     MIMIC_PROCESSED_CLEANED_DIR,
 )
+tqdm.pandas()
+# dont show warnings
+import warnings
+
+warnings.filterwarnings("ignore")
+from dask.distributed import Client
+
+client = Client(n_workers=4)
+import dask
+import dask.dataframe as dd
 
 
 def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
@@ -97,7 +109,8 @@ def keywords_from_MLM_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
     pd.DataFrame
         Dataframe with the keywords and weights extracted from the input text
     """
-    df["keywords_outcome_weights_MLM"] = df.apply(
+    
+    df["keywords_outcome_weights_MLM"] = df.progress_apply(
         lambda x: keyword_extraction(
             x["TEXT_final_cleaned"], model, x["nr_candidates"], x["top_n"]
         ),
@@ -152,6 +165,7 @@ def calculate_optimal_candidate_nr(text: str) -> int:
     int
         Optimal number of candidates to use for keyword extraction
     """
+    text = str(text)
     nr_words = len(text.split())
     nr_candidates = int(nr_words * 20 / 100)
     if nr_candidates > 35:
@@ -163,17 +177,28 @@ def main() -> None:
     """
     Main function to run the script
     """
-    df_large_column = pd.read_csv(MIMIC_PROCESSED_CLEANED_DIR)
-    df = small_column_df(df_large_column)
-    df["nr_candidates"] = df["transcription"].apply(calculate_optimal_candidate_nr)
-    # top n keywords to extract
-    df["top_n"] = df["nr_candidates"].apply(lambda x: round(x * 0.5))
-    # for MLM model :
-    df_mlm = keywords_from_MLM_model(df, MODEL_MLM_DIR)
-    # for TC model :
-    df_tc = keywords_from_TC_model(df, MODEL_TC_DIR)
-    df = pd.concat([df_mlm, df_tc], axis=1)
-    save_dataframe(df)
+    ddf = dd.read_csv(  # type: ignore
+        MIMIC_PROCESSED_CLEANED_DIR,
+        dtype={"TEXT_final_cleaned": "str"},
+    )
+    # use only small set
+    ddf = ddf.head(1000)
+    ddf = ddf.repartition(npartitions=4)
+    ddf["nr_candidates"] = ddf["TEXT_final_cleaned"].apply(  # type: ignore
+        calculate_optimal_candidate_nr, meta=("nr_candidates", "int")
+    )
+    ddf["top_n"] = ddf["nr_candidates"].apply(
+        lambda x: int(x * 0.5), meta=("top_n", "int")
+    )
+    ddf = ddf.compute()
+    ddf = small_column_df(ddf)
+    ddf_tc = keywords_from_TC_model(ddf, MODEL_TC_DIR)
+    ddf_mlm = keywords_from_MLM_model(ddf, MODEL_MLM_DIR)
+    # concatenate  the two dataframes
+    ddf_final = pd.concat([ddf_tc, ddf_mlm], axis=1)
+    # save
+    save_dataframe(ddf_final)
+
 
 
 # Path: src/Keyword_Bert_Training.py

@@ -17,19 +17,26 @@ from sklearn.model_selection import train_test_split
 from transformers import AutoTokenizer, BertForMaskedLM
 from transformers.trainer_utils import get_last_checkpoint
 
-from src.nlp.constants import (
+from constants import (
     MODEL_MLM_CHECKPOINTS_DIR,
     MODEL_MLM_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
-from src.nlp.utils import (
+from utils import (
     get_device,
     load_tokenizer,
     load_trainer,
     load_training_args,
     tokenize_function,
 )
+from tqdm import tqdm
+from tqdm.notebook import tqdm
+
+tqdm.pandas()
+# dont show warnings
+import warnings
+
 
 wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm"])
 
@@ -102,7 +109,7 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    model = BertForMaskedLM.from_pretrained(MODEL_MLM_CHECKPOINTS_DIR).to(device)
+    model = BertForMaskedLM.from_pretrained(MODEL_MLM_DIR).to(device)
     # AutoModelForSequenceClassification.from_pretrained(
     #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     # ).to(device)
@@ -134,14 +141,7 @@ def main():
         tokenizer,
         modeltype="MLM",
     )
-
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
-    else:
-        resume_from_checkpoint = True
-
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train()
     trainer.save_model(MODEL_MLM_DIR)
     trainer.save_state()
 
