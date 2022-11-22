@@ -33,7 +33,7 @@ def build_pipeline(
     pipeline.steps.append(
         (
             "clf",
-            SVC(random_state=42, probability=True, kernel="rbf"),
+            SVC(random_state=42, probability=True),
         )
     )
     return pipeline
