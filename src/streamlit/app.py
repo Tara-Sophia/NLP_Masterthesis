@@ -8,7 +8,7 @@ Usage:
 """
 import streamlit as st
 from src.streamlit.app_clf import clf_main
-from src.streamlit.app_nlp import show_nlp
+from src.streamlit.app_nlp import nlp_main
 from src.streamlit.app_stt import stt_main
 
 # Settings
@@ -43,7 +43,7 @@ if st.session_state.get("show_page") == "stt":  # type: ignore
 
 # NLP
 elif st.session_state.get("show_page") == "nlp":
-    st.session_state.get("res") = show_nlp(st.session_state.get("res"))
+    st.session_state.get("res") = nlp_main(st.session_state.get("res"))
     next = st.button("Show next")
     if next:
         st.session_state["show_page"] = "clf"
