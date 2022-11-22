@@ -43,7 +43,7 @@ if st.session_state.get("show_page") == "stt":  # type: ignore
 
 # NLP
 elif st.session_state.get("show_page") == "nlp":
-    st.session_state.get("res") = nlp_main(st.session_state.get("res"))
+    st.session_state["res"] = nlp_main(st.session_state.get("res"))
     next = st.button("Show next")
     if next:
         st.session_state["show_page"] = "clf"
