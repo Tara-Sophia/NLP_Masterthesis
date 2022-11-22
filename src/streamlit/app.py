@@ -7,7 +7,7 @@ Usage:
     $ streamlit run src/streamlit/app.py
 """
 import streamlit as st
-from src.streamlit.app_clf import show_clf
+from src.streamlit.app_clf import clf_main
 from src.streamlit.app_nlp import show_nlp
 from src.streamlit.app_stt import stt_main
 
@@ -43,7 +43,7 @@ if st.session_state.get("show_page") == "stt":  # type: ignore
 
 # NLP
 elif st.session_state.get("show_page") == "nlp":
-    show_nlp(st.session_state.get("res"))
+    st.session_state.get("res") = show_nlp(st.session_state.get("res"))
     next = st.button("Show next")
     if next:
         st.session_state["show_page"] = "clf"
@@ -51,7 +51,7 @@ elif st.session_state.get("show_page") == "nlp":
 
 # CLF
 else:
-    show_clf()
+    clf_main(st.session_state.get("res"))
     redo = st.button("Rerun with new input")
     if redo:
         st.session_state["show_page"] = "stt"
