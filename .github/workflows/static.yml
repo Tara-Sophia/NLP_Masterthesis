@@ -26,33 +26,39 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    # Standard drop-in approach that should work for most people.
-    - uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-
-    # Create an artifact of the html output.
-    - uses: actions/upload-artifact@v1
-      with:
-        name: DocumentationHTML
-        path: ./docs/_build/html/
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.6'
+          
+      - name: Install Dependencies
+        run: |
+          python -m pip install -U sphinx
+          python -m pip install alabaster
         
-    # ===============================
-    - name: Commit documentation changes
-      run: |
-        cd docs/build/html/
-        git init
-        touch .nojekyll
-        git add -A
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Deploy"
+      - name: Make Documentation
+        run: |
+          sphinx-apidoc -o ./docs/source ./src --separate --force
+          make -C docs clean
+          make -C docs html
+        
+      - name: Commit documentation changes
+        run: |
+          cd docs/build/html/
+          git init
+          touch .nojekyll
+          git add -A
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Deploy"
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: gh-pages
-        directory: ./docs/build/html
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    # ===============================
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: gh-pages
+          directory: ./docs/build/html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
