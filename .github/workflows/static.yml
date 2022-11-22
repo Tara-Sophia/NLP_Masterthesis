@@ -22,21 +22,37 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - uses: actions/checkout@v1
+    # Standard drop-in approach that should work for most people.
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+
+    # Create an artifact of the html output.
+    - uses: actions/upload-artifact@v1
+      with:
+        name: DocumentationHTML
+        path: docs/_build/html/
+        
+    # ===============================
+    - name: Commit documentation changes
+      run: |
+        cd docs/build/html/
+        git init
+        touch .nojekyll
+        git add -A
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Deploy"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: gh-pages
+        directory: ./docs/build/html
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    # ===============================
