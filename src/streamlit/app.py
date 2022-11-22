@@ -11,6 +11,8 @@ from src.streamlit.app_clf import clf_main
 from src.streamlit.app_nlp import nlp_main
 from src.streamlit.app_stt import stt_main
 
+import time
+
 # Settings
 st.set_page_config(layout="wide")
 
@@ -25,13 +27,9 @@ debug = st.sidebar.checkbox("Debug mode", value=False)
 # Initialization
 if "show_page" not in st.session_state:
     st.session_state["show_page"] = "stt"
-else:
-    st.session_state["show_page"] = st.session_state["show_page"]
 
 if "res" not in st.session_state:
     st.session_state["res"] = None
-else:
-    st.session_state["res"] = st.session_state["res"]
 
 
 # Speech-to-text
@@ -39,6 +37,7 @@ if st.session_state.get("show_page") == "stt":  # type: ignore
     st.session_state["res"] = stt_main()
     if st.session_state.get("res"):
         st.session_state["show_page"] = "nlp"
+        time.sleep(2)
         st.experimental_rerun()
 
 # NLP

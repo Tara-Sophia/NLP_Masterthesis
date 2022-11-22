@@ -2,7 +2,7 @@
 import streamlit as st
 
 
-def nlp_main(str_nlp):
+def nlp_main(str_nlp: str) -> str:
     st.write("NLP")
     st.write(str_nlp)
-    return "TEst"
+    return str_nlp
