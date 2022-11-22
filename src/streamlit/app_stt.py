@@ -45,7 +45,7 @@ def load_trained_model_and_processor_wav2vec2(
     return model, processor
 
 
-def stt_main() -> str:
+def stt_main() -> str | None:
     """
     Main function for the speech-to-text part of the project
 
@@ -76,4 +76,4 @@ def stt_main() -> str:
         st.write(text["text"])
         return text["text"]
 
-    return "No transcription possible"
+    return None
