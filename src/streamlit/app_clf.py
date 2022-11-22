@@ -55,8 +55,8 @@ def top_symptoms(model: Pipeline) -> pd.Series:
     vectorizer = model.named_steps["vect"]
     feat = vectorizer.get_feature_names_out()
     coef_df = pd.DataFrame(coef, columns=feat, index=model.classes_)
-    top_symptoms = coef_df.apply(lambda x: x.nlargest(5).index.tolist(), axis=1)
-    return top_symptoms
+    top = coef_df.apply(lambda x: x.nlargest(5).index.tolist(), axis=1)
+    return top
 
 
 def lime_explainer(model: Pipeline, value: str):
@@ -103,7 +103,7 @@ def clf_main(text: str) -> None:
     """
     Main function for the classification part of the project
     """
-    st.title("📊 Classification")
+    st.title("Classification")
     # Load model
     model = pickle.load(open(LR_MODEL_MASKED, "rb"))
 
@@ -114,10 +114,10 @@ def clf_main(text: str) -> None:
 
     # find the value of top_symptoms(model) where index is prediction.index[0]
     # only works for lr model
-    top_symptoms = top_symptoms(model)
-    top_symptoms_1 = top_symptoms[prediction.index[0]]
-    top_symptoms_2 = top_symptoms[prediction.index[1]]
-    top_symptoms_3 = top_symptoms[prediction.index[2]]
+    top = top_symptoms(model)
+    top_symptoms_1 = top[prediction.index[0]]
+    top_symptoms_2 = top[prediction.index[1]]
+    top_symptoms_3 = top[prediction.index[2]]
 
     # find the value of top symptoms from lime
     feat_importance = lime_explainer(model, text)
