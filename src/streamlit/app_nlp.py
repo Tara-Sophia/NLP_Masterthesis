@@ -82,5 +82,5 @@ def nlp_main(str_nlp: str) -> str:
 
     kw_model = load_keybert()
     keywords_weights = keyword_extraction(str_nlp, kw_model, 20, 10)
-    keywords = [keyword[0] for keyword in keywords_weights]
+    keywords = " ".join([keyword[0].replace(" ", "_") for keyword in keywords_weights])
     return keywords
