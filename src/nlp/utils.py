@@ -107,42 +107,6 @@ def get_device() -> torch.device:
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, float]:
-    """
-    Compute the accuracy of the model for the evaluation dataset
-
-    Parameters
-    ----------
-    eval_pred : EvalPrediction
-        Prediction for evaluation dataset
-    modeltype : str
-        Masked Language Model or Sequence Classification
-
-    Returns
-    -------
-    dict[str, float]
-        Accuracy score
-    """
-    if modeltype == "MLM":
-        scale = "sacrebleu"
-    else:
-        scale = "accuracy"
-    #     predictions, labels = eval_pred
-    #     predictions = np.argmax(predictions, axis=1)
-    #     acc = (predictions == labels).mean()
-    #     return {"accuracy": acc}
-    # else:
-    #     metric = load_metric("accuracy")
-    #     logits, labels = eval_pred
-    #     predictions = np.argmax(logits, axis=-1)
-    #     return metric.compute(predictions=predictions, references=labels)
-    # for masked training we need
-    # metric = load_metric("sacrebleu")
-    # load multiple metrics
-    metric = load_metric(scale, average="macro")
-    predictions, labels = eval_pred
-    predictions = np.argmax(predictions, axis=1)
-    return metric.compute(predictions=predictions, references=labels)
 
 
 def load_training_args(output_dir: str) -> TrainingArguments:
@@ -167,7 +131,9 @@ def load_training_args(output_dir: str) -> TrainingArguments:
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
         per_device_eval_batch_size=EVAL_BATCH_SIZE,
         warmup_steps=LR_WARMUP_STEPS,
-        save_total_limit=3,
+        save_total_limit=1,
+        fp16=True, 
+        fp16_full_eval=True,
         weight_decay=WEIGHT_DECAY,
         learning_rate=LEARNING_RATE,
         evaluation_strategy="epoch",
@@ -177,6 +143,7 @@ def load_training_args(output_dir: str) -> TrainingArguments:
         greater_is_better=False,
         seed=SEED_TRAIN,
         report_to="wandb",
+        eval_accumulation_steps=10 #, gradient_checkpointing=True
     )
     return training_args
 
@@ -224,7 +191,7 @@ def load_trainer(
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        compute_metrics=lambda eval_pred: compute_metrics(modeltype, eval_pred),
+        compute_metrics=compute_metrics,
         data_collator=data_collator,
         tokenizer=tokenizer,
     )
