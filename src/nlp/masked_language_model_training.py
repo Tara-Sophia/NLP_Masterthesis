@@ -19,7 +19,7 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from constants import (
     MODEL_MLM_CHECKPOINTS_DIR,
-    MODEL_MLM_DIR,
+    MODEL_MLM_DIR, MODEL_MLM_NAME, 
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
 )
@@ -88,7 +88,7 @@ def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
     tokenized_datasets = dataset.map(
         tokenize_function,
         batched=True,
-        num_proc=multiprocessing.cpu_count(),
+        num_proc=multiprocessing.cpu_count()-1,
         remove_columns=column_names,
         fn_kwargs={"tokenizer": tokenizer, "special_token": True},
     )
@@ -109,7 +109,7 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    model = BertForMaskedLM.from_pretrained(MODEL_MLM_DIR).to(device)
+    model = BertForMaskedLM.from_pretrained(MODEL_MLM_NAME).to(device) #.half()
     # AutoModelForSequenceClassification.from_pretrained(
     #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
     # ).to(device)
