@@ -6,7 +6,10 @@ Description:
     The model is trained using the HuggingFace Trainer class.
 """
 import os
+import numpy as np
 
+# import load_metric
+from datasets import load_metric
 import pandas as pd
 import torch
 import wandb
@@ -18,9 +21,18 @@ from constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
 from utils import (
     get_device,
     load_tokenizer,
-    load_trainer,
+    #  load_trainer,
     load_training_args,
 )
+
+# import EvalPrediction
+from transformers import (
+    AutoTokenizer,
+    EvalPrediction,
+    TrainingArguments,
+    Trainer,
+)
+from transformers.data.data_collator import DataCollatorForLanguageModeling
 from text_classification_model_training import load_datasets
 from datasets.arrow_dataset import Batch
 
@@ -29,6 +41,81 @@ from datasets.arrow_dataset import Batch
 #     entity="nlp_masterthesis",
 #     tags=["textclassification mimic"],
 # )
+
+
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
+    """
+    Compute the accuracy of the model for the evaluation dataset
+
+    Parameters
+    ----------
+    eval_pred : EvalPrediction
+        Prediction for evaluation dataset
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    dict[str, float]
+        Accuracy score
+    """
+
+    metric = load_metric("accuracy", average="macro")
+    logits, labels = eval_pred
+    predictions = np.argmax(logits, axis=-1)
+    return metric.compute(predictions=predictions, references=labels)
+
+
+def load_trainer(
+    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    training_args: TrainingArguments,
+    train_ds: Dataset,
+    val_ds: Dataset,
+    tokenizer: AutoTokenizer,
+    modeltype: str,
+) -> Trainer:
+    """
+    Load Trainer for model training
+
+    Parameters
+    ----------
+    model : AutoModelForSequenceClassification
+        Model to train
+    training_args : TrainingArguments
+        Training arguments for model
+    train_ds : Dataset
+        Training dataset
+    val_ds : Dataset
+        Validation dataset
+    tokenizer : AutoTokenizer
+        Tokenizer for data encoding
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    Trainer
+        Trainer with set arguments
+    """
+    if modeltype == "MLM":
+        data_collator = DataCollatorForLanguageModeling(
+            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+        )
+    else:
+        data_collator = None
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_ds,
+        eval_dataset=val_ds,
+        compute_metrics=compute_metrics,
+        data_collator=data_collator,
+        tokenizer=tokenizer,
+    )
+    return trainer
+
+
 def tokenize_function(
     batch: Batch, tokenizer: AutoTokenizer, special_token: bool
 ) -> Batch:
@@ -100,10 +187,7 @@ def map_medical_specialty_to_labels(path: str) -> pd.DataFrame:
     """
     print("Loading dataset")
     df = pd.read_csv(path)
-    # drop rows with empty text
-    # df = df.dropna(subset=["TEXT_final_cleaned"])
     df = df.dropna()
-    print("Mapping medical specialty to labels")
     dict_medical_specialty = {
         value: idx for idx, value in enumerate(df.specialty.unique())
     }
@@ -125,7 +209,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     tuple[Dataset, Dataset]
         train and validation datasets
     """
-    print("in dataset")
     dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
@@ -151,13 +234,10 @@ def clean_remove_column(tokenized_dataset: Dataset) -> Dataset:
     Dataset
         Dataset with only the needed columns
     """
-    print(tokenized_dataset.column_names)
     tokenized_dataset = tokenized_dataset.remove_columns(
         ["TEXT", "specialty", "TEXT_final"]
     )
-    # tokenized_dataset = tokenized_dataset.rename_column(
-    #     "labels_val", "labels"
-    # )
+
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
 
@@ -217,7 +297,6 @@ def main() -> None:
         tokenizer,
         modeltype="sequence_classification",
     )
-
 
     trainer.train()
     trainer.save_model(MODEL_TC_DIR)
