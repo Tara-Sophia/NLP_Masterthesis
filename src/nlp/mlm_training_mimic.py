@@ -20,11 +20,15 @@ from constants import (
 from utils import (
     get_device,
     load_tokenizer,
-    load_trainer,
+    # load_trainer,
     load_training_args,
-    
 )
 
+# import EvalPrediction
+from transformers import EvalPrediction
+
+# import load_metric
+from datasets import load_metric
 from tqdm import tqdm
 from tqdm.notebook import tqdm
 
@@ -34,7 +38,65 @@ import warnings
 
 wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
 import torch
+
+# import DataCollatorForLanguageModeling
+from transformers.data.data_collator import DataCollatorForLanguageModeling
+
+# import trainingarguments
+from transformers import TrainingArguments, Trainer
+
 torch.cuda.empty_cache()
+
+
+def load_trainer(
+    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    training_args: TrainingArguments,
+    train_ds: Dataset,
+    val_ds: Dataset,
+    tokenizer: AutoTokenizer,
+    modeltype: str,
+) -> Trainer:
+    """
+    Load Trainer for model training
+
+    Parameters
+    ----------
+    model : AutoModelForSequenceClassification
+        Model to train
+    training_args : TrainingArguments
+        Training arguments for model
+    train_ds : Dataset
+        Training dataset
+    val_ds : Dataset
+        Validation dataset
+    tokenizer : AutoTokenizer
+        Tokenizer for data encoding
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    Trainer
+        Trainer with set arguments
+    """
+    if modeltype == "MLM":
+        data_collator = DataCollatorForLanguageModeling(
+            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+        )
+    else:
+        data_collator = None
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_ds,
+        eval_dataset=val_ds,
+        compute_metrics=compute_metrics,
+        data_collator=data_collator,
+        tokenizer=tokenizer,
+    )
+    return trainer
+
 
 def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
@@ -52,8 +114,9 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
 
     df_mlm = pd.read_csv(data_path)
-    df_mlm = df_mlm.sample(frac =.1)
-    
+    # df_mlm = df_mlm.sample(frac=0.1)
+    df_mlm = df_mlm.dropna()
+    df_mlm = df_mlm.sample(frac=0.7)
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
@@ -64,7 +127,7 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     return dataset_train, dataset_val
 
 
-def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, float]:
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
     """
     Compute the accuracy of the model for the evaluation dataset
 
@@ -80,9 +143,9 @@ def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, floa
     dict[str, float]
         Accuracy score
     """
-    #if modeltype == "MLM":
+    # if modeltype == "MLM":
     #    scale = "sacrebleu"
-    #else:
+    # else:
     #    scale = "accuracy"
     #     predictions, labels = eval_pred
     #     predictions = np.argmax(predictions, axis=1)
@@ -96,12 +159,22 @@ def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, floa
     # for masked training we need
     # metric = load_metric("sacrebleu")
     # load multiple metrics
-    metric = load_metric('sacrebleu', average="macro")
+    # load metrics for masked training
+
+    metric_MLM = load_metric("sacrebleu")
     predictions, labels = eval_pred
-    predictions = np.argmax(predictions, axis=1)
-    return metric.compute(predictions=predictions, references=labels)
-
-
+    predictions = predictions.argmax(axis=-1)
+    # print(predictions)
+    # print(labels)
+    # print(predictions.shape)
+    # print(labels.shape)
+    # print(predictions[0])
+    references = [[label] for label in labels]
+    # TypeError: compute_metrics() missing 1 required positional argument: 'eval_pred'
+    metric_MLM.add_batch(predictions=predictions, references=references)
+    # print(metric_MLM.compute())
+    return metric_MLM.compute(predictions=predictions, references=references)
+    # return metric_MLM.compute(predictions=predictions, references=labels)
 
 
 def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
@@ -125,7 +198,7 @@ def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
     tokenized_datasets = dataset.map(
         tokenize_function,
         batched=True,
-        num_proc=multiprocessing.cpu_count() -1,
+        num_proc=multiprocessing.cpu_count() - 1,
         remove_columns=column_names,
         fn_kwargs={"tokenizer": tokenizer, "special_token": True},
     )
@@ -161,6 +234,7 @@ def tokenize_function(
         return_special_tokens_mask=special_token,
     )
 
+
 def main():
     """
     Main function
@@ -174,22 +248,24 @@ def main():
     tokenized_val_ds = tokenize_dataset(val_ds, tokenizer)
 
     device = get_device()
-    model = load_model(device)# .half()
+    model = load_model(device)  # .half()
     training_args = load_training_args(MODEL_MLM_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
         tokenized_train_ds,
         tokenized_val_ds,
-        tokenizer#,
-       # modeltype="MLM",
+        tokenizer,
+        modeltype="MLM",
     )
 
     trainer.train()
     trainer.save_model(MODEL_MLM_DIR)
     trainer.save_state()
 
-    
+
 if __name__ == "__main__":
     main()
-    
+
+# what is nlp and why are we using it?
+# https://huggingface.co/transformers/notebooks.html
