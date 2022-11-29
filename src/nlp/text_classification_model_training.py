@@ -16,9 +16,11 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from constants import (
     MODEL_BASE_NAME,
-    MODEL_TC_CHECKPOINTS_DIR, MODEL_MLM_DIR,
+    MODEL_TC_CHECKPOINTS_DIR,
+    MODEL_MLM_DIR,
     MODEL_TC_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
+    MOST_COMMON_WORDS_FILTERED,
 )
 from utils import (
     get_device,
@@ -33,6 +35,90 @@ wandb.init(
     entity="nlp_masterthesis",
     tags=["textclassification"],
 )
+
+from transformers import (
+    AutoTokenizer,
+    EvalPrediction,
+    TrainingArguments,
+    Trainer,
+)
+import numpy as np
+from datasets import load_metric
+
+from transformers.data.data_collator import DataCollatorForLanguageModeling
+
+
+def load_trainer(
+    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    training_args: TrainingArguments,
+    train_ds: Dataset,
+    val_ds: Dataset,
+    tokenizer: AutoTokenizer,
+    modeltype: str,
+) -> Trainer:
+    """
+    Load Trainer for model training
+
+    Parameters
+    ----------
+    model : AutoModelForSequenceClassification
+        Model to train
+    training_args : TrainingArguments
+        Training arguments for model
+    train_ds : Dataset
+        Training dataset
+    val_ds : Dataset
+        Validation dataset
+    tokenizer : AutoTokenizer
+        Tokenizer for data encoding
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    Trainer
+        Trainer with set arguments
+    """
+    if modeltype == "MLM":
+        data_collator = DataCollatorForLanguageModeling(
+            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+        )
+    else:
+        data_collator = None
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_ds,
+        eval_dataset=val_ds,
+        compute_metrics=compute_metrics,
+        data_collator=data_collator,
+        tokenizer=tokenizer,
+    )
+    return trainer
+
+
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
+    """
+    Compute the accuracy of the model for the evaluation dataset
+
+    Parameters
+    ----------
+    eval_pred : EvalPrediction
+        Prediction for evaluation dataset
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    dict[str, float]
+        Accuracy score
+    """
+
+    metric = load_metric("accuracy", average="macro")
+    logits, labels = eval_pred
+    predictions = np.argmax(logits, axis=-1)
+    return metric.compute(predictions=predictions, references=labels)
 
 
 def map_medical_specialty_to_labels(path: str) -> pd.DataFrame:
@@ -73,6 +159,21 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
         train and validation datasets
     """
     dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
+    # remove most common words from list MOST_COMMON_WORDS from transcription
+    # remove most common words from list MOST_COMMON_WORDS from transcription column
+    dataset = dataset.map(
+        lambda x: {
+            "transcription": " ".join(
+                [
+                    word
+                    for word in x["transcription"].split()
+                    if word not in MOST_COMMON_WORDS_FILTERED
+                ]
+            )
+        }
+    )
+    # dataset = dataset.filter(lambda x: x["keywords_list"] not in MOST_COMMON_WORDS)
+
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
     dataset_train_val = dataset_train_test["train"].train_test_split(test_size=0.1)
@@ -170,7 +271,8 @@ def main() -> None:
     """
 
     train_ds, val_ds = load_datasets(
-        os.path.join(MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
+        os.path.join("data", "processed", "nlp", "mtsamples", "mtsamples_cleaned.csv")
+        # MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
     )
 
     tokenizer = load_tokenizer()
@@ -192,13 +294,13 @@ def main() -> None:
         modeltype="sequence_classification",
     )
 
-    last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    if last_checkpoint is None:
-        resume_from_checkpoint = None
-    else:
-        resume_from_checkpoint = True
+    # last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    # if last_checkpoint is None:
+    #    resume_from_checkpoint = None
+    # else:
+    #    resume_from_checkpoint = True
 
-    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train()  # resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(MODEL_TC_DIR)
     trainer.save_state()
 
