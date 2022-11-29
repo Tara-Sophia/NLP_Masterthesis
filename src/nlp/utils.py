@@ -125,7 +125,7 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     """
     training_args = TrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=1,  # 30,
+        num_train_epochs=4,  # 30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
