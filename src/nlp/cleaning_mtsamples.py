@@ -6,17 +6,75 @@ Description:
 
 import os
 
+# import string
+import string
 import nltk
 import pandas as pd
 
-from src.nlp.constants import MTSAMPLES_PROCESSED_PATH_DIR, MTSAMPLES_RAW_PATH_DIR
-from src.nlp.utils import cleaning_input
+from src.nlp.constants import (
+    MTSAMPLES_PROCESSED_PATH_DIR,
+    MTSAMPLES_RAW_PATH_DIR,
+    MOST_COMMON_WORDS_FILTERED,
+)
+
+# from src.nlp.utils import cleaning_input
 
 nltk.download("stopwords")
 nltk.download("punkt")
 
 nltk.download("wordnet")
 nltk.download("omw-1.4")
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+
+def cleaning_input(sentence: str) -> str:
+    """
+    This function cleans the input sentence.
+    Removing stopwords, numbers and punctuation,
+    and lemmatizing the words.
+
+    Parameters
+    ----------
+    sentence : str
+        The sentence to be cleaned.
+
+    Returns
+    -------
+    str
+        The cleaned sentence.
+    """
+
+    # Basic cleaning
+    sentence = sentence.strip()  # Remove whitespaces
+    sentence = sentence.lower()  # Lowercase
+    sentence = "".join(
+        char for char in sentence if not char.isdigit()
+    )  # Remove numbers
+
+    # Advanced cleaning
+    for punctuation in string.punctuation:
+        sentence = sentence.replace(punctuation, "")  # Remove punctuation
+
+    tokenized_sentence = word_tokenize(sentence)  # Rokenize
+    stop_words = set(stopwords.words("english"))  # Define stopwords
+
+    # w not in stop_words and not in handmadestopwords
+    tokenized_sentence = [w for w in tokenized_sentence if w not in stop_words]
+
+    tokenized_sentence_cleaned = [
+        w for w in tokenized_sentence if w not in MOST_COMMON_WORDS_FILTERED
+    ]  # Remove stopwords
+
+    lemmatized = [
+        WordNetLemmatizer().lemmatize(word, pos="v")
+        for word in tokenized_sentence_cleaned
+    ]
+
+    cleaned_sentence = " ".join(word for word in lemmatized)
+
+    return cleaned_sentence
 
 
 def create_df(df: pd.DataFrame) -> pd.DataFrame:
