@@ -23,8 +23,8 @@ from datasets import load_metric
 from transformers import TrainingArguments, Trainer
 
 from constants import (
-    MODEL_MLM_CHECKPOINTS_DIR,
-    MODEL_MLM_DIR,
+    MODEL_MLM_CHECKPOINTS_DIR_MT,
+    MODEL_MLM_DIR_MT,
     MODEL_MLM_NAME,
     MTSAMPLES_PROCESSED_PATH_DIR,
     SEED_SPLIT,
@@ -74,10 +74,9 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
 
     df_mlm = pd.read_csv(data_path)
-
+    df_mlm = df_mlm.dropna()
     # remove most common words
     df_mlm = remove_most_common(df_mlm)
-    df_mlm = df_mlm.dropna()
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
@@ -206,7 +205,7 @@ def load_trainer(
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        compute_metrics=compute_metrics,
+        #compute_metrics=compute_metrics,
         data_collator=data_collator,
         tokenizer=tokenizer,
     )
@@ -229,7 +228,7 @@ def main():
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_MLM_CHECKPOINTS_DIR)
+    training_args = load_training_args(MODEL_MLM_CHECKPOINTS_DIR_MT)
     trainer = load_trainer(
         model,
         training_args,
@@ -239,7 +238,7 @@ def main():
         modeltype="MLM",
     )
     trainer.train()
-    trainer.save_model(MODEL_MLM_DIR)
+    trainer.save_model(MODEL_MLM_DIR_MT)
     trainer.save_state()
 
 

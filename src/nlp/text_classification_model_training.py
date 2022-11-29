@@ -16,9 +16,9 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from constants import (
     MODEL_BASE_NAME,
-    MODEL_TC_CHECKPOINTS_DIR,
+    MODEL_TC_CHECKPOINTS_DIR_MT,
     MODEL_MLM_DIR,
-    MODEL_TC_DIR,
+    MODEL_TC_DIR_MT,
     MTSAMPLES_PROCESSED_PATH_DIR,
     MOST_COMMON_WORDS_FILTERED,
 )
@@ -284,7 +284,7 @@ def main() -> None:
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_TC_CHECKPOINTS_DIR)
+    training_args = load_training_args(MODEL_TC_CHECKPOINTS_DIR_MT)
     trainer = load_trainer(
         model,
         training_args,
@@ -301,7 +301,7 @@ def main() -> None:
     #    resume_from_checkpoint = True
 
     trainer.train()  # resume_from_checkpoint=resume_from_checkpoint)
-    trainer.save_model(MODEL_TC_DIR)
+    trainer.save_model(MODEL_TC_DIR_MT)
     trainer.save_state()
 
 
