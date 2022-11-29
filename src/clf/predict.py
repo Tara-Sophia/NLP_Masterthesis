@@ -10,7 +10,7 @@ Description:
 import pickle
 
 import pandas as pd
-from constants import XGB_MODEL_MASKED
+from constants import LR_MODEL_CLASSIFIED
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
@@ -123,11 +123,11 @@ def main():
     Main function
     """
     # Load model
-    model = pickle.load(open(XGB_MODEL_MASKED, "rb"))
-    model_name = "XGBoost"
+    model = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
+    model_name = "Logistic Regression"
 
     # Predict probability
-    to_pred = "oxygen coronary chest pain"
+    to_pred = "blood sugar high"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
