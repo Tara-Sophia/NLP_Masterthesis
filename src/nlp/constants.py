@@ -30,9 +30,9 @@ MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
 # TEXT CLASSIFICATION MODEL
-MODEL_TC_DIR = os.path.join("models", "nlp", "textclassification", "model")
-MODEL_TC_CHECKPOINTS_DIR = os.path.join(
-    "models", "nlp", "textclassification", "checkpoints"
+MODEL_TC_DIR_MT = os.path.join("models", "nlp", "textclassification_Mtsamples", "model")
+MODEL_TC_CHECKPOINTS_DIR_MT = os.path.join(
+    "models", "nlp", "textclassification_Mtsamples", "checkpoints"
 )
 
 # MASKEED LANGUAGE MODEL
@@ -40,6 +40,13 @@ MODEL_MLM_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "maskedlanguagemodel", "checkpoints"
 )
 MODEL_MLM_DIR = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
+
+# MASKEED LANGUAGE MODEL mtsamples
+MODEL_MLM_CHECKPOINTS_DIR_MT = os.path.join(
+    "models", "nlp", "maskedlanguagemodel_Mtsamples", "checkpoints"
+)
+MODEL_MLM_DIR_MT = os.path.join("models", "nlp", "maskedlanguagemodel_Mtsamples", "model")
+
 
 # HYPERPARAMS
 SEED_SPLIT = 0
