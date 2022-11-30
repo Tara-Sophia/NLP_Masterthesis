@@ -7,18 +7,23 @@ Description:
 import pandas as pd
 from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
-#import stopwords
+
+# import stopwords
 from nltk.corpus import stopwords
-#from nltk.download("stopwords")
+
+# from nltk.download("stopwords")
 from constants import (
     MODEL_MLM_DIR_MT,
     MODEL_TC_DIR_MT,
     MTSAMPLES_FINAL,
-    MTSAMPLES_PROCESSED_CLEANED_DIR,MOST_COMMON_WORDS_FILTERED
+    MTSAMPLES_PROCESSED_CLEANED_DIR,
+    MOST_COMMON_WORDS_FILTERED,
 )
 
 
-def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
+def keyword_extraction(
+    transcriptions, model, nr_candidates, top_n
+) -> list[list[tuple[str, float]]]:
     """
     This function extracts keywords from the input text.
     Parameters
@@ -29,8 +34,8 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
         Path to the model to use for keyword extraction
     Returns
     -------
-    list[str]
-        List of keywords.
+    list[list[tuple[str, float]]]
+        List of list of keywords and weights extracted from the input text
     """
     tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
 
@@ -41,18 +46,16 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
         model=model,
         tokenizer=tokenizer,
     )
-    #stopwords = stopwords.words("english")
-    #stopwords.extend(MOST_COMMON_WORDS_FILTERED)
+    # stopwords = stopwords.words("english")
+    # stopwords.extend(MOST_COMMON_WORDS_FILTERED)
 
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
-        x,
-        # df["transcription"],
+        transcriptions,
         keyphrase_ngram_range=(1, 2),
-        stop_words="english",
         use_maxsum=True,
         nr_candidates=nr_candidates,
-        top_n=top_n,
+        top_n=max(top_n),
         use_mmr=True,
         diversity=0.5,
     )
@@ -74,11 +77,13 @@ def keywords_from_TC_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
         Dataframe with the keywords and weights extracted from the input text
     """
 
+    df["keywords_outcome_weights_TC"] = keyword_extraction(
+        df["transcription"], model, df["nr_candidates"], df["top_n"]
+    )
+
+    # Extract only the top n keywords
     df["keywords_outcome_weights_TC"] = df.apply(
-        lambda x: keyword_extraction(
-            x["transcription"], model, x["nr_candidates"], x["top_n"]
-        ),
-        axis=1,
+        lambda x: x["keywords_outcome_weights_TC"][: x["top_n"]], axis=1
     )
 
     df["transcription_f_TC"] = df["keywords_outcome_weights_TC"].apply(
@@ -101,11 +106,13 @@ def keywords_from_MLM_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
     pd.DataFrame
         Dataframe with the keywords and weights extracted from the input text
     """
+    df["keywords_outcome_weights_MLM"] = keyword_extraction(
+        df["transcription"], model, df["nr_candidates"], df["top_n"]
+    )
+
+    # Extract only the top n keywords
     df["keywords_outcome_weights_MLM"] = df.apply(
-        lambda x: keyword_extraction(
-            x["transcription"], model, x["nr_candidates"], x["top_n"]
-        ),
-        axis=1,
+        lambda x: x["keywords_outcome_weights_MLM"][: x["top_n"]], axis=1
     )
 
     df["transcription_f_MLM"] = df["keywords_outcome_weights_MLM"].apply(
@@ -140,8 +147,11 @@ def small_column_df(df: pd.DataFrame) -> pd.DataFrame:
     """
     df["transcription"] = df["transcription"].str[:512]
     df["transcription"] = df["transcription"].apply(
-         lambda x: " ".join([word for word in x.split() if word not in MOST_COMMON_WORDS_FILTERED]))
-    
+        lambda x: " ".join(
+            [word for word in x.split() if word not in MOST_COMMON_WORDS_FILTERED]
+        )
+    )
+
     return df
 
 
@@ -160,9 +170,11 @@ def calculate_optimal_candidate_nr(text: str) -> int:
         Optimal number of candidates to use for keyword extraction
     """
     nr_words = len(text.split())
-    nr_candidates = int(nr_words * 20 / 100)
-    if nr_candidates > 35:
-        nr_candidates = 35
+    nr_candidates = int(nr_words * 10 / 100)
+    if nr_candidates > 20:
+        nr_candidates = 20
+    elif nr_candidates < 5:
+        nr_candidates = 5
     return nr_candidates
 
 
@@ -180,9 +192,9 @@ def main() -> None:
     # for TC model :
     df_tc = keywords_from_TC_model(df, MODEL_TC_DIR_MT)
     df = pd.concat([df_mlm, df_tc], axis=1)
+    df = df.loc[:, ~df.columns.duplicated()].copy()
     save_dataframe(df)
 
 
-# Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()
