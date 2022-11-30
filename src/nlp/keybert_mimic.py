@@ -7,40 +7,30 @@ Description:
 import pandas as pd
 from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
-from tqdm import tqdm
-from tqdm.notebook import tqdm
-tqdm.pandas()
+
 from constants import (
-    MODEL_MLM_DIR,
-    MODEL_TC_DIR,
+    MODEL_MLM_DIR_MIMIC,
+    # MODEL_TC_DIR_MIMIC,
     MIMIC_FINAL,
     MIMIC_PROCESSED_CLEANED_DIR,
 )
-tqdm.pandas()
-# dont show warnings
-import warnings
-
-warnings.filterwarnings("ignore")
-from dask.distributed import Client
-
-client = Client(n_workers=4)
-import dask
-import dask.dataframe as dd
 
 
-def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
+def keyword_extraction(
+    transcriptions: str, model, nr_candidates: int, top_n: int
+) -> list[tuple]:
     """
     This function extracts keywords from the input text.
     Parameters
     ----------
-    x : str
+    transcriptions : str
         Input sentence.
     model : str
         Path to the model to use for keyword extraction
     Returns
     -------
-    list[str]
-        List of keywords.
+    list[list[tuple[str, float]]]
+        List of list of keywords and weights extracted from the input text
     """
     tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
 
@@ -54,13 +44,12 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
 
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
-        x,
-        # df["transcription"],
+        transcriptions,
         keyphrase_ngram_range=(1, 2),
         stop_words="english",
         use_maxsum=True,
         nr_candidates=nr_candidates,
-        top_n=top_n,
+        top_n=max(top_n),
         use_mmr=True,
         diversity=0.5,
     )
@@ -82,15 +71,17 @@ def keywords_from_TC_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
         Dataframe with the keywords and weights extracted from the input text
     """
 
+    df["keywords_outcome_weights_TC"] = keyword_extraction(
+        df["TEXT_final_cleaned"], model, df["nr_candidates"], df["top_n"]
+    )
+
+    # Extract only the top n keywords
     df["keywords_outcome_weights_TC"] = df.apply(
-        lambda x: keyword_extraction(
-            x["TEXT_final_cleaned"], model, x["nr_candidates"], x["top_n"]
-        ),
-        axis=1,
+        lambda x: x["keywords_outcome_weights_TC"][: x["top_n"]], axis=1
     )
 
     df["transcription_f_TC"] = df["keywords_outcome_weights_TC"].apply(
-        lambda x: [i[0] for i in x]
+        lambda x: [item[0] for item in x]
     )
     return df
 
@@ -109,12 +100,14 @@ def keywords_from_MLM_model(df: pd.DataFrame, model: str) -> pd.DataFrame:
     pd.DataFrame
         Dataframe with the keywords and weights extracted from the input text
     """
-    
-    df["keywords_outcome_weights_MLM"] = df.progress_apply(
-        lambda x: keyword_extraction(
-            x["TEXT_final_cleaned"], model, x["nr_candidates"], x["top_n"]
-        ),
-        axis=1,
+
+    df["keywords_outcome_weights_MLM"] = keyword_extraction(
+        df["TEXT_final_cleaned"], model, df["nr_candidates"], df["top_n"]
+    )
+
+    # Extract only the top n keywords
+    df["keywords_outcome_weights_MLM"] = df.apply(
+        lambda x: x["keywords_outcome_weights_MLM"][: x["top_n"]], axis=1
     )
 
     df["transcription_f_MLM"] = df["keywords_outcome_weights_MLM"].apply(
@@ -167,9 +160,11 @@ def calculate_optimal_candidate_nr(text: str) -> int:
     """
     text = str(text)
     nr_words = len(text.split())
-    nr_candidates = int(nr_words * 20 / 100)
-    if nr_candidates > 35:
-        nr_candidates = 35
+    nr_candidates = int(nr_words * 10 / 100)
+    if nr_candidates > 20:
+        nr_candidates = 20
+    elif nr_candidates < 5:
+        nr_candidates = 5
     return nr_candidates
 
 
@@ -177,30 +172,26 @@ def main() -> None:
     """
     Main function to run the script
     """
-    ddf = dd.read_csv(  # type: ignore
-        MIMIC_PROCESSED_CLEANED_DIR,
-        dtype={"TEXT_final_cleaned": "str"},
-    )
-    # use only small set
-    ddf = ddf.head(1000)
-    ddf = ddf.repartition(npartitions=4)
-    ddf["nr_candidates"] = ddf["TEXT_final_cleaned"].apply(  # type: ignore
-        calculate_optimal_candidate_nr, meta=("nr_candidates", "int")
-    )
-    ddf["top_n"] = ddf["nr_candidates"].apply(
-        lambda x: int(x * 0.5), meta=("top_n", "int")
-    )
-    ddf = ddf.compute()
-    ddf = small_column_df(ddf)
-    ddf_tc = keywords_from_TC_model(ddf, MODEL_TC_DIR)
-    ddf_mlm = keywords_from_MLM_model(ddf, MODEL_MLM_DIR)
-    # concatenate  the two dataframes
-    ddf_final = pd.concat([ddf_tc, ddf_mlm], axis=1)
+    df_large_column = pd.read_csv(MIMIC_PROCESSED_CLEANED_DIR)
+    df = small_column_df(df_large_column)
+    df["nr_candidates"] = df["TEXT_final_cleaned"].apply(calculate_optimal_candidate_nr)
+
+    # Top n keywords to extract
+    df["top_n"] = df["nr_candidates"].apply(lambda x: round(x * 0.5))
+
+    # MLM model
+    df_mlm = keywords_from_MLM_model(df, MODEL_MLM_DIR_MIMIC)
+
+    # TC model
+    df_tc = keywords_from_TC_model(df, "models/nlp/textclassification/model")
+    
+    # Concat both models
+    df = pd.concat([df_mlm, df_tc], axis=1)
+    df = df.loc[:, ~df.columns.duplicated()].copy()
+
     # save
-    save_dataframe(ddf_final)
+    save_dataframe(df)
 
 
-
-# Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()
