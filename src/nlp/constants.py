@@ -12,20 +12,21 @@ PATIENT_NOTES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "patient_notes")
 
 # PROCESSED DATA NLP
 NLP_PROCESSED_PATH_DIR = os.path.join("data", "processed", "nlp", "mtsamples")
-MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples")
 PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "patient_notes")
 MTSAMPLES_PROCESSED_CLEANED_DIR = os.path.join(
     NLP_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
 )
-MTSAMPLES_FINAL = os.path.join(
-    MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_finaloutput.csv"
-)
+
+# MTSAMPLES AND MIMIC AFTER KEYBERT
+MTSAMPLES_FINAL = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples_finaloutput.csv")
 MIMIC_FINAL = os.path.join("data", "processed", "mimic_iii", "mimic_final.csv")
+
+
 MIMIC_PROCESSED_CLEANED_DIR = os.path.join(
     "data", "processed", "mimic_iii", "diagnoses_noteevents_cleaned.csv"
 )
 
-
+# MODELS
 MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
 
@@ -45,7 +46,9 @@ MODEL_MLM_DIR = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
 MODEL_MLM_CHECKPOINTS_DIR_MT = os.path.join(
     "models", "nlp", "maskedlanguagemodel_Mtsamples", "checkpoints"
 )
-MODEL_MLM_DIR_MT = os.path.join("models", "nlp", "maskedlanguagemodel_Mtsamples", "model")
+MODEL_MLM_DIR_MT = os.path.join(
+    "models", "nlp", "maskedlanguagemodel_Mtsamples", "model"
+)
 
 
 # HYPERPARAMS
