@@ -28,7 +28,7 @@ def keyword_extraction(
     This function extracts keywords from the input text.
     Parameters
     ----------
-    x : str
+    transcriptions : str
         Input sentence.
     model : str
         Path to the model to use for keyword extraction
