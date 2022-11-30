@@ -9,10 +9,19 @@ import pickle
 import numpy as np
 import pandas as pd
 from constants import (
-    LR_MODEL_CLASSIFIED,
-    LR_MODEL_MASKED,
-    XGB_MODEL_MASKED,
-    SVM_MODEL_MASKED,
+    LR_MT_CLASSIFIED,
+    LR_MT_MASKED,
+    # später rausnehmen
+    LR_CLASSIFIED_ONE_WORD,
+    LR_MASKED_ONE_WORD,
+    RF_MT_CLASSIFIED,
+    RF_MT_MASKED,
+    DT_MT_CLASSIFIED,
+    DT_MT_MASKED,
+    SVM_MT_CLASSIFIED,
+    SVM_MT_MASKED,
+    XGB_MT_CLASSIFIED,
+    XGB_MT_MASKED,
     TEST_DATA_DIR,
 )
 from imblearn.pipeline import Pipeline
@@ -158,32 +167,37 @@ def main():
     X_test, y_test = load_data(TEST_DATA_DIR)
 
     # Load models
-    lr_model_classified = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
-    lr_model_masked = pickle.load(open(LR_MODEL_MASKED, "rb"))
-    # lr_model_mimic = pickle.load(open(LR_MODEL_MIMIC, "rb"))
+    lr_mt_classified = pickle.load(open(LR_MT_CLASSIFIED, "rb"))
+    lr_mt_masked = pickle.load(open(LR_MT_MASKED, "rb"))
+    # lr_classified_one_word = pickle.load(open(LR_CLASSIFIED_ONE_WORD, "rb"))
+    # lr_masked_one_word = pickle.load(open(LR_MASKED_ONE_WORD, "rb"))
 
-    # rf_model_classified = pickle.load(open(RF_MODEL_CLASSIFIED, "rb"))
-    # rf_model_masked = pickle.load(open(RF_MODEL_MASKED, "rb"))
-    # rf_model_mimic = pickle.load(open(RF_MODEL_MIMIC, "rb"))
+    # rf_mt_classified = pickle.load(open(RF_MT_CLASSIFIED, "rb"))
+    # rf_mt_masked = pickle.load(open(RF_MT_MASKED, "rb"))
 
-    # dt_model_classified = pickle.load(open(DT_MODEL_CLASSIFIED, "rb"))
-    # dt_model_masked = pickle.load(open(DT_MODEL_MASKED, "rb"))
-    # dt_model_mimic = pickle.load(open(DT_MODEL_MIMIC, "rb"))
+    # dt_mt_classified = pickle.load(open(DT_MT_CLASSIFIED, "rb"))
+    # dt_mt_masked = pickle.load(open(DT_MT_MASKED, "rb"))
 
-    # svm_model_classified = pickle.load(open(SVM_MODEL_CLASSIFIED, "rb"))
-    svm_model_masked = pickle.load(open(SVM_MODEL_MASKED, "rb"))
-    # svm_model_mimic = pickle.load(open(LVM_MODEL_MIMIC, "rb"))
+    # svm_mt_classified = pickle.load(open(SVM_MT_CLASSIFIED, "rb"))
+    # svm_mt_masked = pickle.load(open(SVM_MT_MASKED, "rb"))
 
-    # xgb_model_classified = pickle.load(open(XGB_MODEL_CLASSIFIED, "rb"))
-    xgb_model_masked = pickle.load(open(XGB_MODEL_MASKED, "rb"))
-    # xgb_model_mimic = pickle.load(open(XGB_MODEL_MIMIC, "rb"))
+    # xgb_mt_classified = pickle.load(open(XGB_MT_CLASSIFIED, "rb"))
+    # xgb_mt_masked = pickle.load(open(XGB_MT_MASKED, "rb"))
 
     # evaluate model and print results for each model in dataframe
     models = [
-        ("Logistic Regression (classified)", lr_model_classified),
-        ("Logistic Regression (masked)", lr_model_masked),
-        ("Support Vector Machine (masked)", svm_model_masked),
-        ("XGBoost (masked)", xgb_model_masked),
+        ("Logistic Regression (classified)", lr_mt_classified),
+        ("Logistic Regression (masked)", lr_mt_masked),
+        # ("Logistic Regression (one word)", lr_classified_one_word),
+        # ("Logistic Regression (one word)", lr_masked_one_word),
+        # ("Random Forest (classified)", rf_mt_classified),
+        # ("Random Forest (masked)", rf_mt_masked),
+        # ("Decision Tree (classified)", dt_mt_classified),
+        # ("Decision Tree (masked)", dt_mt_masked),
+        # ("SVM (classified)", svm_mt_classified),
+        # ("SVM (masked)", svm_mt_masked),
+        # ("XGBoost (classified)", xgb_mt_classified),
+        # ("XGBoost (masked)", xgb_model_masked),
     ]
 
     results = []
@@ -194,7 +208,7 @@ def main():
         mrr = compute_mrr_at_k(eval_items)
         results.append((name, accuracy, mrr))
 
-    df = pd.DataFrame(results, columns=["Model", "Accuracy @3", "MRR@3"])
+    df = pd.DataFrame(results, columns=["Model", "Accuracy@3", "MRR@3"])
     print(df)
 
 
