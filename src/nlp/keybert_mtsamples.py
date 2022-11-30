@@ -7,12 +7,14 @@ Description:
 import pandas as pd
 from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
-
-from src.nlp.constants import (
-    MODEL_MLM_DIR,
-    MODEL_TC_DIR,
+#import stopwords
+from nltk.corpus import stopwords
+#from nltk.download("stopwords")
+from constants import (
+    MODEL_MLM_DIR_MT,
+    MODEL_TC_DIR_MT,
     MTSAMPLES_FINAL,
-    MTSAMPLES_PROCESSED_CLEANED_DIR,
+    MTSAMPLES_PROCESSED_CLEANED_DIR,MOST_COMMON_WORDS_FILTERED
 )
 
 
@@ -39,6 +41,8 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
         model=model,
         tokenizer=tokenizer,
     )
+    #stopwords = stopwords.words("english")
+    #stopwords.extend(MOST_COMMON_WORDS_FILTERED)
 
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
@@ -135,6 +139,9 @@ def small_column_df(df: pd.DataFrame) -> pd.DataFrame:
         Dataframe with the transcription column smaller than 512 tokens
     """
     df["transcription"] = df["transcription"].str[:512]
+    df["transcription"] = df["transcription"].apply(
+         lambda x: " ".join([word for word in x.split() if word not in MOST_COMMON_WORDS_FILTERED]))
+    
     return df
 
 
@@ -169,9 +176,9 @@ def main() -> None:
     # top n keywords to extract
     df["top_n"] = df["nr_candidates"].apply(lambda x: round(x * 0.5))
     # for MLM model :
-    df_mlm = keywords_from_MLM_model(df, MODEL_MLM_DIR)
+    df_mlm = keywords_from_MLM_model(df, MODEL_MLM_DIR_MT)
     # for TC model :
-    df_tc = keywords_from_TC_model(df, MODEL_TC_DIR)
+    df_tc = keywords_from_TC_model(df, MODEL_TC_DIR_MT)
     df = pd.concat([df_mlm, df_tc], axis=1)
     save_dataframe(df)
 
