@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import LR_MODEL_CLASSIFIED, TRAIN_DATA_DIR
+from constants import LR_MT_MASKED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
@@ -104,10 +104,7 @@ def grid_search(
         best model
     """
     search = GridSearchCV(
-        model_pipeline,
-        param_grid,
-        cv=5,
-        scoring=custom_accuracy_function,
+        model_pipeline, param_grid, cv=5, scoring=custom_accuracy_function, verbose=2
     )
     search.fit(X_train, y_train)
     print("Best parameters:", search.best_params_)
@@ -145,7 +142,7 @@ def main():
     )
 
     # Save Model
-    pickle.dump(best_model, open(LR_MODEL_CLASSIFIED, "wb"))
+    pickle.dump(best_model, open(LR_MT_MASKED, "wb"))
 
 
 if __name__ == "__main__":

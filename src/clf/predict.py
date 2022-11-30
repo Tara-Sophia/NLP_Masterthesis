@@ -8,9 +8,10 @@ Description:
 """
 
 import pickle
-
+import os
 import pandas as pd
-from constants import LR_MODEL_CLASSIFIED
+
+# from constants import DT_MT_MASKED
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
@@ -85,14 +86,14 @@ def feat_imp(model: Pipeline) -> pd.DataFrame:
     return feat_df
 
 
-def lime_explainer(model: Pipeline, value: str):
+def lime_explainer(model: Pipeline, input: str):
     """
     Get features the model used for top predicted classes
     Parameters
     ----------
     model : imblearn.pipeline.Pipeline
         best model from train.py
-    value : str
+    input : str
         sample
     Returns
     -------
@@ -100,9 +101,9 @@ def lime_explainer(model: Pipeline, value: str):
         Features from sample the model used to predict classes
     """
     explainer = LimeTextExplainer(class_names=model.classes_)
-    num_features = len(value.split())
+    num_features = len(input.split())
     exp = explainer.explain_instance(
-        value,
+        input,
         model.predict_proba,
         num_features=num_features,
         top_labels=3,
@@ -110,7 +111,7 @@ def lime_explainer(model: Pipeline, value: str):
     feat_importance = exp.as_map()
     feat_importance = {model.classes_[k]: v for k, v in feat_importance.items()}
     feat_importance = {
-        k: [(value.split()[i], v) for i, v in v] for k, v in feat_importance.items()
+        k: [(input.split()[i], v) for i, v in v] for k, v in feat_importance.items()
     }
     feat_importance_pos = {
         k: [v for v in v if v[1] > 0] for k, v in feat_importance.items()
@@ -123,11 +124,13 @@ def main():
     Main function
     """
     # Load model
-    model = pickle.load(open(LR_MODEL_CLASSIFIED, "rb"))
-    model_name = "Logistic Regression"
+    model = pickle.load(
+        open(os.path.join("models", "clf", "xgb_model_masked.pkl"), "rb")
+    )
+    model_name = "XGB Model"
 
     # Predict probability
-    to_pred = "blood sugar high"
+    to_pred = "blood pressuer high"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
