@@ -11,9 +11,6 @@ import pandas as pd
 from constants import (
     LR_MT_CLASSIFIED,
     LR_MT_MASKED,
-    # später rausnehmen
-    LR_CLASSIFIED_ONE_WORD,
-    LR_MASKED_ONE_WORD,
     RF_MT_CLASSIFIED,
     RF_MT_MASKED,
     DT_MT_CLASSIFIED,
@@ -167,8 +164,8 @@ def main():
     X_test, y_test = load_data(TEST_DATA_DIR)
 
     # Load models
-    lr_mt_classified = pickle.load(open(LR_MT_CLASSIFIED, "rb"))
-    lr_mt_masked = pickle.load(open(LR_MT_MASKED, "rb"))
+    # lr_mt_classified = pickle.load(open(LR_MT_CLASSIFIED, "rb"))
+    # lr_mt_masked = pickle.load(open(LR_MT_MASKED, "rb"))
     # lr_classified_one_word = pickle.load(open(LR_CLASSIFIED_ONE_WORD, "rb"))
     # lr_masked_one_word = pickle.load(open(LR_MASKED_ONE_WORD, "rb"))
 
@@ -176,7 +173,7 @@ def main():
     # rf_mt_masked = pickle.load(open(RF_MT_MASKED, "rb"))
 
     # dt_mt_classified = pickle.load(open(DT_MT_CLASSIFIED, "rb"))
-    # dt_mt_masked = pickle.load(open(DT_MT_MASKED, "rb"))
+    dt_mt_masked = pickle.load(open(DT_MT_MASKED, "rb"))
 
     # svm_mt_classified = pickle.load(open(SVM_MT_CLASSIFIED, "rb"))
     # svm_mt_masked = pickle.load(open(SVM_MT_MASKED, "rb"))
@@ -186,14 +183,14 @@ def main():
 
     # evaluate model and print results for each model in dataframe
     models = [
-        ("Logistic Regression (classified)", lr_mt_classified),
-        ("Logistic Regression (masked)", lr_mt_masked),
+        # ("Logistic Regression (classified)", lr_mt_classified),
+        # ("Logistic Regression (masked)", lr_mt_masked),
         # ("Logistic Regression (one word)", lr_classified_one_word),
         # ("Logistic Regression (one word)", lr_masked_one_word),
         # ("Random Forest (classified)", rf_mt_classified),
         # ("Random Forest (masked)", rf_mt_masked),
         # ("Decision Tree (classified)", dt_mt_classified),
-        # ("Decision Tree (masked)", dt_mt_masked),
+        ("Decision Tree (masked)", dt_mt_masked),
         # ("SVM (classified)", svm_mt_classified),
         # ("SVM (masked)", svm_mt_masked),
         # ("XGBoost (classified)", xgb_mt_classified),

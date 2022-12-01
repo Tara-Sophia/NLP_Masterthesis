@@ -24,6 +24,7 @@ RAW_DATA_DIR_MT = os.path.join(
 # )
 
 # columns
+X_ORIGINAL = "keywords_list"
 X_MASKED = "transcription_f_MLM"
 X_CLASSIFIED = "transcription_f_TC"
 
@@ -36,11 +37,6 @@ TEST_DATA_DIR = os.path.join("data", "processed", "clf", "test.csv")
 # path to models
 LR_MT_MASKED = os.path.join("models", "clf", "lr_mt_masked.pkl")
 LR_MT_CLASSIFIED = os.path.join("models", "clf", "lr_mt_classified.pkl")
-
-# nachher wieder rausnehmen
-LR_MASKED_ONE_WORD = os.path.join("models", "clf", "lr_masked_one_word.pkl")
-LR_CLASSIFIED_ONE_WORD = os.path.join("models", "clf", "lr_classified_one_word.pkl")
-
 LR_MIMIC_MASKED = os.path.join("models", "clf", "lr_mimic_masked.pkl")
 LR_MIMIC_CLASSIFIED = os.path.join("models", "clf", "lr_mimic_classified.pkl")
 
