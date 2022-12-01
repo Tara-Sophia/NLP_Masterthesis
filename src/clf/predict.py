@@ -11,7 +11,7 @@ import pickle
 import os
 import pandas as pd
 
-# from constants import DT_MT_MASKED
+from constants import DT_MT_MASKED
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
@@ -124,13 +124,11 @@ def main():
     Main function
     """
     # Load model
-    model = pickle.load(
-        open(os.path.join("models", "clf", "xgb_model_masked.pkl"), "rb")
-    )
-    model_name = "XGB Model"
+    model = pickle.load(open(DT_MT_MASKED, "rb"))
+    model_name = "Decision Tree"
 
     # Predict probability
-    to_pred = "blood pressuer high"
+    to_pred = "broken arm leg blood surgery"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 

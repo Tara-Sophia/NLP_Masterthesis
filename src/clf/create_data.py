@@ -9,7 +9,7 @@ import ast
 import os
 
 import pandas as pd
-from constants import RAW_DATA_DIR_MT, X_CLASSIFIED, X_MASKED
+from constants import RAW_DATA_DIR_MT, X_CLASSIFIED, X_MASKED, X_ORIGINAL
 from sklearn.model_selection import train_test_split
 
 
@@ -65,7 +65,7 @@ def main():
     """
     # Load data
     df = pd.read_csv(RAW_DATA_DIR_MT)
-    df = transform_column(df, X_MASKED)
+    df = transform_column(df, X_ORIGINAL)
 
     # Split data into train and test
     X_train, X_test, y_train, y_test = train_test_split(
