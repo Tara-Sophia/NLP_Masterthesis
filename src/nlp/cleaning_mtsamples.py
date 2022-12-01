@@ -11,7 +11,7 @@ import string
 import nltk
 import pandas as pd
 
-from src.nlp.constants import (
+from constants import (
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
     MOST_COMMON_WORDS_FILTERED,
@@ -49,13 +49,14 @@ def cleaning_input(sentence: str) -> str:
     # Basic cleaning
     sentence = sentence.strip()  # Remove whitespaces
     sentence = sentence.lower()  # Lowercase
+
     sentence = "".join(
-        char for char in sentence if not char.isdigit()
+        [char for char in sentence if not char.isdigit()]
     )  # Remove numbers
 
     # Advanced cleaning
     for punctuation in string.punctuation:
-        sentence = sentence.replace(punctuation, "")  # Remove punctuation
+        sentence = sentence.replace(punctuation, " ")  # Remove punctuation
 
     tokenized_sentence = word_tokenize(sentence)  # Rokenize
     stop_words = set(stopwords.words("english"))  # Define stopwords
@@ -73,6 +74,8 @@ def cleaning_input(sentence: str) -> str:
     ]
 
     cleaned_sentence = " ".join(word for word in lemmatized)
+    # replace multiple spaces with one
+    cleaned_sentence = cleaned_sentence.replace("  ", " ")
 
     return cleaned_sentence
 
@@ -152,15 +155,15 @@ def save_df(df: pd.DataFrame, path: str) -> None:
     path : str
         The path of the directory where the dataframe will be saved.
     """
-    create_dir(path)
-    df.to_csv(os.path.join(path, "mtsamples_cleaned.csv"), index=False)
+    # create_dir(path)
+    df.to_csv(path, index=False)
 
 
 def main() -> None:
     """
     Main function
     """
-
+    # read the raw data
     df = pd.read_csv(os.path.join(MTSAMPLES_RAW_PATH_DIR, "mtsamples.csv"))
     df = create_df(df)
     df = top_classes(df)
