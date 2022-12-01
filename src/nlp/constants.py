@@ -5,58 +5,49 @@ Description:
 """
 import os
 
-# RAW DATA NLP
+# NLP MTSAMPLES
+# raw data
 NLP_RAW_PATH_DIR = os.path.join("data", "raw", "nlp")
 MTSAMPLES_RAW_PATH_DIR = os.path.join(NLP_RAW_PATH_DIR, "mtsamples")
 
-# PROCESSED DATA NLP MTSAMPLES
-NLP_PROCESSED_PATH_DIR_MTSAMPLES = os.path.join("data", "processed", "nlp", "mtsamples")
-PATIENT_NOTES_PROCESSED_PATH_DIR = os.path.join(
-    NLP_PROCESSED_PATH_DIR_MTSAMPLES, "patient_notes"
+# processed
+NLP_PROCESSED_PATH_DIR = os.path.join("data", "processed", "nlp", "mtsamples")
+MTSAMPLES_PROCESSED_PATH_DIR = os.path.join(
+    NLP_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv"
 )
-MTSAMPLES_PROCESSED_CLEANED_DIR = os.path.join(
-    NLP_PROCESSED_PATH_DIR_MTSAMPLES, "mtsamples_cleaned.csv"
-)
+# outcome
+MTSAMPLES_TC_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples_TC.csv")
+MTSAMPLES_MLM_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples_MLM.csv")
 
-# PROCESSED DATA NLP MIMIC
-NLP_PROCESSED_PATH_DIR_MIMIC = os.path.join("data", "processed", "nlp", "mimic")
-
-# MTSAMPLES AND MIMIC AFTER KEYBERT
-MTSAMPLES_FINAL = os.path.join(
-    NLP_PROCESSED_PATH_DIR_MTSAMPLES, "mtsamples_finaloutput.csv"
-)
-MIMIC_FINAL = os.path.join(NLP_PROCESSED_PATH_DIR_MIMIC, "mimic_finaloutput.csv")
-
-
+# NLP MIMIC
+MIMIC_FINAL = os.path.join("data", "processed", "mimic_iii", "mimic_final.csv")
 MIMIC_PROCESSED_CLEANED_DIR = os.path.join(
     "data", "processed", "mimic_iii", "diagnoses_noteevents_cleaned.csv"
 )
 
-# MODELS
-MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
-MODEL_MLM_NAME = "emilyalsentzer/Bio_ClinicalBERT"
-
-
-# TEXT CLASSIFICATION MODEL MTSAMPLES
-MODEL_TC_DIR_MT = os.path.join("models", "nlp", "textclassification_Mtsamples", "model")
-MODEL_TC_CHECKPOINTS_DIR_MT = os.path.join(
+# MODEL MTSAMPLES
+# Masked Language Model
+MODEL_MLM_MT_DIR = os.path.join(
+    "models", "nlp", "maskedlanguagemodel_Mtsamples", "model"
+)
+MODEL_MLM_MT_CHECKPOINTS_DIR = os.path.join(
+    "models", "nlp", "maskedlanguagemodel_Mtsamples", "checkpoints"
+)
+# Text Classification
+# TEXT CLASSIFICATION MODEL
+MODEL_TC_MT_DIR = os.path.join("models", "nlp", "textclassification_Mtsamples", "model")
+MODEL_TC_MT_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "textclassification_Mtsamples", "checkpoints"
 )
 
-# MASKED LANGUAGE MODEL MIMIC
-MODEL_MLM_CHECKPOINTS_DIR_MIMIC = os.path.join(
+MODEL_BASE_NAME = "emilyalsentzer/Bio_ClinicalBERT"
+
+# MIMIC MODEL
+# MASKEED LANGUAGE MODEL
+MODEL_MLM_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "maskedlanguagemodel", "checkpoints"
 )
-MODEL_MLM_DIR_MIMIC = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
-
-# MASKEED LANGUAGE MODEL MTSAMPLES
-MODEL_MLM_CHECKPOINTS_DIR_MT = os.path.join(
-    "models", "nlp", "maskedlanguagemodel_Mtsamples", "checkpoints"
-)
-MODEL_MLM_DIR_MT = os.path.join(
-    "models", "nlp", "maskedlanguagemodel_Mtsamples", "model"
-)
-
+MODEL_MLM_DIR = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
 
 # HYPERPARAMS
 SEED_SPLIT = 0
