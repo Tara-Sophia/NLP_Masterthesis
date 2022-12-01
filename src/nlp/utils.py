@@ -48,7 +48,7 @@ from constants import (
 # list(common_words_sorted_df.word)[:150]
 
 
-def cleaning_input(sentence: str) -> str:
+def cleaning_input(sentence: str, handmadestopwords: list[str]) -> str:
     """
     This function cleans the input sentence.
     Removing stopwords, numbers and punctuation,
@@ -64,7 +64,6 @@ def cleaning_input(sentence: str) -> str:
     str
         The cleaned sentence.
     """
-
     # Basic cleaning
     sentence = sentence.strip()  # Remove whitespaces
     sentence = sentence.lower()  # Lowercase
@@ -108,6 +107,8 @@ def get_device() -> torch.device:
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+
+
 def load_training_args(output_dir: str) -> TrainingArguments:
     """
     Load training arguments
@@ -124,15 +125,15 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     """
     training_args = TrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=4,  # 30,
+        num_train_epochs=10,  # 30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
         per_device_eval_batch_size=EVAL_BATCH_SIZE,
         warmup_steps=LR_WARMUP_STEPS,
         save_total_limit=1,
-        # fp16=True,
-        # fp16_full_eval=True,
+        fp16=True, 
+        fp16_full_eval=True,
         weight_decay=WEIGHT_DECAY,
         learning_rate=LEARNING_RATE,
         evaluation_strategy="epoch",
@@ -142,7 +143,7 @@ def load_training_args(output_dir: str) -> TrainingArguments:
         greater_is_better=False,
         seed=SEED_TRAIN,
         report_to="wandb",
-        eval_accumulation_steps=10,  # , gradient_checkpointing=True
+        eval_accumulation_steps=10 #, gradient_checkpointing=True
     )
     return training_args
 
