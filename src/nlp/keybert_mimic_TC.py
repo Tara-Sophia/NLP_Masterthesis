@@ -9,9 +9,9 @@ from transformers import AutoTokenizer, pipeline
 
 from src.nlp.constants import (
     # MODEL_MLM_DIR,
-    MTSAMPLES_TC_DIR,
-    MTSAMPLES_PROCESSED_PATH_DIR,
-    MODEL_TC_MT_DIR,
+    MODEL_TC_MIMIC_DIR,
+    MIMIC_PROCESSED_CLEANED_DIR,
+    MIMIC_TC_DIR,
 )
 
 
@@ -38,25 +38,20 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
         model=model,
         tokenizer=tokenizer,
     )
-
     kw_model = KeyBERT(model=hf_model)
     keywords = kw_model.extract_keywords(
         x,
         keyphrase_ngram_range=(1, 1),
-        # ngram means the number of words in a keyword (1 means 1 word, 2 means 2 words). we used 1 because we want to extract single words the reasin is
         stop_words="english",
         use_maxsum=True,
         nr_candidates=nr_candidates,
         top_n=max(top_n),
         use_mmr=True,
         diversity=0.5,
-        # diversity means that the keywords should be different from each other. The higher the diversity, the more different the keywords are. The default value is 0.7.
-        # we used 0.5 because we want to have more keywords that are similar to each other  (e.g. "heart failure" and "heart failure symptoms")
     )
     return keywords
 
 
-# extract keywords from transcription column and create new column with keywords
 def keywords_from_model(
     df: pd.DataFrame, model: str, input_column_name: str, output_column_name: str
 ) -> pd.DataFrame:
@@ -137,20 +132,22 @@ def main() -> None:
     """
     Main function to run the script
     """
-    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_PATH_DIR)
-
-    # apply function to make column smaller than 512
-    df = small_column_df(df_large_column, "transcription")
-
-    df["nr_candidates"] = df["transcription"].apply(calculate_optimal_candidate_nr)
+    df_large_column = pd.read_csv(MIMIC_PROCESSED_CLEANED_DIR)
+    # drop nan values
+    df_large_column = df_large_column.dropna(subset=["TEXT_final_cleaned"]).reset_index(
+        drop=True
+    )
+    df = small_column_df(df_large_column, "TEXT_final_cleaned")
+    df["nr_candidates"] = df["TEXT_final_cleaned"].apply(calculate_optimal_candidate_nr)
 
     # Top n keywords to extract
     df["top_n"] = df["nr_candidates"].apply(lambda x: round(x * 0.7))
+    # df["TEXT_final_cleaned"] = df["TEXT_final_cleaned"].astype(str)
     df_tc = keywords_from_model(
-        df, MODEL_TC_MT_DIR, "transcription", "transcription_f_TC"
+        df, MODEL_TC_MIMIC_DIR, "TEXT_final_cleaned", "healthrecord_f_TC"
     )
 
-    save_dataframe(df_tc, MTSAMPLES_TC_DIR)
+    save_dataframe(df_tc, MIMIC_TC_DIR)
 
 
 # Path: src/Keyword_Bert_Training.py
