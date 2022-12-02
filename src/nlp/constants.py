@@ -20,7 +20,9 @@ MTSAMPLES_TC_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples_TC.csv")
 MTSAMPLES_MLM_DIR = os.path.join(NLP_PROCESSED_PATH_DIR, "mtsamples_MLM.csv")
 
 # NLP MIMIC
-MIMIC_FINAL = os.path.join("data", "processed", "mimic_iii", "mimic_final.csv")
+MIMIC_TC_DIR = os.path.join("data", "processed", "mimic_iii", "mimic_TC.csv")
+MIMIC_MLM_DIR = os.path.join("data", "processed", "mimic_iii", "mimic_MLM.csv")
+
 MIMIC_PROCESSED_CLEANED_DIR = os.path.join(
     "data", "processed", "mimic_iii", "diagnoses_noteevents_cleaned.csv"
 )
@@ -48,6 +50,13 @@ MODEL_MLM_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "maskedlanguagemodel", "checkpoints"
 )
 MODEL_MLM_DIR = os.path.join("models", "nlp", "maskedlanguagemodel", "model")
+
+
+# textclassification model
+MODEL_TC_MIMIC_CHECKPOINTS_DIR = os.path.join(
+    "models", "nlp", "textclassification", "checkpoints"
+)
+MODEL_TC_MIMIC_DIR = os.path.join("models", "nlp", "textclassification", "model")
 
 # HYPERPARAMS
 SEED_SPLIT = 0

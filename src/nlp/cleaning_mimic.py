@@ -91,7 +91,7 @@ def clean_text(text: str) -> str:
     # Removing prefixed 'b'
     document = re.sub(r"^b\s+", "", document)
     # Remove digits
-    document = re.sub(r"\d+", "", document)
+    document = re.sub(r"\d+", " ", document)
     # Remove everything in brackets
     document = re.sub(r"\[[^]]*\]", "", document)
     # Filter out stop words
