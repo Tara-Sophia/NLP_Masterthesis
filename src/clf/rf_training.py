@@ -132,8 +132,6 @@ def main():
         {
             "clf__max_depth": range(1, 20),
             "clf__max_features": ["sqrt", 0.3],
-            # "clf__min_samples_leaf": np.linspace(0.1, 0.5, 5, endpoint=True),
-            # "clf__min_samples_split": np.linspace(0.1, 1.0, 10, endpoint=True),
             "clf__criterion": ["gini", "entropy"],
         }
     ]

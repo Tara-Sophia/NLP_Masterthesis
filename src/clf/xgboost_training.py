@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import XGB_MT_CLASSIFIED, TRAIN_DATA_DIR
+from constants import XGB_MT_MASKED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 
 # need to install older version of xgboost for this to work
@@ -140,7 +140,7 @@ def main():
     )
 
     # Save Model
-    pickle.dump(best_model, open(XGB_MT_CLASSIFIED, "wb"))
+    pickle.dump(best_model, open(XGB_MT_MASKED, "wb"))
 
 
 if __name__ == "__main__":

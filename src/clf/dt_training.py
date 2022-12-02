@@ -119,11 +119,14 @@ def main():
     # Load train data
     X_train, y_train = load_data(TRAIN_DATA_DIR)
 
+    # show row with nan values in X_train
+    print(X_train[X_train.isna()])
+
     # Build pipeline
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
-    # fit model (without grid search)
+    # # fit model (without grid search)
     # model = model_pipeline.fit(X_train, y_train)
 
     # fit model with grid search
