@@ -6,15 +6,25 @@ Description:
 """
 import os
 
-# path to data (current NLP output for MT Samples)
-RAW_DATA_DIR_MT = os.path.join(
+# path to data MT Samples TC
+RAW_DATA_DIR_MT_TC = os.path.join(
     "data",
     "processed",
     "nlp",
     "mtsamples",
-    "mtsamples_finaloutput.csv",
+    "mtsamples_TC.csv",
 )
 
+# path to data MT Samples MLM
+RAW_DATA_DIR_MT_MLM = os.path.join(
+    "data",
+    "processed",
+    "nlp",
+    "mtsamples",
+    "mtsamples_MLM.csv",
+)
+
+# path to data MT SAMPLES MIMIC
 # RAW_DATA_DIR_MIMIC = os.path.join(
 #     "data",
 #     "processed",
@@ -24,7 +34,6 @@ RAW_DATA_DIR_MT = os.path.join(
 # )
 
 # columns
-X_ORIGINAL = "keywords_list"
 X_MASKED = "transcription_f_MLM"
 X_CLASSIFIED = "transcription_f_TC"
 

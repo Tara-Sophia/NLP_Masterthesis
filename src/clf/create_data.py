@@ -9,7 +9,7 @@ import ast
 import os
 
 import pandas as pd
-from constants import RAW_DATA_DIR_MT, X_CLASSIFIED, X_MASKED, X_ORIGINAL
+from constants import RAW_DATA_DIR_MT_TC, X_CLASSIFIED, X_MASKED
 from sklearn.model_selection import train_test_split
 
 
@@ -56,6 +56,7 @@ def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
     df["keywords"] = df[column_name].apply(lambda x: " ".join(x))
     print(df.keywords.head())
+    print(type(df.keywords[0]))
     return df
 
 
@@ -64,8 +65,8 @@ def main():
     Main function
     """
     # Load data
-    df = pd.read_csv(RAW_DATA_DIR_MT)
-    df = transform_column(df, X_ORIGINAL)
+    df = pd.read_csv(RAW_DATA_DIR_MT_TC)
+    df = transform_column(df, X_CLASSIFIED)
 
     # Split data into train and test
     X_train, X_test, y_train, y_test = train_test_split(
@@ -78,6 +79,7 @@ def main():
     # Save data as csv
     train_df = pd.DataFrame({"keywords": X_train, "medical_specialty": y_train})
     test_df = pd.DataFrame({"keywords": X_test, "medical_specialty": y_test})
+
     train_df.to_csv(
         os.path.join("data", "processed", "clf", "train.csv"),
         index=False,

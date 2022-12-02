@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import SVM_MT_CLASSIFIED, TRAIN_DATA_DIR
+from constants import SVM_MT_MASKED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV, ParameterGrid
@@ -139,7 +139,7 @@ def main():
     )
 
     # Save Model
-    pickle.dump(best_model, open(SVM_MT_CLASSIFIED, "wb"))
+    pickle.dump(best_model, open(SVM_MT_MASKED, "wb"))
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ import pickle
 import os
 import pandas as pd
 
-from constants import DT_MT_MASKED
+from constants import SVM_MT_CLASSIFIED
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
@@ -124,24 +124,24 @@ def main():
     Main function
     """
     # Load model
-    model = pickle.load(open(DT_MT_MASKED, "rb"))
-    model_name = "Decision Tree"
+    model = pickle.load(open(SVM_MT_CLASSIFIED, "rb"))
+    model_name = "Support Vector Machine"
 
     # Predict probability
-    to_pred = "broken arm leg blood surgery"
+    to_pred = "heart racing chest pain"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
-    if model_name == "Logistic Regression":
-        # Get top symptoms
-        top_symptoms_df = top_symptoms(model)
-        print(type(top_symptoms_df[0]))
-        print(top_symptoms_df)
+    # if model_name == "Logistic Regression":
+    #     # Get top symptoms
+    #     top_symptoms_df = top_symptoms(model)
+    #     print(type(top_symptoms_df[0]))
+    #     print(top_symptoms_df)
 
-    else:
-        # Get feature importance
-        feat_df = feat_imp(model)
-        print(feat_df)
+    # else:
+    #     # Get feature importance
+    #     feat_df = feat_imp(model)
+    #     print(feat_df)
 
     # features the model used for top predicted classes
     feat_importance = lime_explainer(model, to_pred)
