@@ -128,7 +128,7 @@ def main():
     model_name = "Support Vector Machine"
 
     # Predict probability
-    to_pred = "heart racing chest pain"
+    to_pred = "bronchodilator expiratory airflows obstructive breath ventilatory volume lung volumes slightly diffuse"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 
