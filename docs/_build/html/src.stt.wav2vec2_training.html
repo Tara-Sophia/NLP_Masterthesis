@@ -35,8 +35,38 @@
 
           <div class="body" role="main">
             
-  <section id="src-stt-wav2vec2-training-module">
-<h1>src.stt.wav2vec2_training module<a class="headerlink" href="#src-stt-wav2vec2-training-module" title="Permalink to this heading">¶</a></h1>
+  <section id="module-src.stt.wav2vec2_training">
+<span id="src-stt-wav2vec2-training-module"></span><h1>src.stt.wav2vec2_training module<a class="headerlink" href="#module-src.stt.wav2vec2_training" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>Description:</dt><dd><p>Training script for the Wav2vec2 model</p>
+</dd>
+<dt>Usage:</dt><dd><p>$ python src/data/wav2vec2_training.py -s</p>
+</dd>
+<dt>Possible arguments:</dt><dd><ul class="simple">
+<li><p>-s or –save: Save the data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.stt.wav2vec2_training.load_model">
+<span class="sig-prename descclassname"><span class="pre">src.stt.wav2vec2_training.</span></span><span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Wav2Vec2Processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Wav2Vec2ForCTC</span></span></span><a class="headerlink" href="#src.stt.wav2vec2_training.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>processor</strong> (<em>Wav2Vec2Processor</em>) – Processor to use</p></li>
+<li><p><strong>device</strong> (<em>torch.device</em>) – Torch device</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Model to use</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Wav2Vec2ForCTC</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
