@@ -25,13 +25,13 @@ from transformers import (
     Wav2Vec2Processor,
 )
 
+from src.decorators import log_function_name
 from src.stt.constants import (
     HUBERT_MODEL_DIR,
     SAMPLING_RATE,
     VOCAB_DIR,
     WAV2VEC2_MODEL_DIR,
 )
-from src.stt.decorators import log_function_name
 
 
 @log_function_name
