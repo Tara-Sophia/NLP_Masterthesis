@@ -1,0 +1,20 @@
+name: nlp_masterthesis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.10.6
+  - datasets
+  - numpy
+  - evaluate
+  - pandas
+  - librosa
+  - pre-commit
+  - streamlit
+  - wandb
+  - unidecode
+  - pytorch
+  - transformers
+  - pip:
+    - streamlit_audiorecorder
