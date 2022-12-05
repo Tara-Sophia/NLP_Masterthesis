@@ -1,5 +1,7 @@
-import streamlit as st
+# -*- coding: utf-8 -*-
 import time
+
+import streamlit as st
 
 # Specify the title and logo for the web page.
 

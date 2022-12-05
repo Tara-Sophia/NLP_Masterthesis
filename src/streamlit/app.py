@@ -6,12 +6,12 @@ Description:
 Usage:
     $ streamlit run src/streamlit/app.py
 """
+import time
+
 import streamlit as st
 from src.streamlit.app_clf import clf_main
 from src.streamlit.app_nlp import nlp_main
 from src.streamlit.app_stt import stt_main
-
-import time
 
 # Settings
 st.set_page_config(layout="wide")

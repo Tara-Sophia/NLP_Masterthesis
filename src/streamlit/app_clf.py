@@ -3,9 +3,10 @@
 Description:
     Implementation of the Streamlit app for the classification part of the project
 """
-from imblearn.pipeline import Pipeline
-import pandas as pd
 import pickle
+
+import pandas as pd
+from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
 import streamlit as st
