@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import DT_MT_MASKED, TRAIN_DATA_DIR
+from constants import DT_MIMIC_TEST, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
@@ -37,6 +37,9 @@ def build_pipeline(
             "clf",
             DecisionTreeClassifier(
                 random_state=42,
+                max_depth=17,
+                criterion="gini",
+                max_features=0.3,
             ),
         )
     )
@@ -126,31 +129,31 @@ def main():
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
-    # # fit model (without grid search)
-    # model = model_pipeline.fit(X_train, y_train)
+    # fit model (without grid search)
+    model = model_pipeline.fit(X_train, y_train)
 
-    # fit model with grid search
+    # # fit model with grid search
 
-    param_grid = [
-        {
-            "clf__max_depth": range(1, 20),
-            "clf__criterion": ["gini", "entropy"],
-            "clf__max_features": ["sqrt", 0.3],
-        }
-    ]
+    # param_grid = [
+    #     {
+    #         "clf__max_depth": range(1, 20),
+    #         "clf__criterion": ["gini", "entropy"],
+    #         "clf__max_features": ["sqrt", 0.3],
+    #     }
+    # ]
 
-    pg = ParameterGrid(param_grid)
-    print(len(pg))
+    # pg = ParameterGrid(param_grid)
+    # print(len(pg))
 
-    best_model = grid_search(
-        X_train,
-        y_train,
-        model_pipeline,
-        param_grid,
-    )
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # Save Model
-    pickle.dump(best_model, open(DT_MT_MASKED, "wb"))
+    pickle.dump(model, open(DT_MIMIC_TEST, "wb"))
 
 
 if __name__ == "__main__":

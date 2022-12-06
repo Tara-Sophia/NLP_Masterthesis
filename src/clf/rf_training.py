@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import RF_MT_MASKED, TRAIN_DATA_DIR
+from constants import RF_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, ParameterGrid
@@ -37,6 +37,9 @@ def build_pipeline(
             "clf",
             RandomForestClassifier(
                 random_state=42,
+                max_depth=18,
+                max_features="sqrt",
+                criterion="entropy",
             ),
         )
     )
@@ -124,30 +127,30 @@ def main():
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    # model = model_pipeline.fit(X_train, y_train)
+    model = model_pipeline.fit(X_train, y_train)
 
     # fit model with grid search
 
-    param_grid = [
-        {
-            "clf__max_depth": range(1, 20),
-            "clf__max_features": ["sqrt", 0.3],
-            "clf__criterion": ["gini", "entropy"],
-        }
-    ]
+    # param_grid = [
+    #     {
+    #         "clf__max_depth": range(1, 20),
+    #         "clf__max_features": ["sqrt", 0.3],
+    #         "clf__criterion": ["gini", "entropy"],
+    #     }
+    # ]
 
-    pg = ParameterGrid(param_grid)
-    print(len(pg))
+    # pg = ParameterGrid(param_grid)
+    # print(len(pg))
 
-    best_model = grid_search(
-        X_train,
-        y_train,
-        model_pipeline,
-        param_grid,
-    )
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # Save Model
-    pickle.dump(best_model, open(RF_MT_MASKED, "wb"))
+    pickle.dump(model, open(RF_MIMIC_CLASSIFIED, "wb"))
 
 
 if __name__ == "__main__":
