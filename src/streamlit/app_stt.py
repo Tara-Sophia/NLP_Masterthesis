@@ -41,7 +41,7 @@ def stt_main() -> str | None:
         Transcription of the audio
     """
     st.title("🎙️ Audio Recorder")
-    audio = audiorecorder("Click to record", "Click to stop")
+    audio = audiorecorder("Click to record ▶️", "Click to stop ⏹")
 
     pipe = load_pipeline()
 
