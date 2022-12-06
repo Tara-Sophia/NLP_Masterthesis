@@ -10,12 +10,9 @@ import numpy as np
 import pandas as pd
 from constants import (
     LR_MIMIC_CLASSIFIED,
-    LR_MIMIC_TEST,
     RF_MIMIC_CLASSIFIED,
     DT_MIMIC_CLASSIFIED,
-    DT_MIMIC_TEST,
     SVM_MIMIC_CLASSIFIED,
-    SVM_MIMIC_TEST,
     XGB_MIMIC_CLASSIFIED,
     TEST_DATA_DIR,
 )
@@ -163,27 +160,21 @@ def main():
 
     # Load models
     lr_mimic = pickle.load(open(LR_MIMIC_CLASSIFIED, "rb"))
-    lr_mimic_test = pickle.load(open(LR_MIMIC_TEST, "rb"))
 
     rf_mimic = pickle.load(open(RF_MIMIC_CLASSIFIED, "rb"))
 
     dt_mimic = pickle.load(open(DT_MIMIC_CLASSIFIED, "rb"))
-    dt_test = pickle.load(open(DT_MIMIC_TEST, "rb"))
 
-    # svm_mimic = pickle.load(open(SVM_MIMIC_CLASSIFIED, "rb"))
-    svm_mimic_test = pickle.load(open(SVM_MIMIC_TEST, "rb"))
+    svm_mimic = pickle.load(open(SVM_MIMIC_CLASSIFIED, "rb"))
 
     xgb_mimic = pickle.load(open(XGB_MIMIC_CLASSIFIED, "rb"))
 
     # evaluate model and print results for each model in dataframe
     models = [
         ("Logistic Regression (classified)", lr_mimic),
-        ("Logistic Regression (test)", lr_mimic_test),
         ("Random Forest (classified)", rf_mimic),
         ("Decision Tree (classified)", dt_mimic),
-        ("Decision Tree (test)", dt_test),
-        # ("SVM (classified)", svm_mimic),
-        ("SVM (test)", svm_mimic_test),
+        ("SVM (classified)", svm_mimic),
         ("XGBoost (classified)", xgb_mimic),
     ]
 
