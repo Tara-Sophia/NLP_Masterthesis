@@ -3,15 +3,23 @@
 Description:
     Training a Linear Support Vector Machine classification model
     for predicting probabilities of medical specialties
+
+Usage:
+    $ python src/clf/svm_training.py
+
+Possible arguments:
+    * -g or --gridsearch: run gridsearch
+
 """
 import pickle
+import click
 
 import numpy as np
 import pandas as pd
-from constants import SVM_MIMIC_TEST, TRAIN_DATA_DIR
+from constants import SVM_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.svm import SVC
-from sklearn.model_selection import GridSearchCV, ParameterGrid
+from sklearn.model_selection import GridSearchCV
 from utils import load_data, preprocessing_pipeline
 
 
@@ -110,7 +118,16 @@ def grid_search(
     return search.best_estimator_
 
 
-def main():
+@click.command()
+@click.option(
+    "--gridsearch",
+    "-g",
+    help="perform grid search",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+def main(gridsearch: bool):
     """
     Main function
     """
@@ -121,31 +138,29 @@ def main():
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
-    # fit model (without grid search)
-    model = model_pipeline.fit(X_train, y_train)
+    # Grid search
+    if gridsearch:
+        print("performing with grid search")
+        param_grid = [
+            {
+                "clf__C": [0.1, 1, 10],
+                "clf__gamma": [1, 0.1, 0.01],
+                "clf__kernel": ["rbf", "linear"],
+            }
+        ]
+        model = grid_search(
+            X_train,
+            y_train,
+            model_pipeline,
+            param_grid,
+        )
 
-    # fit model with grid search
-
-    # param_grid = [
-    #     {
-    #         "clf__C": [0.1, 1, 10],
-    #         "clf__gamma": [1, 0.1, 0.01],
-    #         "clf__kernel": ["rbf", "linear"],
-    #     }
-    # ]
-
-    # pg = ParameterGrid(param_grid)
-    # print(len(pg))
-
-    # best_model = grid_search(
-    #     X_train,
-    #     y_train,
-    #     model_pipeline,
-    #     param_grid,
-    # )
+    else:
+        print("performing without grid search")
+        model = model_pipeline.fit(X_train, y_train)
 
     # Save Model
-    pickle.dump(model, open(SVM_MIMIC_TEST, "wb"))
+    pickle.dump(model, open(SVM_MIMIC_CLASSIFIED, "wb"))
 
 
 if __name__ == "__main__":

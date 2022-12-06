@@ -3,17 +3,24 @@
 Description:
     Training a decision tree model
     for predicting probabilities of medical specialties
+
+Usage:
+    $ python src/clf/dt_training.py
+
+Possible arguments:
+    * -g or --gridsearch: run gridsearch
+
 """
 import pickle
+import click
 
 import numpy as np
 import pandas as pd
-from constants import DT_MIMIC_TEST, TRAIN_DATA_DIR
+from constants import DT_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
 from utils import load_data, preprocessing_pipeline
-from sklearn.model_selection import ParameterGrid
 
 # Build pipeline
 def build_pipeline(
@@ -115,45 +122,49 @@ def grid_search(
     return search.best_estimator_
 
 
-def main():
+@click.command()
+@click.option(
+    "--gridsearch",
+    "-g",
+    help="perform grid search",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+def main(gridsearch: bool):
     """
     Main function
     """
     # Load train data
     X_train, y_train = load_data(TRAIN_DATA_DIR)
 
-    # show row with nan values in X_train
-    print(X_train[X_train.isna()])
-
     # Build pipeline
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
-    # fit model (without grid search)
-    model = model_pipeline.fit(X_train, y_train)
+    # Grid search
+    if gridsearch:
+        print("performing with grid search")
+        param_grid = [
+            {
+                "clf__max_depth": range(1, 20),
+                "clf__criterion": ["gini", "entropy"],
+                "clf__max_features": ["sqrt", 0.3],
+            }
+        ]
+        model = grid_search(
+            X_train,
+            y_train,
+            model_pipeline,
+            param_grid,
+        )
 
-    # # fit model with grid search
-
-    # param_grid = [
-    #     {
-    #         "clf__max_depth": range(1, 20),
-    #         "clf__criterion": ["gini", "entropy"],
-    #         "clf__max_features": ["sqrt", 0.3],
-    #     }
-    # ]
-
-    # pg = ParameterGrid(param_grid)
-    # print(len(pg))
-
-    # best_model = grid_search(
-    #     X_train,
-    #     y_train,
-    #     model_pipeline,
-    #     param_grid,
-    # )
+    else:
+        print("performing without grid search")
+        model = model_pipeline.fit(X_train, y_train)
 
     # Save Model
-    pickle.dump(model, open(DT_MIMIC_TEST, "wb"))
+    pickle.dump(model, open(DT_MIMIC_CLASSIFIED, "wb"))
 
 
 if __name__ == "__main__":

@@ -3,8 +3,16 @@
 Description:
     Training a XGBoost classification model
     for predicting probabilities of medical specialties
+
+Usage:
+    $ python src/clf/xgboost_training.py
+
+Possible arguments:
+    * -g or --gridsearch: run gridsearch
+
 """
 import pickle
+import click
 
 import numpy as np
 import pandas as pd
@@ -13,7 +21,7 @@ from imblearn.pipeline import Pipeline
 
 # need to install older version of xgboost for this to work
 import xgboost as xgb
-from sklearn.model_selection import GridSearchCV, ParameterGrid
+from sklearn.model_selection import GridSearchCV
 from utils import load_data, preprocessing_pipeline
 
 
@@ -111,7 +119,16 @@ def grid_search(
     return search.best_estimator_
 
 
-def main():
+@click.command()
+@click.option(
+    "--gridsearch",
+    "-g",
+    help="perform grid search",
+    default=False,
+    is_flag=True,
+    required=False,
+)
+def main(gridsearch: bool):
     """
     Main function
     """
@@ -122,27 +139,25 @@ def main():
     preprocessing = preprocessing_pipeline()
     model_pipeline = build_pipeline(preprocessing)
 
-    # fit model (without grid search)
-    model = model_pipeline.fit(X_train, y_train)
+    # Grid search
+    if gridsearch:
+        print("performing with grid search")
+        param_grid = [
+            {
+                "clf__n_estimators": [100, 200, 300],
+                "clf__max_depth": [3, 5, 7],
+            }
+        ]
+        model = grid_search(
+            X_train,
+            y_train,
+            model_pipeline,
+            param_grid,
+        )
 
-    # fit model with grid search
-
-    # param_grid = [
-    #     {
-    #         "clf__n_estimators": [100, 200, 300],
-    #         "clf__max_depth": [3, 5, 7],
-    #     }
-    # ]
-
-    # pg = ParameterGrid(param_grid)
-    # print(len(pg))
-
-    # best_model = grid_search(
-    #     X_train,
-    #     y_train,
-    #     model_pipeline,
-    #     param_grid,
-    # )
+    else:
+        print("performing without grid search")
+        model = model_pipeline.fit(X_train, y_train)
 
     # Save Model
     pickle.dump(model, open(XGB_MIMIC_CLASSIFIED, "wb"))
