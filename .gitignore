@@ -149,3 +149,6 @@ data/**/cache-*.arrow
 
 # Checkpoints
 models/**/checkpoints/**
+
+# Mimic data
+data/processed/mimic_iii/
