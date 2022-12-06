@@ -9,7 +9,7 @@ import ast
 import os
 
 import pandas as pd
-from constants import RAW_DATA_DIR_MT_TC, X_CLASSIFIED, X_MASKED
+from constants import RAW_DATA_DIR_MIMIC, X_CLASSIFIED, X_MASKED, X_MIMIC
 from sklearn.model_selection import train_test_split
 
 
@@ -51,6 +51,8 @@ def transform_column(df: pd.DataFrame, column_name: str) -> pd.DataFrame:
         print("Transforming X_CLASSIFIED column")
     elif column_name == X_MASKED:
         print("Transforming X_MASKED column")
+    elif column_name == X_MIMIC:
+        print("Transforming X_MIMIC column")
 
     df[column_name] = df[column_name].apply(lambda x: ast.literal_eval(x))
     df[column_name] = df[column_name].apply(lambda x: replace_tab(x))
@@ -65,20 +67,20 @@ def main():
     Main function
     """
     # Load data
-    df = pd.read_csv(RAW_DATA_DIR_MT_TC)
-    df = transform_column(df, X_CLASSIFIED)
+    df = pd.read_csv(RAW_DATA_DIR_MIMIC)
+    df = transform_column(df, X_MIMIC)
 
     # Split data into train and test
     X_train, X_test, y_train, y_test = train_test_split(
         df.keywords.to_list(),
-        df.medical_specialty,
+        df.specialty,
         test_size=0.2,
         random_state=42,
     )
 
     # Save data as csv
-    train_df = pd.DataFrame({"keywords": X_train, "medical_specialty": y_train})
-    test_df = pd.DataFrame({"keywords": X_test, "medical_specialty": y_test})
+    train_df = pd.DataFrame({"keywords": X_train, "specialty": y_train})
+    test_df = pd.DataFrame({"keywords": X_test, "specialty": y_test})
 
     train_df.to_csv(
         os.path.join("data", "processed", "clf", "train.csv"),

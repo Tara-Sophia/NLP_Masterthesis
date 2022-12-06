@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import XGB_MT_MASKED, TRAIN_DATA_DIR
+from constants import XGB_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 
 # need to install older version of xgboost for this to work
@@ -35,7 +35,12 @@ def build_pipeline(
     pipeline.steps.append(
         (
             "clf",
-            xgb.XGBClassifier(objective="multi:softprob", random_state=42),
+            xgb.XGBClassifier(
+                objective="multi:softprob",
+                random_state=42,
+                n_estimators=300,
+                max_depth=7,
+            ),
         )
     )
     return pipeline
@@ -118,29 +123,29 @@ def main():
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    # model = model_pipeline.fit(X_train, y_train)
+    model = model_pipeline.fit(X_train, y_train)
 
     # fit model with grid search
 
-    param_grid = [
-        {
-            "clf__n_estimators": [100, 200, 300],
-            "clf__max_depth": [3, 5, 7],
-        }
-    ]
+    # param_grid = [
+    #     {
+    #         "clf__n_estimators": [100, 200, 300],
+    #         "clf__max_depth": [3, 5, 7],
+    #     }
+    # ]
 
-    pg = ParameterGrid(param_grid)
-    print(len(pg))
+    # pg = ParameterGrid(param_grid)
+    # print(len(pg))
 
-    best_model = grid_search(
-        X_train,
-        y_train,
-        model_pipeline,
-        param_grid,
-    )
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # Save Model
-    pickle.dump(best_model, open(XGB_MT_MASKED, "wb"))
+    pickle.dump(model, open(XGB_MIMIC_CLASSIFIED, "wb"))
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import LR_MT_MASKED, TRAIN_DATA_DIR
+from constants import LR_MIMIC_TEST, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
@@ -40,7 +40,7 @@ def build_pipeline(
                 multi_class="multinomial",
                 penalty="l1",
                 solver="saga",
-                max_iter=1000,
+                C=1,
             ),
         )
     )
@@ -124,25 +124,25 @@ def main():
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    # model = model_pipeline.fit(X_train, y_train)
+    model = model_pipeline.fit(X_train, y_train)
 
     # fit model with grid search
 
-    param_grid = [
-        {
-            "clf__C": [0.01, 0.1, 1, 10],
-        }
-    ]
+    # param_grid = [
+    #     {
+    #         "clf__C": [0.01, 0.1, 1, 10],
+    #     }
+    # ]
 
-    best_model = grid_search(
-        X_train,
-        y_train,
-        model_pipeline,
-        param_grid,
-    )
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # Save Model
-    pickle.dump(best_model, open(LR_MT_MASKED, "wb"))
+    pickle.dump(model, open(LR_MIMIC_TEST, "wb"))
 
 
 if __name__ == "__main__":

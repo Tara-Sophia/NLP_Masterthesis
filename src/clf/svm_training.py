@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import SVM_MT_MASKED, TRAIN_DATA_DIR
+from constants import SVM_MIMIC_TEST, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV, ParameterGrid
@@ -33,7 +33,13 @@ def build_pipeline(
     pipeline.steps.append(
         (
             "clf",
-            SVC(random_state=42, probability=True),
+            SVC(
+                random_state=42,
+                probability=True,
+                C=1,
+                gamma=0.01,
+                kernel="rbf",
+            ),
         )
     )
     return pipeline
@@ -116,30 +122,30 @@ def main():
     model_pipeline = build_pipeline(preprocessing)
 
     # fit model (without grid search)
-    # model = model_pipeline.fit(X_train, y_train)
+    model = model_pipeline.fit(X_train, y_train)
 
     # fit model with grid search
 
-    param_grid = [
-        {
-            "clf__C": [0.1, 1, 10],
-            "clf__gamma": [1, 0.1, 0.01],
-            "clf__kernel": ["rbf", "linear"],
-        }
-    ]
+    # param_grid = [
+    #     {
+    #         "clf__C": [0.1, 1, 10],
+    #         "clf__gamma": [1, 0.1, 0.01],
+    #         "clf__kernel": ["rbf", "linear"],
+    #     }
+    # ]
 
-    pg = ParameterGrid(param_grid)
-    print(len(pg))
+    # pg = ParameterGrid(param_grid)
+    # print(len(pg))
 
-    best_model = grid_search(
-        X_train,
-        y_train,
-        model_pipeline,
-        param_grid,
-    )
+    # best_model = grid_search(
+    #     X_train,
+    #     y_train,
+    #     model_pipeline,
+    #     param_grid,
+    # )
 
     # Save Model
-    pickle.dump(best_model, open(SVM_MT_MASKED, "wb"))
+    pickle.dump(model, open(SVM_MIMIC_TEST, "wb"))
 
 
 if __name__ == "__main__":
