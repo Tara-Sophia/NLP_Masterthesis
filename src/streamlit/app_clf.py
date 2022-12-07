@@ -10,7 +10,7 @@ from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
 import streamlit as st
-from src.clf.constants import LR_MODEL_MASKED
+from src.clf.constants import XGB_MIMIC_CLASSIFIED
 
 
 def predict_probability(model: Pipeline, value: str) -> pd.DataFrame:
@@ -106,7 +106,7 @@ def clf_main(text: str) -> None:
     """
     st.header("Classification")
     # Load model
-    model = pickle.load(open(LR_MODEL_MASKED, "rb"))
+    model = pickle.load(open(XGB_MIMIC_CLASSIFIED, "rb"))
 
     prediction = predict_probability(model, [text])
 
