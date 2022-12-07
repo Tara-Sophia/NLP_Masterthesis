@@ -12,15 +12,16 @@ Possible arguments:
 
 """
 import pickle
-import click
 
+import click
 import numpy as np
 import pandas as pd
-from constants import SVM_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
-from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
-from utils import load_data, preprocessing_pipeline
+from sklearn.svm import SVC
+
+from src.clf.constants import SVM_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
+from src.clf.utils import load_data, preprocessing_pipeline
 
 
 # Build pipeline
@@ -86,7 +87,7 @@ def grid_search(
     X_train: pd.Series,
     y_train: pd.Series,
     model_pipeline: Pipeline,
-    param_grid: list[dict[str, list[float]]],
+    param_grid: list[dict[str, object]],
 ) -> Pipeline:
     """
     Grid search for best model

@@ -9,6 +9,17 @@ Subpackages
 
    src.clf
    src.data
+   src.icd_mimic
+   src.nlp
+   src.stt
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.decorators
 
 Module contents
 ---------------

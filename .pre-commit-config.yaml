@@ -20,29 +20,30 @@ repos:
     rev: v0.971
     hooks:
     -   id: mypy
-        args: [--show-error-codes]
+        args: ["--show-error-codes"]
         additional_dependencies: ['types-requests']
 
 -   repo: https://github.com/psf/black
-    rev: 22.8.0
+    rev: 22.10.0
     hooks:
     -   id: black
-        args: [--safe, --line-length=70]
+        args: ["--safe", "--line-length=88"]
 
 -   repo: https://github.com/pycqa/pylint
-    rev: pylint-2.6.0
+    rev: v2.15.5
     hooks:
     -   id: pylint
-        args: [--max-line-length=70, --disable=all, --enable=unused-import]
+        args: ["--max-line-length=88", "--disable=all", "--enable=unused-import"]
 
 -   repo: https://github.com/PyCQA/flake8
-    rev: 4.0.1
+    rev: 5.0.4
     hooks:
     -   id: flake8
         language_version: python3
+        args: ["--max-line-length=88", "--ignore=E203, W503"]
 
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
-    rev: v1.0.5
+    rev: v1.0.6
     hooks:
     -   id: python-bandit-vulnerability-check
 
@@ -50,13 +51,14 @@ repos:
     rev: 5.10.1
     hooks:
     -   id: isort
-        args: ["--profile", "black", "--line-length=70"]
+        args: ["--profile", "black", "--line-length=88"]
 
 -   repo: https://github.com/econchick/interrogate
-    rev: 1.4.0
+    rev: 1.5.0
     hooks:
     -   id: interrogate
-        args: [-vv, --fail-under=80, -I]
+        args: ["-vv", "--fail-under=90"]
+        exclude: ^docs/.*$
 
 -   repo: https://github.com/yunojuno/pre-commit-xenon
     rev: v0.1
@@ -64,8 +66,8 @@ repos:
     -   id: xenon
         args: ["--max-average=A", "--max-modules=A", "--max-absolute=B"]
 
--   repo: local
-    hooks:
+# -   repo: local
+#     hooks:
     # -   id: pytest
     #     name: pytest
     #     stages: [commit]
@@ -74,11 +76,11 @@ repos:
     #     types: [python]
     #     pass_filenames: false
     #     always_run: false
-    -   id: pytest-cov
-        name: pytest-cov
-        stages: [push]
-        language: system
-        entry: pytest -v --cov=ethosu --cov-fail-under=80
-        types: [python]
-        pass_filenames: false
-        always_run: true
+    # -   id: pytest-cov
+    #     name: pytest-cov
+    #     stages: [commit]
+    #     language: system
+    #     entry: pytest -v --cov=ethosu --cov-fail-under=80
+    #     types: [python]
+    #     pass_filenames: false
+    #     always_run: true
