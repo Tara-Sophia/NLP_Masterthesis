@@ -104,21 +104,11 @@ def clf_main(text: str) -> None:
     """
     Main function for the classification part of the project
     """
-    st.title("Classification")
+    st.header("Classification")
     # Load model
     model = pickle.load(open(LR_MODEL_MASKED, "rb"))
 
     prediction = predict_probability(model, [text])
-    prob1 = prediction["Probability"][0]
-    prob2 = prediction["Probability"][1]
-    prob3 = prediction["Probability"][2]
-
-    # find the value of top_symptoms(model) where index is prediction.index[0]
-    # only works for lr model
-    top = top_symptoms(model)
-    top_symptoms_1 = top[prediction.index[0]]
-    top_symptoms_2 = top[prediction.index[1]]
-    top_symptoms_3 = top[prediction.index[2]]
 
     # find the value of top symptoms from lime
     feat_importance = lime_explainer(model, text)
@@ -126,36 +116,29 @@ def clf_main(text: str) -> None:
     top_symptoms_2_lime = get_words(prediction.index[1], feat_importance)
     top_symptoms_3_lime = get_words(prediction.index[2], feat_importance)
 
+    lime_list = [top_symptoms_1_lime, top_symptoms_2_lime, top_symptoms_3_lime]
+
     st.subheader(
         "Based on our algorithm you should consider contacting these departments"
     )
-    with st.expander(prediction.index[0]):
-        st.metric(
-            label="Percentage of probability",
-            value="{:.0%}".format(prob1),
-        )
-        st.write("Decision was based on these symptoms from your description:")
-        st.write(top_symptoms_1_lime)
-        st.write("Most relevant symptoms for this department in general:")
-        st.write(top_symptoms_1)
-
-    with st.expander(prediction.index[1]):
-        st.metric(
-            label="Percentage of probability",
-            value="{:.0%}".format(prob2),
-        )
-        st.write("Decision was based on these symptoms from your description:")
-        st.write(top_symptoms_2_lime)
-        st.write("Most relevant symptoms for this department in general:")
-        st.write(top_symptoms_2)
-
-    with st.expander(prediction.index[2]):
-        st.metric(
-            label="Percentage of probability",
-            value="{:.0%}".format(prob3),
-        )
-        st.write("Decision was based on these symptoms from your description:")
-        st.write(top_symptoms_3_lime)
-        st.write("Most relevant symptoms for this department in general:")
-        st.write(top_symptoms_3)
-    pass
+    for i_expander, l_list in zip(range(3), lime_list):
+        with st.expander(prediction.index[i_expander]):
+            st.metric(
+                label="Percentage of probability",
+                value="{:.0%}".format(prediction["Probability"][i_expander]),
+            )
+            st.write("Decision was based on these symptoms from your description:")
+            s = ""
+            for i in l_list:
+                s += "- " + i.title() + "\n"
+            st.write(s)
+    st.markdown(
+        """
+    <style>
+    .streamlit-expanderHeader {
+        font-size: x-large;
+    }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )

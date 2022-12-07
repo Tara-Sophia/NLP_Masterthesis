@@ -13,16 +13,33 @@ from src.streamlit.app_clf import clf_main
 from src.streamlit.app_nlp import nlp_main
 from src.streamlit.app_stt import stt_main
 
-# Settings
-st.set_page_config(layout="wide")
+# Specify the title and logo for the web page.
 
-# Title
-st.title("Masterthesis Demo")
-st.text("This is a demo of the masterthesis project.")
+st.set_page_config(
+    page_title="Symptom Checker",
+    page_icon="https://static.thenounproject.com/png/1630376-200.png",
+    layout="wide",
+)
 
-# Sidebar (Only for demo purposes)
-st.sidebar.title("Debug options")
-debug = st.sidebar.checkbox("Debug mode", value=False)
+st.title("Symptom Checker")
+
+st.markdown("---")
+
+# Sidebar Configuration
+st.sidebar.image("https://static.thenounproject.com/png/1630376-200.png", width=100)
+st.sidebar.markdown("# Master Thesis Demo")
+st.sidebar.markdown("This is a demo of the masterthesis project.")
+st.sidebar.markdown(
+    "The project is about the development of a symptom checker for the diagnosing medical departments."
+)
+
+
+st.sidebar.markdown("---")
+st.sidebar.write(
+    "Developed by Florentin von Haugwitz, Tara-Sophia Tumbrägel, Hannah Petry"
+)
+st.sidebar.write("Contact at 48458@novasbe.pt")
+
 
 # Initialization
 if "show_page" not in st.session_state:
