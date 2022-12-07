@@ -8,16 +8,17 @@ import pickle
 
 import numpy as np
 import pandas as pd
-from constants import (
+from imblearn.pipeline import Pipeline
+
+from src.clf.constants import (
+    DT_MT_CLASSIFIED,
     LR_MT_CLASSIFIED,
     RF_MT_CLASSIFIED,
-    DT_MT_CLASSIFIED,
     SVM_MT_CLASSIFIED,
-    XGB_MT_CLASSIFIED,
     TEST_DATA_DIR,
+    XGB_MT_CLASSIFIED,
 )
-from imblearn.pipeline import Pipeline
-from utils import load_data
+from src.clf.utils import load_data
 
 
 # Other metrics for model evaluation (accuracy @k optimized for and MRR @k)

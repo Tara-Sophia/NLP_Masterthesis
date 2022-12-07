@@ -12,15 +12,16 @@ Possible arguments:
 
 """
 import pickle
-import click
 
+import click
 import numpy as np
 import pandas as pd
-from constants import LR_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
-from utils import load_data, preprocessing_pipeline
+
+from src.clf.constants import LR_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
+from src.clf.utils import load_data, preprocessing_pipeline
 
 
 # Build pipeline

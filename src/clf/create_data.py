@@ -9,8 +9,9 @@ import ast
 import os
 
 import pandas as pd
-from constants import RAW_DATA_DIR_MIMIC, X_CLASSIFIED, X_MASKED, X_MIMIC
 from sklearn.model_selection import train_test_split
+
+from src.clf.constants import RAW_DATA_DIR_MIMIC, X_CLASSIFIED, X_MASKED, X_MIMIC
 
 
 # transform input data for model

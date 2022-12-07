@@ -8,12 +8,12 @@ Description:
 """
 
 import pickle
-import os
-import pandas as pd
 
-from constants import XGB_MIMIC_CLASSIFIED
+import pandas as pd
 from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
+
+from src.clf.constants import XGB_MIMIC_CLASSIFIED
 
 
 def predict_probability(model: Pipeline, value: list[str]) -> pd.DataFrame:
@@ -128,7 +128,7 @@ def main():
     model_name = "XGBoost"
 
     # Predict probability
-    to_pred = "bronchodilator expiratory airflows obstructive breath ventilatory volume lung volumes slightly diffuse"
+    to_pred = "bronchodilator expiratory airflows obstructive breath"
     res_df = predict_probability(model, [to_pred])
     print(res_df)
 

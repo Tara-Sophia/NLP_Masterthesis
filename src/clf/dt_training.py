@@ -12,15 +12,18 @@ Possible arguments:
 
 """
 import pickle
-import click
+from typing import Sequence
 
+import click
 import numpy as np
 import pandas as pd
-from constants import DT_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
 from imblearn.pipeline import Pipeline
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
-from utils import load_data, preprocessing_pipeline
+from sklearn.tree import DecisionTreeClassifier
+
+from src.clf.constants import DT_MIMIC_CLASSIFIED, TRAIN_DATA_DIR
+from src.clf.utils import load_data, preprocessing_pipeline
+
 
 # Build pipeline
 def build_pipeline(
@@ -88,7 +91,7 @@ def grid_search(
     X_train: pd.Series,
     y_train: pd.Series,
     model_pipeline: Pipeline,
-    param_grid: list[dict[str, list[float]]],
+    param_grid: list[dict[str, Sequence[object]]],
 ) -> Pipeline:
     """
     Grid search for best model
