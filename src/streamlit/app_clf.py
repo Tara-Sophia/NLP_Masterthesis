@@ -3,6 +3,7 @@
 Description:
     Implementation of the Streamlit app for the classification part of the project
 """
+import os
 import pickle
 
 import pandas as pd
@@ -10,7 +11,9 @@ from imblearn.pipeline import Pipeline
 from lime.lime_text import LimeTextExplainer
 
 import streamlit as st
-from src.clf.constants import XGB_MIMIC_CLASSIFIED
+
+
+XGB_MIMIC_CLASSIFIED = os.path.join("models", "clf", "xgb_mimic_classified.pkl")
 
 
 def predict_probability(model: Pipeline, value: str) -> pd.DataFrame:
@@ -127,11 +130,12 @@ def clf_main(text: str) -> None:
                 label="Percentage of probability",
                 value="{:.0%}".format(prediction["Probability"][i_expander]),
             )
-            st.write("Decision was based on these symptoms from your description:")
-            s = ""
-            for i in l_list:
-                s += "- " + i.title() + "\n"
-            st.write(s)
+            if len(l_list) > 0:
+                st.write("Decision was based on these symptoms from your description:")
+                s = ""
+                for i in l_list:
+                    s += "- " + i.title() + "\n"
+                st.write(s)
     st.markdown(
         """
     <style>
