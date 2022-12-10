@@ -36,7 +36,7 @@ st.sidebar.markdown(
 
 st.sidebar.markdown("---")
 st.sidebar.write(
-    "Developed by Florentin von Haugwitz, Tara-Sophia Tumbrägel, Hannah Petry"
+    "Developed by Florentin von Haugwitz, Tara-Sophia Tumbraegel, Hannah Petry"
 )
 st.sidebar.write("Contact at 48458@novasbe.pt")
 
@@ -53,22 +53,17 @@ if "res" not in st.session_state:
 if st.session_state.get("show_page") == "stt":  # type: ignore
     st.session_state["res"] = stt_main()
     if st.session_state.get("res"):
-        st.session_state["show_page"] = "nlp"
-        time.sleep(2)
-        st.experimental_rerun()
-
-# NLP
-elif st.session_state.get("show_page") == "nlp":
-    st.session_state["res"] = nlp_main(st.session_state.get("res"))
-    next = st.button("Show next")
-    if next:
         st.session_state["show_page"] = "clf"
-        st.experimental_rerun()
+        st.session_state["res"] = nlp_main(st.session_state.get("res"))
+        next = st.button("Show best departments", type="primary")
+        if next:
+            st.session_state["show_page"] = "clf"
+            st.experimental_rerun()
 
 # CLF
 else:
     clf_main(st.session_state.get("res"))
-    redo = st.button("Rerun with new input")
+    redo = st.button("Rerun with new input", type="primary")
     if redo:
         st.session_state["show_page"] = "stt"
         st.experimental_rerun()
