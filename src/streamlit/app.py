@@ -27,7 +27,7 @@ st.markdown("---")
 
 # Sidebar Configuration
 st.sidebar.image("https://static.thenounproject.com/png/1630376-200.png", width=100)
-st.sidebar.markdown("# Master Thesis Demo")
+st.sidebar.markdown("# Medical Symptom Checker Demo")
 st.sidebar.markdown("This is a demo of the masterthesis project.")
 st.sidebar.markdown(
     "The project is about the development of a symptom checker for the diagnosing medical departments."
@@ -50,10 +50,9 @@ if "res" not in st.session_state:
 
 
 # Speech-to-text
-if st.session_state.get("show_page") == "stt":  # type: ignore
+if st.session_state.get("show_page") == "stt":
     st.session_state["res"] = stt_main()
     if st.session_state.get("res"):
-        st.session_state["show_page"] = "clf"
         st.session_state["res"] = nlp_main(st.session_state.get("res"))
         next = st.button("Show best departments", type="primary")
         if next:
