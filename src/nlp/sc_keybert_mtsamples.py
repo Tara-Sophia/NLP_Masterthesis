@@ -31,8 +31,6 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     """
     tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
 
-    # Truncate all the text to 512 tokens
-
     hf_model = pipeline(
         "feature-extraction",
         model=model,
@@ -43,22 +41,16 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     keywords = kw_model.extract_keywords(
         x,
         keyphrase_ngram_range=(1, 1),
-        # ngram means the number of words in a keyword (1 means 1 word, 2 means 2 words). we used 1 because we want to extract single words the reasin is
         stop_words="english",
         use_maxsum=True,
         nr_candidates=nr_candidates,
         top_n=max(top_n),
         use_mmr=True,
         diversity=0.5,
-        # diversity means that the keywords should be different from each other. The higher the diversity, the more different the keywords are. The default value is 0.7.
-        # we used 0.5 because we want to have more keywords that are similar to each other  (e.g. "heart failure" and "heart failure symptoms")
     )
     return keywords
 
 
-# n_gram stands for     n-gram means the number of words in a keyword (1 means 1 word, 2 means 2 words). we used 1 because we want to extract single words the reasin is
-
-# extract keywords from transcription column and create new column with keywords
 def keywords_from_model(
     df: pd.DataFrame, model: str, input_column_name: str, output_column_name: str
 ) -> pd.DataFrame:
