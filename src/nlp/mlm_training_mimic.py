@@ -116,7 +116,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     df_mlm = pd.read_csv(data_path)
     # df_mlm = df_mlm.sample(frac=0.1)
     df_mlm = df_mlm.dropna()
-    df_mlm = df_mlm.head(2)
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
@@ -145,7 +144,14 @@ def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
     """
     metric = load_metric("accuracy")
     logits, labels = eval_pred
+    # (1, 512)
+    print(logits.shape)
     predictions = np.argmax(logits, axis=-1)
+    # convert to 1d array
+    predictions = predictions.reshape(-1)
+    labels = labels.reshape(-1)
+    print(predictions.shape)
+    print(labels.shape)
     # TypeError: only size-1 arrays can be converted to Python scalars
 
     # logits = logits.reshape(-1)
