@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
+
+"""
+Training MLM on MIMIC III dataset
+"""
+
 import os
 
 import numpy as np
 import pandas as pd
-import torch
 import wandb
-
-# import load_metric
 from datasets import Dataset, load_metric
 from datasets.arrow_dataset import Batch
 from sklearn.model_selection import train_test_split
-from tqdm import tqdm
-
-# import EvalPrediction
-from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
-
-# import DataCollatorForLanguageModeling
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+    EvalPrediction,
+    Trainer,
+    TrainingArguments,
+)
 from transformers.data.data_collator import DataCollatorForLanguageModeling
 from transformers.trainer_utils import get_last_checkpoint
 
@@ -27,13 +30,36 @@ from src.nlp.utils import (  # load_trainer,
     load_training_args,
 )
 
-tqdm.pandas()
-
 wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
 
 
+def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
+    """
+    Compute the accuracy of the model for the evaluation dataset
+
+    Parameters
+    ----------
+    eval_pred : EvalPrediction
+        Prediction for evaluation dataset
+    modeltype : str
+        Masked Language Model or Sequence Classification
+
+    Returns
+    -------
+    dict[str, float]
+        Accuracy score
+    """
+    metric = load_metric("accuracy")
+    logits, labels = eval_pred
+    predictions = np.argmax(logits, axis=-1)
+    predictions = predictions.reshape(-1)
+    labels = labels.reshape(-1)
+
+    return metric.compute(predictions=predictions, references=labels)
+
+
 def load_trainer(
-    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    model: AutoModelForSequenceClassification,
     training_args: TrainingArguments,
     train_ds: Dataset,
     val_ds: Dataset,
@@ -108,50 +134,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     dataset_train = Dataset.from_pandas(df_train[["TEXT_final_cleaned"]])  # .dropna())
     dataset_val = Dataset.from_pandas(df_valid[["TEXT_final_cleaned"]])  # .dropna())
     return dataset_train, dataset_val
-
-
-def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
-    """
-    Compute the accuracy of the model for the evaluation dataset
-
-    Parameters
-    ----------
-    eval_pred : EvalPrediction
-        Prediction for evaluation dataset
-    modeltype : str
-        Masked Language Model or Sequence Classification
-
-    Returns
-    -------
-    dict[str, float]
-        Accuracy score
-    """
-    metric = load_metric("accuracy")
-    logits, labels = eval_pred
-    # (1, 512)
-    print(logits.shape)
-    predictions = np.argmax(logits, axis=-1)
-    # convert to 1d array
-    predictions = predictions.reshape(-1)
-    labels = labels.reshape(-1)
-    print(predictions.shape)
-    print(labels.shape)
-    # TypeError: only size-1 arrays can be converted to Python scalars
-
-    # logits = logits.reshape(-1)
-    # labels = labels.reshape(-1)
-    # mask = labels != -100
-    # logits = logits[mask]
-    # labels = labels[mask]
-
-    return metric.compute(predictions=predictions, references=labels)
-
-    # metric = load_metric("perplexity", module_type="metric", average="macro")
-    # # predictions (list of str): input text, where each separate text snippet is one list entry.
-    # predictions = eval_pred.predictions
-    # predictions = np.argmax(predictions, axis=-1)
-    # input_text = eval_pred.label_ids
-    # return metric.compute(predictions=predictions)
 
 
 def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
@@ -236,13 +218,16 @@ def main():
         modeltype="MLM",
     )
 
-    trainer.train()
+    last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    if last_checkpoint is None:
+        resume_from_checkpoint = None
+    else:
+        resume_from_checkpoint = True
+
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(MODEL_MLM_DIR)
     trainer.save_state()
 
 
 if __name__ == "__main__":
     main()
-
-# what is nlp and why are we using it?
-# https://huggingface.co/transformers/notebooks.html
