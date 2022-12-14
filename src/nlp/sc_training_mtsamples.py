@@ -10,18 +10,16 @@ import os
 import pandas as pd
 import torch
 import wandb
-from constants import (
+from src.nlp.constants import (
     MODEL_BASE_NAME,
-    MODEL_MLM_DIR,
     MODEL_TC_CHECKPOINTS_DIR_MT,
     MODEL_TC_DIR_MT,
     MOST_COMMON_WORDS_FILTERED,
-    MTSAMPLES_PROCESSED_PATH_DIR,
 )
 from datasets import Dataset
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from transformers.trainer_utils import get_last_checkpoint
-from utils import (
+from src.nlp.utils import (
     get_device,
     load_tokenizer,
     load_trainer,
@@ -287,13 +285,13 @@ def main() -> None:
         modeltype="sequence_classification",
     )
 
-    # last_checkpoint = get_last_checkpoint(training_args.output_dir)
-    # if last_checkpoint is None:
-    #    resume_from_checkpoint = None
-    # else:
-    #    resume_from_checkpoint = True
+    last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    if last_checkpoint is None:
+        resume_from_checkpoint = None
+    else:
+        resume_from_checkpoint = True
 
-    trainer.train()  # resume_from_checkpoint=resume_from_checkpoint)
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(MODEL_TC_DIR_MT)
     trainer.save_state()
 

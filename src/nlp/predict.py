@@ -4,14 +4,10 @@ Description:
     This script is used for predicting on custom input
 """
 from src.nlp.constants import MODEL_MLM_DIR, MOST_COMMON_WORDS_FILTERED
-from src.nlp.keybert_mtsamples import keyword_extraction
+from src.nlp.sc_keybert_mtsamples import keyword_extraction
 from src.nlp.utils import cleaning_input
 
 
-# nltk.download("wordnet")
-# nltk.download("omw-1.4")
-# nltk.download("stopwords")
-# nltk.download("punkt")
 # check that text is max 512 tokens long otherwise make it max 512 tokens long
 def max_length(x: str) -> str:
     """
@@ -42,7 +38,6 @@ def main() -> None:
     text = max_length(text)
     model = MODEL_MLM_DIR
 
-    # TODO: Number of candidates and top_n -> Look at function
     keywords = keyword_extraction(text, model, 20, 10)
     keywords_without_weight = [keyword[0] for keyword in keywords]
     print(keywords)

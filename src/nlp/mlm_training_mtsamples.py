@@ -22,23 +22,16 @@ from constants import (
 )
 from datasets import Dataset, load_metric
 from sklearn.model_selection import train_test_split
-from tqdm import tqdm
-from tqdm.notebook import tqdm
 
 # import trainingarguments
 from transformers import AutoTokenizer, BertForMaskedLM, Trainer, TrainingArguments
 from transformers.data.data_collator import DataCollatorForLanguageModeling
-from transformers.trainer_utils import get_last_checkpoint
-from utils import (  # load_trainer,
+from src.nlp.utils import (  # load_trainer,
     get_device,
     load_tokenizer,
     load_training_args,
     tokenize_function,
 )
-
-tqdm.pandas()
-# dont show warnings
-import warnings
 
 from transformers import EvalPrediction
 
@@ -129,7 +122,7 @@ def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
         Accuracy score
     """
 
-    metric_MLM = load_metric("accuracy")  # sacrebleu")
+    metric_MLM = load_metric("accuracy")
     predictions, labels = eval_pred
     predictions = predictions.argmax(axis=-1)
     references = [[label] for label in labels]
@@ -152,10 +145,6 @@ def load_model(device: torch.device) -> BertForMaskedLM:
         The model
     """
     model = BertForMaskedLM.from_pretrained(MODEL_BASE_NAME).to(device)  # .half()
-    # AutoModelForSequenceClassification.from_pretrained(
-    #    MODEL_SEMI_SUPERVISED_NAME, num_labels=39
-    # ).to(device)
-
     return model
 
 
@@ -216,7 +205,6 @@ def main():
 
     train_ds, val_ds = load_datasets(
         os.path.join("data", "processed", "nlp", "mtsamples", "mtsamples_cleaned.csv")
-        # MTSAMPLES_PROCESSED_PATH_DIR, "mtsamples_cleaned.csv")
     )
 
     tokenizer = load_tokenizer()
@@ -235,8 +223,8 @@ def main():
         modeltype="MLM",
     )
     trainer.train()
-    # trainer.save_model(MODEL_MLM_MT_DIR)
-    # trainer.save_state()
+    trainer.save_model(MODEL_MLM_MT_DIR)
+    trainer.save_state()
 
 
 if __name__ == "__main__":
