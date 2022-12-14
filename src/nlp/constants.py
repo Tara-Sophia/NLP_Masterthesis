@@ -35,6 +35,7 @@ MODEL_MLM_MT_DIR = os.path.join(
 MODEL_MLM_MT_CHECKPOINTS_DIR = os.path.join(
     "models", "nlp", "maskedlanguagemodel_Mtsamples", "checkpoints"
 )
+
 # Text Classification
 # TEXT CLASSIFICATION MODEL
 MODEL_TC_MT_DIR = os.path.join("models", "nlp", "textclassification_Mtsamples", "model")
