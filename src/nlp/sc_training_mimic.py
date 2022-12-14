@@ -11,12 +11,12 @@ import numpy as np
 import pandas as pd
 import torch
 import wandb
-from constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
+from src.nlp.constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
 
 # import load_metric
 from datasets import Dataset, load_metric
 from datasets.arrow_dataset import Batch
-from text_classification_model_training import load_datasets
+from src.nlp.sc_training_mtsamples import load_datasets
 
 # import EvalPrediction
 from transformers import (
@@ -30,11 +30,11 @@ from transformers.data.data_collator import DataCollatorForLanguageModeling
 from transformers.trainer_utils import get_last_checkpoint
 from utils import get_device, load_tokenizer, load_training_args  # load_trainer,
 
-# wandb.init(
-#     project="nlp",
-#     entity="nlp_masterthesis",
-#     tags=["textclassification mimic"],
-# )
+wandb.init(
+    project="nlp",
+    entity="nlp_masterthesis",
+    tags=["sc mimic"],
+)
 
 
 def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:

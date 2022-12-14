@@ -1,40 +1,35 @@
 # -*- coding: utf-8 -*-
-import multiprocessing
 import os
 
 import numpy as np
 import pandas as pd
 import torch
 import wandb
-from constants import MODEL_MLM_CHECKPOINTS_DIR, MODEL_MLM_DIR, SEED_SPLIT
 
 # import load_metric
 from datasets import Dataset, load_metric
 from datasets.arrow_dataset import Batch
-from masked_language_model_training import load_model
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-from tqdm.notebook import tqdm
 
 # import EvalPrediction
-from transformers import AutoTokenizer, BertForMaskedLM, EvalPrediction
-from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_tokenizer, load_training_args  # load_trainer,
-
-tqdm.pandas()
-# dont show warnings
-import warnings
-
-wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
-import torch
-
-# import trainingarguments
-from transformers import Trainer, TrainingArguments
+from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
 
 # import DataCollatorForLanguageModeling
 from transformers.data.data_collator import DataCollatorForLanguageModeling
+from transformers.trainer_utils import get_last_checkpoint
 
-torch.cuda.empty_cache()
+from src.nlp.constants import MODEL_MLM_CHECKPOINTS_DIR, MODEL_MLM_DIR, SEED_SPLIT
+from src.nlp.mlm_training_mtsamples import load_model
+from src.nlp.utils import (  # load_trainer,
+    get_device,
+    load_tokenizer,
+    load_training_args,
+)
+
+tqdm.pandas()
+
+wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
 
 
 def load_trainer(

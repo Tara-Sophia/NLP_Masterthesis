@@ -11,22 +11,21 @@ import string
 
 import nltk
 import pandas as pd
-from constants import (
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+from src.nlp.constants import (
     MOST_COMMON_WORDS_FILTERED,
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
 )
-
-# from src.nlp.utils import cleaning_input
 
 nltk.download("stopwords")
 nltk.download("punkt")
 
 nltk.download("wordnet")
 nltk.download("omw-1.4")
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
 
 
 def cleaning_input(sentence: str) -> str:
