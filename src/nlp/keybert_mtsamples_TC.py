@@ -56,6 +56,8 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     return keywords
 
 
+# n_gram stands for     n-gram means the number of words in a keyword (1 means 1 word, 2 means 2 words). we used 1 because we want to extract single words the reasin is
+
 # extract keywords from transcription column and create new column with keywords
 def keywords_from_model(
     df: pd.DataFrame, model: str, input_column_name: str, output_column_name: str

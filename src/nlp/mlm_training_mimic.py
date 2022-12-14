@@ -1,7 +1,7 @@
 import multiprocessing
 import os
 from datasets.arrow_dataset import Batch
-
+import numpy as np
 import pandas as pd
 import torch
 import wandb
@@ -116,14 +116,14 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     df_mlm = pd.read_csv(data_path)
     # df_mlm = df_mlm.sample(frac=0.1)
     df_mlm = df_mlm.dropna()
-    df_mlm = df_mlm.sample(frac=0.7)
+    df_mlm = df_mlm.head(2)
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
     # Convert to Dataset object
-    dataset_train = Dataset.from_pandas(df_train[["TEXT_final_cleaned"]].dropna())
-    dataset_val = Dataset.from_pandas(df_valid[["TEXT_final_cleaned"]].dropna())
+    dataset_train = Dataset.from_pandas(df_train[["TEXT_final_cleaned"]])  # .dropna())
+    dataset_val = Dataset.from_pandas(df_valid[["TEXT_final_cleaned"]])  # .dropna())
     return dataset_train, dataset_val
 
 
@@ -143,38 +143,25 @@ def compute_metrics(eval_pred: EvalPrediction) -> dict[str, float]:
     dict[str, float]
         Accuracy score
     """
-    # if modeltype == "MLM":
-    #    scale = "sacrebleu"
-    # else:
-    #    scale = "accuracy"
-    #     predictions, labels = eval_pred
-    #     predictions = np.argmax(predictions, axis=1)
-    #     acc = (predictions == labels).mean()
-    #     return {"accuracy": acc}
-    # else:
-    #     metric = load_metric("accuracy")
-    #     logits, labels = eval_pred
-    #     predictions = np.argmax(logits, axis=-1)
-    #     return metric.compute(predictions=predictions, references=labels)
-    # for masked training we need
-    # metric = load_metric("sacrebleu")
-    # load multiple metrics
-    # load metrics for masked training
+    metric = load_metric("accuracy")
+    logits, labels = eval_pred
+    predictions = np.argmax(logits, axis=-1)
+    # TypeError: only size-1 arrays can be converted to Python scalars
 
-    metric_MLM = load_metric("sacrebleu")
-    predictions, labels = eval_pred
-    predictions = predictions.argmax(axis=-1)
-    # print(predictions)
-    # print(labels)
-    # print(predictions.shape)
-    # print(labels.shape)
-    # print(predictions[0])
-    references = [[label] for label in labels]
-    # TypeError: compute_metrics() missing 1 required positional argument: 'eval_pred'
-    metric_MLM.add_batch(predictions=predictions, references=references)
-    # print(metric_MLM.compute())
-    return metric_MLM.compute(predictions=predictions, references=references)
-    # return metric_MLM.compute(predictions=predictions, references=labels)
+    # logits = logits.reshape(-1)
+    # labels = labels.reshape(-1)
+    # mask = labels != -100
+    # logits = logits[mask]
+    # labels = labels[mask]
+
+    return metric.compute(predictions=predictions, references=labels)
+
+    # metric = load_metric("perplexity", module_type="metric", average="macro")
+    # # predictions (list of str): input text, where each separate text snippet is one list entry.
+    # predictions = eval_pred.predictions
+    # predictions = np.argmax(predictions, axis=-1)
+    # input_text = eval_pred.label_ids
+    # return metric.compute(predictions=predictions)
 
 
 def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
@@ -198,7 +185,7 @@ def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
     tokenized_datasets = dataset.map(
         tokenize_function,
         batched=True,
-        num_proc=multiprocessing.cpu_count() - 1,
+        # num_proc=multiprocessing.cpu_count() - 1,
         remove_columns=column_names,
         fn_kwargs={"tokenizer": tokenizer, "special_token": True},
     )
