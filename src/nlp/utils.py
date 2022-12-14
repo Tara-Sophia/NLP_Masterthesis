@@ -5,7 +5,6 @@ Description:
 """
 import string
 
-import numpy as np
 import torch
 from constants import (
     EVAL_BATCH_SIZE,
@@ -16,7 +15,7 @@ from constants import (
     TRAIN_BATCH_SIZE,
     WEIGHT_DECAY,
 )
-from datasets import Dataset, load_metric
+from datasets import Dataset
 
 # import Batch
 from datasets.arrow_dataset import Batch
@@ -29,22 +28,6 @@ from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArgumen
 
 # import DataCollatorForLanguageModeling
 from transformers.data.data_collator import DataCollatorForLanguageModeling
-
-# logic behind most common inputs the stopwords where manually filtered
-# def find_most_common_words_by_count(df):
-#     word_count_dict = {}
-#     for index, row in df.iterrows():
-#         for word in row["transcription_c"]:
-#             print(word)
-#             if word in word_count_dict:
-#                 word_count_dict[word] += 1
-#             else:
-#                 word_count_dict[word] = 1
-#     return word_count_dict
-
-
-# common_words = find_most_common_words_by_count(df)
-# list(common_words_sorted_df.word)[:150]
 
 
 def cleaning_input(sentence: str, handmadestopwords: list[str]) -> str:
@@ -122,7 +105,7 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     """
     training_args = TrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=4,  # 30,
+        num_train_epochs=4, # 30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
@@ -145,54 +128,54 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     return training_args
 
 
-def load_trainer(
-    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
-    training_args: TrainingArguments,
-    train_ds: Dataset,
-    val_ds: Dataset,
-    tokenizer: AutoTokenizer,
-    modeltype: str,
-) -> Trainer:
-    """
-    Load Trainer for model training
+# def load_trainer(
+#     model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+#     training_args: TrainingArguments,
+#     train_ds: Dataset,
+#     val_ds: Dataset,
+#     tokenizer: AutoTokenizer,
+#     modeltype: str,
+# ) -> Trainer:
+#     """
+#     Load Trainer for model training
 
-    Parameters
-    ----------
-    model : AutoModelForSequenceClassification
-        Model to train
-    training_args : TrainingArguments
-        Training arguments for model
-    train_ds : Dataset
-        Training dataset
-    val_ds : Dataset
-        Validation dataset
-    tokenizer : AutoTokenizer
-        Tokenizer for data encoding
-    modeltype : str
-        Masked Language Model or Sequence Classification
+#     Parameters
+#     ----------
+#     model : AutoModelForSequenceClassification
+#         Model to train
+#     training_args : TrainingArguments
+#         Training arguments for model
+#     train_ds : Dataset
+#         Training dataset
+#     val_ds : Dataset
+#         Validation dataset
+#     tokenizer : AutoTokenizer
+#         Tokenizer for data encoding
+#     modeltype : str
+#         Masked Language Model or Sequence Classification
 
-    Returns
-    -------
-    Trainer
-        Trainer with set arguments
-    """
-    if modeltype == "MLM":
-        data_collator = DataCollatorForLanguageModeling(
-            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
-        )
-    else:
-        data_collator = None
+#     Returns
+#     -------
+#     Trainer
+#         Trainer with set arguments
+#     """
+#     if modeltype == "MLM":
+#         data_collator = DataCollatorForLanguageModeling(
+#             tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+#         )
+#     else:
+#         data_collator = None
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_ds,
-        eval_dataset=val_ds,
-        compute_metrics=compute_metrics,
-        data_collator=data_collator,
-        tokenizer=tokenizer,
-    )
-    return trainer
+#     trainer = Trainer(
+#         model=model,
+#         args=training_args,
+#         train_dataset=train_ds,
+#         eval_dataset=val_ds,
+#         compute_metrics=compute_metrics,
+#         data_collator=data_collator,
+#         tokenizer=tokenizer,
+#     )
+#     return trainer
 
 
 def load_tokenizer() -> AutoTokenizer:
