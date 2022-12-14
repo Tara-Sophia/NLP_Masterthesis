@@ -10,18 +10,17 @@ import os
 import pandas as pd
 import torch
 import wandb
+from constants import (
+    MODEL_BASE_NAME,
+    MODEL_MLM_DIR,
+    MODEL_TC_CHECKPOINTS_DIR_MT,
+    MODEL_TC_DIR_MT,
+    MOST_COMMON_WORDS_FILTERED,
+    MTSAMPLES_PROCESSED_PATH_DIR,
+)
 from datasets import Dataset
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from transformers.trainer_utils import get_last_checkpoint
-
-from constants import (
-    MODEL_BASE_NAME,
-    MODEL_TC_CHECKPOINTS_DIR_MT,
-    MODEL_MLM_DIR,
-    MODEL_TC_DIR_MT,
-    MTSAMPLES_PROCESSED_PATH_DIR,
-    MOST_COMMON_WORDS_FILTERED,
-)
 from utils import (
     get_device,
     load_tokenizer,
@@ -36,15 +35,9 @@ wandb.init(
     tags=["textclassification"],
 )
 
-from transformers import (
-    AutoTokenizer,
-    EvalPrediction,
-    TrainingArguments,
-    Trainer,
-)
 import numpy as np
 from datasets import load_metric
-
+from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
 from transformers.data.data_collator import DataCollatorForLanguageModeling
 
 
