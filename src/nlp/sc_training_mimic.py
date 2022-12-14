@@ -11,14 +11,8 @@ import numpy as np
 import pandas as pd
 import torch
 import wandb
-from src.nlp.constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
-
-# import load_metric
 from datasets import Dataset, load_metric
 from datasets.arrow_dataset import Batch
-from src.nlp.sc_training_mtsamples import load_datasets
-
-# import EvalPrediction
 from transformers import (
     AutoModelForSequenceClassification,
     AutoTokenizer,
@@ -28,7 +22,9 @@ from transformers import (
 )
 from transformers.data.data_collator import DataCollatorForLanguageModeling
 from transformers.trainer_utils import get_last_checkpoint
-from utils import get_device, load_tokenizer, load_training_args  # load_trainer,
+
+from src.nlp.constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
+from src.nlp.utils import get_device, load_tokenizer, load_training_args
 
 wandb.init(
     project="nlp",
@@ -292,7 +288,13 @@ def main() -> None:
         modeltype="sequence_classification",
     )
 
-    trainer.train()
+    last_checkpoint = get_last_checkpoint(training_args.output_dir)
+    if last_checkpoint is None:
+        resume_from_checkpoint = None
+    else:
+        resume_from_checkpoint = True
+
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
     trainer.save_model(MODEL_TC_DIR)
     trainer.save_state()
 

@@ -7,22 +7,30 @@ Description:
 """
 import os
 
+import numpy as np
 import pandas as pd
 import torch
 import wandb
+from datasets import Dataset, load_metric
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+    EvalPrediction,
+    Trainer,
+    TrainingArguments,
+)
+from transformers.data.data_collator import DataCollatorForLanguageModeling
+from transformers.trainer_utils import get_last_checkpoint
+
 from src.nlp.constants import (
     MODEL_BASE_NAME,
-    MODEL_TC_CHECKPOINTS_DIR_MT,
-    MODEL_TC_DIR_MT,
+    MODEL_TC_MT_CHECKPOINTS_DIR,
+    MODEL_TC_MT_DIR,
     MOST_COMMON_WORDS_FILTERED,
 )
-from datasets import Dataset
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
-from transformers.trainer_utils import get_last_checkpoint
 from src.nlp.utils import (
     get_device,
     load_tokenizer,
-    load_trainer,
     load_training_args,
     tokenize_function,
 )
@@ -33,14 +41,9 @@ wandb.init(
     tags=["textclassification"],
 )
 
-import numpy as np
-from datasets import load_metric
-from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
-from transformers.data.data_collator import DataCollatorForLanguageModeling
-
 
 def load_trainer(
-    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    model,
     training_args: TrainingArguments,
     train_ds: Dataset,
     val_ds: Dataset,
@@ -150,7 +153,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
         train and validation datasets
     """
     dataset = Dataset.from_pandas(map_medical_specialty_to_labels(data_path))
-    # remove most common words from list MOST_COMMON_WORDS from transcription
     # remove most common words from list MOST_COMMON_WORDS from transcription column
     dataset = dataset.map(
         lambda x: {
@@ -163,8 +165,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
             )
         }
     )
-    # dataset = dataset.filter(lambda x: x["keywords_list"] not in MOST_COMMON_WORDS)
-
     dataset_train_test = dataset.train_test_split(test_size=0.1)
     # train dataset
     dataset_train_val = dataset_train_test["train"].train_test_split(test_size=0.1)
@@ -225,9 +225,6 @@ def clean_remove_column(tokenized_dataset: Dataset) -> Dataset:
             "location",
         ]
     )
-    # tokenized_dataset = tokenized_dataset.rename_column(
-    #     "labels_val", "labels"
-    # )
     tokenized_dataset.set_format("torch")
     return tokenized_dataset
 
@@ -275,7 +272,7 @@ def main() -> None:
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_TC_CHECKPOINTS_DIR_MT)
+    training_args = load_training_args(MODEL_TC_MT_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
@@ -292,7 +289,7 @@ def main() -> None:
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    trainer.save_model(MODEL_TC_DIR_MT)
+    trainer.save_model(MODEL_TC_MT_DIR)
     trainer.save_state()
 
 

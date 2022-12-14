@@ -152,9 +152,3 @@ def main() -> None:
 # Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()
-# first we need to install the keybert library
-# second need to make the column smaller than 512 tokens because the model can only take 512 tokens as input
-# calculate the optimal number of candidates for each text to use for keyword extraction. The candidate number is calculated based on the number of words in the text.
-# Candidates are the number of words that are considered for keyword extraction. The more candidates, the more keywords are extracted. We choose 40% of the number of words in the text as the number of candidates, but we limit the number of candidates to 35.
-# Top n keywords to extract. We choose 70% of the number of candidates as the number of keywords to extract.
-# extract keywords by first tokenizing the text and then using the model to extract the keywords. First the model class is instantiated and then the extract_keywords function is called. The extract_keywords function takes the following parameters: keyphrase_ngram_range, stop_words, use_maxsum, nr_candidates, top_n, use_mmr, diversity. The keyphrase_ngram_range parameter is used to specify the n-gram range to use for the keyphrases. The stop_words parameter is used to specify the stop words to use. The use_maxsum parameter is used to specify whether to use the maxsum algorithm. The nr_candidates parameter is used to specify the number of candidates to use for keyword extraction. The top_n parameter is used to specify the number of keywords to extract. The use_mmr parameter is used to specify whether to use the MMR algorithm. The diversity parameter is used to specify the diversity of the keywords to extract.
