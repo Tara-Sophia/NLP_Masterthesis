@@ -5,15 +5,13 @@ Description:
 """
 
 import pandas as pd
-from keybert import KeyBERT
-from transformers import AutoTokenizer, pipeline
-
-from constants import (
-    MODEL_MLM_DIR_MIMIC,
-    # MODEL_TC_DIR_MIMIC,
+from constants import (  # MODEL_TC_DIR_MIMIC,
     MIMIC_FINAL,
     MIMIC_PROCESSED_CLEANED_DIR,
+    MODEL_MLM_DIR_MIMIC,
 )
+from keybert import KeyBERT
+from transformers import AutoTokenizer, pipeline
 
 
 def keyword_extraction(
@@ -184,7 +182,7 @@ def main() -> None:
 
     # TC model
     df_tc = keywords_from_TC_model(df, "models/nlp/textclassification/model")
-    
+
     # Concat both models
     df = pd.concat([df_mlm, df_tc], axis=1)
     df = df.loc[:, ~df.columns.duplicated()].copy()

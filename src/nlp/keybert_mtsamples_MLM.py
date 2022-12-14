@@ -9,9 +9,9 @@ from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
 from src.nlp.constants import (
+    MODEL_MLM_MT_DIR,
     MTSAMPLES_MLM_DIR,
     MTSAMPLES_PROCESSED_PATH_DIR,
-    MODEL_MLM_MT_DIR,
 )
 
 

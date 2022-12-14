@@ -8,13 +8,13 @@ import os
 
 # import string
 import string
+
 import nltk
 import pandas as pd
-
 from constants import (
+    MOST_COMMON_WORDS_FILTERED,
     MTSAMPLES_PROCESSED_PATH_DIR,
     MTSAMPLES_RAW_PATH_DIR,
-    MOST_COMMON_WORDS_FILTERED,
 )
 
 # from src.nlp.utils import cleaning_input

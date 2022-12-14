@@ -6,35 +6,29 @@ Description:
     The model is trained using the HuggingFace Trainer class.
 """
 import os
-import numpy as np
 
-# import load_metric
-from datasets import load_metric
+import numpy as np
 import pandas as pd
 import torch
 import wandb
-from datasets import Dataset
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
-from transformers.trainer_utils import get_last_checkpoint
-
 from constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
-from utils import (
-    get_device,
-    load_tokenizer,
-    #  load_trainer,
-    load_training_args,
-)
+
+# import load_metric
+from datasets import Dataset, load_metric
+from datasets.arrow_dataset import Batch
+from text_classification_model_training import load_datasets
 
 # import EvalPrediction
 from transformers import (
+    AutoModelForSequenceClassification,
     AutoTokenizer,
     EvalPrediction,
-    TrainingArguments,
     Trainer,
+    TrainingArguments,
 )
 from transformers.data.data_collator import DataCollatorForLanguageModeling
-from text_classification_model_training import load_datasets
-from datasets.arrow_dataset import Batch
+from transformers.trainer_utils import get_last_checkpoint
+from utils import get_device, load_tokenizer, load_training_args  # load_trainer,
 
 # wandb.init(
 #     project="nlp",

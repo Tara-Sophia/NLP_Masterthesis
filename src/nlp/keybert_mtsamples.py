@@ -5,20 +5,20 @@ Description:
 """
 
 import pandas as pd
-from keybert import KeyBERT
-from transformers import AutoTokenizer, pipeline
-
-# import stopwords
-from nltk.corpus import stopwords
 
 # from nltk.download("stopwords")
 from constants import (
     MODEL_MLM_DIR_MT,
     MODEL_TC_DIR_MT,
+    MOST_COMMON_WORDS_FILTERED,
     MTSAMPLES_FINAL,
     MTSAMPLES_PROCESSED_CLEANED_DIR,
-    MOST_COMMON_WORDS_FILTERED,
 )
+from keybert import KeyBERT
+
+# import stopwords
+from nltk.corpus import stopwords
+from transformers import AutoTokenizer, pipeline
 
 
 def keyword_extraction(

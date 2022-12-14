@@ -1,36 +1,25 @@
+# -*- coding: utf-8 -*-
 import multiprocessing
 import os
-from datasets.arrow_dataset import Batch
+
 import numpy as np
 import pandas as pd
 import torch
 import wandb
-from datasets import Dataset
-from sklearn.model_selection import train_test_split
-from transformers import AutoTokenizer, BertForMaskedLM
-from transformers.trainer_utils import get_last_checkpoint
-
-from masked_language_model_training import load_model
-
-from constants import (
-    MODEL_MLM_CHECKPOINTS_DIR,
-    MODEL_MLM_DIR,
-    SEED_SPLIT,
-)
-from utils import (
-    get_device,
-    load_tokenizer,
-    # load_trainer,
-    load_training_args,
-)
-
-# import EvalPrediction
-from transformers import EvalPrediction
+from constants import MODEL_MLM_CHECKPOINTS_DIR, MODEL_MLM_DIR, SEED_SPLIT
 
 # import load_metric
-from datasets import load_metric
+from datasets import Dataset, load_metric
+from datasets.arrow_dataset import Batch
+from masked_language_model_training import load_model
+from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 from tqdm.notebook import tqdm
+
+# import EvalPrediction
+from transformers import AutoTokenizer, BertForMaskedLM, EvalPrediction
+from transformers.trainer_utils import get_last_checkpoint
+from utils import get_device, load_tokenizer, load_training_args  # load_trainer,
 
 tqdm.pandas()
 # dont show warnings
@@ -39,11 +28,11 @@ import warnings
 wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
 import torch
 
+# import trainingarguments
+from transformers import Trainer, TrainingArguments
+
 # import DataCollatorForLanguageModeling
 from transformers.data.data_collator import DataCollatorForLanguageModeling
-
-# import trainingarguments
-from transformers import TrainingArguments, Trainer
 
 torch.cuda.empty_cache()
 

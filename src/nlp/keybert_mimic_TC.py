@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Description:
     This script is used to extract keywords from the medical transcription
@@ -7,11 +8,10 @@ import pandas as pd
 from keybert import KeyBERT
 from transformers import AutoTokenizer, pipeline
 
-from src.nlp.constants import (
-    # MODEL_MLM_DIR,
-    MODEL_TC_MIMIC_DIR,
+from src.nlp.constants import (  # MODEL_MLM_DIR,
     MIMIC_PROCESSED_CLEANED_DIR,
     MIMIC_TC_DIR,
+    MODEL_TC_MIMIC_DIR,
 )
 
 
