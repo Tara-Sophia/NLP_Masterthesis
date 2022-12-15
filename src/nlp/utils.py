@@ -6,7 +6,15 @@ Description:
 import string
 
 import torch
-from constants import (
+from datasets.arrow_dataset import Batch
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+# import EvalPrediction
+from transformers import AutoTokenizer, TrainingArguments  # EvalPrediction, Trainer,
+
+from src.nlp.constants import (
     EVAL_BATCH_SIZE,
     LEARNING_RATE,
     LR_WARMUP_STEPS,
@@ -15,13 +23,6 @@ from constants import (
     TRAIN_BATCH_SIZE,
     WEIGHT_DECAY,
 )
-from datasets.arrow_dataset import Batch
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
-
-# import EvalPrediction
-from transformers import AutoTokenizer, TrainingArguments  # EvalPrediction, Trainer,
 
 # from datasets import Dataset
 
