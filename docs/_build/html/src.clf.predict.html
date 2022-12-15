@@ -17,7 +17,7 @@
     <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="src.clf.utils module" href="src.clf.utils.html" />
+    <link rel="next" title="src.clf.rf_training module" href="src.clf.rf_training.html" />
     <link rel="prev" title="src.clf.old_train_lr_all module" href="src.clf.old_train_lr_all.html" />
 
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -44,21 +44,35 @@ Showing features from sample the model uses to predict top classes</p>
 </dd>
 </dl>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.clf.predict.lime_explainer">
-<span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">lime_explainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.clf.predict.lime_explainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get features the model used for top predicted classes</p>
+<dt class="sig sig-object py" id="src.clf.predict.feat_imp">
+<span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">feat_imp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.clf.predict.feat_imp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get feature importance for each class
+:param model: best model from train.py
+:type model: imblearn.pipeline.Pipeline</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>imblearn.pipeline.Pipeline</em>) – best model from train.py</p></li>
-<li><p><strong>value</strong> (<em>str</em>) – sample</p></li>
-</ul>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Feature importance for each class</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Features from sample the model used to predict classes</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.clf.predict.lime_explainer">
+<span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">lime_explainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.clf.predict.lime_explainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get features the model used for top predicted classes
+:param model: best model from train.py
+:type model: imblearn.pipeline.Pipeline
+:param input: sample
+:type input: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Features from sample the model used to predict classes</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -71,20 +85,18 @@ Showing features from sample the model uses to predict top classes</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.clf.predict.predict_probability">
-<span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">predict_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.clf.predict.predict_probability" title="Permalink to this definition">¶</a></dt>
-<dd><p>get probabilities for sample</p>
+<span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">predict_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.clf.predict.predict_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>get probabilities for sample
+:param model: best model from train.py
+:type model: imblearn.pipeline.Pipeline
+:param value: sample
+:type value: str</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>imblearn.pipeline.Pipeline</em>) – best model from train.py</p></li>
-<li><p><strong>value</strong> (<em>str</em>) – sample</p></li>
-</ul>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Probabilities for labels</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Probabilities for labels</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -92,16 +104,15 @@ Showing features from sample the model uses to predict top classes</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.clf.predict.top_symptoms">
 <span class="sig-prename descclassname"><span class="pre">src.clf.predict.</span></span><span class="sig-name descname"><span class="pre">top_symptoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pipeline</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#src.clf.predict.top_symptoms" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get top symptoms for each class</p>
+<dd><p>Get top symptoms for each class
+:param model: best model from train.py
+:type model: imblearn.pipeline.Pipeline</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model</strong> (<em>imblearn.pipeline.Pipeline</em>) – best model from train.py</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Top symptoms for each class</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Top symptoms for each class</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.Series</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series</p>
 </dd>
 </dl>
 </dd></dl>
@@ -146,7 +157,7 @@ Showing features from sample the model uses to predict top classes</p>
   <li><a href="src.html">src package</a><ul>
   <li><a href="src.clf.html">src.clf package</a><ul>
       <li>Previous: <a href="src.clf.old_train_lr_all.html" title="previous chapter">src.clf.old_train_lr_all module</a></li>
-      <li>Next: <a href="src.clf.utils.html" title="next chapter">src.clf.utils module</a></li>
+      <li>Next: <a href="src.clf.rf_training.html" title="next chapter">src.clf.rf_training module</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
