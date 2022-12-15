@@ -5,23 +5,8 @@ Description:
 """
 import string
 
-import numpy as np
 import torch
-from datasets import Dataset, load_metric
-
-# import Batch
-from datasets.arrow_dataset import Batch
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
-
-# import EvalPrediction
-from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
-
-# import DataCollatorForLanguageModeling
-from transformers.data.data_collator import DataCollatorForLanguageModeling
-
-from src.nlp.constants import (
+from constants import (
     EVAL_BATCH_SIZE,
     LEARNING_RATE,
     LR_WARMUP_STEPS,
@@ -30,22 +15,18 @@ from src.nlp.constants import (
     TRAIN_BATCH_SIZE,
     WEIGHT_DECAY,
 )
+from datasets.arrow_dataset import Batch
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
 
-# logic behind most common inputs the stopwords where manually filtered
-# def find_most_common_words_by_count(df):
-#     word_count_dict = {}
-#     for index, row in df.iterrows():
-#         for word in row["transcription_c"]:
-#             print(word)
-#             if word in word_count_dict:
-#                 word_count_dict[word] += 1
-#             else:
-#                 word_count_dict[word] = 1
-#     return word_count_dict
+# import EvalPrediction
+from transformers import AutoTokenizer, TrainingArguments  # EvalPrediction, Trainer,
+
+# from datasets import Dataset
 
 
-# common_words = find_most_common_words_by_count(df)
-# list(common_words_sorted_df.word)[:150]
+# from transformers.data.data_collator import DataCollatorForLanguageModeling
 
 
 def cleaning_input(sentence: str, handmadestopwords: list[str]) -> str:
@@ -107,44 +88,6 @@ def get_device() -> torch.device:
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def compute_metrics(modeltype: str, eval_pred: EvalPrediction) -> dict[str, float]:
-    """
-    Compute the accuracy of the model for the evaluation dataset
-
-    Parameters
-    ----------
-    eval_pred : EvalPrediction
-        Prediction for evaluation dataset
-    modeltype : str
-        Masked Language Model or Sequence Classification
-
-    Returns
-    -------
-    dict[str, float]
-        Accuracy score
-    """
-    if modeltype == "MLM":
-        scale = "sacrebleu"
-    else:
-        scale = "accuracy"
-    #     predictions, labels = eval_pred
-    #     predictions = np.argmax(predictions, axis=1)
-    #     acc = (predictions == labels).mean()
-    #     return {"accuracy": acc}
-    # else:
-    #     metric = load_metric("accuracy")
-    #     logits, labels = eval_pred
-    #     predictions = np.argmax(logits, axis=-1)
-    #     return metric.compute(predictions=predictions, references=labels)
-    # for masked training we need
-    # metric = load_metric("sacrebleu")
-    # load multiple metrics
-    metric = load_metric(scale, average="macro")
-    predictions, labels = eval_pred
-    predictions = np.argmax(predictions, axis=1)
-    return metric.compute(predictions=predictions, references=labels)
-
-
 def load_training_args(output_dir: str) -> TrainingArguments:
     """
     Load training arguments
@@ -161,13 +104,15 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     """
     training_args = TrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=1,  # 30,
+        num_train_epochs=4,  # 30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
         per_device_eval_batch_size=EVAL_BATCH_SIZE,
         warmup_steps=LR_WARMUP_STEPS,
-        save_total_limit=3,
+        save_total_limit=1,
+        # fp16=True,
+        # fp16_full_eval=True,
         weight_decay=WEIGHT_DECAY,
         learning_rate=LEARNING_RATE,
         evaluation_strategy="epoch",
@@ -177,58 +122,59 @@ def load_training_args(output_dir: str) -> TrainingArguments:
         greater_is_better=False,
         seed=SEED_TRAIN,
         report_to="wandb",
+        eval_accumulation_steps=10,  # , gradient_checkpointing=True
     )
     return training_args
 
 
-def load_trainer(
-    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
-    training_args: TrainingArguments,
-    train_ds: Dataset,
-    val_ds: Dataset,
-    tokenizer: AutoTokenizer,
-    modeltype: str,
-) -> Trainer:
-    """
-    Load Trainer for model training
+# def load_trainer(
+#     model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+#     training_args: TrainingArguments,
+#     train_ds: Dataset,
+#     val_ds: Dataset,
+#     tokenizer: AutoTokenizer,
+#     modeltype: str,
+# ) -> Trainer:
+#     """
+#     Load Trainer for model training
 
-    Parameters
-    ----------
-    model : AutoModelForSequenceClassification
-        Model to train
-    training_args : TrainingArguments
-        Training arguments for model
-    train_ds : Dataset
-        Training dataset
-    val_ds : Dataset
-        Validation dataset
-    tokenizer : AutoTokenizer
-        Tokenizer for data encoding
-    modeltype : str
-        Masked Language Model or Sequence Classification
+#     Parameters
+#     ----------
+#     model : AutoModelForSequenceClassification
+#         Model to train
+#     training_args : TrainingArguments
+#         Training arguments for model
+#     train_ds : Dataset
+#         Training dataset
+#     val_ds : Dataset
+#         Validation dataset
+#     tokenizer : AutoTokenizer
+#         Tokenizer for data encoding
+#     modeltype : str
+#         Masked Language Model or Sequence Classification
 
-    Returns
-    -------
-    Trainer
-        Trainer with set arguments
-    """
-    if modeltype == "MLM":
-        data_collator = DataCollatorForLanguageModeling(
-            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
-        )
-    else:
-        data_collator = None
+#     Returns
+#     -------
+#     Trainer
+#         Trainer with set arguments
+#     """
+#     if modeltype == "MLM":
+#         data_collator = DataCollatorForLanguageModeling(
+#             tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+#         )
+#     else:
+#         data_collator = None
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_ds,
-        eval_dataset=val_ds,
-        compute_metrics=lambda eval_pred: compute_metrics(modeltype, eval_pred),
-        data_collator=data_collator,
-        tokenizer=tokenizer,
-    )
-    return trainer
+#     trainer = Trainer(
+#         model=model,
+#         args=training_args,
+#         train_dataset=train_ds,
+#         eval_dataset=val_ds,
+#         compute_metrics=compute_metrics,
+#         data_collator=data_collator,
+#         tokenizer=tokenizer,
+#     )
+#     return trainer
 
 
 def load_tokenizer() -> AutoTokenizer:
