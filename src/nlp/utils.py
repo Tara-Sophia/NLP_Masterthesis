@@ -15,19 +15,18 @@ from constants import (
     TRAIN_BATCH_SIZE,
     WEIGHT_DECAY,
 )
-from datasets import Dataset
-
-# import Batch
 from datasets.arrow_dataset import Batch
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
 # import EvalPrediction
-from transformers import AutoTokenizer, EvalPrediction, Trainer, TrainingArguments
+from transformers import AutoTokenizer, TrainingArguments  # EvalPrediction, Trainer,
 
-# import DataCollatorForLanguageModeling
-from transformers.data.data_collator import DataCollatorForLanguageModeling
+# from datasets import Dataset
+
+
+# from transformers.data.data_collator import DataCollatorForLanguageModeling
 
 
 def cleaning_input(sentence: str, handmadestopwords: list[str]) -> str:
@@ -105,7 +104,7 @@ def load_training_args(output_dir: str) -> TrainingArguments:
     """
     training_args = TrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=4, # 30,
+        num_train_epochs=4,  # 30,
         do_train=True,
         do_eval=True,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,

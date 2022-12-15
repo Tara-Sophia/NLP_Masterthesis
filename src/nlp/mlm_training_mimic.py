@@ -24,11 +24,7 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from src.nlp.constants import MODEL_MLM_CHECKPOINTS_DIR, MODEL_MLM_DIR, SEED_SPLIT
 from src.nlp.mlm_training_mtsamples import load_model
-from src.nlp.utils import (  # load_trainer,
-    get_device,
-    load_tokenizer,
-    load_training_args,
-)
+from src.nlp.utils import get_device, load_tokenizer, load_training_args
 
 wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm_mimic_iii"])
 
@@ -124,7 +120,6 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
 
     df_mlm = pd.read_csv(data_path)
-    # df_mlm = df_mlm.sample(frac=0.1)
     df_mlm = df_mlm.dropna()
     # Train/Valid Split
     df_train, df_valid = train_test_split(
