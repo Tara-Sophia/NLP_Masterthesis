@@ -325,8 +325,8 @@ def main(save: bool) -> None:
     ) = create_labels_and_input_values(train_ds, val_ds, test_ds)
 
     if save:
-        save_datasets(train_ds, val_ds, test_ds)
         processor.save_pretrained(VOCAB_DIR)
+        save_datasets(train_ds, val_ds, test_ds)
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ conda env update --name nlp_masterthesis --file environment.yml --prune
 To *create a new version of the environment.yml file*
 
 ```bash
-conda env export | grep -v "^prefix: " > environment.yml
+conda env export --from-history | grep -v "^prefix: " > environment.yml
 ```
 
 Pip installation:
