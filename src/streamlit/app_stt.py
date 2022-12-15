@@ -53,7 +53,9 @@ def stt_main() -> str | None:
             st.write(text["text"])
         st.write("Thank you very much for your input!")
         st.write(
-            "You can either listen to your audio, retake a new audio, or continue with the presentation of the most suitable medical departments."
+            "You can either listen to your audio, retake a new audio, \
+            or continue with the presentation \
+            of the most suitable medical departments."
         )
         return text["text"]
 
