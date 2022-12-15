@@ -1,7 +1,14 @@
+<<<<<<< HEAD:docs/source/src.nlp.predicting.rst
+src.nlp.predicting module
+=========================
+
+.. automodule:: src.nlp.predicting
+=======
 src.clf.evaluation module
 =========================
 
 .. automodule:: src.clf.evaluation
+>>>>>>> 5336d9da94c5d8d11e7db9de165cf85add4d0d5d:docs/_build/html/_sources/src.clf.evaluation.rst.txt
    :members:
    :undoc-members:
    :show-inheritance:

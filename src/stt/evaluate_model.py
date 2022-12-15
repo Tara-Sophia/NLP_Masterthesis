@@ -216,7 +216,6 @@ def main(hubert: bool, wav2vec2: bool) -> None:
         Use Wav2vec2 model to evaluate
     """
     test_ds = load_test_data(PROCESSED_DIR)
-    test_ds = test_ds.select(range(5))
     device = get_device()
 
     # Decide which model to use
