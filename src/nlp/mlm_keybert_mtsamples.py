@@ -15,19 +15,26 @@ from src.nlp.constants import (
 )
 
 
-def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
+def keyword_extraction(
+    x: pd.Series, model, nr_candidates: pd.Series, top_n: pd.Series
+) -> list[list[tuple[str, float]]]:
     """
     This function extracts keywords from the input text.
     Parameters
     ----------
-    x : str
-        Input sentence.
+    x : pd.Series
+        Input sentences to extract keywords from
     model : str
         Path to the model to use for keyword extraction
+    nr_candidates : pd.Series
+        Number of candidates to use for keyword extraction
+    top_n : pd.Series
+        Number of keywords to extract
+
     Returns
     -------
-    list[str]
-        List of keywords.
+    list[list[tuple[str, float]]]
+        List of list of tuples with keywords and weights
     """
     tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
 
@@ -53,7 +60,6 @@ def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tu
     return keywords
 
 
-# extract keywords from transcription column and create new column with keywords
 def keywords_from_model(
     df: pd.DataFrame, model: str, input_column_name: str, output_column_name: str
 ) -> pd.DataFrame:
@@ -93,7 +99,6 @@ def save_dataframe(df: pd.DataFrame, path: str) -> None:
     df.to_csv(path, index=False)
 
 
-# make df column smaller than 512
 def small_column_df(df: pd.DataFrame, column) -> pd.DataFrame:
     """
     Make the transcription column smaller than 512 tokens
@@ -134,9 +139,9 @@ def main() -> None:
     """
     Main function to run the script
     """
-    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_PATH_DIR)
+    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_PATH_DIR).head(2)
 
-    # apply function to make column smaller than 512
+    # Apply function to make column smaller than 512
     df = small_column_df(df_large_column, "transcription")
     df["nr_candidates"] = df["transcription"].apply(calculate_optimal_candidate_nr)
 
@@ -149,6 +154,5 @@ def main() -> None:
     save_dataframe(df_tc, MTSAMPLES_MLM_DIR)
 
 
-# Path: src/Keyword_Bert_Training.py
 if __name__ == "__main__":
     main()

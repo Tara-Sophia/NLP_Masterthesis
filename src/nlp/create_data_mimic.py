@@ -16,7 +16,7 @@ from src.nlp.constants import (
 )
 
 
-def keep_only_text_from_choosen_headers(text: str, choosen_headers: list) -> str:
+def keep_only_text_from_choosen_headers(text: str, chosen_headers: list) -> str:
     """
     Keep only text from choosen headers
 
@@ -24,7 +24,7 @@ def keep_only_text_from_choosen_headers(text: str, choosen_headers: list) -> str
     ----------
     text : str
         Text to clean
-    choosen_headers : list
+    chosen_headers : list
         List of choosen headers
 
     Returns
@@ -42,7 +42,7 @@ def keep_only_text_from_choosen_headers(text: str, choosen_headers: list) -> str
     all_headers = [x[1] for x in all_headers]
 
     # get the text after choosen headers until next header
-    for chosen_header in choosen_headers:
+    for chosen_header in chosen_headers:
         if chosen_header in text:
             if chosen_header in all_headers:
                 # get index of choosen header
@@ -60,7 +60,6 @@ def keep_only_text_from_choosen_headers(text: str, choosen_headers: list) -> str
                     new_text += text_after_chosen_header
                 except IndexError:
                     print("IndexError")
-                    # raise NameError('IndexError')
 
     return new_text
 
@@ -80,7 +79,7 @@ def clean_text(text: str) -> str:
        Cleaned text
     """
 
-    # replace \n with space
+    # Replace \n with space
     text = text.replace("\n", " ")
     # Remove all the special characters
     document = re.sub(r"\W", " ", str(text))
@@ -116,7 +115,7 @@ def main():
     """
 
     df = pd.read_csv(MIMIC_DATA_DIR)
-    # Choosen headers
+    # Chosen headers
     df["TEXT_final"] = df["TEXT"].apply(
         lambda x: keep_only_text_from_choosen_headers(
             x,

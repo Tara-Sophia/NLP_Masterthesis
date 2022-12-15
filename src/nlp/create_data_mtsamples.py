@@ -3,10 +3,7 @@
 Description:
     This script cleans the data from the mtsamples dataset.
 """
-
 import os
-
-# import string
 import string
 
 import nltk
@@ -102,7 +99,6 @@ def create_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def top_classes(df: pd.DataFrame) -> pd.DataFrame:
-    # more than 100 samples
     """
     This function keeps only the top 11 classes,
     based on count of the dataframe.
@@ -118,7 +114,6 @@ def top_classes(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame
         The dataframe with only the top 11 classes.
     """
-    # dataframe filter for classed with more than 100 samples
     df = df[
         df["medical_specialty"].isin(
             df["medical_specialty"]
@@ -126,8 +121,6 @@ def top_classes(df: pd.DataFrame) -> pd.DataFrame:
             .index
         )
     ]
-    # top_11 = df.value_counts("medical_specialty").index[:11]
-    # return df[df["medical_specialty"].isin(top_11)].copy()
     return df
 
 
