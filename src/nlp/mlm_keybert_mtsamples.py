@@ -139,7 +139,7 @@ def main() -> None:
     """
     Main function to run the script
     """
-    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_PATH_DIR).head(2)
+    df_large_column = pd.read_csv(MTSAMPLES_PROCESSED_PATH_DIR)
 
     # Apply function to make column smaller than 512
     df = small_column_df(df_large_column, "transcription")

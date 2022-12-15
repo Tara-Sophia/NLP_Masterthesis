@@ -15,19 +15,26 @@ from src.nlp.constants import (  # MODEL_MLM_DIR,
 )
 
 
-def keyword_extraction(x: str, model, nr_candidates: int, top_n: int) -> list[tuple]:
+def keyword_extraction(
+    x: pd.Series, model, nr_candidates: pd.Series, top_n: pd.Series
+) -> list[list[tuple[str, float]]]:
     """
     This function extracts keywords from the input text.
     Parameters
     ----------
-    x : str
-        Input sentence.
+    x : pd.Series
+        Input sentences to extract keywords from
     model : str
         Path to the model to use for keyword extraction
+    nr_candidates : pd.Series
+        Number of candidates to use for keyword extraction
+    top_n : pd.Series
+        Number of keywords to extract
+
     Returns
     -------
-    list[str]
-        List of keywords.
+    list[list[tuple[str, float]]]
+        List of list of tuples with keywords and weights
     """
     tokenizer = AutoTokenizer.from_pretrained(model, model_max_lenght=512)
 
