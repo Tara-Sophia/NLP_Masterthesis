@@ -5,8 +5,6 @@ Description:
     It is based on the  HuggingFace Trainer class.
     The model is trained on the mtsamples dataset.
 """
-# imports
-import multiprocessing
 import os
 
 import pandas as pd
@@ -41,7 +39,6 @@ wandb.init(project="nlp", entity="nlp_masterthesis", tags=["mlm"])
 
 
 def remove_most_common(df: pd.DataFrame) -> pd.DataFrame:
-
     """
     Remove most common words from text
     """
@@ -66,14 +63,16 @@ def load_datasets(data_path: str) -> tuple[Dataset, Dataset]:
     """
 
     df_mlm = pd.read_csv(data_path)
-    df_mlm = df_mlm.head(20)
     df_mlm = df_mlm.dropna()
-    # remove most common words
+
+    # Remove most common words
     df_mlm = remove_most_common(df_mlm)
+
     # Train/Valid Split
     df_train, df_valid = train_test_split(
         df_mlm, test_size=0.15, random_state=SEED_SPLIT
     )
+
     # Convert to Dataset object
     dataset_train = Dataset.from_pandas(df_train[["transcription"]].dropna())
     dataset_val = Dataset.from_pandas(df_valid[["transcription"]].dropna())
@@ -101,7 +100,7 @@ def tokenize_dataset(dataset: Dataset, tokenizer: AutoTokenizer) -> Dataset:
     tokenized_datasets = dataset.map(
         tokenize_function,
         batched=True,
-        num_proc=multiprocessing.cpu_count() - 1,
+        num_proc=1,
         remove_columns=column_names,
         fn_kwargs={"tokenizer": tokenizer, "special_token": True},
     )
@@ -147,12 +146,12 @@ def load_model(device: torch.device) -> BertForMaskedLM:
     BertForMaskedLM
         The model
     """
-    model = BertForMaskedLM.from_pretrained(MODEL_BASE_NAME).to(device)  # .half()
+    model = BertForMaskedLM.from_pretrained(MODEL_BASE_NAME).to(device)
     return model
 
 
 def load_trainer(
-    model,  # : AutoModelForSequenceClassification,BertForMaskedLM
+    model: BertForMaskedLM,
     training_args: TrainingArguments,
     train_ds: Dataset,
     val_ds: Dataset,

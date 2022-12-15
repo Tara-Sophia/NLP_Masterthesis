@@ -8,7 +8,6 @@ from src.nlp.sc_keybert_mtsamples import keyword_extraction
 from src.nlp.utils import cleaning_input
 
 
-# check that text is max 512 tokens long otherwise make it max 512 tokens long
 def max_length(x: str) -> str:
     """
     This function checks if the input text is longer than 512 tokens.
@@ -44,6 +43,5 @@ def main() -> None:
     print(keywords_without_weight)
 
 
-# call script from terminal
 if __name__ == "__main__":
     main()
