@@ -23,7 +23,11 @@ from transformers import (
 from transformers.data.data_collator import DataCollatorForLanguageModeling
 from transformers.trainer_utils import get_last_checkpoint
 
-from src.nlp.constants import MODEL_BASE_NAME, MODEL_TC_CHECKPOINTS_DIR, MODEL_TC_DIR
+from src.nlp.constants import (
+    MODEL_BASE_NAME,
+    MODEL_TC_MIMIC_CHECKPOINTS_DIR,
+    MODEL_TC_MIMIC_DIR,
+)
 from src.nlp.utils import get_device, load_tokenizer, load_training_args
 
 wandb.init(
@@ -278,7 +282,7 @@ def main() -> None:
 
     device = get_device()
     model = load_model(device)
-    training_args = load_training_args(MODEL_TC_CHECKPOINTS_DIR)
+    training_args = load_training_args(MODEL_TC_MIMIC_CHECKPOINTS_DIR)
     trainer = load_trainer(
         model,
         training_args,
@@ -295,7 +299,7 @@ def main() -> None:
         resume_from_checkpoint = True
 
     trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    trainer.save_model(MODEL_TC_DIR)
+    trainer.save_model(MODEL_TC_MIMIC_DIR)
     trainer.save_state()
 
 
