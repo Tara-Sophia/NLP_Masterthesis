@@ -25,8 +25,9 @@ def load_data(filepath) -> tuple[pd.Series, pd.Series]:
         tuple with X and y
     """
     df = pd.read_csv(filepath)
+    df = df.dropna()
     X = df.keywords
-    y = df.medical_specialty
+    y = df.specialty
     return X, y
 
 
