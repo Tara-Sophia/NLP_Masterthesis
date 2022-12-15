@@ -152,6 +152,7 @@ models/**/checkpoints/**
 
 # Mimic data
 data/processed/mimic_iii/
+data/processed/nlp/mimic/
 
 # DS_Store
 .DS_Store
