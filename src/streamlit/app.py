@@ -6,7 +6,6 @@ Description:
 Usage:
     $ streamlit run src/streamlit/app.py
 """
-import time
 
 import streamlit as st
 from src.streamlit.app_clf import clf_main
@@ -30,7 +29,8 @@ st.sidebar.image("https://static.thenounproject.com/png/1630376-200.png", width=
 st.sidebar.markdown("# Medical Symptom Checker Demo")
 st.sidebar.markdown("This is a demo of the masterthesis project.")
 st.sidebar.markdown(
-    "The project is about the development of a symptom checker for the diagnosing medical departments."
+    "The project is about the development of a symptom checker \
+    for the diagnosing medical departments."
 )
 
 

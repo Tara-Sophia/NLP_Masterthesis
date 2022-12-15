@@ -12,11 +12,10 @@ from lime.lime_text import LimeTextExplainer
 
 import streamlit as st
 
-
 XGB_MIMIC_CLASSIFIED = os.path.join("models", "clf", "xgb_mimic_classified.pkl")
 
 
-def predict_probability(model: Pipeline, value: str) -> pd.DataFrame:
+def predict_probability(model: Pipeline, value: list[str]) -> pd.DataFrame:
     """
     get probabilities for sample
 
