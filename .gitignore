@@ -144,8 +144,8 @@ data/interim/
 # Cache Data
 data/**/cache-*.arrow
 
-# vs code setting
-.vscode/settings.json
+# VS Code Settings
+.vscode/
 
 # Checkpoints
 models/**/checkpoints/**
